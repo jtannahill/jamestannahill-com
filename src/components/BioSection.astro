@@ -1,70 +1,50 @@
 ---
-const competencies = [
-  {
-    title: 'Capital & Financial Architecture',
-    body: 'Strategic finance, capital deployment, investment structuring, M&A advisory.',
-  },
-  {
-    title: 'Applied Intelligence',
-    body: 'AI systems architecture, ML pipelines, intelligent automation, data infrastructure.',
-  },
-  {
-    title: 'Operational Engineering',
-    body: 'Post-transaction integration, organizational architecture, operational transformation.',
-  },
-  {
-    title: 'Brand & Market Positioning',
-    body: 'Brand architecture, narrative positioning, market differentiation.',
-  },
-  {
-    title: 'Regulatory & Data Systems',
-    body: 'Regulatory-compliant growth systems, digital infrastructure, data systems.',
-  },
-  {
-    title: 'Leadership & Decision Design',
-    body: 'Decision design, leadership frameworks, organizational operating models.',
-  },
-];
 ---
-<section class="max-w-6xl mx-auto px-6 py-16 border-t border-[var(--color-border)]">
-  <div class="grid md:grid-cols-2 gap-12 mb-16">
+<section class="sr bg-white">
+  <div class="max-w-6xl mx-auto px-14 py-24 grid gap-20" style="grid-template-columns: 1fr 380px;">
+    <!-- Left: text -->
     <div>
-      <h2 class="text-2xl font-bold mb-6" style="font-family: 'NHG Display', sans-serif;">
-        The Work
-      </h2>
-      <p class="text-[var(--color-muted)] leading-relaxed mb-4">
+      <p class="text-[9px] tracking-[0.25em] uppercase mb-7" style="color:var(--color-amber);">The Work</p>
+      <p class="text-[15px] leading-[1.85] mb-5" style="color:#444;">
         James Tannahill works at the intersection of complex systems: biological, financial, digital, operational.
         His discipline is engineering resilience — structures built to absorb pressure and compound advantage.
       </p>
-      <p class="text-[var(--color-muted)] leading-relaxed mb-4">
+      <p class="text-[15px] leading-[1.85] mb-5" style="color:#444;">
         He operates across healthcare, industrials, technology, and finance. His background spans biochemistry,
         biotechnology, equity research, strategic finance, and private equity operations.
       </p>
-      <p class="text-[var(--color-muted)] leading-relaxed">
+      <p class="text-[15px] leading-[1.85]" style="color:#444;">
         Cornell's Johnson School of Management sharpened his strategic discipline. Today he leads Plocamium Holdings,
         operates through 1nessAgency and RDLB, and builds AI-native products that compound across decades.
       </p>
-    </div>
-    <div class="space-y-2 text-sm text-[var(--color-muted)]">
-      <p class="font-medium text-[var(--color-ink)]">Education</p>
-      <p>MBA, Finance & Strategy — Cornell University, Johnson School of Management (2024)</p>
-      <p>M.S., Biotechnology — University of Essex</p>
-      <p>B.S., Biochemistry — Denison University (2015)</p>
-      <div class="pt-4">
-        <p class="font-medium text-[var(--color-ink)] mb-2">Memberships</p>
-        <p>Young Presidents' Organization (YPO)</p>
-        <p>The Economic Club of New York</p>
+      <div class="mt-9 space-y-5">
+        <div>
+          <p class="text-[9px] tracking-[0.2em] uppercase mb-2" style="color:var(--color-amber);">Education</p>
+          <p class="text-[12px] leading-[2]" style="color:#888;">
+            MBA, Finance &amp; Strategy — Cornell University, Johnson School of Management (2024)<br/>
+            M.S., Biotechnology — University of Essex<br/>
+            B.S., Biochemistry — Denison University (2015)
+          </p>
+        </div>
+        <div>
+          <p class="text-[9px] tracking-[0.2em] uppercase mb-2" style="color:var(--color-amber);">Memberships</p>
+          <p class="text-[12px] leading-[2]" style="color:#888;">
+            Young Presidents' Organization (YPO)<br/>
+            The Economic Club of New York
+          </p>
+        </div>
       </div>
     </div>
-  </div>
-
-  <h3 class="text-sm tracking-widest uppercase text-[var(--color-muted)] mb-8">Competencies</h3>
-  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--color-border)]">
-    {competencies.map(c => (
-      <div class="bg-white p-6">
-        <p class="font-medium text-sm mb-2" style="font-family: 'NHG Display', sans-serif;">{c.title}</p>
-        <p class="text-xs text-[var(--color-muted)] leading-relaxed">{c.body}</p>
-      </div>
-    ))}
+    <!-- Right: headshot -->
+    <div class="relative self-start">
+      <img
+        src="/headshot.jpg"
+        alt="James Tannahill"
+        class="w-full block"
+        style="aspect-ratio:3/4; object-fit:cover; object-position:center top;"
+        loading="lazy"
+      />
+      <div class="absolute bottom-0 left-0 right-0 h-[3px]" style="background:var(--color-amber);"></div>
+    </div>
   </div>
 </section>
