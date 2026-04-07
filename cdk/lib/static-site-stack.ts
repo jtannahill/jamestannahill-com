@@ -3,7 +3,6 @@ import * as s3 from 'aws-cdk-lib/aws-s3';
 import * as cloudfront from 'aws-cdk-lib/aws-cloudfront';
 import * as origins from 'aws-cdk-lib/aws-cloudfront-origins';
 import * as acm from 'aws-cdk-lib/aws-certificatemanager';
-import * as iam from 'aws-cdk-lib/aws-iam';
 import { Construct } from 'constructs';
 
 interface StaticSiteStackProps extends cdk.StackProps {
@@ -23,16 +22,6 @@ export class StaticSiteStack extends cdk.Stack {
       bucketName: `${domainName}-site`,
       blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
       removalPolicy: cdk.RemovalPolicy.RETAIN,
-    });
-
-    // ── CloudFront OAC ─────────────────────────────────────────────────
-    const oac = new cloudfront.CfnOriginAccessControl(this, 'OAC', {
-      originAccessControlConfig: {
-        name: `${domainName}-oac`,
-        originAccessControlOriginType: 's3',
-        signingBehavior: 'always',
-        signingProtocol: 'sigv4',
-      },
     });
 
     // ── SPA routing function ───────────────────────────────────────────
@@ -81,18 +70,6 @@ function handler(event) {
         ? { domainNames: [domainName, `www.${domainName}`], certificate }
         : {}),
     });
-
-    // Grant CloudFront OAC access to bucket
-    siteBucket.addToResourcePolicy(new iam.PolicyStatement({
-      actions: ['s3:GetObject'],
-      resources: [siteBucket.arnForObjects('*')],
-      principals: [new iam.ServicePrincipal('cloudfront.amazonaws.com')],
-      conditions: {
-        StringEquals: {
-          'AWS:SourceArn': `arn:aws:cloudfront::${this.account}:distribution/${distribution.distributionId}`,
-        },
-      },
-    }));
 
     this.distributionId = distribution.distributionId;
     this.bucketName = siteBucket.bucketName;
