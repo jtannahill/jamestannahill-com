@@ -1,0 +1,28 @@
+---
+interface Props {
+  /** Extra delay in ms before this element starts its reveal */
+  delay?: number;
+  /** CSS class(es) to add to the wrapper div */
+  class?: string;
+}
+const { delay = 0, class: className = '' } = Astro.props;
+---
+<div class={`sr ${className}`} style={delay ? `transition-delay: ${delay}ms` : ''}>
+  <slot />
+</div>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  document.querySelectorAll('.sr').forEach((el) => observer.observe(el));
+</script>
