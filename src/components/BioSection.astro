@@ -29,15 +29,18 @@
     </div>
     <!-- Right: headshot -->
     <div class="relative">
-      <img
-        src="/headshot.jpg"
-        alt="James Tannahill"
-        width="840"
-        height="1120"
-        class="w-full block"
-        style="aspect-ratio:3/4; object-fit:cover; object-position:center top;"
-        loading="lazy"
-      />
+      <picture>
+        <source srcset="/headshot.webp" type="image/webp" />
+        <img
+          src="/headshot.jpg"
+          alt="James Tannahill"
+          width="840"
+          height="1120"
+          class="w-full block"
+          style="aspect-ratio:3/4; object-fit:cover; object-position:center top;"
+          loading="lazy"
+        />
+      </picture>
       <div class="absolute bottom-0 left-0 right-0 h-[3px]" style="background:var(--color-amber);"></div>
     </div>
   </div>

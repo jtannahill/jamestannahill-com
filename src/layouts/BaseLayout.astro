@@ -16,6 +16,7 @@ const { title, description, canonical } = Astro.props;
   <head>
     <SEOHead title={title} description={description} canonical={canonical} />
     <link rel="manifest" href="/manifest.json" />
+    <link rel="preload" href="/hero-bg.webp" as="image" type="image/webp" fetchpriority="high" />
     <link rel="preload" href="/hero-bg.jpg" as="image" fetchpriority="high" />
     <link rel="preload" href="https://fonts.jamestannahill.com/NHGDisplayMedium.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="https://fonts.jamestannahill.com/NHGDisplayBold.woff2" as="font" type="font/woff2" crossorigin />
