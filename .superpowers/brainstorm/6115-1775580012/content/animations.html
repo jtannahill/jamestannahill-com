@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Animation Style</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #1a1a2e; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #fff; padding: 24px; }
+  h2 { font-size: 22px; font-weight: 700; margin-bottom: 8px; color: #fff; }
+  .subtitle { font-size: 13px; color: #666; margin-bottom: 32px; }
+
+  .options { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 700px) { .options { grid-template-columns: 1fr; } }
+
+  .option {
+    border: 1px solid #222;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    background: #111;
+  }
+  .option:hover { border-color: #444; }
+  .option.selected { border-color: #4f8ef7; box-shadow: 0 0 0 2px rgba(79,142,247,0.3); }
+
+  .demo-window {
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    background: #080c14;
+  }
+
+  .option-label {
+    padding: 14px 16px;
+    border-top: 1px solid #1a1a1a;
+  }
+  .option-label h3 { font-size: 13px; font-weight: 600; margin-bottom: 4px; color: #fff; }
+  .option-label p { font-size: 11px; color: #555; line-height: 1.5; }
+
+  .letter-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: #666;
+    z-index: 10;
+  }
+  .option.selected .letter-badge { background: #4f8ef7; border-color: #4f8ef7; color: #fff; }
+
+  /* === OPTION A: Staggered word reveal === */
+  .demo-a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 24px;
+    background: linear-gradient(160deg,#0d1520 0%,#060a10 100%);
+  }
+  .demo-a .eyebrow {
+    font-size: 8px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #2a3a50;
+    margin-bottom: 14px;
+    animation: fadeUp 0.6s ease both;
+    animation-delay: 0.1s;
+  }
+  .demo-a .word {
+    display: block;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    overflow: hidden;
+  }
+  .demo-a .word span {
+    display: inline-block;
+    animation: slideUp 0.7s cubic-bezier(0.16,1,0.3,1) both;
+  }
+  .demo-a .word:nth-child(2) span { animation-delay: 0.15s; }
+  .demo-a .word:nth-child(3) span { animation-delay: 0.3s; }
+  .demo-a .word:nth-child(4) span { animation-delay: 0.45s; }
+  .demo-a .sub {
+    font-size: 9px;
+    color: #334;
+    margin-top: 12px;
+    animation: fadeUp 0.6s ease both;
+    animation-delay: 0.65s;
+    line-height: 1.6;
+    max-width: 220px;
+  }
+  @keyframes slideUp {
+    from { transform: translateY(100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  @keyframes fadeUp {
+    from { transform: translateY(12px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  /* === OPTION B: Cinematic fade-in with blur === */
+  .demo-b {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 24px;
+    background: linear-gradient(160deg,#0d1520 0%,#060a10 100%);
+  }
+  .demo-b .eyebrow {
+    font-size: 8px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #2a3a50;
+    margin-bottom: 14px;
+    animation: blurIn 1s ease both;
+    animation-delay: 0.1s;
+  }
+  .demo-b .headline {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    animation: blurIn 1.2s ease both;
+    animation-delay: 0.3s;
+  }
+  .demo-b .sub {
+    font-size: 9px;
+    color: #334;
+    margin-top: 12px;
+    animation: blurIn 1s ease both;
+    animation-delay: 0.7s;
+    line-height: 1.6;
+    max-width: 220px;
+  }
+  .demo-b .ctas {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+    animation: blurIn 0.8s ease both;
+    animation-delay: 1s;
+  }
+  .demo-b .btn-primary { background: #fff; color: #080c14; padding: 6px 12px; font-size: 8px; letter-spacing: 0.12em; text-transform: uppercase; }
+  .demo-b .btn-secondary { border: 1px solid #1a2540; color: #444; padding: 6px 12px; font-size: 8px; letter-spacing: 0.12em; text-transform: uppercase; }
+  @keyframes blurIn {
+    from { filter: blur(8px); opacity: 0; transform: scale(1.02); }
+    to { filter: blur(0); opacity: 1; transform: scale(1); }
+  }
+
+  /* === OPTION C: Scroll-triggered sections === */
+  .demo-c {
+    overflow-y: auto;
+    background: #0a0a0a;
+  }
+  .demo-c .hero-part {
+    padding: 24px;
+    background: linear-gradient(160deg,#0d1520 0%,#060a10 100%);
+  }
+  .demo-c .eyebrow { font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase; color: #2a3a50; margin-bottom: 10px; }
+  .demo-c .headline { font-size: 26px; font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 8px; }
+  .demo-c .sub { font-size: 9px; color: #334; line-height: 1.6; max-width: 220px; }
+  .demo-c .scroll-hint { font-size: 8px; color: #222; text-transform: uppercase; letter-spacing: 0.2em; margin-top: 12px; text-align: center; animation: bounce 2s ease infinite; }
+  @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
+  .demo-c .content-part { background: #fff; padding: 16px 24px; }
+  .demo-c .scroll-card {
+    background: #fff;
+    border: 1px solid #eee;
+    padding: 10px;
+    margin-bottom: 8px;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .demo-c .scroll-card.visible { opacity: 1; transform: translateY(0); }
+  .demo-c .card-label { font-size: 7px; text-transform: uppercase; letter-spacing: 0.15em; color: #bbb; margin-bottom: 4px; }
+  .demo-c .card-text { font-size: 9px; color: #ccc; }
+
+  /* === OPTION D: Typewriter === */
+  .demo-d {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 24px;
+    background: linear-gradient(160deg,#0d1520 0%,#060a10 100%);
+  }
+  .demo-d .eyebrow { font-size: 8px; letter-spacing: 0.25em; text-transform: uppercase; color: #2a3a50; margin-bottom: 14px; }
+  .demo-d .typewriter {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid rgba(255,255,255,0.5);
+    animation: typing 2s steps(20,end) both, blink 0.8s step-end infinite;
+    animation-delay: 0.3s, 2.3s;
+    max-width: 0;
+  }
+  .demo-d .line2, .demo-d .line3 {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 0;
+    animation: typing 1.5s steps(15,end) both;
+    border-right: none;
+  }
+  .demo-d .line2 { animation-delay: 2.1s; }
+  .demo-d .line3 { animation-delay: 3.4s; }
+  .demo-d .sub { font-size: 9px; color: #334; margin-top: 12px; line-height: 1.6; max-width: 220px; opacity: 0; animation: fadeUp 0.6s ease both; animation-delay: 4.5s; }
+  @keyframes typing { from { max-width: 0; } to { max-width: 320px; } }
+  @keyframes blink { 50% { border-color: transparent; } }
+
+  /* replay button */
+  .replay-btn {
+    display: block;
+    margin: 24px auto 0;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    color: #666;
+    padding: 8px 20px;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 4px;
+    font-family: inherit;
+  }
+  .replay-btn:hover { border-color: #555; color: #999; }
+
+  /* selection indicator */
+  #selection-indicator {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #4f8ef7;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    z-index: 100;
+  }
+  #selection-indicator.visible { display: block; }
+</style>
+</head>
+<body>
+<h2>Animation Style</h2>
+<p class="subtitle">Live demos — click to select. Hit Replay to re-run animations.</p>
+
+<div class="options">
+
+  <div class="option" id="opt-a" onclick="selectOption('a', this)">
+    <div class="letter-badge">A</div>
+    <div class="demo-window">
+      <div class="demo-a" id="demo-a-inner">
+        <div class="eyebrow">NYC — Private Equity</div>
+        <div class="word"><span>Operator.</span></div>
+        <div class="word"><span>Investor.</span></div>
+        <div class="word"><span>Builder.</span></div>
+        <div class="sub">Turning proprietary AI, brand infrastructure, and data systems into compounding enterprise value.</div>
+      </div>
+    </div>
+    <div class="option-label">
+      <h3>Staggered Word Reveal</h3>
+      <p>Each headline word slides up from a hidden overflow — sharp, editorial, like a magazine layout loading. Industry standard for personal brand sites.</p>
+    </div>
+  </div>
+
+  <div class="option" id="opt-b" onclick="selectOption('b', this)">
+    <div class="letter-badge">B</div>
+    <div class="demo-window">
+      <div class="demo-b" id="demo-b-inner">
+        <div class="eyebrow">NYC — Private Equity</div>
+        <div class="headline">Operator.<br/>Investor.<br/>Builder.</div>
+        <div class="sub">Turning proprietary AI, brand infrastructure, and data systems into compounding enterprise value.</div>
+        <div class="ctas">
+          <div class="btn-primary">Get in Touch</div>
+          <div class="btn-secondary">Plocamium</div>
+        </div>
+      </div>
+    </div>
+    <div class="option-label">
+      <h3>Cinematic Blur Fade</h3>
+      <p>Elements fade in from blurred to sharp — cinematic, high-end, like a film title sequence. Pairs well with the NYC photo background.</p>
+    </div>
+  </div>
+
+  <div class="option" id="opt-c" onclick="selectOption('c', this)">
+    <div class="letter-badge">C</div>
+    <div class="demo-window">
+      <div class="demo-c" id="demo-c-inner">
+        <div class="hero-part">
+          <div class="eyebrow">NYC — Private Equity</div>
+          <div class="headline">Operator.<br/>Investor.<br/>Builder.</div>
+          <div class="sub">Turning proprietary AI, brand infrastructure, and data systems.</div>
+          <div class="scroll-hint">↓ scroll</div>
+        </div>
+        <div class="content-part">
+          <div class="scroll-card" id="sc1"><div class="card-label">Capital</div><div class="card-text">Strategic finance & M&A advisory</div></div>
+          <div class="scroll-card" id="sc2"><div class="card-label">AI</div><div class="card-text">ML pipelines & data infrastructure</div></div>
+          <div class="scroll-card" id="sc3"><div class="card-label">Ops</div><div class="card-text">Post-transaction integration</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="option-label">
+      <h3>Scroll-Triggered Reveals</h3>
+      <p>Hero is static; competency cards and bio sections fade up as you scroll into them. Feels interactive and earned — you discover the content as you read.</p>
+    </div>
+  </div>
+
+  <div class="option" id="opt-d" onclick="selectOption('d', this)">
+    <div class="letter-badge">D</div>
+    <div class="demo-window">
+      <div class="demo-d" id="demo-d-inner">
+        <div class="eyebrow">NYC — Private Equity</div>
+        <div class="typewriter">Operator.</div>
+        <div class="line2">Investor.</div>
+        <div class="line3">Builder.</div>
+        <div class="sub">Turning proprietary AI, brand infrastructure, and data systems into compounding enterprise value.</div>
+      </div>
+    </div>
+    <div class="option-label">
+      <h3>Typewriter</h3>
+      <p>Each headline word types out sequentially. Classic, legible, dramatic pause between words. Creates anticipation. Better for a terminal/code aesthetic.</p>
+    </div>
+  </div>
+
+</div>
+
+<button class="replay-btn" onclick="replayAll()">↺ Replay All Animations</button>
+
+<div id="selection-indicator"></div>
+
+<script>
+let selected = null;
+
+function selectOption(choice, el) {
+  document.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  selected = choice;
+  const labels = { a: 'Staggered Word Reveal', b: 'Cinematic Blur Fade', c: 'Scroll-Triggered Reveals', d: 'Typewriter' };
+  const ind = document.getElementById('selection-indicator');
+  ind.textContent = '✓ ' + labels[choice];
+  ind.classList.add('visible');
+
+  // Emit event if helper available
+  if (window.__companion && window.__companion.emit) {
+    window.__companion.emit({ type: 'click', choice: choice, text: labels[choice] });
+  }
+
+  // Also try the standard helper approach
+  try {
+    const event = new CustomEvent('companion-select', { detail: { choice, text: labels[choice] } });
+    document.dispatchEvent(event);
+  } catch(e) {}
+}
+
+function replayAll() {
+  // Re-clone demo elements to restart animations
+  ['a','b','d'].forEach(id => {
+    const el = document.getElementById('demo-' + id + '-inner');
+    if (el) {
+      const clone = el.cloneNode(true);
+      el.parentNode.replaceChild(clone, el);
+    }
+  });
+  // Reset scroll cards
+  ['sc1','sc2','sc3'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) { el.classList.remove('visible'); }
+  });
+  setTimeout(() => triggerScrollCards(), 400);
+}
+
+// Scroll-triggered simulation for demo C
+function triggerScrollCards() {
+  setTimeout(() => document.getElementById('sc1')?.classList.add('visible'), 300);
+  setTimeout(() => document.getElementById('sc2')?.classList.add('visible'), 600);
+  setTimeout(() => document.getElementById('sc3')?.classList.add('visible'), 900);
+}
+
+// Trigger on load for demo C
+const demoC = document.getElementById('demo-c-inner');
+if (demoC) {
+  demoC.addEventListener('scroll', function() {
+    const cards = demoC.querySelectorAll('.scroll-card');
+    cards.forEach(card => {
+      if (card.getBoundingClientRect().top < demoC.getBoundingClientRect().bottom - 20) {
+        card.classList.add('visible');
+      }
+    });
+  });
+  // Auto-trigger after 1s to show the effect
+  setTimeout(triggerScrollCards, 1000);
+}
+</script>
+</body>
+</html>
