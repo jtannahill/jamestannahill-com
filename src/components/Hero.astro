@@ -1,24 +1,54 @@
 ---
 ---
-<section class="min-h-[60vh] flex flex-col justify-center px-6 py-24 max-w-6xl mx-auto">
-  <p class="text-xs tracking-[0.25em] uppercase text-[var(--color-muted)] mb-6">
-    NYC — Private Equity
-  </p>
-  <h1 class="text-5xl md:text-7xl font-bold leading-none tracking-tight mb-8"
-      style="font-family: 'NHG Display', sans-serif;">
-    Operator.<br/>Investor.<br/>Builder.
-  </h1>
-  <p class="text-lg md:text-xl text-[var(--color-muted)] max-w-2xl leading-relaxed">
-    Turning proprietary AI, brand infrastructure, and data systems into compounding enterprise value.
-  </p>
-  <div class="flex gap-4 mt-10">
-    <a href="/faqs"
-       class="inline-block px-6 py-3 bg-[var(--color-ink)] text-white text-sm tracking-wider uppercase hover:bg-[var(--color-accent)] transition-colors">
-      Get in Touch
-    </a>
-    <a href="https://plocamium.com" target="_blank" rel="noopener noreferrer"
-       class="inline-block px-6 py-3 border border-[var(--color-border)] text-sm tracking-wider uppercase hover:border-[var(--color-ink)] transition-colors">
-      Plocamium Holdings
-    </a>
+<section class="relative min-h-screen flex flex-col justify-end pb-20 px-14 overflow-hidden">
+  <!-- Background photo -->
+  <div class="absolute inset-0 z-0">
+    <img
+      src="/hero-bg.jpg"
+      alt=""
+      class="w-full h-full object-cover object-center"
+      style="filter: brightness(0.75);"
+      loading="eager"
+      fetchpriority="high"
+    />
+    <!-- Gradient overlay -->
+    <div class="absolute inset-0"
+         style="background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.82) 100%);"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 max-w-3xl">
+    <p class="text-[10px] tracking-[0.3em] uppercase mb-5"
+       style="color:rgba(255,255,255,0.3); animation: blurIn 0.8s ease both; animation-delay: 0.1s;">
+      NYC — Private Equity
+    </p>
+    <h1 class="font-bold leading-none tracking-[-0.03em] text-white mb-6"
+        style="font-family:'NHG Display',sans-serif; font-size:clamp(52px,9vw,96px); animation: blurIn 1.1s ease both; animation-delay: 0.35s;">
+      Operator.<br/>Investor.<br/>Builder.
+    </h1>
+    <p class="text-[15px] leading-[1.75] max-w-lg mb-10"
+       style="color:rgba(255,255,255,0.42); animation: blurIn 0.9s ease both; animation-delay: 0.65s;">
+      Turning proprietary AI, brand infrastructure, and data systems into compounding enterprise value.
+    </p>
+    <div class="flex gap-3 flex-wrap"
+         style="animation: blurIn 0.8s ease both; animation-delay: 0.9s;">
+      <a href="/faqs"
+         class="inline-block px-8 py-3 text-[10px] tracking-[0.18em] uppercase text-white transition-colors"
+         style="background:var(--color-amber);">
+        Get in Touch
+      </a>
+      <a href="https://plocamium.com" target="_blank" rel="noopener noreferrer"
+         class="inline-block px-8 py-3 text-[10px] tracking-[0.18em] uppercase transition-colors"
+         style="border:1px solid rgba(201,136,42,0.45); color:rgba(201,136,42,0.85);">
+        Plocamium Holdings
+      </a>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 right-14 z-10 flex items-center gap-3"
+       style="animation: blurIn 0.8s ease both; animation-delay: 1.1s;">
+    <div style="width:1px; height:36px; background:linear-gradient(to bottom, transparent, rgba(201,136,42,0.5));"></div>
+    <span class="text-[8px] tracking-[0.25em] uppercase" style="color:rgba(255,255,255,0.2);">Scroll</span>
   </div>
 </section>
