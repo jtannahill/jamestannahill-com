@@ -1,0 +1,63 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  canonical: string;
+  ogImage?: string;
+}
+const { title, description, canonical, ogImage = 'https://www.jamestannahill.com/og.png' } = Astro.props;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://www.jamestannahill.com/#person",
+      "name": "James Tannahill",
+      "url": "https://www.jamestannahill.com",
+      "jobTitle": "Private Equity Executive & Founder",
+      "worksFor": { "@type": "Organization", "name": "Plocamium Holdings" },
+      "alumniOf": [
+        { "@type": "CollegeOrUniversity", "name": "Cornell University — Johnson School of Management" },
+        { "@type": "CollegeOrUniversity", "name": "University of Essex" },
+        { "@type": "CollegeOrUniversity", "name": "Denison University" }
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/jamesstannahill/",
+        "https://github.com/jtannahill",
+        "https://www.bloomberg.com/profile/person/23291921"
+      ],
+      "knowsAbout": ["Private Equity", "Healthcare Technology", "AI Systems", "Strategic Finance"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.jamestannahill.com/#website",
+      "url": "https://www.jamestannahill.com",
+      "name": "James Tannahill",
+      "description": description
+    }
+  ]
+};
+---
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+
+<!-- OG -->
+<meta property="og:type" content="profile" />
+<meta property="og:url" content={canonical} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+
+<!-- Schema -->
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

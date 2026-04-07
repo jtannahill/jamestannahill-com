@@ -1,0 +1,50 @@
+---
+const navLinks = [
+  { label: 'ABOUT', href: '/' },
+  { label: 'THE AGENCY', href: 'https://www.1nessagency.com/', external: true },
+  { label: 'RDLB', href: 'https://www.rdlb.nyc/', external: true },
+  { label: 'INSIGHTS', href: 'https://www.plocamium.com/globals', external: true },
+  { label: 'CONTACT', href: '/faqs' },
+];
+---
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur border-b border-[var(--color-border)]">
+  <div class="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
+    <a href="/" class="text-sm font-medium tracking-widest uppercase" style="font-family: 'NHG Display', sans-serif;">
+      James Tannahill
+    </a>
+    <nav class="hidden md:flex items-center gap-8">
+      {navLinks.map(link => (
+        <a
+          href={link.href}
+          target={link.external ? '_blank' : undefined}
+          rel={link.external ? 'noopener noreferrer' : undefined}
+          class="text-xs tracking-widest uppercase text-[var(--color-muted)] hover:text-[var(--color-ink)] transition-colors"
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+    <button id="menu-toggle" class="md:hidden p-2" aria-label="Toggle menu">
+      <span class="block w-5 h-0.5 bg-current mb-1"></span>
+      <span class="block w-5 h-0.5 bg-current mb-1"></span>
+      <span class="block w-5 h-0.5 bg-current"></span>
+    </button>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden border-t border-[var(--color-border)] bg-white">
+    {navLinks.map(link => (
+      <a
+        href={link.href}
+        target={link.external ? '_blank' : undefined}
+        rel={link.external ? 'noopener noreferrer' : undefined}
+        class="block px-6 py-3 text-xs tracking-widest uppercase text-[var(--color-muted)] hover:text-[var(--color-ink)]"
+      >
+        {link.label}
+      </a>
+    ))}
+  </div>
+</header>
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  toggle?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+</script>
