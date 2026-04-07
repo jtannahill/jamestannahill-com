@@ -31,7 +31,7 @@ const { title, description, canonical } = Astro.props;
     </main>
     <Footer />
     <script>
-      // Scroll reveal — runs on every page, picks up all .sr elements
+      // Scroll reveal
       const revealObserver = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -44,6 +44,51 @@ const { title, description, canonical } = Astro.props;
         { threshold: 0.08 }
       );
       document.querySelectorAll('.sr').forEach((el) => revealObserver.observe(el));
+
+      // ── Event tracking ──────────────────────────────────────────
+      function gtrack(event_name: string, params: Record<string, string> = {}) {
+        if (typeof (window as any).gtag === 'function') {
+          (window as any).gtag('event', event_name, params);
+        }
+      }
+
+      // Hero CTA — "Get in Touch"
+      document.querySelector('a[href="/faqs"]')?.addEventListener('click', () => {
+        gtrack('cta_click', { cta_label: 'Get in Touch', location: 'hero' });
+      });
+
+      // Nav external links
+      document.querySelectorAll('header a[target="_blank"]').forEach((el) => {
+        el.addEventListener('click', () => {
+          gtrack('nav_click', { label: (el as HTMLElement).textContent?.trim() ?? '' });
+        });
+      });
+
+      // Venture "Visit →" links
+      document.querySelectorAll('a[href*="plocamium"], a[href*="rdlb"], a[href*="1ness"], a[href*="newyorklab"], a[href*="hmuapi"], a[href*="monkeythorn"], a[href*="gooovy"], a[href*="opentime"], a[href*="apple.com"]').forEach((el) => {
+        el.addEventListener('click', () => {
+          const url = (el as HTMLAnchorElement).href;
+          gtrack('venture_click', { venture_url: url });
+        });
+      });
+
+      // FAQ accordion opens
+      document.querySelectorAll('details').forEach((el) => {
+        el.addEventListener('toggle', () => {
+          if (el.open) {
+            const q = el.querySelector('summary span')?.textContent?.trim().slice(0, 60) ?? '';
+            gtrack('faq_open', { question: q });
+          }
+        });
+      });
+
+      // Contact form — tracked in ContactForm.astro on success
+      // RDLB reel video play
+      document.querySelectorAll('video').forEach((v) => {
+        v.addEventListener('play', () => {
+          gtrack('video_play', { video_src: v.currentSrc || v.src || 'unknown' });
+        }, { once: true });
+      });
     </script>
   </body>
 </html>

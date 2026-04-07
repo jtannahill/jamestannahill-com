@@ -88,6 +88,9 @@
       if (!res.ok) throw new Error('Non-2xx');
       form.reset();
       success.classList.remove('hidden');
+      if (typeof (window as any).gtag === 'function') {
+        (window as any).gtag('event', 'form_submit', { form_id: 'contact', status: 'success' });
+      }
     } catch {
       error.classList.remove('hidden');
     } finally {

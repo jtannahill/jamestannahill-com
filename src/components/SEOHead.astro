@@ -15,8 +15,11 @@ const schema = {
       "@id": "https://www.jamestannahill.com/#person",
       "name": "James Tannahill",
       "url": "https://www.jamestannahill.com",
-      "jobTitle": "Private Equity Executive & Founder",
-      "worksFor": { "@type": "Organization", "name": "Plocamium Holdings" },
+      "jobTitle": "Operator, Investor & Builder",
+      "worksFor": [
+        { "@type": "Organization", "name": "xAI", "url": "https://x.ai" },
+        { "@type": "Organization", "name": "Plocamium Holdings", "url": "https://plocamium.com" }
+      ],
       "alumniOf": [
         { "@type": "CollegeOrUniversity", "name": "Cornell University — Johnson School of Management" },
         { "@type": "CollegeOrUniversity", "name": "University of Essex" },
@@ -27,7 +30,11 @@ const schema = {
         "https://github.com/jtannahill",
         "https://www.bloomberg.com/profile/person/23291921"
       ],
-      "knowsAbout": ["Private Equity", "Healthcare Technology", "AI Systems", "Strategic Finance"]
+      "knowsAbout": [
+        "Private Equity", "Healthcare Technology", "AI Systems", "Strategic Finance",
+        "Operational Engineering", "Brand Architecture", "Machine Learning",
+        "Regulatory Compliance", "Capital Markets", "AI-Native Infrastructure"
+      ]
     },
     {
       "@type": "WebSite",
