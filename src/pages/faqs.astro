@@ -2,13 +2,28 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/ContactForm.astro';
 import FAQAccordion from '../components/FAQAccordion.astro';
+
+const videoUrl = 'https://d9ttkh3tz30f6.cloudfront.net/videos/contact-bg.mp4';
 ---
 <BaseLayout
   title="James Tannahill | Contact & Professional Inquiries"
   description="Get in touch with James Tannahill — private equity advisory, value engineering, and strategic partnerships."
   canonical="https://www.jamestannahill.com/faqs"
 >
-  <div class="max-w-6xl mx-auto px-6 py-16">
+  <!-- Fixed video background -->
+  <video
+    src={videoUrl}
+    autoplay
+    muted
+    loop
+    playsinline
+    class="fixed inset-0 w-full h-full object-cover -z-10"
+    style="opacity: 0.12;"
+  />
+  <!-- Dark overlay -->
+  <div class="fixed inset-0 bg-black/60 -z-10"></div>
+
+  <div class="relative max-w-6xl mx-auto px-6 py-16">
     <ContactForm />
     <FAQAccordion />
   </div>
