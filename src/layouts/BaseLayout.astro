@@ -29,7 +29,7 @@ const { title, description, canonical } = Astro.props;
     </script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-WRDEHD4QYL"></script>
-    <script>
+    <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
@@ -77,7 +77,7 @@ const { title, description, canonical } = Astro.props;
       });
 
       // Venture "Visit →" links
-      document.querySelectorAll('a[href*="plocamium"], a[href*="rdlb"], a[href*="1ness"], a[href*="newyorklab"], a[href*="hmuapi"], a[href*="monkeythorn"], a[href*="gooovy"], a[href*="opentime"], a[href*="apple.com"]').forEach((el) => {
+      document.querySelectorAll('a[href*="plocamium"], a[href*="rdlb"], a[href*="1ness"], a[href*="newyorklab"], a[href*="hmuapi"], a[href*="monkeythorn"], a[href*="gooovy"], a[href*="art.jamestannahill"]').forEach((el) => {
         el.addEventListener('click', () => {
           const url = (el as HTMLAnchorElement).href;
           gtrack('venture_click', { venture_url: url });
