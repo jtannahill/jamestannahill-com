@@ -129,3 +129,29 @@ body {
 @keyframes fade-in {
   from { opacity: 0; }
 }
+
+/* ── prefers-reduced-motion — kill all motion for accessibility ── */
+@media (prefers-reduced-motion: reduce) {
+  /* Make all animations/transitions imperceptibly fast (0.01ms fires animationend for JS) */
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  /* Ensure scroll-reveal elements are immediately visible */
+  .sr {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  /* Disable hero parallax */
+  .hero-parallax-bg {
+    animation: none !important;
+    inset: 0 !important;
+  }
+  /* Disable view transition fades */
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+  }
+}
