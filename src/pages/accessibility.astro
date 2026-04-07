@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Accessibility Statement | James Tannahill"
+  description="Accessibility commitment and contact information for jamestannahill.com."
+  canonical="https://www.jamestannahill.com/accessibility"
+>
+  <div class="bg-white min-h-screen">
+    <div class="max-w-3xl mx-auto px-6 py-16">
+
+      <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">Legal</p>
+      <h1 class="text-[28px] font-semibold tracking-tight mb-2" style="color:#1a1a1a;">Accessibility Statement</h1>
+      <p class="text-[12px] mb-12" style="color:#999;">Last reviewed: April 2026</p>
+
+      <!-- Commitment -->
+      <section class="mb-10">
+        <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">Our Commitment</p>
+        <p class="text-[15px] leading-[1.85] mb-4" style="color:#444;">
+          jamestannahill.com is committed to ensuring digital accessibility for people with disabilities. We
+          strive to conform to the Web Content Accessibility Guidelines (WCAG) 2.1 Level AA, published by the
+          World Wide Web Consortium (W3C).
+        </p>
+        <p class="text-[15px] leading-[1.85]" style="color:#444;">
+          Accessibility is an ongoing priority, not a one-time task. We continuously review and improve the
+          Site as standards evolve and as we learn from user feedback.
+        </p>
+      </section>
+
+      <!-- Technical Measures -->
+      <section class="mb-10">
+        <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">Technical Measures</p>
+        <p class="text-[15px] leading-[1.85] mb-4" style="color:#444;">
+          The following measures have been implemented to support accessibility:
+        </p>
+        <ul class="text-[15px] leading-[1.85] pl-5 list-disc" style="color:#444;">
+          <li>
+            <strong>Semantic HTML</strong> — Page structure uses appropriate heading hierarchy, landmark elements
+            (<code class="text-[13px] px-1 rounded" style="background:#f5f5f5; color:#555;">main</code>,
+            <code class="text-[13px] px-1 rounded" style="background:#f5f5f5; color:#555;">nav</code>,
+            <code class="text-[13px] px-1 rounded" style="background:#f5f5f5; color:#555;">footer</code>),
+            and descriptive labels to assist screen readers and assistive technologies
+          </li>
+          <li>
+            <strong>Keyboard navigation</strong> — All interactive elements (links, form fields, buttons) are
+            reachable and operable via keyboard alone
+          </li>
+          <li>
+            <strong>Color contrast</strong> — Text and UI elements maintain contrast ratios meeting WCAG AA
+            standards (minimum 4.5:1 for normal text, 3:1 for large text)
+          </li>
+          <li>
+            <strong>Focus indicators</strong> — Keyboard focus is visually indicated for all interactive elements
+          </li>
+          <li>
+            <strong>Responsive design</strong> — The Site is fully responsive and accessible across desktop,
+            tablet, and mobile viewport sizes
+          </li>
+          <li>
+            <strong>Form labels</strong> — Contact form fields include visible labels and accessible name
+            attributes to support assistive technology
+          </li>
+        </ul>
+      </section>
+
+      <!-- Video Content -->
+      <section class="mb-10">
+        <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">Video Content</p>
+        <p class="text-[15px] leading-[1.85]" style="color:#444;">
+          Background video content on the Site is decorative in nature. All videos are muted by default and
+          do not autoplay audio content. Videos do not convey information essential to understanding the page,
+          and their absence does not affect the ability of any user to access the substantive content of the Site.
+          Video playback does not interfere with screen reader operation or assistive technology.
+        </p>
+      </section>
+
+      <!-- Known Limitations -->
+      <section class="mb-10">
+        <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">Known Limitations</p>
+        <p class="text-[15px] leading-[1.85]" style="color:#444;">
+          While we strive for full WCAG 2.1 AA conformance, some areas of the Site may not yet fully meet all
+          criteria. We are aware that accessibility audits are ongoing, and we are committed to addressing any
+          identified gaps. If you encounter a specific barrier, please report it so we can address it promptly.
+        </p>
+      </section>
+
+      <!-- Feedback -->
+      <section class="mb-10">
+        <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">Feedback & Contact</p>
+        <p class="text-[15px] leading-[1.85] mb-4" style="color:#444;">
+          We welcome feedback on the accessibility of this Site. If you experience any barriers that prevent
+          you from accessing content or using any feature, please contact us:
+        </p>
+        <p class="text-[15px] leading-[1.85] mb-4" style="color:#444;">
+          <a href="mailto:web@jamestannahill.com" class="underline hover:opacity-70" style="color:var(--color-amber);">web@jamestannahill.com</a>
+        </p>
+        <p class="text-[15px] leading-[1.85]" style="color:#444;">
+          Please describe the accessibility issue you encountered, the assistive technology you are using (if any),
+          and the page or feature where the problem occurred. We aim to respond to accessibility feedback within
+          5 business days.
+        </p>
+      </section>
+
+      <!-- Standards Reference -->
+      <section class="mb-4">
+        <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">Standards Reference</p>
+        <p class="text-[15px] leading-[1.85]" style="color:#444;">
+          This statement references the
+          <a href="https://www.w3.org/TR/WCAG21/" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-70" style="color:var(--color-amber);">Web Content Accessibility Guidelines (WCAG) 2.1</a>,
+          published by the W3C Web Accessibility Initiative (WAI). WCAG defines requirements for making web
+          content more accessible to people with disabilities.
+        </p>
+      </section>
+
+    </div>
+  </div>
+</BaseLayout>
