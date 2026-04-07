@@ -1,13 +1,61 @@
 ---
 const ventures = [
-  { name: 'Plocamium Holdings', description: 'Hybrid investment and operational advisory. 80% advisory-led, 20% direct balance sheet. Targets enterprises valued $10M–$500M.', url: 'https://plocamium.com' },
-  { name: '1nessAgency', description: 'Compliance-focused digital marketing for regulated industries. Built for healthcare.', url: 'https://www.1nessagency.com/' },
-  { name: 'RDLB', description: 'Global brand strategy and communications for institutional capital markets.', url: 'https://www.rdlb.nyc/' },
-  { name: 'HLTHvrs', description: 'HIPAA-conscious marketing intelligence platform for behavioral health, psychiatric, and wellness practices.', url: 'https://hlthvrs.com/' },
-  { name: 'MonkeyThorn Meet', description: 'Privacy-first, browser-based video conferencing with end-to-end AES-GCM encryption.', url: null },
-  { name: 'gOOOvy', description: 'Auto-reply service for Google Voice texts with scheduled out-of-office responses.', url: 'https://gooovy.com' },
-  { name: 'HMU API', description: 'Programmable communication gateway replacing traditional email with structured API endpoints.', url: 'https://hmuapi.com' },
-  { name: 'NewYorkLab', description: 'Data-driven environmental intelligence platform quantifying climate-related risks in urban areas.', url: 'https://newyorklab.co/' },
+  {
+    name: 'Plocamium Holdings',
+    description: 'Hybrid investment and operational advisory. 80% advisory-led, 20% direct balance sheet. Targets enterprises valued $10M–$500M.',
+    url: 'https://plocamium.com',
+    logo: '/logos/plocamium.png',
+    logoDark: true,
+  },
+  {
+    name: '1nessAgency',
+    description: 'Compliance-focused digital marketing for regulated industries. Built for healthcare.',
+    url: 'https://www.1nessagency.com/',
+    logo: '/logos/1nessagency.png',
+    logoDark: false,
+  },
+  {
+    name: 'RDLB',
+    description: 'Global brand strategy and communications for institutional capital markets.',
+    url: 'https://www.rdlb.nyc/',
+    logo: '/logos/rdlb.png',
+    logoDark: false,
+  },
+  {
+    name: 'HLTHvrs',
+    description: 'HIPAA-conscious marketing intelligence platform for behavioral health, psychiatric, and wellness practices.',
+    url: 'https://hlthvrs.com/',
+    logo: '/logos/hlthvrs.png',
+    logoDark: false,
+  },
+  {
+    name: 'MonkeyThorn Meet',
+    description: 'Privacy-first, browser-based video conferencing with end-to-end AES-GCM encryption.',
+    url: 'https://meet.monkeythorn.com/meet',
+    logo: '/logos/monkeythorn.png',
+    logoDark: true,
+  },
+  {
+    name: 'gOOOvy',
+    description: 'Auto-reply service for Google Voice texts with scheduled out-of-office responses.',
+    url: 'https://gooovy.com',
+    logo: '/logos/gooovy.png',
+    logoDark: false,
+  },
+  {
+    name: 'HMU API',
+    description: 'Programmable communication gateway replacing traditional email with structured API endpoints.',
+    url: 'https://hmuapi.com',
+    logo: '/logos/hmuapi.png',
+    logoDark: false,
+  },
+  {
+    name: 'NewYorkLab',
+    description: 'Data-driven environmental intelligence platform quantifying climate-related risks in urban areas.',
+    url: 'https://newyorklab.co/',
+    logo: '/logos/newyorklab.png',
+    logoDark: false,
+  },
 ];
 ---
 <section class="border-t border-[var(--color-border)] bg-white">
@@ -21,6 +69,22 @@ const ventures = [
           onmouseenter="this.style.borderTopColor='var(--color-amber)'"
           onmouseleave="this.style.borderTopColor='transparent'"
         >
+          {/* Logo */}
+          <div class="mb-4 h-8 flex items-center">
+            <div
+              class="inline-flex items-center justify-center overflow-hidden"
+              style={v.logoDark
+                ? 'background:#0a0a0a; border-radius:4px; padding:4px 8px; height:32px;'
+                : 'height:32px;'}
+            >
+              <img
+                src={v.logo}
+                alt={v.name + ' logo'}
+                style="height:24px; width:auto; object-fit:contain; display:block;"
+                loading="lazy"
+              />
+            </div>
+          </div>
           <p class="text-[11px] font-semibold mb-2" style="font-family:'NHG Display',sans-serif;">{v.name}</p>
           <p class="text-[10px] leading-[1.7] flex-1" style="color:#aaa;">{v.description}</p>
           {v.url && (
