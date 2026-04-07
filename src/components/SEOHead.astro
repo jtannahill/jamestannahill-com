@@ -4,8 +4,19 @@ interface Props {
   description: string;
   canonical: string;
   ogImage?: string;
+  ogImageAlt?: string;
+  ogType?: string;
 }
-const { title, description, canonical, ogImage = 'https://www.jamestannahill.com/og.png' } = Astro.props;
+const {
+  title,
+  description,
+  canonical,
+  ogImage = 'https://www.jamestannahill.com/og.png',
+  ogImageAlt = 'James Tannahill — Operator. Investor. Builder.',
+  ogType = 'profile',
+} = Astro.props;
+
+const siteName = 'James Tannahill';
 
 const schema = {
   "@context": "https://schema.org",
@@ -40,7 +51,7 @@ const schema = {
       "@type": "WebSite",
       "@id": "https://www.jamestannahill.com/#website",
       "url": "https://www.jamestannahill.com",
-      "name": "James Tannahill",
+      "name": siteName,
       "description": description
     }
   ]
@@ -48,7 +59,9 @@ const schema = {
 ---
 <meta charset="UTF-8" />
 <meta name="author" content="James Tannahill" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="color-scheme" content="dark light" />
+<meta name="format-detection" content="telephone=no" />
 <title>{title}</title>
 <meta name="description" content={description} />
 <link rel="canonical" href={canonical} />
@@ -58,19 +71,50 @@ const schema = {
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-<!-- OG -->
-<meta property="og:type" content="profile" />
+<!-- iOS / PWA -->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="James Tannahill" />
+
+<!-- Android / Chrome -->
+<meta name="theme-color" content="#0a0a0a" />
+<meta name="mobile-web-app-capable" content="yes" />
+
+<!-- Windows -->
+<meta name="msapplication-TileColor" content="#0a0a0a" />
+<meta name="msapplication-config" content="none" />
+
+<!-- Open Graph -->
+<meta property="og:type" content={ogType} />
 <meta property="og:url" content={canonical} />
+<meta property="og:site_name" content={siteName} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={ogImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:alt" content={ogImageAlt} />
 <meta property="og:locale" content="en_US" />
 
-<!-- Twitter -->
+<!-- OG Profile (for og:type=profile pages) -->
+{ogType === 'profile' && (
+  <>
+    <meta property="profile:first_name" content="James" />
+    <meta property="profile:last_name" content="Tannahill" />
+    <meta property="profile:username" content="jamesstannahill" />
+  </>
+)}
+
+<!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImage} />
+<meta name="twitter:image:alt" content={ogImageAlt} />
+<meta name="twitter:creator" content="@jamestannahill" />
+
+<!-- LinkedIn (uses OG tags — covered above) -->
 
 <!-- Schema -->
 <script type="application/ld+json" set:html={JSON.stringify(schema)} />

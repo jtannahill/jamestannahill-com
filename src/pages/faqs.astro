@@ -2,31 +2,19 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/ContactForm.astro';
 import FAQAccordion from '../components/FAQAccordion.astro';
-
-const videoUrl = 'https://d9ttkh3tz30f6.cloudfront.net/videos/contact-bg.mp4';
 ---
 <BaseLayout
   title="James Tannahill | Contact & Professional Inquiries"
   description="Get in touch with James Tannahill — private equity advisory, value engineering, and strategic partnerships."
   canonical="https://www.jamestannahill.com/faqs"
 >
-  <!-- Dark page wrapper — video layers inside here, no negative z-index needed -->
   <div class="relative" style="background:#0a0a0a; min-height:100vh;">
-    <!-- Video background -->
-    <video
-      src={videoUrl}
-      autoplay
-      muted
-      loop
-      playsinline
-      class="absolute inset-0 w-full h-full object-cover"
-      style="opacity: 0.18;"
-    />
-    <!-- Dark overlay for readability -->
-    <div class="absolute inset-0" style="background:rgba(0,0,0,0.72);"></div>
+    <!-- Subtle gradient background -->
+    <div class="absolute inset-0"
+         style="background: radial-gradient(ellipse at 20% 50%, rgba(201,136,42,0.06) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(255,255,255,0.03) 0%, transparent 50%);"></div>
 
     <!-- Content -->
-    <div class="relative max-w-4xl mx-auto px-6 py-16" style="z-index:1;">
+    <div class="relative max-w-4xl mx-auto px-6 py-16 md:py-24" style="z-index:1;">
       <ContactForm />
       <FAQAccordion />
     </div>
