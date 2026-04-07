@@ -2,53 +2,44 @@
 ---
 <section class="relative min-h-screen flex flex-col justify-end pb-20 px-14 overflow-hidden">
   <!-- Background photo -->
-  <div class="absolute inset-0 z-0">
+  <div class="absolute inset-0" style="z-index:0;">
     <img
       src="/hero-bg.jpg"
       alt=""
       class="w-full h-full object-cover object-center"
-      style="filter: brightness(0.75);"
+      style="filter: brightness(0.65);"
       loading="eager"
       fetchpriority="high"
     />
-    <!-- Gradient overlay -->
+    <!-- Gradient overlay — heavy at bottom for text contrast -->
     <div class="absolute inset-0"
-         style="background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.82) 100%);"></div>
+         style="background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.5) 55%, rgba(0,0,0,0.88) 100%);"></div>
   </div>
 
   <!-- Content -->
-  <div class="relative z-10 max-w-3xl">
-    <p class="text-[10px] tracking-[0.3em] uppercase mb-5"
-       style="color:rgba(255,255,255,0.3); animation: blurIn 0.8s ease both; animation-delay: 0.1s;">
-      NYC — Private Equity
-    </p>
-    <h1 class="font-bold leading-none tracking-[-0.03em] text-white mb-6"
-        style="font-family:'NHG Display',sans-serif; font-size:clamp(52px,9vw,96px); animation: blurIn 1.1s ease both; animation-delay: 0.35s;">
+  <div class="relative max-w-3xl" style="z-index:10;">
+    <h1 class="font-bold leading-none text-white mb-6"
+        style="font-family:'NHG Display',sans-serif; font-size:clamp(52px,9vw,96px); letter-spacing:-0.03em; animation: blurIn 1.1s ease both; animation-delay: 0.2s;">
       Operator.<br/>Investor.<br/>Builder.
     </h1>
-    <p class="text-[15px] leading-[1.75] max-w-lg mb-10"
-       style="color:rgba(255,255,255,0.42); animation: blurIn 0.9s ease both; animation-delay: 0.65s;">
+    <p class="text-[15px] leading-[1.75] max-w-lg mb-10 text-white"
+       style="opacity:0.55; animation: blurIn 0.9s ease both; animation-delay: 0.55s;">
       Turning proprietary AI, brand infrastructure, and data systems into compounding enterprise value.
     </p>
     <div class="flex gap-3 flex-wrap"
-         style="animation: blurIn 0.8s ease both; animation-delay: 0.9s;">
+         style="animation: blurIn 0.8s ease both; animation-delay: 0.8s;">
       <a href="/faqs"
-         class="inline-block px-8 py-3 text-[10px] tracking-[0.18em] uppercase text-white transition-colors"
+         class="inline-block px-8 py-3 text-[10px] tracking-[0.18em] uppercase text-white"
          style="background:var(--color-amber);">
         Get in Touch
-      </a>
-      <a href="https://plocamium.com" target="_blank" rel="noopener noreferrer"
-         class="inline-block px-8 py-3 text-[10px] tracking-[0.18em] uppercase transition-colors"
-         style="border:1px solid rgba(201,136,42,0.45); color:rgba(201,136,42,0.85);">
-        Plocamium Holdings
       </a>
     </div>
   </div>
 
   <!-- Scroll indicator -->
-  <div class="absolute bottom-8 right-14 z-10 flex items-center gap-3"
-       style="animation: blurIn 0.8s ease both; animation-delay: 1.1s;">
+  <div class="absolute bottom-8 right-14 flex items-center gap-3"
+       style="z-index:10; animation: blurIn 0.8s ease both; animation-delay: 1s;">
     <div style="width:1px; height:36px; background:linear-gradient(to bottom, transparent, rgba(201,136,42,0.5));"></div>
-    <span class="text-[8px] tracking-[0.25em] uppercase" style="color:rgba(255,255,255,0.2);">Scroll</span>
+    <span class="text-[8px] tracking-[0.25em] uppercase" style="color:rgba(255,255,255,0.3);">Scroll</span>
   </div>
 </section>
