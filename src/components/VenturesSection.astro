@@ -1,61 +1,37 @@
 ---
 const ventures = [
-  {
-    name: 'Plocamium Holdings',
-    description: 'Hybrid investment and operational advisory. 80% advisory-led, 20% direct balance sheet. Targets enterprises valued $10M–$500M.',
-    url: 'https://plocamium.com',
-  },
-  {
-    name: '1nessAgency',
-    description: 'Compliance-focused digital marketing for regulated industries. Built for healthcare.',
-    url: 'https://www.1nessagency.com/',
-  },
-  {
-    name: 'RDLB',
-    description: 'Global brand strategy and communications for institutional capital markets.',
-    url: 'https://www.rdlb.nyc/',
-  },
-  {
-    name: 'HLTHvrs',
-    description: 'HIPAA-conscious marketing intelligence platform for behavioral health, psychiatric, and wellness practices.',
-    url: 'https://hlthvrs.com/',
-  },
-  {
-    name: 'MonkeyThorn Meet',
-    description: 'Privacy-first, browser-based video conferencing with end-to-end AES-GCM encryption.',
-    url: null,
-  },
-  {
-    name: 'gOOOvy',
-    description: 'Auto-reply service for Google Voice texts with scheduled out-of-office responses.',
-    url: 'https://gooovy.com',
-  },
-  {
-    name: 'HMU API',
-    description: 'Programmable communication gateway replacing traditional email with structured API endpoints.',
-    url: 'https://hmuapi.com',
-  },
-  {
-    name: 'NewYorkLab',
-    description: 'Data-driven environmental intelligence platform quantifying climate-related risks in urban areas.',
-    url: 'https://newyorklab.co/',
-  },
+  { name: 'Plocamium Holdings', description: 'Hybrid investment and operational advisory. 80% advisory-led, 20% direct balance sheet. Targets enterprises valued $10M–$500M.', url: 'https://plocamium.com' },
+  { name: '1nessAgency', description: 'Compliance-focused digital marketing for regulated industries. Built for healthcare.', url: 'https://www.1nessagency.com/' },
+  { name: 'RDLB', description: 'Global brand strategy and communications for institutional capital markets.', url: 'https://www.rdlb.nyc/' },
+  { name: 'HLTHvrs', description: 'HIPAA-conscious marketing intelligence platform for behavioral health, psychiatric, and wellness practices.', url: 'https://hlthvrs.com/' },
+  { name: 'MonkeyThorn Meet', description: 'Privacy-first, browser-based video conferencing with end-to-end AES-GCM encryption.', url: null },
+  { name: 'gOOOvy', description: 'Auto-reply service for Google Voice texts with scheduled out-of-office responses.', url: 'https://gooovy.com' },
+  { name: 'HMU API', description: 'Programmable communication gateway replacing traditional email with structured API endpoints.', url: 'https://hmuapi.com' },
+  { name: 'NewYorkLab', description: 'Data-driven environmental intelligence platform quantifying climate-related risks in urban areas.', url: 'https://newyorklab.co/' },
 ];
 ---
-<section class="max-w-6xl mx-auto px-6 py-16 border-t border-[var(--color-border)]">
-  <h3 class="text-sm tracking-widest uppercase text-[var(--color-muted)] mb-8">Ventures & Platforms</h3>
-  <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-[var(--color-border)]">
-    {ventures.map(v => (
-      <div class="bg-white p-6 flex flex-col">
-        <p class="font-medium text-sm mb-2" style="font-family: 'NHG Display', sans-serif;">{v.name}</p>
-        <p class="text-xs text-[var(--color-muted)] leading-relaxed flex-1">{v.description}</p>
-        {v.url && (
-          <a href={v.url} target="_blank" rel="noopener noreferrer"
-             class="mt-4 text-xs tracking-wider uppercase hover:underline">
-            Visit →
-          </a>
-        )}
-      </div>
-    ))}
+<section class="border-t border-[var(--color-border)] bg-white">
+  <div class="max-w-6xl mx-auto px-14 py-16">
+    <p class="text-[9px] tracking-[0.25em] uppercase mb-10" style="color:var(--color-amber);">Ventures & Platforms</p>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-[var(--color-border)]">
+      {ventures.map((v, i) => (
+        <div
+          class="sr bg-white p-6 flex flex-col"
+          style={`border-top: 2px solid transparent; transition-delay: ${i * 60}ms; transition-property: opacity, transform, border-top-color;`}
+          onmouseenter="this.style.borderTopColor='var(--color-amber)'"
+          onmouseleave="this.style.borderTopColor='transparent'"
+        >
+          <p class="text-[11px] font-semibold mb-2" style="font-family:'NHG Display',sans-serif;">{v.name}</p>
+          <p class="text-[10px] leading-[1.7] flex-1" style="color:#aaa;">{v.description}</p>
+          {v.url && (
+            <a href={v.url} target="_blank" rel="noopener noreferrer"
+               class="mt-4 text-[9px] tracking-[0.15em] uppercase"
+               style="color:var(--color-amber);">
+              Visit →
+            </a>
+          )}
+        </div>
+      ))}
+    </div>
   </div>
 </section>

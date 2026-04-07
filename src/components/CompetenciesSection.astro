@@ -1,0 +1,26 @@
+---
+const competencies = [
+  { title: 'Capital & Financial Architecture', body: 'Strategic finance, capital deployment, investment structuring, M&A advisory.' },
+  { title: 'Applied Intelligence', body: 'AI systems architecture, ML pipelines, intelligent automation, data infrastructure.' },
+  { title: 'Operational Engineering', body: 'Post-transaction integration, organizational architecture, operational transformation.' },
+  { title: 'Brand & Market Positioning', body: 'Brand architecture, narrative positioning, market differentiation.' },
+  { title: 'Regulatory & Data Systems', body: 'Regulatory-compliant growth systems, digital infrastructure, data systems.' },
+  { title: 'Leadership & Decision Design', body: 'Decision design, leadership frameworks, organizational operating models.' },
+];
+---
+<section class="border-t border-[var(--color-border)] bg-white">
+  <div class="max-w-6xl mx-auto px-14 py-16">
+    <p class="text-[9px] tracking-[0.25em] uppercase mb-10" style="color:var(--color-amber);">Competencies</p>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--color-border)]">
+      {competencies.map((c, i) => (
+        <div
+          class="sr bg-white p-7"
+          style={`border-top: 2px solid var(--color-amber); transition-delay: ${i * 80}ms;`}
+        >
+          <p class="text-[11px] font-semibold mb-2" style="font-family:'NHG Display',sans-serif;">{c.title}</p>
+          <p class="text-[11px] leading-[1.7]" style="color:#999;">{c.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
