@@ -6,6 +6,9 @@
   --color-accent: #1a1a1a;
   --color-surface: #f9f9f8;
   --color-border: #e5e5e5;
+  --color-amber: #c9882a;
+  --color-amber-dark: #b5771f;
+  --color-amber-subtle: rgba(201, 136, 42, 0.15);
 }
 
 html {
@@ -26,4 +29,29 @@ html {
   src: url('https://fonts.jamestannahill.com/NHGDisplayBold.woff2') format('woff2');
   font-weight: 700;
   font-display: swap;
+}
+
+/* ── Blur-fade animation (hero load) ── */
+@keyframes blurIn {
+  from {
+    filter: blur(10px);
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  to {
+    filter: blur(0);
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ── Scroll reveal base state ── */
+.sr {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.sr.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
