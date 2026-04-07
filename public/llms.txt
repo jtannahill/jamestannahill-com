@@ -1,0 +1,52 @@
+# James Tannahill
+
+> Operator. Investor. Builder. Operates at the intersection of private equity, AI, and complex systems.
+
+## About
+
+James Tannahill works at the intersection of complex systems: biological, financial, digital, operational. His discipline is engineering resilience — structures built to absorb pressure and compound advantage.
+
+He operates across healthcare, industrials, technology, and finance. His background spans biochemistry, biotechnology, equity research, strategic finance, and private equity operations.
+
+Cornell's Johnson School of Management sharpened his strategic discipline. Today he leads Plocamium Holdings, operates as Intelligent Capital at xAI, runs 1nessAgency and RDLB, and builds AI-native products that compound across decades.
+
+## Current Roles
+
+- **Intelligent Capital, xAI** — AI-native capital markets infrastructure
+- **President & Managing Partner, Plocamium Holdings** — Operator-led private equity platform deploying patient capital across industrial technologies and healthcare
+- **Co-Founder, 1nessAgency** — Digital marketing and growth systems for regulated industries
+- **Principal, RDLB** — Strategic brand architecture for investors and operators
+
+## Competencies
+
+- Capital & Financial Architecture: strategic finance, capital deployment, investment structuring, M&A advisory
+- Applied Intelligence: AI systems architecture, ML pipelines, intelligent automation, data infrastructure
+- Operational Engineering: post-transaction integration, organizational architecture, operational transformation
+- Brand & Market Positioning: brand architecture, narrative positioning, market differentiation
+- Regulatory & Data Systems: regulatory-compliant growth systems, digital infrastructure, HIPAA compliance
+- Leadership & Decision Design: decision frameworks, organizational operating models
+
+## Ventures & Platforms
+
+- **Plocamium Holdings** — plocamium.com — Operator-led private equity, industrial technologies and healthcare
+- **RDLB** — rdlb.nyc — Strategic brand architecture for investors and operators
+- **1nessAgency** — 1nessagency.com — Digital marketing engineered on ethics, data, and design
+- **NewYorkLab** — newyorklab.co — Urban intelligence platform mapping the future state of cities
+- **HMU API** — hmuapi.com — Structured inbound channels for people, apps, and AI agents
+- **MonkeyThorn Meet** — meet.monkeythorn.com — Privacy-first video conferencing, zero AI processing
+- **gOOOvy** — gooovy.com — Automated out-of-office engine for Google Voice
+- **OpenTime** — iOS app for scheduling intelligence
+
+## Perspectives
+
+**On AI risk:** AI integration risk in healthcare is severely mispriced. The market prices in massive upside from AI adoption but underprices regulatory, liability, and workflow-disruption costs. Most health systems are 18-36 months from meaningful AI integration. The winners will be the middleware layer that makes AI deployable within existing compliance frameworks.
+
+**On building:** Writing code most days — infrastructure, ML pipelines, full-stack applications — keeps perspective honest about what's actually possible with the technology. The fastest way to evaluate technical founders.
+
+## Contact
+
+- Website: https://www.jamestannahill.com
+- Contact form: https://www.jamestannahill.com/faqs
+- LinkedIn: https://www.linkedin.com/in/jamesstannahill/
+- GitHub: https://github.com/jtannahill
+- Bloomberg: https://www.bloomberg.com/profile/person/23291921
