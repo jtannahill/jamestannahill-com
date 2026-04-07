@@ -1,53 +1,59 @@
 ---
 ---
 <div class="max-w-2xl">
-  <h2 class="text-2xl font-bold mb-2" style="font-family:'NHG Display',sans-serif;">Get in Touch</h2>
-  <p class="text-sm mb-8" style="color:var(--color-muted);">
+  <h2 class="text-2xl font-bold mb-2 text-white" style="font-family:'NHG Display',sans-serif;">Get in Touch</h2>
+  <p class="text-sm mb-8" style="color:rgba(255,255,255,0.5);">
     Or email directly:
-    <a href="mailto:web@jamestannahill.com" class="underline">web@jamestannahill.com</a>
+    <a href="mailto:web@jamestannahill.com" class="underline" style="color:var(--color-amber);">web@jamestannahill.com</a>
   </p>
   <form id="contact-form" class="space-y-4">
     <div class="grid sm:grid-cols-2 gap-4">
       <div>
-        <label class="block text-[10px] uppercase tracking-wider mb-1" for="firstName">First Name</label>
+        <label class="block text-[10px] uppercase tracking-wider mb-1" style="color:rgba(255,255,255,0.5);" for="firstName">First Name</label>
         <input id="firstName" name="firstName" type="text" required
-               class="w-full border border-[var(--color-border)] px-4 py-3 text-sm bg-white/80 focus:outline-none focus:border-[var(--color-amber)]" />
+               class="w-full px-4 py-3 text-sm bg-white/10 text-white focus:outline-none"
+               style="border:1px solid rgba(255,255,255,0.15); focus-within:border-color:var(--color-amber);" />
       </div>
       <div>
-        <label class="block text-[10px] uppercase tracking-wider mb-1" for="lastName">Last Name</label>
+        <label class="block text-[10px] uppercase tracking-wider mb-1" style="color:rgba(255,255,255,0.5);" for="lastName">Last Name</label>
         <input id="lastName" name="lastName" type="text" required
-               class="w-full border border-[var(--color-border)] px-4 py-3 text-sm bg-white/80 focus:outline-none focus:border-[var(--color-amber)]" />
+               class="w-full px-4 py-3 text-sm bg-white/10 text-white focus:outline-none"
+               style="border:1px solid rgba(255,255,255,0.15);" />
       </div>
     </div>
     <div>
-      <label class="block text-[10px] uppercase tracking-wider mb-1" for="email">Email</label>
+      <label class="block text-[10px] uppercase tracking-wider mb-1" style="color:rgba(255,255,255,0.5);" for="email">Email</label>
       <input id="email" name="email" type="email" required
-             class="w-full border border-[var(--color-border)] px-4 py-3 text-sm bg-white/80 focus:outline-none focus:border-[var(--color-amber)]" />
+             class="w-full px-4 py-3 text-sm bg-white/10 text-white focus:outline-none"
+             style="border:1px solid rgba(255,255,255,0.15);" />
     </div>
     <div>
-      <label class="block text-[10px] uppercase tracking-wider mb-1" for="phone">Phone</label>
+      <label class="block text-[10px] uppercase tracking-wider mb-1" style="color:rgba(255,255,255,0.5);" for="phone">Phone</label>
       <input id="phone" name="phone" type="tel"
-             class="w-full border border-[var(--color-border)] px-4 py-3 text-sm bg-white/80 focus:outline-none focus:border-[var(--color-amber)]" />
+             class="w-full px-4 py-3 text-sm bg-white/10 text-white focus:outline-none"
+             style="border:1px solid rgba(255,255,255,0.15);" />
     </div>
     <div>
-      <label class="block text-[10px] uppercase tracking-wider mb-1" for="subject">Subject</label>
+      <label class="block text-[10px] uppercase tracking-wider mb-1" style="color:rgba(255,255,255,0.5);" for="subject">Subject</label>
       <input id="subject" name="subject" type="text" required
-             class="w-full border border-[var(--color-border)] px-4 py-3 text-sm bg-white/80 focus:outline-none focus:border-[var(--color-amber)]" />
+             class="w-full px-4 py-3 text-sm bg-white/10 text-white focus:outline-none"
+             style="border:1px solid rgba(255,255,255,0.15);" />
     </div>
     <div>
-      <label class="block text-[10px] uppercase tracking-wider mb-1" for="message">Message</label>
+      <label class="block text-[10px] uppercase tracking-wider mb-1" style="color:rgba(255,255,255,0.5);" for="message">Message</label>
       <textarea id="message" name="message" rows="5" required
-                class="w-full border border-[var(--color-border)] px-4 py-3 text-sm bg-white/80 focus:outline-none focus:border-[var(--color-amber)] resize-none"></textarea>
+                class="w-full px-4 py-3 text-sm bg-white/10 text-white focus:outline-none resize-none"
+                style="border:1px solid rgba(255,255,255,0.15);"></textarea>
     </div>
     <button type="submit" id="contact-submit"
-            class="px-8 py-3 text-white text-[10px] tracking-[0.18em] uppercase transition-colors"
+            class="px-8 py-3 text-white text-[10px] tracking-[0.18em] uppercase"
             style="background:var(--color-amber);">
       Send Message
     </button>
     <p id="contact-success" class="hidden text-sm" style="color:var(--color-amber);">
       ✓ Message sent. I'll be in touch.
     </p>
-    <p id="contact-error" class="hidden text-sm text-red-500">
+    <p id="contact-error" class="hidden text-sm" style="color:#f87171;">
       Something went wrong. Please email web@jamestannahill.com directly.
     </p>
   </form>
@@ -60,6 +66,12 @@
   const error = document.getElementById('contact-error')!;
 
   const API_URL = 'https://a1swgpk2ba.execute-api.us-east-1.amazonaws.com/contact';
+
+  // Amber focus border on all inputs
+  form?.querySelectorAll('input, textarea').forEach((el) => {
+    el.addEventListener('focus', () => (el as HTMLElement).style.borderColor = 'var(--color-amber)');
+    el.addEventListener('blur',  () => (el as HTMLElement).style.borderColor = 'rgba(255,255,255,0.15)');
+  });
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();

@@ -22,5 +22,20 @@ const { title, description, canonical } = Astro.props;
       <slot />
     </main>
     <Footer />
+    <script>
+      // Scroll reveal — runs on every page, picks up all .sr elements
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.08 }
+      );
+      document.querySelectorAll('.sr').forEach((el) => revealObserver.observe(el));
+    </script>
   </body>
 </html>
