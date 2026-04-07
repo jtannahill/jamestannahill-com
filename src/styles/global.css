@@ -12,7 +12,8 @@
 }
 
 html {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'NHG Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 15px;
   color: var(--color-ink);
   background: #fff;
   -webkit-font-smoothing: antialiased;

@@ -2,97 +2,103 @@
 const ventures = [
   {
     name: 'Plocamium Holdings',
-    description: 'Hybrid investment and operational advisory. 80% advisory-led, 20% direct balance sheet. Targets enterprises valued $10M–$500M.',
+    description: 'Operator-led private equity platform deploying patient capital across industrial technologies and healthcare. Converts operational complexity into strategic leverage and compounding free cash flow. Third-generation family enterprise engineered for continuity, control, and multi-decade value creation.',
     url: 'https://plocamium.com',
     logo: '/logos/plocamium.png',
-    logoDark: true,
-  },
-  {
-    name: '1nessAgency',
-    description: 'Compliance-focused digital marketing for regulated industries. Built for healthcare.',
-    url: 'https://www.1nessagency.com/',
-    logo: '/logos/1nessagency.png',
-    logoDark: false,
+    logoH: 52,
   },
   {
     name: 'RDLB',
-    description: 'Global brand strategy and communications for institutional capital markets.',
+    description: 'Strategic brand architecture for investors and operators. Engineers positioning, narrative systems, and go-to-market structure — converting trust into momentum and intention into capital movement.',
     url: 'https://www.rdlb.nyc/',
     logo: '/logos/rdlb.png',
-    logoDark: false,
+    logoH: 36,
   },
   {
-    name: 'HLTHvrs',
-    description: 'HIPAA-conscious marketing intelligence platform for behavioral health, psychiatric, and wellness practices.',
-    url: 'https://hlthvrs.com/',
-    logo: '/logos/hlthvrs.png',
-    logoDark: false,
-  },
-  {
-    name: 'MonkeyThorn Meet',
-    description: 'Privacy-first, browser-based video conferencing with end-to-end AES-GCM encryption.',
-    url: 'https://meet.monkeythorn.com/meet',
-    logo: '/logos/monkeythorn.png',
-    logoDark: true,
-  },
-  {
-    name: 'gOOOvy',
-    description: 'Auto-reply service for Google Voice texts with scheduled out-of-office responses.',
-    url: 'https://gooovy.com',
-    logo: '/logos/gooovy.png',
-    logoDark: false,
-  },
-  {
-    name: 'HMU API',
-    description: 'Programmable communication gateway replacing traditional email with structured API endpoints.',
-    url: 'https://hmuapi.com',
-    logo: '/logos/hmuapi.png',
-    logoDark: false,
+    name: '1nessAgency',
+    description: 'Digital marketing and growth systems engineered on ethics, data, and design. Builds compliant advertising architecture that converts signal into measurable scale across regulated industries.',
+    url: 'https://www.1nessagency.com/',
+    logo: '/logos/1nessagency.png',
+    logoH: 52,
   },
   {
     name: 'NewYorkLab',
-    description: 'Data-driven environmental intelligence platform quantifying climate-related risks in urban areas.',
+    description: 'Urban intelligence platform mapping the future state of cities through data. Deploys sensor networks, environmental analytics, and real-time monitoring systems — visual intelligence that helps decision-makers understand and reshape the urban fabric.',
     url: 'https://newyorklab.co/',
     logo: '/logos/newyorklab.png',
-    logoDark: false,
+    logoH: 52,
+  },
+  {
+    name: 'HMU API',
+    description: 'People, apps, and AI agents all need a way to reach you — HMU API gives them structured channels that self-organize, so you stop managing inbound and start making decisions. Don\'t email me. HMU. HitMyAPI.com',
+    url: 'https://hmuapi.com',
+    logo: '/logos/hmuapi.png',
+    logoH: 70,
+  },
+  {
+    name: 'MonkeyThorn Meet',
+    description: 'Video conferencing where privacy is architecture, not a checkbox. Zero AI processing, zero recordings, zero metadata — encryption keys never leave the browser. Trust as guarantee, not corporate promise.',
+    url: 'https://meet.monkeythorn.com/meet',
+    logo: '/logos/monkeythorn.png',
+    logoH: 44,
+  },
+  {
+    name: 'gOOOvy',
+    description: 'Automated out-of-office engine for Google Voice built on schedule-aware intelligence. Converts missed texts into instant, contextual responses — stay present while staying reachable.',
+    url: 'https://gooovy.com',
+    logo: '/logos/gooovy.png',
+    logoH: 36,
+  },
+  {
+    name: 'OpenTime',
+    description: '',
+    url: 'https://apps.apple.com/us/app/opentime/id6760204246',
+    logo: '/logos/opentime.png',
+    logoH: 0,
+    logoFill: true,
   },
 ];
 ---
 <section class="border-t border-[var(--color-border)] bg-white">
   <div class="max-w-6xl mx-auto px-14 py-16">
-    <p class="text-[9px] tracking-[0.25em] uppercase mb-10" style="color:var(--color-amber);">Ventures & Platforms</p>
+    <p class="tracking-[0.2em] uppercase mb-10" style="font-size:17px; color:var(--color-amber);">Ventures & Platforms</p>
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-[var(--color-border)]">
       {ventures.map((v, i) => (
         <div
-          class="sr bg-white p-6 flex flex-col"
+          class="sr bg-white p-8 flex flex-col"
           style={`border-top: 2px solid transparent; transition-delay: ${i * 60}ms; transition-property: opacity, transform, border-top-color;`}
           onmouseenter="this.style.borderTopColor='var(--color-amber)'"
           onmouseleave="this.style.borderTopColor='transparent'"
         >
-          {/* Logo */}
-          <div class="mb-4 h-8 flex items-center">
-            <div
-              class="inline-flex items-center justify-center overflow-hidden"
-              style={v.logoDark
-                ? 'background:#0a0a0a; border-radius:4px; padding:4px 8px; height:32px;'
-                : 'height:32px;'}
-            >
+          {v.logoFill ? (
+            <a href={v.url} target="_blank" rel="noopener noreferrer" class="flex-1 flex items-center justify-center -m-8">
               <img
                 src={v.logo}
                 alt={v.name + ' logo'}
-                style="height:24px; width:auto; object-fit:contain; display:block;"
+                style="width:100%; height:100%; object-fit:cover; display:block; mix-blend-mode:multiply;"
                 loading="lazy"
               />
-            </div>
-          </div>
-          <p class="text-[11px] font-semibold mb-2" style="font-family:'NHG Display',sans-serif;">{v.name}</p>
-          <p class="text-[10px] leading-[1.7] flex-1" style="color:#aaa;">{v.description}</p>
-          {v.url && (
-            <a href={v.url} target="_blank" rel="noopener noreferrer"
-               class="mt-4 text-[9px] tracking-[0.15em] uppercase"
-               style="color:var(--color-amber);">
-              Visit →
             </a>
+          ) : (
+            <>
+              {/* Logo */}
+              <div class="mb-4 flex items-center justify-center" style="min-height:52px;">
+                <img
+                  src={v.logo}
+                  alt={v.name + ' logo'}
+                  style={`height:${v.logoH}px; width:auto; max-width:150px; object-fit:contain; display:block; mix-blend-mode:multiply;`}
+                  loading="lazy"
+                />
+              </div>
+              <p class="flex-1" style="font-size:13.5px; line-height:1.7; color:#888; display:-webkit-box; -webkit-line-clamp:8; -webkit-box-orient:vertical; overflow:hidden;">{v.description}</p>
+              {v.url && (
+                <a href={v.url} target="_blank" rel="noopener noreferrer"
+                   class="mt-4 text-[13px] tracking-[0.15em] uppercase"
+                   style="color:var(--color-amber);">
+                  Visit →
+                </a>
+              )}
+            </>
           )}
         </div>
       ))}

@@ -1,43 +1,52 @@
-# Astro Starter Kit: Minimal
+# jamestannahill.com
 
-```sh
-npm create astro@latest -- --template minimal
+Personal site for James Tannahill — operator, investor, builder.
+
+**Live:** [jamestannahill.com](https://www.jamestannahill.com)
+
+## Stack
+
+- [Astro 6](https://astro.build) — static site generator
+- [Tailwind CSS 4](https://tailwindcss.com) — utility-first styling
+- AWS S3 + CloudFront — hosting and CDN
+- AWS SES + API Gateway + Lambda — contact form backend
+- NHG Display — self-hosted via fonts.jamestannahill.com
+
+## Structure
+
+```
+src/
+  components/   # Page sections (Hero, Bio, Ventures, FAQ, etc.)
+  layouts/      # BaseLayout with Google Analytics + scroll reveal
+  pages/        # index, faqs (contact), privacy, terms, accessibility
+  styles/       # global.css (CSS vars, font-face, scroll reveal)
+public/
+  logos/        # Venture logos (PNG, mix-blend-mode:multiply)
+  hero-bg.jpg   # Hero background
+  headshot.jpg  # Bio section portrait
+  james-casual.jpg  # CasualSection full-width photo
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Videos (large, not in repo — stored directly in S3):
+- `videos/contact-bg.mp4` — contact page background
+- `videos/RDLB-brand-reel.mp4` — RDLB brand reel
 
-## 🚀 Project Structure
+## Development
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+npm install
+npm run dev
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Deploy
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+```bash
+npm run build
+aws s3 sync dist/ s3://jamestannahill.com-site --delete --exclude "videos/*"
+aws cloudfront create-invalidation --distribution-id E1KASWFXCUI8NS --paths "/*"
+```
 
-Any static assets, like images, can be placed in the `public/` directory.
+## DNS
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Cloudflare → CloudFront (`d9ttkh3tz30f6.cloudfront.net`)  
+SSL via AWS ACM cert for `jamestannahill.com` + `www.jamestannahill.com`

@@ -1,16 +1,16 @@
 ---
 const navLinks = [
   { label: 'ABOUT', href: '/' },
+  { label: 'INSIGHTS', href: 'https://www.plocamium.com/globals', external: true },
   { label: 'THE AGENCY', href: 'https://www.1nessagency.com/', external: true },
   { label: 'RDLB', href: 'https://www.rdlb.nyc/', external: true },
-  { label: 'INSIGHTS', href: 'https://www.plocamium.com/globals', external: true },
   { label: 'CONTACT', href: '/faqs' },
 ];
 ---
 <header class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/[0.06]">
   <div class="max-w-6xl mx-auto px-6 h-13 flex items-center justify-between">
-    <a href="/" class="text-xs font-bold tracking-widest uppercase text-white"
-       style="font-family:'NHG Display',sans-serif;">
+    <a href="/" class="font-bold tracking-widest uppercase text-white"
+       style="font-family:'NHG Display',sans-serif; font-size:35px;">
       James Tannahill
     </a>
     <nav class="hidden md:flex items-center gap-8">
@@ -19,7 +19,7 @@ const navLinks = [
           href={link.href}
           target={link.external ? '_blank' : undefined}
           rel={link.external ? 'noopener noreferrer' : undefined}
-          class={`text-[9px] tracking-[0.18em] uppercase transition-colors ${
+          class={`text-[11px] tracking-[0.18em] uppercase transition-colors ${
             link.label === 'CONTACT'
               ? 'text-[var(--color-amber)] hover:text-[var(--color-amber-dark)]'
               : 'text-white/40 hover:text-white'
