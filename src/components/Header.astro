@@ -7,9 +7,10 @@ const navLinks = [
   { label: 'CONTACT', href: '/faqs' },
 ];
 ---
-<header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur border-b border-[var(--color-border)]">
-  <div class="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
-    <a href="/" class="text-sm font-medium tracking-widest uppercase" style="font-family: 'NHG Display', sans-serif;">
+<header class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/[0.06]">
+  <div class="max-w-6xl mx-auto px-6 h-13 flex items-center justify-between">
+    <a href="/" class="text-xs font-bold tracking-widest uppercase text-white"
+       style="font-family:'NHG Display',sans-serif;">
       James Tannahill
     </a>
     <nav class="hidden md:flex items-center gap-8">
@@ -18,33 +19,55 @@ const navLinks = [
           href={link.href}
           target={link.external ? '_blank' : undefined}
           rel={link.external ? 'noopener noreferrer' : undefined}
-          class="text-xs tracking-widest uppercase text-[var(--color-muted)] hover:text-[var(--color-ink)] transition-colors"
+          class={`text-[9px] tracking-[0.18em] uppercase transition-colors ${
+            link.label === 'CONTACT'
+              ? 'text-[var(--color-amber)] hover:text-[var(--color-amber-dark)]'
+              : 'text-white/40 hover:text-white'
+          }`}
         >
           {link.label}
         </a>
       ))}
     </nav>
-    <button id="menu-toggle" class="md:hidden p-2" aria-label="Toggle menu">
-      <span class="block w-5 h-0.5 bg-current mb-1"></span>
-      <span class="block w-5 h-0.5 bg-current mb-1"></span>
-      <span class="block w-5 h-0.5 bg-current"></span>
+    <button id="menu-toggle" class="md:hidden p-2 text-white" aria-label="Toggle menu">
+      <span class="block w-5 h-px bg-current mb-1.5"></span>
+      <span class="block w-5 h-px bg-current mb-1.5"></span>
+      <span class="block w-5 h-px bg-current"></span>
     </button>
   </div>
-  <div id="mobile-menu" class="hidden md:hidden border-t border-[var(--color-border)] bg-white">
-    {navLinks.map(link => (
-      <a
-        href={link.href}
-        target={link.external ? '_blank' : undefined}
-        rel={link.external ? 'noopener noreferrer' : undefined}
-        class="block px-6 py-3 text-xs tracking-widest uppercase text-[var(--color-muted)] hover:text-[var(--color-ink)]"
-      >
-        {link.label}
-      </a>
-    ))}
-  </div>
 </header>
+
+<!-- Mobile full-screen overlay -->
+<div id="mobile-menu"
+     class="fixed inset-0 z-40 bg-black/95 flex flex-col items-center justify-center gap-8 hidden md:hidden">
+  {navLinks.map(link => (
+    <a
+      href={link.href}
+      target={link.external ? '_blank' : undefined}
+      rel={link.external ? 'noopener noreferrer' : undefined}
+      class={`text-sm tracking-[0.2em] uppercase min-h-[48px] flex items-center transition-colors ${
+        link.label === 'CONTACT'
+          ? 'text-[var(--color-amber)]'
+          : 'text-white/60 hover:text-white'
+      }`}
+    >
+      {link.label}
+    </a>
+  ))}
+</div>
+
 <script>
   const toggle = document.getElementById('menu-toggle');
   const menu = document.getElementById('mobile-menu');
-  toggle?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+  toggle?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+    document.body.classList.toggle('overflow-hidden');
+  });
+  // Close on link click
+  menu?.querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', () => {
+      menu.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    })
+  );
 </script>
