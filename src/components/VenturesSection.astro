@@ -57,6 +57,13 @@ const ventures = [
     logoH: 0,
     logoFill: true,
   },
+  {
+    name: 'Art Generator',
+    description: 'Daily generative art rendered from live atmospheric data. Weather patterns, satellite palettes, and environmental signals converted into original artworks — 11 artists, daily rotation, SVG and print-quality output.',
+    url: 'https://art.jamestannahill.com',
+    logo: '',
+    logoH: 44,
+  },
 ];
 ---
 <section class="border-t border-[var(--color-border)] bg-white">
@@ -81,14 +88,18 @@ const ventures = [
             </a>
           ) : (
             <>
-              {/* Logo */}
+              {/* Logo or name fallback */}
               <div class="mb-4 flex items-center justify-center" style="min-height:52px;">
-                <img
-                  src={v.logo}
-                  alt={v.name + ' logo'}
-                  style={`height:${v.logoH}px; width:auto; max-width:150px; object-fit:contain; display:block; mix-blend-mode:multiply;`}
-                  loading="lazy"
-                />
+                {v.logo ? (
+                  <img
+                    src={v.logo}
+                    alt={v.name + ' logo'}
+                    style={`height:${v.logoH}px; width:auto; max-width:150px; object-fit:contain; display:block; mix-blend-mode:multiply;`}
+                    loading="lazy"
+                  />
+                ) : (
+                  <span style="font-family:'NHG Display',sans-serif; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:#bbb;">{v.name}</span>
+                )}
               </div>
               <p class="flex-1" style="font-size:13.5px; line-height:1.7; color:#888; display:-webkit-box; -webkit-line-clamp:8; -webkit-box-orient:vertical; overflow:hidden;">{v.description}</p>
               {v.url && (

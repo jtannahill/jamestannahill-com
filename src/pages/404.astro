@@ -6,9 +6,25 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   description="The page you're looking for doesn't exist."
   canonical="https://www.jamestannahill.com/404"
 >
-  <div class="max-w-6xl mx-auto px-6 py-32 text-center">
-    <p class="text-xs tracking-widest uppercase text-[var(--color-muted)] mb-4">404</p>
-    <h1 class="text-4xl font-bold mb-6" style="font-family: 'NHG Display', sans-serif;">Page not found.</h1>
-    <a href="/" class="text-sm underline text-[var(--color-muted)] hover:text-[var(--color-ink)]">← Back to home</a>
+  <div class="min-h-[80vh] flex flex-col items-center justify-center px-6 text-center">
+    <p class="tracking-[0.3em] uppercase mb-6 text-[11px]" style="color:var(--color-amber);">404</p>
+    <h1 class="font-bold mb-4" style="font-family:'NHG Display',sans-serif; font-size:clamp(32px,6vw,56px); letter-spacing:-0.02em;">
+      Page not found.
+    </h1>
+    <p class="mb-10 max-w-sm" style="font-size:15px; color:#999; line-height:1.75;">
+      This page doesn't exist or has moved. Head back to the main site.
+    </p>
+    <div class="flex flex-wrap gap-4 justify-center">
+      <a href="/"
+         class="px-8 py-3 text-white text-[13px] tracking-[0.18em] uppercase"
+         style="background:var(--color-amber);">
+        Back to Home
+      </a>
+      <a href="/faqs"
+         class="px-8 py-3 text-[13px] tracking-[0.18em] uppercase border"
+         style="border-color:var(--color-border); color:var(--color-muted);">
+        Contact
+      </a>
+    </div>
   </div>
 </BaseLayout>
