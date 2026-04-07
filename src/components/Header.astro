@@ -7,7 +7,7 @@ const navLinks = [
   { label: 'CONTACT', href: '/faqs' },
 ];
 ---
-<header class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/[0.06]">
+<header transition:persist class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/[0.06]">
   <div class="max-w-6xl mx-auto px-6 h-13 flex items-center justify-between">
     <a href="/" class="font-bold tracking-widest uppercase text-white"
        style="font-family:'NHG Display',sans-serif; font-size:clamp(20px,5vw,35px);">
@@ -38,7 +38,7 @@ const navLinks = [
 </header>
 
 <!-- Mobile full-screen overlay -->
-<div id="mobile-menu"
+<div id="mobile-menu" transition:persist
      class="fixed inset-0 z-40 bg-black/95 flex flex-col items-center justify-center gap-8 hidden md:hidden">
   {navLinks.map(link => (
     <a

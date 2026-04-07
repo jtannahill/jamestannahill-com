@@ -75,13 +75,57 @@ body {
   }
 }
 
-/* ── Scroll reveal base state ── */
+/* ── Scroll reveal — JS fallback (older browsers) ── */
 .sr {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(24px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
 }
 .sr.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ── Scroll-driven reveal — CSS (Chrome 115+, Firefox 114+, Safari 18+) ── */
+@keyframes scroll-reveal {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@supports (animation-timeline: view()) {
+  .sr {
+    transition: none;
+    animation: scroll-reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 40%;
+  }
+}
+
+/* ── Hero parallax ── */
+@keyframes hero-parallax {
+  from { transform: translateY(0); }
+  to   { transform: translateY(14%); }
+}
+
+@supports (animation-timeline: scroll()) {
+  .hero-parallax-bg {
+    animation: hero-parallax linear both;
+    animation-timeline: scroll(root block);
+    animation-range: 0px 100vh;
+    will-change: transform;
+  }
+}
+
+/* ── View Transitions — page fade ── */
+::view-transition-old(root) {
+  animation: 200ms ease both fade-out;
+}
+::view-transition-new(root) {
+  animation: 280ms ease both fade-in;
+}
+@keyframes fade-out {
+  to { opacity: 0; }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
 }

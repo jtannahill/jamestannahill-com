@@ -2,6 +2,7 @@
 import SEOHead from '../components/SEOHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
 
 interface Props {
@@ -20,6 +21,8 @@ const { title, description, canonical } = Astro.props;
     <link rel="preload" href="/hero-bg.jpg" as="image" fetchpriority="high" />
     <link rel="preload" href="https://fonts.jamestannahill.com/NHGDisplayMedium.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="https://fonts.jamestannahill.com/NHGDisplayBold.woff2" as="font" type="font/woff2" crossorigin />
+    <!-- View Transitions SPA router -->
+    <ClientRouter />
     <!-- Microsoft Clarity -->
     <script type="text/javascript">
       (function(c,l,a,r,i,t,y){
@@ -39,69 +42,90 @@ const { title, description, canonical } = Astro.props;
   </head>
   <body>
     <Header />
-    <main class="pt-14">
+    <main class="pt-14" transition:animate="fade">
       <slot />
     </main>
     <Footer />
     <script>
-      // Scroll reveal
-      const revealObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-              revealObserver.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.08 }
-      );
-      document.querySelectorAll('.sr').forEach((el) => revealObserver.observe(el));
-
-      // ── Event tracking ──────────────────────────────────────────
+      // ── Event tracking helper ────────────────────────────────────
       function gtrack(event_name: string, params: Record<string, string> = {}) {
         if (typeof (window as any).gtag === 'function') {
           (window as any).gtag('event', event_name, params);
         }
       }
 
-      // Hero CTA — "Get in Touch"
-      document.querySelector('a[href="/faqs"]')?.addEventListener('click', () => {
-        gtrack('cta_click', { cta_label: 'Get in Touch', location: 'hero' });
-      });
+      // ── Scroll reveal — JS fallback for browsers without animation-timeline ──
+      function initScrollReveal() {
+        if (CSS.supports('animation-timeline', 'scroll()')) return; // CSS handles it
+        const revealObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                revealObserver.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.08 }
+        );
+        document.querySelectorAll('.sr').forEach((el) => revealObserver.observe(el));
+      }
 
-      // Nav external links
-      document.querySelectorAll('header a[target="_blank"]').forEach((el) => {
-        el.addEventListener('click', () => {
-          gtrack('nav_click', { label: (el as HTMLElement).textContent?.trim() ?? '' });
+      // ── Per-page event listeners ─────────────────────────────────
+      function initTracking() {
+        // Hero CTA — "Get in Touch"
+        document.querySelector('a[href="/faqs"]')?.addEventListener('click', () => {
+          gtrack('cta_click', { cta_label: 'Get in Touch', location: 'hero' });
         });
-      });
 
-      // Venture "Visit →" links
-      document.querySelectorAll('a[href*="plocamium"], a[href*="rdlb"], a[href*="1ness"], a[href*="newyorklab"], a[href*="hmuapi"], a[href*="monkeythorn"], a[href*="gooovy"], a[href*="art.jamestannahill"]').forEach((el) => {
-        el.addEventListener('click', () => {
-          const url = (el as HTMLAnchorElement).href;
-          gtrack('venture_click', { venture_url: url });
+        // Nav external links
+        document.querySelectorAll('header a[target="_blank"]').forEach((el) => {
+          el.addEventListener('click', () => {
+            gtrack('nav_click', { label: (el as HTMLElement).textContent?.trim() ?? '' });
+          });
         });
-      });
 
-      // FAQ accordion opens
-      document.querySelectorAll('details').forEach((el) => {
-        el.addEventListener('toggle', () => {
-          if (el.open) {
-            const q = el.querySelector('summary span')?.textContent?.trim().slice(0, 60) ?? '';
-            gtrack('faq_open', { question: q });
-          }
+        // Venture "Visit →" links
+        document.querySelectorAll('a[href*="plocamium"], a[href*="rdlb"], a[href*="1ness"], a[href*="newyorklab"], a[href*="hmuapi"], a[href*="monkeythorn"], a[href*="gooovy"], a[href*="art.jamestannahill"]').forEach((el) => {
+          el.addEventListener('click', () => {
+            const url = (el as HTMLAnchorElement).href;
+            gtrack('venture_click', { venture_url: url });
+          });
         });
+
+        // FAQ accordion opens
+        document.querySelectorAll('details').forEach((el) => {
+          el.addEventListener('toggle', () => {
+            if ((el as HTMLDetailsElement).open) {
+              const q = el.querySelector('summary span')?.textContent?.trim().slice(0, 60) ?? '';
+              gtrack('faq_open', { question: q });
+            }
+          });
+        });
+
+        // RDLB reel video play
+        document.querySelectorAll('video').forEach((v) => {
+          v.addEventListener('play', () => {
+            gtrack('video_play', { video_src: (v as HTMLVideoElement).currentSrc || (v as HTMLVideoElement).src || 'unknown' });
+          }, { once: true });
+        });
+      }
+
+      // ── GA4 page view on View Transitions navigation ─────────────
+      document.addEventListener('astro:page-load', () => {
+        if (typeof (window as any).gtag === 'function') {
+          (window as any).gtag('event', 'page_view', {
+            page_location: window.location.href,
+            page_title: document.title,
+          });
+        }
+        initScrollReveal();
+        initTracking();
       });
 
-      // Contact form — tracked in ContactForm.astro on success
-      // RDLB reel video play
-      document.querySelectorAll('video').forEach((v) => {
-        v.addEventListener('play', () => {
-          gtrack('video_play', { video_src: v.currentSrc || v.src || 'unknown' });
-        }, { once: true });
-      });
+      // Initial load
+      initScrollReveal();
+      initTracking();
     </script>
   </body>
 </html>
