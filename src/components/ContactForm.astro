@@ -59,8 +59,7 @@
   const success = document.getElementById('contact-success')!;
   const error = document.getElementById('contact-error')!;
 
-  // CONTACT_API_URL is replaced after Task 11 deploys the Lambda
-  const API_URL = 'CONTACT_API_URL_PLACEHOLDER';
+  const API_URL = 'https://a1swgpk2ba.execute-api.us-east-1.amazonaws.com/contact';
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
