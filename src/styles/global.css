@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+:root {
+  --color-ink: #0a0a0a;
+  --color-muted: #6b7280;
+  --color-accent: #1a1a1a;
+  --color-surface: #f9f9f8;
+  --color-border: #e5e5e5;
+}
+
+html {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: var(--color-ink);
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+@font-face {
+  font-family: 'NHG Display';
+  src: url('https://fonts.jamestannahill.com/NHGDisplayMedium.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'NHG Display';
+  src: url('https://fonts.jamestannahill.com/NHGDisplayBold.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
