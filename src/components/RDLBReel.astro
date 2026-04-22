@@ -1,6 +1,10 @@
 ---
 const videoUrl = 'https://d9ttkh3tz30f6.cloudfront.net/videos/RDLB-brand-reel.mp4';
 ---
+<style>
+  .rdlb-video { max-height: 50vh; object-fit: contain; display: block; }
+  @media (min-width: 768px) { .rdlb-video { max-height: 80vh; } }
+</style>
 <section style="background:#000; border-top: 1px solid rgba(201,136,42,0.2); border-bottom: 1px solid rgba(201,136,42,0.2);">
   <video
     src={videoUrl}
@@ -10,8 +14,7 @@ const videoUrl = 'https://d9ttkh3tz30f6.cloudfront.net/videos/RDLB-brand-reel.mp
     playsinline
     controls
     preload="metadata"
-    class="w-full block"
-    style="max-height: 80vh; object-fit: contain; display:block;"
+    class="rdlb-video w-full"
     x-webkit-airplay="allow"
   />
 </section>
@@ -21,7 +24,7 @@ const videoUrl = 'https://d9ttkh3tz30f6.cloudfront.net/videos/RDLB-brand-reel.mp
   const vid = document.querySelector('section video') as HTMLVideoElement;
   if (vid) {
     vid.play().catch(() => {
-      // Autoplay blocked — user must tap controls, which is fine
+      // Autoplay blocked - user must tap controls, which is fine
     });
   }
 </script>

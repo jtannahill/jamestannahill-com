@@ -12,7 +12,7 @@ const {
   description,
   canonical,
   ogImage = 'https://www.jamestannahill.com/og.png',
-  ogImageAlt = 'James Tannahill — Operator. Investor. Builder.',
+  ogImageAlt = 'James Tannahill - Operator. Investor. Builder.',
   ogType = 'profile',
 } = Astro.props;
 
@@ -26,13 +26,17 @@ const schema = {
       "@id": "https://www.jamestannahill.com/#person",
       "name": "James Tannahill",
       "url": "https://www.jamestannahill.com",
-      "jobTitle": "Operator, Investor & Builder",
+      "image": "https://www.jamestannahill.com/headshot.webp",
+      "jobTitle": "President & Managing Partner, Plocamium Holdings; Intelligent Capital, xAI",
       "worksFor": [
         { "@type": "Organization", "name": "xAI", "url": "https://x.ai" },
-        { "@type": "Organization", "name": "Plocamium Holdings", "url": "https://plocamium.com" }
+        { "@type": "Organization", "name": "Plocamium Holdings", "url": "https://plocamium.com" },
+        { "@type": "Organization", "name": "1nessAgency", "url": "https://www.1nessagency.com" },
+        { "@type": "Organization", "name": "RDLB", "url": "https://www.rdlb.nyc" },
+        { "@type": "Organization", "name": "NewYorkLab", "url": "https://newyorklab.co" }
       ],
       "alumniOf": [
-        { "@type": "CollegeOrUniversity", "name": "Cornell University — Johnson School of Management" },
+        { "@type": "CollegeOrUniversity", "name": "Cornell University - Johnson School of Management" },
         { "@type": "CollegeOrUniversity", "name": "University of Essex" },
         { "@type": "CollegeOrUniversity", "name": "Denison University" }
       ],
@@ -53,6 +57,16 @@ const schema = {
       "url": "https://www.jamestannahill.com",
       "name": siteName,
       "description": description
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://www.jamestannahill.com/#service",
+      "name": "James Tannahill - PE Advisory & Value Engineering",
+      "description": "Private equity advisory, value engineering, and strategic partnerships for founder-led and PE-backed companies in regulated industries.",
+      "provider": { "@id": "https://www.jamestannahill.com/#person" },
+      "serviceType": ["Private Equity Advisory", "Value Engineering", "Strategic Partnerships", "AI Systems Advisory"],
+      "areaServed": "United States",
+      "url": "https://www.jamestannahill.com/faqs"
     }
   ]
 };
@@ -114,7 +128,7 @@ const schema = {
 <meta name="twitter:image:alt" content={ogImageAlt} />
 <meta name="twitter:creator" content="@jamestannahill" />
 
-<!-- LinkedIn (uses OG tags — covered above) -->
+<!-- LinkedIn (uses OG tags - covered above) -->
 
 <!-- AI / LLM discovery -->
 <link rel="ai" href="/llms.txt" />

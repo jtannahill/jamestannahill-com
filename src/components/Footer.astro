@@ -13,14 +13,14 @@ const navLinks = [
 ---
 <footer class="bg-[var(--color-ink)] border-t border-white/[0.06] py-8">
   <div class="max-w-6xl mx-auto px-6 md:px-14 flex flex-col md:flex-row items-center justify-between gap-4">
-    <p class="text-[10px]" style="color:#666;">© {year} James Tannahill</p>
+    <p class="text-[11px]" style="color:#666;">© {year} James Tannahill</p>
     <nav class="flex flex-wrap items-center justify-center gap-6">
       {navLinks.map(link => (
         <a
           href={link.href}
           target={link.external ? '_blank' : undefined}
           rel={link.external ? 'noopener noreferrer' : undefined}
-          class="text-[10px] tracking-[0.1em] transition-colors hover:text-white"
+          class="text-[11px] tracking-[0.1em] transition-colors hover:text-white"
           style="color:#666;"
         >
           {link.label}

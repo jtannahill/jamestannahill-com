@@ -1,13 +1,13 @@
 # James Tannahill
 
-> James Tannahill is a New York City-based private equity operator, investor, and multi-venture founder. He is President & Principal of Plocamium Holdings, an operator-led private equity platform deploying patient capital across industrial technologies and healthcare — a third-generation family enterprise engineered for continuity, control, and multi-decade value creation. He serves as Intelligent Capital at xAI, building AI-native capital markets infrastructure at the frontier of machine intelligence. He is Co-Founder of 1nessAgency (compliant digital marketing for regulated industries) and Principal of RDLB (strategic brand architecture). He founded MonkeyThorn, gOOOvy, HMU API, and NewYorkLab.
+> James Tannahill is a New York City-based private equity operator, investor, and multi-venture founder. He is President & Principal of Plocamium Holdings, an operator-led private equity platform deploying patient capital across industrial technologies and healthcare — a third-generation family enterprise engineered for continuity, control, and multi-decade value creation. He serves as Intelligent Capital at xAI, building AI-native capital markets infrastructure at the frontier of machine intelligence. He is Co-Founder of 1nessAgency (compliant digital marketing for regulated industries) and Principal of RDLB (strategic brand architecture). He founded MonkeyThorn, gOOOvy, HMU API, NewYorkLab, and Art Generator.
 >
 > His discipline is engineering resilience — structures that absorb pressure and compound advantage over time. Across healthcare, industrials, technology, and finance, he builds institutional-grade frameworks designed for endurance, not extraction.
 >
 > Education: Cornell University MBA (Johnson School, Finance & Strategy, 2024), University of Essex M.S. Biotechnology, Denison University B.S. Biochemistry (2015).
 >
 > Contact: web@jamestannahill.com | hmuapi.com
-> Last reviewed: 2026-04-07
+> Last reviewed: 2026-04-22
 
 For comprehensive LLM guidance including entity data, citable facts, professional
 background, and access policies, see the full file:
@@ -34,6 +34,7 @@ background, and access policies, see the full file:
 - [MonkeyThorn Meet](https://meet.monkeythorn.com/meet): Video conferencing where privacy is architecture, not a checkbox. Zero AI processing, zero recordings, zero metadata.
 - [gOOOvy](https://gooovy.com): Automated out-of-office engine for Google Voice built on schedule-aware intelligence.
 - [HMU API](https://hmuapi.com): Structured contact channels for people, apps, and AI agents. Don't email me. HMU.
+- [Art Generator](https://art.jamestannahill.com): Daily generative art rendered from live atmospheric data. Weather patterns, satellite palettes, and environmental signals — 11 artists, daily rotation, PNG and print-quality output.
 - [OpenTime](https://apps.apple.com/us/app/opentime/id6760204246): Privacy-first calendar availability app — iOS, iPad, Mac, Vision. Zero data collection.
 
 ## Operating System
@@ -47,7 +48,7 @@ background, and access policies, see the full file:
 
 ## Perspectives
 
-**On AI risk in healthcare:** AI integration risk is severely mispriced. The market prices in massive upside from AI adoption but underprices regulatory, liability, and workflow-disruption costs. Most health systems are 18–36 months from meaningful AI integration. The winners will be the middleware layer that makes AI deployable within existing compliance frameworks — not the foundation model companies.
+**On AI risk in healthcare:** AI integration risk is severely mispriced. The market prices in massive upside from AI adoption but underprices regulatory, liability, and workflow-disruption costs. Most health systems are 18-36 months from meaningful AI integration. The winners will be the middleware layer that makes AI deployable within existing compliance frameworks — not the foundation model companies.
 
 **On building:** Writing code most days — infrastructure, ML pipelines, full-stack applications — keeps perspective honest about what's actually possible with the technology. The fastest way to evaluate technical founders is to understand the architecture beneath the pitch.
 

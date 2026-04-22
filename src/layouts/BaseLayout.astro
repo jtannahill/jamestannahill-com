@@ -19,8 +19,9 @@ const { title, description, canonical } = Astro.props;
     <link rel="manifest" href="/manifest.json" />
     <link rel="preload" href="/hero-bg.webp" as="image" type="image/webp" fetchpriority="high" />
     <link rel="preload" href="/hero-bg.jpg" as="image" fetchpriority="high" />
-    <link rel="preload" href="https://fonts.jamestannahill.com/NHGDisplayMedium.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="https://fonts.jamestannahill.com/NHGDisplayBold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="https://fonts.jamestannahill.com/NHGDisplay-Roman.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="https://fonts.jamestannahill.com/NHGDisplay-Medium.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="https://fonts.jamestannahill.com/NHGDisplay-Bold.woff2" as="font" type="font/woff2" crossorigin />
     <!-- View Transitions SPA router -->
     <ClientRouter />
     <!-- Microsoft Clarity -->
@@ -54,7 +55,7 @@ const { title, description, canonical } = Astro.props;
         }
       }
 
-      // ── Scroll reveal — JS fallback for browsers without animation-timeline ──
+      // ── Scroll reveal - JS fallback for browsers without animation-timeline ──
       function initScrollReveal() {
         if (CSS.supports('animation-timeline', 'scroll()')) return; // CSS handles it
         const revealObserver = new IntersectionObserver(
@@ -73,7 +74,7 @@ const { title, description, canonical } = Astro.props;
 
       // ── Per-page event listeners ─────────────────────────────────
       function initTracking() {
-        // Hero CTA — "Get in Touch"
+        // Hero CTA - "Get in Touch"
         document.querySelector('a[href="/faqs"]')?.addEventListener('click', () => {
           gtrack('cta_click', { cta_label: 'Get in Touch', location: 'hero' });
         });

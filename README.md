@@ -10,7 +10,7 @@ Personal site for James Tannahill — operator, investor, builder.
 - [Tailwind CSS 4](https://tailwindcss.com) — utility-first styling
 - AWS S3 + CloudFront — hosting and CDN
 - AWS SES + API Gateway + Lambda — contact form backend
-- NHG Display — self-hosted via fonts.jamestannahill.com
+- NHG Display (Roman 400, Medium 500, Bold 700) — self-hosted via fonts.jamestannahill.com
 
 ## Structure
 
@@ -42,7 +42,17 @@ npm run dev
 
 ```bash
 npm run build
-aws s3 sync dist/ s3://jamestannahill.com-site --delete --exclude "videos/*"
+
+# Assets (long cache)
+aws s3 sync dist/ s3://jamestannahill.com-site --delete \
+  --exclude "*.html" --exclude "sitemap*" --exclude "robots.txt" --exclude "llms*" \
+  --cache-control "public,max-age=31536000,immutable"
+
+# HTML + meta files (no cache)
+aws s3 sync dist/ s3://jamestannahill.com-site --delete \
+  --exclude "*" --include "*.html" --include "sitemap*" --include "robots.txt" --include "llms*" \
+  --cache-control "public,max-age=0,must-revalidate"
+
 aws cloudfront create-invalidation --distribution-id E1KASWFXCUI8NS --paths "/*"
 ```
 

@@ -4,27 +4,29 @@
   .bio-grid { grid-template-columns: 1fr; }
   @media (min-width: 768px) {
     .bio-grid { grid-template-columns: 1fr 320px; }
+    .bio-headshot { max-height: none; }
   }
   @media (min-width: 1024px) {
     .bio-grid { grid-template-columns: 1fr 420px; }
   }
+  .bio-headshot { max-height: 380px; }
 </style>
 <section class="sr bg-white">
-  <div class="bio-grid max-w-6xl mx-auto px-6 md:px-14 py-12 md:py-16 grid gap-10 items-center">
+  <div class="bio-grid max-w-6xl mx-auto px-6 md:px-14 py-12 md:py-16 grid gap-6 md:gap-10 items-center">
     <!-- Left: text -->
     <div>
       <p class="tracking-[0.2em] uppercase mb-7" style="font-size:17px; color:var(--color-amber);">The Work</p>
       <p class="text-[15px] leading-[1.85] mb-5" style="color:#444;">
         James Tannahill works at the intersection of complex systems: biological, financial, digital, operational.
-        His discipline is engineering resilience — structures built to absorb pressure and compound advantage.
+        His discipline is engineering resilience - structures built to absorb pressure and compound advantage.
       </p>
       <p class="text-[15px] leading-[1.85] mb-5" style="color:#444;">
         He operates across healthcare, industrials, technology, and finance. His background spans biochemistry,
         biotechnology, equity research, strategic finance, and private equity operations.
       </p>
       <p class="text-[15px] leading-[1.85]" style="color:#444;">
-        Cornell's Johnson School of Management sharpened his strategic discipline. Today he leads Plocamium Holdings,
-        operates through 1nessAgency and RDLB, and builds AI-native products that compound across decades.
+        MBA from Cornell's Johnson School of Management. He leads Plocamium Holdings,
+        runs 1nessAgency and RDLB, and builds AI-native software.
       </p>
     </div>
     <!-- Right: headshot -->
@@ -37,6 +39,7 @@
           width="840"
           height="1120"
           class="w-full block"
+          class="bio-headshot w-full block"
           style="aspect-ratio:3/4; object-fit:cover; object-position:center top;"
           loading="lazy"
         />

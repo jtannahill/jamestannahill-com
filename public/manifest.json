@@ -3,9 +3,11 @@
   "short_name": "J. Tannahill",
   "description": "Operator. Investor. Builder.",
   "start_url": "/",
+  "scope": "/",
   "display": "browser",
   "background_color": "#0a0a0a",
   "theme_color": "#0a0a0a",
+  "categories": ["business", "finance", "productivity"],
   "icons": [
     {
       "src": "/icon-192.png",

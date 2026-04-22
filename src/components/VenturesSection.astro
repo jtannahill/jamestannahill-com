@@ -9,7 +9,7 @@ const ventures = [
   },
   {
     name: 'RDLB',
-    description: 'Strategic brand architecture for investors and operators. Engineers positioning, narrative systems, and go-to-market structure — converting trust into momentum and intention into capital movement.',
+    description: 'Strategic brand architecture for investors and operators. Engineers positioning, narrative systems, and go-to-market structure - converting trust into momentum and intention into capital movement.',
     url: 'https://www.rdlb.nyc/',
     logo: '/logos/rdlb.png',
     logoH: 36,
@@ -23,51 +23,63 @@ const ventures = [
   },
   {
     name: 'NewYorkLab',
-    description: 'Urban intelligence platform mapping the future state of cities through data. Deploys sensor networks, environmental analytics, and real-time monitoring systems — visual intelligence that helps decision-makers understand and reshape the urban fabric.',
+    description: 'Urban intelligence platform mapping the future state of cities through data. Deploys sensor networks, environmental analytics, and real-time monitoring systems - visual intelligence that helps decision-makers understand and reshape the urban fabric.',
     url: 'https://newyorklab.co/',
     logo: '/logos/newyorklab.png',
     logoH: 52,
   },
   {
     name: 'HMU API',
-    description: 'People, apps, and AI agents all need a way to reach you — HMU API gives them structured channels that self-organize, so you stop managing inbound and start making decisions. Don\'t email me. HMU. HitMyAPI.com',
+    description: 'People, apps, and AI agents all need a way to reach you - HMU API gives them structured channels that self-organize, so you stop managing inbound and start making decisions. Don\'t email me. HMU. HitMyAPI.com',
     url: 'https://hmuapi.com',
     logo: '/logos/hmuapi.png',
     logoH: 70,
   },
   {
     name: 'MonkeyThorn Meet',
-    description: 'Video conferencing where privacy is architecture, not a checkbox. Zero AI processing, zero recordings, zero metadata — encryption keys never leave the browser. Trust as guarantee, not corporate promise.',
+    description: 'Video conferencing where privacy is architecture, not a checkbox. Zero AI processing, zero recordings, zero metadata - encryption keys never leave the browser. Trust as guarantee, not corporate promise.',
     url: 'https://meet.monkeythorn.com/meet',
     logo: '/logos/monkeythorn.png',
     logoH: 44,
   },
   {
     name: 'gOOOvy',
-    description: 'Automated out-of-office engine for Google Voice built on schedule-aware intelligence. Converts missed texts into instant, contextual responses — stay present while staying reachable.',
+    description: 'Automated out-of-office engine for Google Voice built on schedule-aware intelligence. Converts missed texts into instant, contextual responses - stay present while staying reachable.',
     url: 'https://gooovy.com',
     logo: '/logos/gooovy.png',
     logoH: 36,
   },
   {
     name: 'Art Generator',
-    description: 'Daily generative art rendered from live atmospheric data. Weather patterns, satellite palettes, and environmental signals converted into original artworks — 11 artists, daily rotation, SVG and print-quality output.',
+    description: 'Daily generative art rendered from live atmospheric data. Weather patterns, satellite palettes, and environmental signals converted into original artworks - 11 artists, daily rotation, PNG and print-quality output.',
     url: 'https://art.jamestannahill.com',
     logo: '',
     logoH: 44,
   },
 ];
 ---
+<style>
+  .venture-card {
+    border-top: 2px solid transparent;
+    transition: border-top-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+  .venture-card:hover {
+    border-top-color: var(--color-amber);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 32px rgba(0,0,0,0.07);
+    background: #fafaf8 !important;
+    z-index: 1;
+    position: relative;
+  }
+</style>
 <section class="border-t border-[var(--color-border)] bg-white">
   <div class="max-w-6xl mx-auto px-4 md:px-14 py-12 md:py-16">
     <p class="tracking-[0.2em] uppercase mb-10" style="font-size:17px; color:var(--color-amber);">Ventures & Platforms</p>
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-[var(--color-border)]">
       {ventures.map((v, i) => (
         <div
-          class="sr bg-white p-5 md:p-8 flex flex-col"
-          style={`border-top: 2px solid transparent; transition-delay: ${i * 60}ms; transition-property: opacity, transform, border-top-color;`}
-          onmouseenter="this.style.borderTopColor='var(--color-amber)'"
-          onmouseleave="this.style.borderTopColor='transparent'"
+          class="sr venture-card bg-white p-5 md:p-8 flex flex-col"
+          style={`transition-delay: ${i * 60}ms;`}
         >
           {v.logoFill ? (
             <a href={v.url} target="_blank" rel="noopener noreferrer" class="flex-1 flex items-center justify-center -m-8">
@@ -93,11 +105,11 @@ const ventures = [
                   <span style="font-family:'NHG Display',sans-serif; font-size:36px; font-weight:700; letter-spacing:-0.02em; color:#111;">Art.</span>
                 )}
               </div>
-              <p class="flex-1" style="font-size:13.5px; line-height:1.7; color:#888; display:-webkit-box; -webkit-line-clamp:8; -webkit-box-orient:vertical; overflow:hidden;">{v.description}</p>
+              <p class="flex-1" style="font-size:13.5px; line-height:1.7; color:#888; display:-webkit-box; -webkit-line-clamp:8; -webkit-box-orient:vertical; overflow:hidden; overflow-wrap:break-word; hyphens:auto;">{v.description}</p>
               {v.url && (
                 <a href={v.url} target="_blank" rel="noopener noreferrer"
-                   class="mt-4 text-[13px] tracking-[0.15em] uppercase"
-                   style="color:var(--color-amber);">
+                   class="mt-4 inline-block py-2 text-[13px] tracking-[0.15em] uppercase"
+                   style="color:var(--color-amber); min-height:44px; display:flex; align-items:center;">
                   Visit →
                 </a>
               )}
