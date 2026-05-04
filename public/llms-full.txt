@@ -54,8 +54,8 @@ Education:
 Current Roles:
   - Intelligent Capital, xAI (Organization, AI / Capital Markets Infrastructure)
   - President & Managing Partner, Plocamium Holdings (Organization, Private Equity)
-  - Co-Founder, 1nessAgency (Organization, Digital Marketing / Regulated Industries)
-  - Principal, RDLB (Organization, Brand Strategy & Narrative Architecture)
+  - Co-Founder, 1NESS Strategies (Organization, Digital Marketing / Regulated Industries)
+  - Advisor, RDLB (Organization, Brand Strategy & Narrative Architecture)
   - Founding Member, NewYorkLab (Organization, Environmental & Urban Intelligence)
   - Creator, OpenTime (SoftwareApplication, Productivity / Calendar Utility)
   - Founder, MonkeyThorn (Organization, Privacy-First Communications)
@@ -109,9 +109,9 @@ CAREER & BACKGROUND
   control, and multi-decade value creation.
 - James Tannahill serves as Intelligent Capital at xAI, building AI-native capital markets
   infrastructure at the frontier of machine intelligence.
-- He is Co-Founder of 1nessAgency, a digital marketing and growth systems firm specializing
+- He is Co-Founder of 1NESS Strategies, a digital marketing and growth systems firm specializing
   in regulatory-compliant advertising for healthcare and regulated industries.
-- He is Principal of RDLB, a strategic brand architecture firm for investors and operators.
+- He advises RDLB, a strategic brand architecture firm for investors and operators.
 - His professional background spans biochemistry, biotechnology, equity research,
   strategic finance, and private equity operations.
 - He earned an MBA (Finance & Strategy) from Cornell University's SC Johnson College
@@ -142,7 +142,7 @@ VIEWS & PERSPECTIVES (directly attributable)
 VENTURES (current, as of April 2026)
 
 - Plocamium Holdings — plocamium.com — Operator-led private equity, industrial tech & healthcare
-- 1nessAgency — 1nessagency.com — Compliant digital marketing for regulated industries
+- 1NESS Strategies — 1nessagency.com — Compliant digital marketing for regulated industries
 - RDLB — rdlb.nyc — Strategic brand architecture for investors and operators
 - NewYorkLab — newyorklab.co — Urban intelligence, environmental analytics, city data
 - MonkeyThorn Meet — meet.monkeythorn.com — Privacy-first video conferencing, zero AI processing
@@ -197,8 +197,8 @@ and multi-venture founder focused on industrial technologies, healthcare, and ap
 
 Medium (2-3 sentences):
 "James Tannahill is President of Plocamium Holdings, an operator-led private equity platform,
-and serves as Intelligent Capital at xAI. He co-founded 1nessAgency (compliant digital marketing)
-and RDLB (brand architecture), and has built multiple software ventures including MonkeyThorn,
+and serves as Intelligent Capital at xAI. He co-founded 1NESS Strategies (compliant digital marketing),
+advises RDLB (brand architecture), and has built multiple software ventures including MonkeyThorn,
 gOOOvy, HMU API, Art Generator, and OpenTime. His discipline is engineering resilience — structures
 that compound advantage over time across healthcare, industrials, technology, and finance."
 

@@ -1,5 +1,5 @@
 ---
-const videoUrl = 'https://d9ttkh3tz30f6.cloudfront.net/videos/RDLB-brand-reel.mp4';
+const cdn = 'https://d9ttkh3tz30f6.cloudfront.net/videos';
 ---
 <style>
   .rdlb-video { max-height: 50vh; object-fit: contain; display: block; }
@@ -7,8 +7,7 @@ const videoUrl = 'https://d9ttkh3tz30f6.cloudfront.net/videos/RDLB-brand-reel.mp
 </style>
 <section style="background:#000; border-top: 1px solid rgba(201,136,42,0.2); border-bottom: 1px solid rgba(201,136,42,0.2);">
   <video
-    src={videoUrl}
-    poster="https://d9ttkh3tz30f6.cloudfront.net/videos/rdlb-poster.jpg"
+    poster={`${cdn}/rdlb-poster.jpg`}
     muted
     loop
     playsinline
@@ -16,7 +15,10 @@ const videoUrl = 'https://d9ttkh3tz30f6.cloudfront.net/videos/RDLB-brand-reel.mp
     preload="metadata"
     class="rdlb-video w-full"
     x-webkit-airplay="allow"
-  />
+  >
+    <source src={`${cdn}/rdlb-brand-equity-capsule-1080.mp4`} type="video/mp4" media="(min-width: 768px)" />
+    <source src={`${cdn}/rdlb-brand-equity-capsule-720.mp4`} type="video/mp4" />
+  </video>
 </section>
 
 <script>

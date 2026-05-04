@@ -29,7 +29,9 @@ public/
 
 Videos (large, not in repo — stored directly in S3):
 - `videos/contact-bg.mp4` — contact page background
-- `videos/RDLB-brand-reel.mp4` — RDLB brand reel
+- `videos/rdlb-brand-equity-capsule-1080.mp4` — RDLB Brand Equity Capsule (desktop, 1080p)
+- `videos/rdlb-brand-equity-capsule-720.mp4` — RDLB Brand Equity Capsule (mobile, 720p)
+- `videos/rdlb-poster.jpg` — poster frame
 
 ## Development
 
