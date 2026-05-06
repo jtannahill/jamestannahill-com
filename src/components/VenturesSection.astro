@@ -1,5 +1,14 @@
 ---
-const ventures = [
+interface Venture {
+  name: string;
+  description: string;
+  url: string;
+  logo: string;
+  logoH: number;
+  logoFill?: boolean;
+}
+
+const ventures: Venture[] = [
   {
     name: 'Plocamium Holdings',
     description: 'Operator-led private equity platform deploying patient capital across industrial technologies and healthcare. Converts operational complexity into strategic leverage and compounding free cash flow. Third-generation family enterprise engineered for continuity, control, and multi-decade value creation.',

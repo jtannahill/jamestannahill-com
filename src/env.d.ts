@@ -8,5 +8,10 @@ type Env = {
 };
 
 declare namespace App {
-  interface Locals extends Runtime<Env> {}
+  interface Locals {
+    runtime: {
+      env: Env;
+      cfContext: ExecutionContext;
+    };
+  }
 }
