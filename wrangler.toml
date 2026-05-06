@@ -1,0 +1,13 @@
+name = "jamestannahill-com"
+compatibility_date = "2026-04-15"
+main = "./dist/server/entry.mjs"
+
+[assets]
+directory = "./dist/client"
+binding = "ASSETS"
+
+# Custom domains added in Task 12 after smoke test passes:
+# routes = [
+#   { pattern = "jamestannahill.com", custom_domain = true },
+#   { pattern = "www.jamestannahill.com", custom_domain = true },
+# ]
