@@ -1,8 +1,16 @@
 ---
+import { actions } from 'astro:actions';
+
+const TURNSTILE_SITE_KEY = '1x00000000000000000000AA'; // Cloudflare always-passes test key — replace in Task 11.
 ---
 <div class="max-w-2xl">
   <h2 class="text-2xl font-bold mb-2 text-white" style="font-family:'NHG Display',sans-serif;">Get in Touch</h2>
-  <form id="contact-form" class="space-y-6 md:space-y-10 mt-8">
+  <form
+    id="contact-form"
+    method="POST"
+    action={actions.sendContact}
+    class="space-y-6 md:space-y-10 mt-8"
+  >
     <div class="grid sm:grid-cols-2 gap-6 sm:gap-10">
       <div>
         <label class="block text-[11px] uppercase tracking-wider mb-3" style="color:rgba(255,255,255,0.45);" for="firstName">First Name *</label>
@@ -43,6 +51,16 @@
                 class="w-full bg-transparent text-white text-sm focus:outline-none resize-none pb-3"
                 style="border:none; border-bottom:1px solid rgba(255,255,255,0.25);"></textarea>
     </div>
+
+    {/* Honeypot — visually hidden, ignored by humans, filled by dumb bots */}
+    <div aria-hidden="true" style="position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;">
+      <label for="website">Website</label>
+      <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+    </div>
+
+    {/* Turnstile widget renders into this div once the script loads */}
+    <div class="cf-turnstile" data-sitekey={TURNSTILE_SITE_KEY}></div>
+
     <button type="submit" id="contact-submit"
             class="px-8 py-3 min-h-[44px] text-white text-[13px] tracking-[0.18em] uppercase"
             style="background:var(--color-amber);">
@@ -57,13 +75,15 @@
   </form>
 </div>
 
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer is:inline></script>
+
 <script>
+  import { actions, isInputError } from 'astro:actions';
+
   const form = document.getElementById('contact-form') as HTMLFormElement;
   const btn = document.getElementById('contact-submit') as HTMLButtonElement;
   const success = document.getElementById('contact-success')!;
   const error = document.getElementById('contact-error')!;
-
-  const API_URL = 'https://a1swgpk2ba.execute-api.us-east-1.amazonaws.com/contact';
 
   form?.querySelectorAll('input, textarea').forEach((el) => {
     el.addEventListener('focus', () => (el as HTMLElement).style.borderBottomColor = 'var(--color-amber)');
@@ -77,25 +97,20 @@
     success.classList.add('hidden');
     error.classList.add('hidden');
 
-    const data = Object.fromEntries(new FormData(form));
+    const formData = new FormData(form);
+    const { error: actionError } = await actions.sendContact(formData);
 
-    try {
-      const res = await fetch(API_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
-      if (!res.ok) throw new Error('Non-2xx');
+    if (actionError) {
+      error.classList.remove('hidden');
+    } else {
       form.reset();
       success.classList.remove('hidden');
       if (typeof (window as any).gtag === 'function') {
         (window as any).gtag('event', 'form_submit', { form_id: 'contact', status: 'success' });
       }
-    } catch {
-      error.classList.remove('hidden');
-    } finally {
-      btn.textContent = 'Send Message';
-      btn.disabled = false;
     }
+
+    btn.textContent = 'Send Message';
+    btn.disabled = false;
   });
 </script>
