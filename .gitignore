@@ -28,3 +28,6 @@ pnpm-debug.log*
 cdk/node_modules/
 cdk/dist/
 cdk/cdk.out/
+
+# Wrangler local state
+.wrangler/
