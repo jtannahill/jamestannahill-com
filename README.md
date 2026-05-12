@@ -6,11 +6,11 @@ Personal site for James Tannahill — operator, investor, builder.
 
 ## Stack
 
-- [Astro 6](https://astro.build) — static site generator
+- [Astro 6](https://astro.build) — SSR build, deployed as a Cloudflare Worker
 - [Tailwind CSS 4](https://tailwindcss.com) — utility-first styling
-- AWS S3 + CloudFront — hosting and CDN
-- AWS SES + API Gateway + Lambda — contact form backend
-- NHG Display (Roman 400, Medium 500, Bold 700) — self-hosted via fonts.jamestannahill.com
+- [Cloudflare Workers](https://workers.cloudflare.com) + [R2](https://developers.cloudflare.com/r2/) — hosting, edge runtime, and large-asset storage (`media.jamestannahill.com` for video >25 MiB)
+- Astro Actions → AWS SES — contact form backend with honeypot + [Cloudflare Turnstile](https://www.cloudflare.com/products/turnstile/)
+- NHG Display (Roman 400, Medium 500, Bold 700) — self-hosted via `fonts.jamestannahill.com`
 
 ## Structure
 
@@ -27,7 +27,7 @@ public/
   james-casual.jpg  # CasualSection full-width photo
 ```
 
-Videos (large, not in repo — stored directly in S3):
+Videos (large, not in repo — served from R2 at `media.jamestannahill.com`):
 - `videos/contact-bg.mp4` — contact page background
 - `videos/rdlb-brand-equity-capsule-1080.mp4` — RDLB Brand Equity Capsule (desktop, 1080p)
 - `videos/rdlb-brand-equity-capsule-720.mp4` — RDLB Brand Equity Capsule (mobile, 720p)
@@ -44,21 +44,11 @@ npm run dev
 
 ```bash
 npm run build
-
-# Assets (long cache)
-aws s3 sync dist/ s3://jamestannahill.com-site --delete \
-  --exclude "*.html" --exclude "sitemap*" --exclude "robots.txt" --exclude "llms*" \
-  --cache-control "public,max-age=31536000,immutable"
-
-# HTML + meta files (no cache)
-aws s3 sync dist/ s3://jamestannahill.com-site --delete \
-  --exclude "*" --include "*.html" --include "sitemap*" --include "robots.txt" --include "llms*" \
-  --cache-control "public,max-age=0,must-revalidate"
-
-aws cloudfront create-invalidation --distribution-id E1KASWFXCUI8NS --paths "/*"
+npx wrangler deploy
 ```
+
+Worker assets are versioned by Wrangler; large media lives in the `media-jamestannahill-com` R2 bucket and is served from `media.jamestannahill.com`.
 
 ## DNS
 
-Cloudflare → CloudFront (`d9ttkh3tz30f6.cloudfront.net`)  
-SSL via AWS ACM cert for `jamestannahill.com` + `www.jamestannahill.com`
+Cloudflare-native — Worker bound to `jamestannahill.com` + `www.jamestannahill.com` via a Workers route. TLS is managed by Cloudflare.
