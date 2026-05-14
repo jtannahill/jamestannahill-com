@@ -1,8 +1,14 @@
+# Deploy is manual-only because the repo does not have Cloudflare secrets set.
+# To enable push-to-deploy:
+#   1. gh secret set CLOUDFLARE_API_TOKEN --repo jtannahill/jamestannahill-com
+#   2. gh secret set CLOUDFLARE_ACCOUNT_ID --repo jtannahill/jamestannahill-com
+#   3. Replace `on:` with `on: { push: { branches: [main] }, workflow_dispatch: {} }`
+#
+# Until then, run manually via: gh workflow run Deploy --repo jtannahill/jamestannahill-com
+# Or deploy locally via: npm run build && npx wrangler deploy
 name: Deploy
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 jobs:
