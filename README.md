@@ -19,6 +19,8 @@ src/
   components/   # Page sections (Hero, Bio, Ventures, FAQ, etc.)
   layouts/      # BaseLayout with Google Analytics + scroll reveal
   pages/        # index, faqs (contact), privacy, terms, accessibility
+                # privacy: scoped to jamestannahill.com + map./contact. subdomains
+                # (all three ship the same GA4 property G-WRDEHD4QYL)
   styles/       # global.css (CSS vars, font-face, scroll reveal)
 public/
   logos/        # Venture logos (PNG, mix-blend-mode:multiply)
