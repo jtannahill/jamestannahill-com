@@ -2,7 +2,7 @@
 
 Personal site for James Tannahill: operator, investor, builder.
 
-**Live:** [jamestannahill.com](https://www.jamestannahill.com)
+**Live:** [jamestannahill.com](https://jamestannahill.com)
 
 ## Stack
 
