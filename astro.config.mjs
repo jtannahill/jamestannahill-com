@@ -4,7 +4,10 @@ import sitemap from '@astrojs/sitemap';
 import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
-  site: 'https://www.jamestannahill.com',
+  // Apex is canonical: www 301s to the apex via a CF redirect rule, and all
+  // page canonicals use the apex. `site` drives sitemap URLs — keep aligned
+  // or GSC flags every sitemap entry as "Page with redirect".
+  site: 'https://jamestannahill.com',
   output: 'server',
   adapter: cloudflare({
     imageService: 'compile',
@@ -17,9 +20,9 @@ export default defineConfig({
   integrations: [
     sitemap({
       serialize(item) {
-        const today = new Date().toISOString().split('T')[0];
-        item.lastmod = today;
-        if (item.url === 'https://www.jamestannahill.com/') {
+        // No lastmod: stamping build time on every URL is an inaccurate
+        // lastmod, which Google's sitemap guidelines say gets ignored.
+        if (item.url === 'https://jamestannahill.com/') {
           item.priority = 1.0;
           item.changefreq = 'monthly';
         } else if (item.url.includes('/faqs')) {
