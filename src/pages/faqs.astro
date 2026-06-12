@@ -3,14 +3,27 @@ export const prerender = true;
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/ContactForm.astro';
 import FAQAccordion from '../components/FAQAccordion.astro';
+import { faqs } from '../data/faqs';
 
 const cdn = 'https://media.jamestannahill.com';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  '@id': 'https://jamestannahill.com/faqs/#faq',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
 ---
 <BaseLayout
-  title="James Tannahill | Contact & Professional Inquiries"
-  description="Get in touch with James Tannahill - private equity advisory, value engineering, and strategic partnerships."
+  title="James Tannahill | Contact, FAQs & Professional Inquiries"
+  description="Contact James Tannahill for private equity advisory and value engineering. Answers to common questions on valuation levers, exit multiples, and applied AI."
   canonical="https://jamestannahill.com/faqs/"
 >
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <!-- Hero video: NYC night skyline -->
   <section class="relative flex flex-col justify-end pb-12 md:pb-16 px-6 md:px-14 overflow-hidden"
            style="background:#0a0a0a; min-height:62vh;">
