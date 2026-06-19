@@ -4,6 +4,10 @@ compatibility_date = "2026-04-15"
 [assets]
 directory = "./dist/client"
 binding = "ASSETS"
+html_handling = "drop-trailing-slash"
+# Run Worker before static assets so middleware security headers apply to prerendered HTML.
+run_worker_first = true
+not_found_handling = "404-page"
 
 # Custom domains added in Task 12 after smoke test passes:
 # routes = [
