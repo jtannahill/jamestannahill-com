@@ -1,0 +1,41 @@
+---
+---
+<div
+  id="consent-banner"
+  hidden
+  aria-hidden="true"
+  role="dialog"
+  aria-labelledby="consent-title"
+  aria-describedby="consent-desc"
+  class="fixed bottom-0 left-0 right-0 z-[60] px-4 pb-4"
+>
+  <div
+    class="mx-auto max-w-3xl rounded-lg border px-5 py-4 shadow-lg"
+    style="background:#111; border-color:rgba(255,255,255,0.12);"
+  >
+    <p id="consent-title" class="text-sm font-semibold text-white mb-1">Cookie preferences</p>
+    <p id="consent-desc" class="text-[13px] leading-relaxed mb-4" style="color:rgba(255,255,255,0.65);">
+      We use Google Analytics and Microsoft Clarity to understand aggregate site usage.
+      Accept to enable analytics cookies, or reject to continue without them.
+      <a href="/privacy/" class="underline" style="color:var(--color-amber);">Privacy Policy</a>
+    </p>
+    <div class="flex flex-wrap gap-3">
+      <button
+        id="consent-accept"
+        type="button"
+        class="px-5 py-2 text-[12px] tracking-[0.14em] uppercase text-white min-h-[44px]"
+        style="background:var(--color-amber);"
+      >
+        Accept
+      </button>
+      <button
+        id="consent-reject"
+        type="button"
+        class="px-5 py-2 text-[12px] tracking-[0.14em] uppercase min-h-[44px]"
+        style="color:rgba(255,255,255,0.8); border:1px solid rgba(255,255,255,0.2);"
+      >
+        Reject
+      </button>
+    </div>
+  </div>
+</div>

@@ -12,15 +12,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">Legal</p>
       <h1 class="text-[28px] font-semibold tracking-tight mb-2" style="color:#1a1a1a;">Privacy Policy</h1>
-      <p class="text-[12px] mb-12" style="color:#999;">Last updated: April 7, 2026</p>
+      <p class="text-[12px] mb-12" style="color:#999;">Last updated: June 19, 2026</p>
 
-      <!-- Overview -->
       <section class="mb-10">
         <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">Overview</p>
         <p class="text-[15px] leading-[1.85] mb-4" style="color:#444;">
           This Privacy Policy describes how <strong>jamestannahill.com and its subdomains</strong> (the "Site"),
-          including <a href="https://map.jamestannahill.com" class="underline hover:opacity-70" style="color:var(--color-amber);">map.jamestannahill.com</a>
-          and <a href="https://contact.jamestannahill.com" class="underline hover:opacity-70" style="color:var(--color-amber);">contact.jamestannahill.com</a>,
+          including <a href="https://map.jamestannahill.com" class="underline hover:opacity-70" style="color:var(--color-amber);">map.jamestannahill.com</a>,
+          <a href="https://fonts.jamestannahill.com" class="underline hover:opacity-70" style="color:var(--color-amber);">fonts.jamestannahill.com</a>,
+          and <a href="https://media.jamestannahill.com" class="underline hover:opacity-70" style="color:var(--color-amber);">media.jamestannahill.com</a>,
           collect, use, and handle information when you visit or interact with them. The Site is a personal
           professional website. It does not operate user accounts and does not engage in behavioral advertising
           or retargeting.
@@ -30,7 +30,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </p>
       </section>
 
-      <!-- What We Collect -->
       <section class="mb-10">
         <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">Information We Collect</p>
         <p class="text-[15px] leading-[1.85] mb-4" style="color:#444;">
@@ -47,22 +46,32 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           Contact form submissions are transmitted directly to the Site owner's private email inbox via Amazon Web
           Services Simple Email Service (SES). They are <strong>not stored in any database</strong>, not logged to
           any analytics platform, and not retained by any third-party service beyond the email delivery pipeline.
+          The contact form is protected by <strong>Cloudflare Turnstile</strong>, which may process browser signals
+          to distinguish legitimate visitors from automated abuse.
         </p>
       </section>
 
-      <!-- Cookies & Analytics -->
       <section class="mb-10">
         <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">Cookies &amp; Analytics</p>
         <p class="text-[15px] leading-[1.85] mb-4" style="color:#444;">
-          This Site uses a limited set of Google services to operate fonts, video embeds, and basic traffic
-          measurement. As a result, certain cookies may be set in your browser by Google when you visit this
-          Site. Specifically:
+          The Site uses a small set of third-party services for aggregate traffic measurement and abuse prevention.
+          Analytics cookies are loaded only after you accept them in the cookie banner (required for visitors in the
+          EEA, UK, and Switzerland) or immediately for visitors outside those regions who have not previously rejected
+          analytics. Specifically:
         </p>
         <ul class="text-[15px] leading-[1.85] pl-5 list-disc mb-4" style="color:#444;">
-          <li><strong>Google Fonts</strong> - used to render typography. Google may log standard request data (IP address, user-agent) on its CDN.</li>
-          <li><strong>YouTube embeds</strong> - any embedded YouTube video uses the standard YouTube player, which sets cookies and may collect viewing data per <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-70" style="color:var(--color-amber);">Google's Privacy Policy</a>.</li>
-          <li><strong>Google Analytics 4 (GA4)</strong> - used to measure aggregate Site traffic and page-level engagement across jamestannahill.com, map.jamestannahill.com, and contact.jamestannahill.com (single GA4 property, ID <code>G-WRDEHD4QYL</code>). Sets <code>_ga</code>, <code>_ga_*</code>, <code>_gid</code>, and <code>_gat</code> cookies in your browser. Data is processed by Google LLC under the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-70" style="color:var(--color-amber);">Google Privacy Policy</a>. To opt out, install the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-70" style="color:var(--color-amber);">Google Analytics Opt-Out Browser Add-on</a> or use your browser's tracking-protection controls.</li>
+          <li><strong>Google Analytics 4 (GA4)</strong> - measures aggregate traffic and page-level engagement (property ID <code>G-WRDEHD4QYL</code>). May set <code>_ga</code>, <code>_ga_*</code>, <code>_gid</code>, and <code>_gat</code> cookies. Governed by the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-70" style="color:var(--color-amber);">Google Privacy Policy</a>.</li>
+          <li><strong>Microsoft Clarity</strong> - session replay and heatmap analytics for UX improvement. May set first-party and Clarity-domain cookies. Governed by the <a href="https://privacy.microsoft.com/" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-70" style="color:var(--color-amber);">Microsoft Privacy Statement</a>.</li>
+          <li><strong>Cloudflare Turnstile</strong> - bot protection on the contact form only. Does not use advertising cookies.</li>
         </ul>
+        <p class="text-[15px] leading-[1.85] mb-4" style="color:#444;">
+          Typography is served from <strong>self-hosted fonts</strong> at <code>fonts.jamestannahill.com</code> (not Google Fonts).
+          Video on the Site is <strong>self-hosted</strong> at <code>media.jamestannahill.com</code> (not YouTube embeds).
+        </p>
+        <p class="text-[15px] leading-[1.85] mb-4" style="color:#444;">
+          You can reject analytics cookies via the banner, clear site data in your browser, or install the
+          <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-70" style="color:var(--color-amber);">Google Analytics Opt-Out Browser Add-on</a>.
+        </p>
         <p class="text-[15px] leading-[1.85] mb-4" style="color:#444;">
           The Site does <strong>not</strong> use:
         </p>
@@ -73,19 +82,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </ul>
       </section>
 
-      <!-- AWS / Infrastructure -->
       <section class="mb-10">
         <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">Infrastructure & Server Logs</p>
         <p class="text-[15px] leading-[1.85]" style="color:#444;">
-          Static assets, video content, and site files are served through Amazon CloudFront (AWS). Per AWS default
-          behavior, CloudFront and related infrastructure may capture standard server-side logs that include IP
-          addresses, request timestamps, and browser user-agent strings. These logs are incidental to infrastructure
-          operation, are not used for marketing or profiling purposes, and are governed by
+          The Site is hosted on <strong>Cloudflare Workers</strong>. Static assets, fonts, and video are additionally
+          served through <strong>Amazon CloudFront</strong>. Both providers may capture standard server-side logs
+          (IP address, request timestamps, user-agent) incidental to operation. These logs are not used for
+          marketing or profiling and are governed by
+          <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-70" style="color:var(--color-amber);">Cloudflare's Privacy Policy</a>
+          and
           <a href="https://aws.amazon.com/privacy/" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-70" style="color:var(--color-amber);">Amazon's Privacy Policy</a>.
         </p>
       </section>
 
-      <!-- How We Use Information -->
       <section class="mb-10">
         <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">How We Use Your Information</p>
         <p class="text-[15px] leading-[1.85]" style="color:#444;">
@@ -95,7 +104,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </p>
       </section>
 
-      <!-- Data Retention -->
       <section class="mb-10">
         <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">Data Retention</p>
         <p class="text-[15px] leading-[1.85]" style="color:#444;">
@@ -105,13 +113,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </p>
       </section>
 
-      <!-- GDPR -->
       <section class="mb-10">
         <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">European Visitors (GDPR)</p>
         <p class="text-[15px] leading-[1.85] mb-4" style="color:#444;">
-          If you are located in the European Economic Area (EEA) or the United Kingdom, you have certain rights under
-          the General Data Protection Regulation (GDPR) and applicable UK data protection law with respect to any
-          personal data you submit:
+          If you are located in the European Economic Area (EEA), United Kingdom, or Switzerland, analytics cookies are
+          placed only after you provide consent via the cookie banner. You may withdraw consent at any time by clearing
+          site data or contacting us. You also have the following rights with respect to personal data you submit:
         </p>
         <ul class="text-[15px] leading-[1.85] pl-5 list-disc mb-4" style="color:#444;">
           <li><strong>Right of access</strong> - you may request confirmation of whether your data is held and receive a copy</li>
@@ -122,12 +129,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </ul>
         <p class="text-[15px] leading-[1.85]" style="color:#444;">
           To exercise any of these rights, contact <a href="mailto:web@jamestannahill.com" class="underline hover:opacity-70" style="color:var(--color-amber);">web@jamestannahill.com</a>.
-          Requests will be honored within 30 days. Note that because the Site does not maintain a database, the
-          practical scope of most requests is limited to email correspondence already in the inbox.
+          Requests will be honored within 30 days.
         </p>
       </section>
 
-      <!-- CCPA -->
       <section class="mb-10">
         <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">California Residents (CCPA)</p>
         <p class="text-[15px] leading-[1.85] mb-4" style="color:#444;">
@@ -145,7 +150,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </p>
       </section>
 
-      <!-- Changes -->
+      <section class="mb-10">
+        <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">Security Contact</p>
+        <p class="text-[15px] leading-[1.85]" style="color:#444;">
+          To report a security vulnerability, see
+          <a href="https://jamestannahill.com/.well-known/security.txt" class="underline hover:opacity-70" style="color:var(--color-amber);">security.txt</a>
+          or email <a href="mailto:web@jamestannahill.com" class="underline hover:opacity-70" style="color:var(--color-amber);">web@jamestannahill.com</a>.
+        </p>
+      </section>
+
       <section class="mb-10">
         <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">Changes to This Policy</p>
         <p class="text-[15px] leading-[1.85]" style="color:#444;">
@@ -155,7 +168,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </p>
       </section>
 
-      <!-- Contact -->
       <section class="mb-4">
         <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">Contact</p>
         <p class="text-[15px] leading-[1.85]" style="color:#444;">

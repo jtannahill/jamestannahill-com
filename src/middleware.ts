@@ -1,15 +1,16 @@
 import { defineMiddleware } from 'astro:middleware';
+import { requiresAnalyticsConsent, SECURITY_HEADER_ENTRIES } from './lib/security-headers';
 
-export const onRequest = defineMiddleware(async (_context, next) => {
+export const onRequest = defineMiddleware(async (context, next) => {
+  const country = context.request.headers.get('CF-IPCountry');
+  context.locals.country = country ?? undefined;
+  context.locals.requiresConsent = requiresAnalyticsConsent(country);
+
   const response = await next();
 
-  response.headers.set(
-    'Strict-Transport-Security',
-    'max-age=31536000; includeSubDomains; preload',
-  );
-  response.headers.set('X-Content-Type-Options', 'nosniff');
-  response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
-  response.headers.set('X-Frame-Options', 'SAMEORIGIN');
+  for (const [name, value] of SECURITY_HEADER_ENTRIES) {
+    response.headers.set(name, value);
+  }
 
   return response;
 });

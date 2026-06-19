@@ -2,6 +2,7 @@
 import SEOHead from '../components/SEOHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import ConsentBanner from '../components/ConsentBanner.astro';
 import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
 
@@ -11,26 +12,14 @@ interface Props {
   canonical: string;
 }
 const { title, description, canonical } = Astro.props;
+const isHome = Astro.url.pathname === '/';
 ---
 <!doctype html>
 <html lang="en">
   <head>
     <SEOHead title={title} description={description} canonical={canonical} />
     <link rel="manifest" href="/manifest.json" />
-    {Astro.url.pathname === '/' && (
-      <script is:inline>
-        // Pick the hero variant BEFORE preloading so we only ever fetch the one we render.
-        // Hero.astro reads window.__heroB to swap the <picture> sources to match.
-        window.__heroB = Math.random() < 0.5;
-        var heroPreload = document.createElement('link');
-        heroPreload.rel = 'preload';
-        heroPreload.as = 'image';
-        heroPreload.type = 'image/webp';
-        heroPreload.fetchPriority = 'high';
-        heroPreload.href = window.__heroB ? '/hero-bg-skyline.webp' : '/hero-bg.webp';
-        document.head.appendChild(heroPreload);
-      </script>
-    )}
+    {isHome && <script src="/scripts/hero-preload.js" defer></script>}
     <noscript>
       <style>
         .sr { opacity: 1 !important; transform: none !important; animation: none !important; }
@@ -39,24 +28,8 @@ const { title, description, canonical } = Astro.props;
     <link rel="preload" href="https://fonts.jamestannahill.com/NHGDisplay-Roman.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="https://fonts.jamestannahill.com/NHGDisplay-Medium.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="https://fonts.jamestannahill.com/NHGDisplay-Bold.woff2" as="font" type="font/woff2" crossorigin />
-    <!-- View Transitions SPA router -->
     <ClientRouter />
-    <!-- Microsoft Clarity -->
-    <script type="text/javascript">
-      (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-      })(window, document, "clarity", "script", "u7pqjnxu1z");
-    </script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WRDEHD4QYL"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-WRDEHD4QYL');
-    </script>
+    <script src="/scripts/analytics.js" defer></script>
   </head>
   <body>
     <Header />
@@ -64,6 +37,8 @@ const { title, description, canonical } = Astro.props;
       <slot />
     </main>
     <Footer />
+    <ConsentBanner />
+    <script src="/scripts/consent.js" defer></script>
     <script>
       // ── Event tracking helper ────────────────────────────────────
       function gtrack(event_name: string, params: Record<string, string> = {}) {
@@ -74,7 +49,7 @@ const { title, description, canonical } = Astro.props;
 
       // ── Scroll reveal - JS fallback for browsers without animation-timeline ──
       function initScrollReveal() {
-        if (CSS.supports('animation-timeline', 'scroll()')) return; // CSS handles it
+        if (CSS.supports('animation-timeline', 'scroll()')) return;
         const revealObserver = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
@@ -84,26 +59,23 @@ const { title, description, canonical } = Astro.props;
               }
             });
           },
-          { threshold: 0.08 }
+          { threshold: 0.08 },
         );
         document.querySelectorAll('.sr').forEach((el) => revealObserver.observe(el));
       }
 
       // ── Per-page event listeners ─────────────────────────────────
       function initTracking() {
-        // Hero CTA - "Get in Touch"
         document.querySelector('main a[href^="/faqs"]')?.addEventListener('click', () => {
           gtrack('cta_click', { cta_label: 'Get in Touch', location: 'hero' });
         });
 
-        // Nav external links
         document.querySelectorAll('header a[target="_blank"]').forEach((el) => {
           el.addEventListener('click', () => {
             gtrack('nav_click', { label: (el as HTMLElement).textContent?.trim() ?? '' });
           });
         });
 
-        // Venture "Visit →" links
         document.querySelectorAll('a[href*="plocamium"], a[href*="rdlb"], a[href*="1ness"], a[href*="newyorklab"], a[href*="hmuapi"], a[href*="monkeythorn"], a[href*="gooovy"], a[href*="art.jamestannahill"]').forEach((el) => {
           el.addEventListener('click', () => {
             const url = (el as HTMLAnchorElement).href;
@@ -111,7 +83,6 @@ const { title, description, canonical } = Astro.props;
           });
         });
 
-        // FAQ accordion opens
         document.querySelectorAll('details').forEach((el) => {
           el.addEventListener('toggle', () => {
             if ((el as HTMLDetailsElement).open) {
@@ -121,7 +92,6 @@ const { title, description, canonical } = Astro.props;
           });
         });
 
-        // RDLB reel video play
         document.querySelectorAll('video').forEach((v) => {
           v.addEventListener('play', () => {
             gtrack('video_play', { video_src: (v as HTMLVideoElement).currentSrc || (v as HTMLVideoElement).src || 'unknown' });
@@ -129,7 +99,11 @@ const { title, description, canonical } = Astro.props;
         });
       }
 
-      // ── GA4 page view on View Transitions navigation ─────────────
+      function registerServiceWorker() {
+        if (!('serviceWorker' in navigator)) return;
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      }
+
       document.addEventListener('astro:page-load', () => {
         if (typeof (window as any).gtag === 'function') {
           (window as any).gtag('event', 'page_view', {
@@ -141,9 +115,9 @@ const { title, description, canonical } = Astro.props;
         initTracking();
       });
 
-      // Initial load
       initScrollReveal();
       initTracking();
+      registerServiceWorker();
     </script>
   </body>
 </html>

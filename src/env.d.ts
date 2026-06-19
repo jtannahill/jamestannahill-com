@@ -13,5 +13,7 @@ declare namespace App {
       env: Env;
       cfContext: ExecutionContext;
     };
+    country?: string;
+    requiresConsent?: boolean;
   }
 }

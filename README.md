@@ -57,3 +57,29 @@ Worker assets are versioned by Wrangler; large media lives in the `media-jamesta
 ## DNS
 
 Cloudflare-native: Worker bound to `jamestannahill.com` + `www.jamestannahill.com` via a Workers route. TLS is managed by Cloudflare.
+
+### Hardening scripts (run manually with credentials)
+
+```bash
+# CAA records + SPF -all
+# Create token: Dashboard → My Profile → API Tokens → "Edit zone DNS" for jamestannahill.com
+export CLOUDFLARE_API_TOKEN="your-real-token"
+# CLOUDFLARE_ZONE_ID is optional — script auto-resolves it
+./infra/cloudflare/apply-dns.sh
+
+# CloudFront response headers on fonts/media/map subdomains
+./infra/aws/apply-cloudfront-headers.sh fonts.jamestannahill.com
+./infra/aws/apply-cloudfront-headers.sh media.jamestannahill.com
+./infra/aws/apply-cloudfront-headers.sh map.jamestannahill.com
+```
+
+If `apply-dns.sh` returns **403**, your token lacks `Zone.DNS.Edit` for this zone.
+A Workers-only deploy token will not work.
+
+Security contact: `/.well-known/security.txt`
+
+## Privacy & analytics
+
+- EU/UK/CH visitors see a cookie consent banner before GA4 + Clarity load
+- Analytics scripts are consent-gated via `/scripts/analytics.js` + `/scripts/consent.js`
+- CSP drops `script-src 'unsafe-inline'`; inline scripts moved to `/public/scripts/`

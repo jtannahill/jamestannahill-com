@@ -1,15 +1,17 @@
 ---
 ---
 <section class="relative min-h-screen flex flex-col justify-end pb-12 md:pb-16 px-6 md:px-14 overflow-hidden" style="background:#0a0a0a;">
-  <!-- Background photo - extended for parallax travel room. One of two variants picked per visit. -->
   <div class="absolute hero-parallax-bg" style="inset:-12% 0; z-index:0;">
     <picture>
-      <source id="hero-bg-source" srcset="/hero-bg.webp" type="image/webp" />
+      <source id="hero-bg-avif" srcset="/hero-bg.avif" type="image/avif" />
+      <source id="hero-bg-webp" srcset="/hero-bg.webp" type="image/webp" />
       <img
         id="hero-bg-img"
         src="/hero-bg.jpg"
+        data-bg-a-avif="/hero-bg.avif"
         data-bg-a-webp="/hero-bg.webp"
         data-bg-a-jpg="/hero-bg.jpg"
+        data-bg-b-avif="/hero-bg-skyline.avif"
         data-bg-b-webp="/hero-bg-skyline.webp"
         data-bg-b-jpg="/hero-bg-skyline.jpg"
         alt=""
@@ -21,26 +23,12 @@
         fetchpriority="high"
       />
     </picture>
-    <!-- Gradient overlay - heavy at bottom for text contrast -->
     <div class="absolute inset-0"
          style="background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.5) 55%, rgba(0,0,0,0.88) 100%);"></div>
   </div>
 
-  <script is:inline>
-    (function () {
-      var img = document.getElementById('hero-bg-img');
-      var src = document.getElementById('hero-bg-source');
-      if (!img || !src) return;
-      // Variant chosen in BaseLayout <head> before the preload fired,
-      // so the swap always matches the image already in flight.
-      if (window.__heroB) {
-        src.srcset = img.getAttribute('data-bg-b-webp');
-        img.src = img.getAttribute('data-bg-b-jpg');
-      }
-    })();
-  </script>
+  <script src="/scripts/hero-variant.js" defer></script>
 
-  <!-- Content -->
   <div class="relative max-w-3xl" style="z-index:10;">
     <h1 class="font-bold leading-none text-white mb-6"
         style="font-family:'NHG Display',sans-serif; font-size:clamp(52px,9vw,96px); letter-spacing:-0.03em; animation: blurIn 1.1s ease both; animation-delay: 0.2s;">
@@ -60,7 +48,6 @@
     </div>
   </div>
 
-  <!-- Scroll indicator -->
   <div class="absolute bottom-8 right-6 md:right-14 hidden md:flex items-center gap-3"
        style="z-index:10; animation: blurIn 0.8s ease both; animation-delay: 1s;">
     <div style="width:1px; height:36px; background:linear-gradient(to bottom, transparent, rgba(201,136,42,0.5));"></div>
