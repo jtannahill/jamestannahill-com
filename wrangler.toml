@@ -1,4 +1,6 @@
 name = "jamestannahill-com"
+# Worker lives on the privaterelay Apple ID account (not Plocamium).
+account_id = "aa7a67b77a9549dc7cb54bb8aac477d8"
 compatibility_date = "2026-04-15"
 
 [assets]
