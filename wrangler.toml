@@ -1,6 +1,6 @@
 name = "jamestannahill-com"
-# Worker lives on the privaterelay Apple ID account (not Plocamium).
-account_id = "aa7a67b77a9549dc7cb54bb8aac477d8"
+# Custom domains (jamestannahill.com, www) are bound to this account's worker.
+account_id = "6ce923037fd16a3e3a745ad4f2291601"
 compatibility_date = "2026-04-15"
 
 [assets]

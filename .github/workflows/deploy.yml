@@ -4,11 +4,11 @@
 #   gh secret set CLOUDFLARE_API_TOKEN --repo jtannahill/jamestannahill-com
 #   gh secret set CLOUDFLARE_ACCOUNT_ID --repo jtannahill/jamestannahill-com
 #
-# Token: create while logged into privaterelay account (NOT Plocamium).
-#   Dashboard → API Tokens → Edit Cloudflare Workers
-#   Account resource: aa7a67b77a9549dc7cb54bb8aac477d8
+# Token: Edit Cloudflare Workers template, scoped to Plocamium account.
+#   Account resource: 6ce923037fd16a3e3a745ad4f2291601
 #
-# Account ID secret must be: aa7a67b77a9549dc7cb54bb8aac477d8
+# Account ID secret must be: 6ce923037fd16a3e3a745ad4f2291601
+# (Custom domains live on this account; privaterelay account only gets workers.dev.)
 # Error 7003 = token scoped to wrong account.
 
 name: Deploy
