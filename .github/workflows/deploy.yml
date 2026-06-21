@@ -45,6 +45,15 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Verify Cloudflare token
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          resp=$(curl -sf -H "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}" \
+            "https://api.cloudflare.com/client/v4/user/tokens/verify")
+          echo "$resp" | jq -e '.success == true' >/dev/null
+          echo "Cloudflare token verified."
+
       - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3
         with:
