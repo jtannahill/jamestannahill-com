@@ -47,6 +47,29 @@ npm run dev
 
 ## Deploy
 
+### Automatic (recommended)
+
+Every push to `main` runs the [Deploy workflow](.github/workflows/deploy.yml) via GitHub Actions.
+
+One-time setup — add repo secrets:
+
+```bash
+# Create token: Cloudflare Dashboard → API Tokens → Edit Cloudflare Workers (account scope)
+gh secret set CLOUDFLARE_API_TOKEN --repo jtannahill/jamestannahill-com
+gh secret set CLOUDFLARE_ACCOUNT_ID --repo jtannahill/jamestannahill-com
+# Account ID for the worker (from `npx wrangler whoami`): aa7a67b77a9549dc7cb54bb8aac477d8
+```
+
+Manual re-deploy without a code push:
+
+```bash
+gh workflow run Deploy --repo jtannahill/jamestannahill-com
+```
+
+After deploy, if `jamestannahill.com` still looks stale, purge cache in Cloudflare Dashboard → Caching → Purge Everything.
+
+### Manual (local)
+
 ```bash
 npm run build
 npx wrangler deploy

@@ -1,19 +1,35 @@
-# Deploy is manual-only because the repo does not have Cloudflare secrets set.
-# To enable push-to-deploy:
-#   1. gh secret set CLOUDFLARE_API_TOKEN --repo jtannahill/jamestannahill-com
-#   2. gh secret set CLOUDFLARE_ACCOUNT_ID --repo jtannahill/jamestannahill-com
-#   3. Replace `on:` with `on: { push: { branches: [main] }, workflow_dispatch: {} }`
+# Deploy jamestannahill.com to Cloudflare Workers on every push to main.
 #
-# Until then, run manually via: gh workflow run Deploy --repo jtannahill/jamestannahill-com
-# Or deploy locally via: npm run build && npx wrangler deploy
+# One-time setup (repo secrets):
+#   gh secret set CLOUDFLARE_API_TOKEN --repo jtannahill/jamestannahill-com
+#   gh secret set CLOUDFLARE_ACCOUNT_ID --repo jtannahill/jamestannahill-com
+#
+# Token: Cloudflare Dashboard → My Profile → API Tokens → Edit Cloudflare Workers
+#   Permissions: Account → Workers Scripts → Edit, Account → Workers KV Storage → Edit
+#   Account resources: include the account that hosts jamestannahill-com
+#
+# Account ID: wrangler whoami (use the account where the worker is deployed)
+
 name: Deploy
 
 on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
+      - 'infra/**'
+      - '.superpowers/**'
   workflow_dispatch:
+
+concurrency:
+  group: deploy-jamestannahill-com
+  cancel-in-progress: true
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
 

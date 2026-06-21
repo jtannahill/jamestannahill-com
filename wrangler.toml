@@ -9,8 +9,5 @@ html_handling = "drop-trailing-slash"
 run_worker_first = true
 not_found_handling = "404-page"
 
-# Custom domains added in Task 12 after smoke test passes:
-# routes = [
-#   { pattern = "jamestannahill.com", custom_domain = true },
-#   { pattern = "www.jamestannahill.com", custom_domain = true },
-# ]
+# Custom domains are configured in Cloudflare Dashboard (Workers → jamestannahill-com → Domains).
+# Do not add routes here — @astrojs/cloudflare nests them under [assets] incorrectly.
