@@ -3,19 +3,14 @@ export const prerender = true;
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const pdf = '/resume.pdf';
-const contacts = [
-  { label: 'resume@jamestannahill.com', href: 'mailto:resume@jamestannahill.com' },
-  { label: 'LinkedIn', href: 'https://linkedin.com/in/jamesstannahill' },
-  { label: 'GitHub', href: 'https://github.com/jtannahill' },
-];
 ---
 <BaseLayout
-  title="James Tannahill — Résumé"
-  description="Résumé of James Tannahill — investor, operator, and builder. 10+ years across PE-backed, public, and growth-stage companies; currently building AI-native financial intelligence at xAI."
+  title="James Tannahill | Résumé"
+  description="Résumé of James Tannahill. Investor, operator, and builder with 10+ years across PE-backed, public, and growth-stage companies; currently building AI-native financial intelligence at xAI."
   canonical="https://jamestannahill.com/resume"
   noindex={true}
   ogImage="https://jamestannahill.com/og-resume.png"
-  ogImageAlt="James Tannahill — Résumé"
+  ogImageAlt="James Tannahill Résumé"
 >
   <div class="bg-white min-h-screen px-6 py-20">
     <div class="w-full max-w-xl mx-auto text-center">
@@ -33,48 +28,37 @@ const contacts = [
       <h1 class="text-[30px] font-semibold tracking-tight mb-3" style="color:#1a1a1a;">James Tannahill</h1>
       <p class="text-[15px] leading-[1.7] mb-6 mx-auto max-w-md" style="color:#555;">
         Investor, operator, and builder with 10+ years across PE-backed, public, and growth-stage
-        companies — currently building AI-native financial intelligence at xAI.
+        companies. Currently building AI-native financial intelligence at xAI.
       </p>
 
       <p class="text-[13px] mb-9" style="color:#888;">
         New York, NY
-        {contacts.map((c) => (
-          <>
-            <span class="px-2" style="color:var(--color-border);">·</span>
-            <a href={c.href} class="underline underline-offset-2 hover:opacity-70" style="color:var(--color-amber);">{c.label}</a>
-          </>
-        ))}
+        <span class="px-2" style="color:var(--color-border);">·</span>
+        <a href="mailto:resume@jamestannahill.com" class="underline underline-offset-2 hover:opacity-70" style="color:var(--color-amber);">resume@jamestannahill.com</a>
       </p>
 
       <div class="flex flex-wrap items-center justify-center gap-3">
         <a
           href={pdf}
-          class="inline-flex items-center gap-2 px-6 py-3 text-[13px] font-medium rounded-full transition-opacity hover:opacity-90"
+          download="James_Tannahill_Resume.pdf"
+          class="inline-flex items-center gap-2 px-7 py-3 text-[13px] font-medium rounded-full transition-opacity hover:opacity-90"
           style="background:var(--color-ink);color:#fff;"
         >
-          View résumé (PDF)
-          <span aria-hidden="true">→</span>
-        </a>
-        <a
-          href={pdf}
-          download="James_Tannahill_Resume.pdf"
-          class="inline-flex items-center px-6 py-3 text-[13px] font-medium rounded-full border transition-colors hover:bg-[var(--color-surface)]"
-          style="border-color:var(--color-border);color:#1a1a1a;"
-        >
-          Download
+          Download résumé (PDF)
+          <span aria-hidden="true">↓</span>
         </a>
       </div>
     </div>
 
     <!-- Inline preview: a rendered image of the page (works identically on
-         mobile + desktop, unlike an embedded PDF). Tap/click opens the PDF. -->
+         mobile and desktop, unlike an embedded PDF). Tap/click opens the PDF. -->
     <div class="max-w-2xl mx-auto mt-14">
       <a href={pdf} class="block group" aria-label="Open the full résumé PDF">
         <picture>
           <source srcset="/resume-preview.webp" type="image/webp" />
           <img
             src="/resume-preview.jpg"
-            alt="James Tannahill résumé — full page"
+            alt="James Tannahill résumé, full page"
             width="1224"
             height="1584"
             loading="lazy"
@@ -88,10 +72,6 @@ const contacts = [
         </p>
       </a>
     </div>
-
-    <p class="text-center mt-14 text-[12px]">
-      <a href="/" class="hover:opacity-70" style="color:#aaa;">← jamestannahill.com</a>
-    </p>
 
   </div>
 </BaseLayout>
