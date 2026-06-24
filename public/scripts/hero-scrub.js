@@ -27,32 +27,57 @@
     if (!section || !video) return;
     if (!canScrub()) return; // static skyline photo stays
 
+    video.muted = true;
+    video.setAttribute('playsinline', '');
     if (!video.src) { video.src = video.getAttribute('data-src'); video.load(); }
     section.classList.add('scrub-on');
 
-    var dur = 0, target = 0, ticking = false;
+    var dur = 0, target = 0, pending = false, primed = false;
 
-    function seek() {
-      ticking = false;
+    function applySeek() {
       if (video.readyState >= 1 && Math.abs(video.currentTime - target) > 0.02) {
-        try { video.currentTime = target; } catch (e) {}
+        pending = true;
+        try { video.currentTime = target; } catch (e) { pending = false; }
       }
     }
+    // Chain off 'seeked' so the latest scroll position always lands (Safari drops
+    // currentTime writes issued while a seek is already in flight).
+    video.addEventListener('seeked', function () {
+      pending = false;
+      if (Math.abs(video.currentTime - target) > 0.02) applySeek();
+    });
+
     function compute() {
       var rect = section.getBoundingClientRect();
       var total = section.offsetHeight - window.innerHeight;
       var scrolled = Math.min(Math.max(-rect.top, 0), total);
       var p = total > 0 ? scrolled / total : 0;
       target = p * (dur || 0);
-      if (!ticking) { ticking = true; requestAnimationFrame(seek); }
+      if (!pending) applySeek();
     }
 
-    video.addEventListener('loadedmetadata', function () { dur = video.duration || 0; compute(); });
-    if (video.readyState >= 1) { dur = video.duration || 0; }
+    // Safari won't render frames of a paused video on currentTime change until it
+    // has played at least once. Prime with a muted play->pause, then scrub.
+    function prime() {
+      if (primed) return;
+      primed = true;
+      var pr = video.play();
+      if (pr && pr.then) {
+        pr.then(function () { video.pause(); compute(); })
+          .catch(function () { compute(); });
+      } else {
+        try { video.pause(); } catch (e) {}
+        compute();
+      }
+    }
+
+    video.addEventListener('loadedmetadata', function () { dur = video.duration || 0; });
+    video.addEventListener('loadeddata', prime, { once: true });
+    if (video.readyState >= 2) { dur = video.duration || 0; prime(); }
+
     window.addEventListener('scroll', compute, { passive: true });
     window.addEventListener('resize', compute, { passive: true });
     listeners = { compute: compute };
-    compute();
   }
 
   init();
