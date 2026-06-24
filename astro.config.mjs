@@ -38,5 +38,19 @@ export default defineConfig({
   ],
   vite: {
     plugins: [tailwindcss()],
+    build: {
+      // Our CSP is strict: `script-src 'self'` with no 'unsafe-inline', nonce,
+      // or hash (see src/lib/security-headers.ts). Astro inlines small
+      // import-less hoisted scripts (<4KB) directly into the HTML, and the
+      // browser blocks every inline <script> under that policy — which
+      // silently killed the mobile hamburger toggle, scroll-reveal fallback,
+      // and the RDLB reel. Force script chunks to emit as external
+      // `_astro/*.js` files so `'self'` covers them; keep Vite's default
+      // inlining for images/fonts by returning undefined for other assets.
+      assetsInlineLimit(filePath) {
+        if (/\.(?:js|mjs|cjs|ts)$/.test(filePath)) return false;
+        return undefined;
+      },
+    },
   },
 });

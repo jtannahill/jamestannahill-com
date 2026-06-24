@@ -59,18 +59,7 @@ const faqSchema = {
     </div>
   </section>
 
-  <script is:inline>
-    (function () {
-      var vid = document.getElementById('faq-hero-video');
-      if (!vid) return;
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        vid.removeAttribute('autoplay');
-        vid.pause();
-        return;
-      }
-      vid.play().catch(function () {});
-    })();
-  </script>
+  <script src="/scripts/faq-hero-video.js" defer></script>
 
   <div class="relative" style="background:#0a0a0a;">
     <!-- Subtle gradient background -->
