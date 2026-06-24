@@ -19,6 +19,9 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
+      // /resume is a noindex share landing — keep it out of the sitemap so we
+      // don't advertise a page we've told crawlers not to index.
+      filter: (page) => !page.includes('/resume'),
       serialize(item) {
         // No lastmod: stamping build time on every URL is an inaccurate
         // lastmod, which Google's sitemap guidelines say gets ignored.

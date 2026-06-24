@@ -13,8 +13,11 @@
 
 # Resume PDF: shareable via direct link, but kept out of search indexes.
 # More-specific path overrides the global "index, follow" above.
+# inline => still opens in-browser; filename => recruiter's save dialog
+# and downloads use a professional name instead of "resume.pdf".
 /resume.pdf
   X-Robots-Tag: noindex
+  Content-Disposition: inline; filename="James_Tannahill_Resume.pdf"
 
 /.well-known/*
   Cache-Control: public, max-age=86400
