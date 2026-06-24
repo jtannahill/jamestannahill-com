@@ -36,13 +36,16 @@ const faqSchema = {
       muted
       loop
       playsinline
-      preload="metadata"
+      crossorigin="anonymous"
+      preload="auto"
       aria-hidden="true"
       tabindex="-1"
     >
       <source src={`${cdn}/faq-hero-1080.mp4`} type="video/mp4" media="(min-width: 768px)" />
       <source src={`${cdn}/faq-hero-720.mp4`} type="video/mp4" />
     </video>
+    <!-- WebGL shader output (cursor-reactive ripple). Shown only when supported; falls back to the video above. -->
+    <canvas id="faq-hero-canvas" class="faq-hero-canvas absolute inset-0 w-full h-full" aria-hidden="true" style="z-index:0;"></canvas>
     <!-- Gradient overlay: heavy at bottom for text contrast -->
     <div class="absolute inset-0"
          style="background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.45) 55%, rgba(0,0,0,0.9) 100%); z-index:1;"></div>
@@ -60,6 +63,13 @@ const faqSchema = {
   </section>
 
   <script src="/scripts/faq-hero-video.js" defer></script>
+  <script src="/scripts/faq-hero-gl.js" defer></script>
+
+  <style>
+    /* Canvas hidden until the shader confirms it can run with a clean (CORS-ok) texture. */
+    .faq-hero-canvas { display: none; }
+    section.gl-on .faq-hero-canvas { display: block; }
+  </style>
 
   <div class="relative" style="background:#0a0a0a;">
     <!-- Subtle gradient background -->
