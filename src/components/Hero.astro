@@ -9,6 +9,7 @@ const cdn = 'https://media.jamestannahill.com';
       id="hero-scrub-video"
       class="hero-media hero-scrub-media"
       data-src={`${cdn}/hero-scrub.mp4`}
+      data-src-mobile={`${cdn}/hero-scrub-720.mp4`}
       poster={`${cdn}/hero-scrub-poster.jpg`}
       muted
       playsinline
@@ -86,4 +87,9 @@ const cdn = 'https://media.jamestannahill.com';
   .hero-section.scrub-on .hero-stage { position: sticky; top: 0; height: 100vh; min-height: 100vh; }
   .hero-section.scrub-on .hero-scrub-media { display: block; }
   .hero-section.scrub-on .hero-fallback { display: none; }
+
+  /* Shorter pin distance on phones so the hero is not endless to scroll past */
+  @media (max-width: 767px) {
+    .hero-section.scrub-on { min-height: 200vh; height: 200vh; }
+  }
 </style>
