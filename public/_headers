@@ -11,6 +11,11 @@
   X-Robots-Tag: index, follow
   Content-Security-Policy: default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://challenges.cloudflare.com https://static.cloudflareinsights.com https://*.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.jamestannahill.com; font-src 'self' https://fonts.jamestannahill.com data:; img-src 'self' https: data: blob:; media-src 'self' https://media.jamestannahill.com; frame-src https://challenges.cloudflare.com; connect-src 'self' https://www.google-analytics.com https://*.googletagmanager.com https://stats.g.doubleclick.net https://challenges.cloudflare.com https://*.clarity.ms https://email.us-east-1.amazonaws.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests
 
+# Resume PDF: shareable via direct link, but kept out of search indexes.
+# More-specific path overrides the global "index, follow" above.
+/resume.pdf
+  X-Robots-Tag: noindex
+
 /.well-known/*
   Cache-Control: public, max-age=86400
 
