@@ -66,15 +66,27 @@ const contacts = [
       </div>
     </div>
 
-    <!-- Inline preview (desktop) — buttons above are the mobile-friendly fallback -->
-    <div class="hidden md:block max-w-3xl mx-auto mt-14">
-      <iframe
-        src="/resume.pdf#view=FitH"
-        title="James Tannahill résumé (PDF preview)"
-        loading="lazy"
-        class="w-full rounded-lg border"
-        style="aspect-ratio: 8.5 / 11; border-color:var(--color-border);"
-      ></iframe>
+    <!-- Inline preview: a rendered image of the page (works identically on
+         mobile + desktop, unlike an embedded PDF). Tap/click opens the PDF. -->
+    <div class="max-w-2xl mx-auto mt-14">
+      <a href={pdf} class="block group" aria-label="Open the full résumé PDF">
+        <picture>
+          <source srcset="/resume-preview.webp" type="image/webp" />
+          <img
+            src="/resume-preview.jpg"
+            alt="James Tannahill résumé — full page"
+            width="1224"
+            height="1584"
+            loading="lazy"
+            decoding="async"
+            class="w-full h-auto rounded-lg border transition-shadow group-hover:shadow-xl"
+            style="border-color:var(--color-border);"
+          />
+        </picture>
+        <p class="text-center mt-3 text-[11px] tracking-wide" style="color:#b0b0b0;">
+          Tap to open the full PDF
+        </p>
+      </a>
     </div>
 
     <p class="text-center mt-14 text-[12px]">
