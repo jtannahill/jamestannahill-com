@@ -14,16 +14,18 @@ const contacts = [
   description="Résumé of James Tannahill — investor, operator, and builder. 10+ years across PE-backed, public, and growth-stage companies; currently building AI-native financial intelligence at xAI."
   canonical="https://jamestannahill.com/resume"
   noindex={true}
+  ogImage="https://jamestannahill.com/og-resume.png"
+  ogImageAlt="James Tannahill — Résumé"
 >
-  <div class="bg-white min-h-screen flex items-center justify-center px-6 py-20">
-    <div class="w-full max-w-xl text-center">
+  <div class="bg-white min-h-screen px-6 py-20">
+    <div class="w-full max-w-xl mx-auto text-center">
 
       <img
         src="/headshot.webp"
         alt="James Tannahill"
         width="88"
         height="88"
-        class="w-22 h-22 rounded-full mx-auto mb-7 object-cover"
+        class="rounded-full mx-auto mb-7 object-cover"
         style="width:88px;height:88px;box-shadow:0 1px 0 var(--color-border);"
       />
 
@@ -62,11 +64,22 @@ const contacts = [
           Download
         </a>
       </div>
-
-      <p class="mt-14 text-[12px]">
-        <a href="/" class="hover:opacity-70" style="color:#aaa;">← jamestannahill.com</a>
-      </p>
-
     </div>
+
+    <!-- Inline preview (desktop) — buttons above are the mobile-friendly fallback -->
+    <div class="hidden md:block max-w-3xl mx-auto mt-14">
+      <iframe
+        src="/resume.pdf#view=FitH"
+        title="James Tannahill résumé (PDF preview)"
+        loading="lazy"
+        class="w-full rounded-lg border"
+        style="aspect-ratio: 8.5 / 11; border-color:var(--color-border);"
+      ></iframe>
+    </div>
+
+    <p class="text-center mt-14 text-[12px]">
+      <a href="/" class="hover:opacity-70" style="color:#aaa;">← jamestannahill.com</a>
+    </p>
+
   </div>
 </BaseLayout>

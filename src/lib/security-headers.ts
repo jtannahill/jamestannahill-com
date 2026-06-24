@@ -32,7 +32,8 @@ export function buildContentSecurityPolicy(): string {
     "font-src 'self' https://fonts.jamestannahill.com data:",
     "img-src 'self' https: data: blob:",
     "media-src 'self' https://media.jamestannahill.com",
-    "frame-src https://challenges.cloudflare.com",
+    // 'self' lets /resume embed /resume.pdf inline; Turnstile widget framed on /faqs.
+    "frame-src 'self' https://challenges.cloudflare.com",
     "connect-src 'self' https://www.google-analytics.com https://*.googletagmanager.com https://stats.g.doubleclick.net https://challenges.cloudflare.com https://*.clarity.ms https://email.us-east-1.amazonaws.com",
     "object-src 'none'",
     "base-uri 'self'",
