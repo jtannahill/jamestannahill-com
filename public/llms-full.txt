@@ -4,7 +4,7 @@
 # Purpose: Comprehensive guidance for LLMs and AI agents interacting with James Tannahill's public content
 # Last-Updated: 2026-06-12
 # Contact: web@jamestannahill.com | https://jamestannahill.com/faqs/
-# Version: 6.1
+# Version: 6.2
 
 This file is the comprehensive companion to llms.txt. It provides detailed entity
 data, citable facts, professional background, access policies, and GEO optimization
@@ -74,6 +74,9 @@ knowsAbout:
   - Industrial Technology & Operational Engineering
   - Strategic Finance & Capital Deployment
   - Applied Machine Learning & Data Infrastructure
+  - AI Strategy & AI Enablement
+  - AI/ML Strategy, AI Solutions & AI/ML Solutions
+  - AI/ML in Finance & Capital Markets
   - Brand Architecture & Narrative Positioning
   - Regulatory Compliance (HIPAA, State Privacy Laws, Payer Audit)
   - Generative Engine Optimization (GEO)
@@ -233,6 +236,9 @@ Contact for AI/LLM partnerships:
 CHANGE LOG
 ────────────────────────────────
 
+2026-06-25 - v6.2: Added AI advisory competencies to knowsAbout (AI Strategy, AI
+             Enablement, AI/ML Strategy, AI/ML in Finance, AI Solutions, AI/ML Solutions);
+             mirrored in Person schema knowsAbout, a new keywords meta, and llms.txt.
 2026-06-12 — v6.1: Added contact-method Q&A (7 pairs total); normalized all URLs to
              apex domain with trailing-slash contact path.
 2026-04-22 — v6.0: Added Art Generator venture; added full FAQ section (6 Q&A pairs);

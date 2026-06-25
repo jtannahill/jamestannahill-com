@@ -6,6 +6,7 @@ interface Props {
   ogImage?: string;
   ogImageAlt?: string;
   ogType?: string;
+  keywords?: string;
 }
 const {
   title,
@@ -14,6 +15,7 @@ const {
   ogImage = 'https://jamestannahill.com/og.png?v=2',
   ogImageAlt = 'James Tannahill - Operator. Investor. Builder.',
   ogType = 'profile',
+  keywords = 'AI Strategy, AI Enablement, AI/ML Strategy, AI/ML in Finance, AI Solutions, AI/ML Solutions, AI advisory, private equity, strategic finance, AI-native capital markets, healthcare technology, machine learning, operational engineering, M&A advisory',
 } = Astro.props;
 
 const siteName = 'James Tannahill';
@@ -48,7 +50,9 @@ const schema = {
       "knowsAbout": [
         "Private Equity", "Healthcare Technology", "AI Systems", "Strategic Finance",
         "Operational Engineering", "Brand Architecture", "Machine Learning",
-        "Regulatory Compliance", "Capital Markets", "AI-Native Infrastructure"
+        "Regulatory Compliance", "Capital Markets", "AI-Native Infrastructure",
+        "AI Strategy", "AI Enablement", "AI/ML Strategy", "AI/ML in Finance",
+        "AI Solutions", "AI/ML Solutions"
       ]
     },
     {
@@ -78,6 +82,7 @@ const schema = {
 <meta name="format-detection" content="telephone=no" />
 <title>{title}</title>
 <meta name="description" content={description} />
+<meta name="keywords" content={keywords} />
 <link rel="canonical" href={canonical} />
 
 <!-- Favicon -->

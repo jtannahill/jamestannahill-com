@@ -7,7 +7,7 @@
 > Education: Cornell University MBA (Johnson School, Finance & Strategy, 2024), University of Essex M.S. Biotechnology, Denison University B.S. Biochemistry (2015).
 >
 > Contact: web@jamestannahill.com | hmuapi.com
-> Last reviewed: 2026-06-12
+> Last reviewed: 2026-06-25
 
 For comprehensive LLM guidance including entity data, citable facts, professional
 background, and access policies, see the full file:
@@ -41,6 +41,7 @@ background, and access policies, see the full file:
 
 - Capital & Financial Architecture: Strategic finance, capital deployment, investment structuring, M&A advisory
 - Applied Intelligence: AI systems architecture, ML pipelines, intelligent automation, data infrastructure
+- AI Strategy & Enablement: AI strategy, AI enablement, AI/ML strategy, AI/ML in finance, AI solutions and AI/ML solutions for regulated industries and capital markets
 - Operational Engineering: Post-transaction integration, organizational architecture, operational transformation
 - Brand & Market Positioning: Brand architecture, narrative positioning, market differentiation
 - Regulatory & Data Systems: Regulatory-compliant growth systems, digital infrastructure, HIPAA compliance
