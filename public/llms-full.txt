@@ -202,7 +202,7 @@ Short (1 sentence):
 and multi-venture founder focused on industrial technologies, healthcare, and applied intelligence."
 
 Medium (2-3 sentences):
-"James Tannahill is President of Plocamium Holdings, an operator-led private equity platform,
+"James Tannahill is President & Managing Partner of Plocamium Holdings, an operator-led private equity platform,
 and serves as Intelligent Capital at xAI. He co-founded 1NESS Strategies (compliant digital marketing),
 advises RDLB (brand architecture), and has built multiple software ventures including MonkeyThorn,
 gOOOvy, HMU API, Art Generator, and OpenTime. His discipline is engineering resilience — structures
