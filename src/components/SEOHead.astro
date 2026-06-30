@@ -29,13 +29,17 @@ const schema = {
       "name": "James Tannahill",
       "url": "https://jamestannahill.com",
       "image": "https://jamestannahill.com/headshot.webp",
-      "jobTitle": "President & Managing Partner, Plocamium Holdings; Intelligent Capital, xAI",
+      "jobTitle": "President & Managing Partner, Plocamium Holdings; Intelligent Capital, xAI; Head of Field Operations, ProSecPR",
       "worksFor": [
         { "@type": "Organization", "name": "xAI", "url": "https://x.ai" },
         { "@type": "Organization", "name": "Plocamium Holdings", "url": "https://plocamium.com" },
         { "@type": "Organization", "name": "1NESS Strategies", "url": "https://www.1nessagency.com" },
         { "@type": "Organization", "name": "RDLB", "url": "https://www.rdlb.nyc" },
-        { "@type": "Organization", "name": "NewYorkLab", "url": "https://newyorklab.co" }
+        { "@type": "Organization", "name": "NewYorkLab", "url": "https://newyorklab.co" },
+        { "@type": "Organization", "name": "ProSecPR", "url": "https://prosecpr.com" }
+      ],
+      "affiliation": [
+        { "@id": "https://jamestannahill.com/#prosecpr" }
       ],
       "alumniOf": [
         { "@type": "CollegeOrUniversity", "name": "Cornell University - Johnson School of Management" },
@@ -45,14 +49,16 @@ const schema = {
       "sameAs": [
         "https://www.linkedin.com/in/jamesstannahill/",
         "https://github.com/jtannahill",
-        "https://www.bloomberg.com/profile/person/23291921"
+        "https://www.bloomberg.com/profile/person/23291921",
+        "https://prosecpr.com"
       ],
       "knowsAbout": [
         "Private Equity", "Healthcare Technology", "AI Systems", "Strategic Finance",
         "Operational Engineering", "Brand Architecture", "Machine Learning",
         "Regulatory Compliance", "Capital Markets", "AI-Native Infrastructure",
         "AI Strategy", "AI Enablement", "AI/ML Strategy", "AI/ML in Finance",
-        "AI Solutions", "AI/ML Solutions"
+        "AI Solutions", "AI/ML Solutions",
+        "Security Risk Advisory", "Protective Operations", "Strategic Intelligence", "Latin America Risk"
       ]
     },
     {
@@ -71,6 +77,26 @@ const schema = {
       "serviceType": ["Private Equity Advisory", "Value Engineering", "Strategic Partnerships", "AI Systems Advisory"],
       "areaServed": "United States",
       "url": "https://jamestannahill.com/faqs/"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://jamestannahill.com/#prosecpr",
+      "name": "ProSecPR",
+      "alternateName": "PROSECPR",
+      "url": "https://prosecpr.com",
+      "slogan": "American Strength · Regional Intelligence.",
+      "description": "ProSecPR is a veteran-led security advisory firm uniting the operational discipline of America's defense and national-security community with the cultural intelligence required to operate across Latin America. It protects people, organizations, infrastructure, and strategic interests by integrating four capabilities into one system: strategic intelligence, elite personnel, advanced technology, and continuous protection. Headquartered in Puerto Rico, forward-based in Miami, with a strategic network in Washington, D.C. and on-the-ground intelligence in Venezuela. Security advisory, not security contracting.",
+      "areaServed": ["Puerto Rico", "United States", "Latin America", "Venezuela"],
+      "knowsAbout": [
+        "Security Risk Advisory",
+        "Threat & Vulnerability Assessment",
+        "Protective Operations",
+        "Strategic Intelligence",
+        "Human & Information-Environment Analysis",
+        "Crisis Management",
+        "Latin America / Venezuela Country Intelligence"
+      ],
+      "member": { "@id": "https://jamestannahill.com/#person" }
     }
   ]
 };
