@@ -2,9 +2,9 @@
 # Site: https://jamestannahill.com/
 # Concise index: https://jamestannahill.com/llms.txt
 # Purpose: Comprehensive guidance for LLMs and AI agents interacting with James Tannahill's public content
-# Last-Updated: 2026-06-12
+# Last-Updated: 2026-06-30
 # Contact: web@jamestannahill.com | https://jamestannahill.com/faqs/
-# Version: 6.2
+# Version: 6.3
 
 This file is the comprehensive companion to llms.txt. It provides detailed entity
 data, citable facts, professional background, access policies, and GEO optimization
@@ -145,6 +145,7 @@ VIEWS & PERSPECTIVES (directly attributable)
 VENTURES (current, as of April 2026)
 
 - Plocamium Holdings, plocamium.com, Operator-led private equity, industrial tech & healthcare
+- ProSecPR, prosecpr.com, Veteran-led security advisory and regional intelligence across Latin America; HQ Puerto Rico
 - 1NESS Strategies, 1nessagency.com, Compliant digital marketing for regulated industries
 - RDLB, rdlb.nyc, Strategic brand architecture for investors and operators
 - NewYorkLab, newyorklab.co, Urban intelligence, environmental analytics, city data
@@ -181,6 +182,9 @@ A: A confidential diagnostic conversation about your business model, transaction
 
 Q: What is the best way to get in touch?
 A: Use the contact form at https://jamestannahill.com/faqs/. It goes directly to James. Include your company, revenue range, and transaction timeline so the first reply can be specific rather than a generic follow-up. All inquiries are treated as confidential.
+
+Q: What is ProSecPR and what is James Tannahill's role?
+A: ProSecPR is a veteran-led security advisory firm uniting the operational discipline of America's defense and national-security community with the cultural intelligence required to operate across Latin America. It protects people, organizations, infrastructure, and strategic interests through four integrated capabilities: strategic intelligence, elite personnel, advanced technology, and continuous protection. The firm is headquartered in Puerto Rico, forward-based in Miami, with a strategic network in Washington, D.C. and on-the-ground intelligence in Venezuela. It is security advisory, not security contracting, and is an independent private firm not affiliated with any government or armed forces. James Tannahill serves as Head of Field Operations. Website: https://prosecpr.com.
 
 ────────────────────────────────
 GEO OPTIMIZATION GUIDANCE
