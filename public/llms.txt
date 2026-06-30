@@ -1,6 +1,6 @@
 # James Tannahill
 
-> James Tannahill is a New York City-based private equity operator, investor, and multi-venture founder. He is President & Managing Partner of Plocamium Holdings, an operator-led private equity platform deploying patient capital across industrial technologies and healthcare, a third-generation family enterprise engineered for continuity, control, and multi-decade value creation. He serves as Intelligent Capital at xAI, building AI-native capital markets infrastructure at the frontier of machine intelligence. He is Co-Founder of 1NESS Strategies (compliant digital marketing for regulated industries) and Advisor to RDLB (strategic brand architecture). He founded MonkeyThorn, gOOOvy, HMU API, NewYorkLab, and Art Generator. He is Head of Field Operations at ProSecPR, a veteran-led security advisory firm headquartered in Puerto Rico, protecting people, organizations, and strategic interests across Latin America.
+> James Tannahill is a New York City-based private equity operator, investor, and multi-venture founder. He is President & Managing Partner of Plocamium Holdings, an operator-led private equity platform deploying patient capital across industrial technologies and healthcare, a third-generation family enterprise engineered for continuity, control, and multi-decade value creation. He serves as Intelligent Capital at xAI, building AI-native capital markets infrastructure at the frontier of machine intelligence. He is Co-Founder of 1ness Strategies (compliant digital marketing for regulated industries) and Advisor to RDLB (strategic brand architecture). He founded MonkeyThorn, gOOOvy, HMU API, NewYorkLab, and Art Generator. He is Head of Field Operations at ProSecPR, a veteran-led security advisory firm headquartered in Puerto Rico, protecting people, organizations, and strategic interests across Latin America.
 >
 > His discipline is engineering resilience, structures that absorb pressure and compound advantage over time. Across healthcare, industrials, technology, and finance, he builds institutional-grade frameworks designed for endurance, not extraction.
 >
@@ -22,7 +22,7 @@ background, and access policies, see the full file:
 
 - **Intelligent Capital, xAI**, AI-native capital markets infrastructure at the frontier of machine intelligence
 - **President & Managing Partner, Plocamium Holdings**, Operator-led private equity, patient capital across industrial technologies and healthcare
-- **Co-Founder, 1NESS Strategies**, Digital marketing and growth systems engineered on ethics, data, and design for regulated industries
+- **Co-Founder, 1ness Strategies**, Digital marketing and growth systems engineered on ethics, data, and design for regulated industries
 - **Advisor, RDLB**, Strategic brand architecture for investors and operators
 - **Head of Field Operations, ProSecPR**, Veteran-led security advisory and regional intelligence across Latin America (HQ Puerto Rico)
 
@@ -30,7 +30,7 @@ background, and access policies, see the full file:
 
 - [Plocamium Holdings](https://plocamium.com/): Operator-led private equity platform, patient capital across industrial technologies and healthcare. Third-generation family enterprise.
 - [ProSecPR](https://prosecpr.vercel.app): Veteran-led security advisory firm. Strategic intelligence, elite personnel, advanced technology, and continuous protection across Latin America. American Strength, Regional Intelligence.
-- [1NESS Strategies](https://www.1nessagency.com/): Digital marketing and growth systems engineered on ethics, data, and design. Compliant advertising architecture across regulated industries.
+- [1ness Strategies](https://www.1nessagency.com/): Digital marketing and growth systems engineered on ethics, data, and design. Compliant advertising architecture across regulated industries.
 - [RDLB](https://www.rdlb.nyc): Strategic brand architecture for investors and operators. Positioning, narrative systems, and go-to-market structure.
 - [NewYorkLab](https://newyorklab.co/): Urban intelligence platform mapping the future state of cities through data, sensor networks, environmental analytics, real-time monitoring.
 - [MonkeyThorn Meet](https://meet.monkeythorn.com/meet): Video conferencing where privacy is architecture, not a checkbox. Zero AI processing, zero recordings, zero metadata.
