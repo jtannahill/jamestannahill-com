@@ -6,6 +6,7 @@ interface Venture {
   logo: string;
   logoH: number;
   logoFill?: boolean;
+  logoText?: string;
 }
 
 const ventures: Venture[] = [
@@ -15,6 +16,14 @@ const ventures: Venture[] = [
     url: 'https://plocamium.com',
     logo: '/logos/plocamium.png',
     logoH: 52,
+  },
+  {
+    name: 'ProSecPR',
+    description: 'Veteran-led security advisory firm. Strategic intelligence, elite personnel, advanced technology, and continuous protection across Latin America. American Strength, Regional Intelligence.',
+    url: 'https://prosecpr.com',
+    logo: '',
+    logoH: 44,
+    logoText: 'ProSecPR',
   },
   {
     name: 'RDLB',
@@ -64,6 +73,7 @@ const ventures: Venture[] = [
     url: 'https://art.jamestannahill.com',
     logo: '',
     logoH: 44,
+    logoText: 'Art.',
   },
 ];
 ---
@@ -111,7 +121,7 @@ const ventures: Venture[] = [
                     loading="lazy"
                   />
                 ) : (
-                  <span style="font-family:'NHG Display',sans-serif; font-size:36px; font-weight:700; letter-spacing:-0.02em; color:#111;">Art.</span>
+                  <span style="font-family:'NHG Display',sans-serif; font-size:32px; font-weight:700; letter-spacing:-0.02em; color:#111;">{v.logoText || v.name}</span>
                 )}
               </div>
               <p class="flex-1" style="font-size:13.5px; line-height:1.7; color:#888; display:-webkit-box; -webkit-line-clamp:8; -webkit-box-orient:vertical; overflow:hidden; overflow-wrap:break-word; hyphens:auto;">{v.description}</p>
