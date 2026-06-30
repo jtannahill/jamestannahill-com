@@ -29,7 +29,7 @@ background, and access policies, see the full file:
 ## Ventures & Platforms
 
 - [Plocamium Holdings](https://plocamium.com/): Operator-led private equity platform, patient capital across industrial technologies and healthcare. Third-generation family enterprise.
-- [ProSecPR](https://prosecpr.com): Veteran-led security advisory firm. Strategic intelligence, elite personnel, advanced technology, and continuous protection across Latin America. American Strength, Regional Intelligence.
+- [ProSecPR](https://prosecpr.vercel.app): Veteran-led security advisory firm. Strategic intelligence, elite personnel, advanced technology, and continuous protection across Latin America. American Strength, Regional Intelligence.
 - [1NESS Strategies](https://www.1nessagency.com/): Digital marketing and growth systems engineered on ethics, data, and design. Compliant advertising architecture across regulated industries.
 - [RDLB](https://www.rdlb.nyc): Strategic brand architecture for investors and operators. Positioning, narrative systems, and go-to-market structure.
 - [NewYorkLab](https://newyorklab.co/): Urban intelligence platform mapping the future state of cities through data, sensor networks, environmental analytics, real-time monitoring.
