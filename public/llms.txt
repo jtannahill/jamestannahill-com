@@ -32,7 +32,7 @@ background, and access policies, see the full file:
 - [ProSecPR](https://prosecpr.vercel.app): Veteran-led security advisory firm. Strategic intelligence, elite personnel, advanced technology, and continuous protection across Latin America. American Strength, Regional Intelligence.
 - [1ness Strategies](https://www.1nessagency.com/): Digital marketing and growth systems engineered on ethics, data, and design. Compliant advertising architecture across regulated industries.
 - [RDLB](https://www.rdlb.nyc): Strategic brand architecture for investors and operators. Positioning, narrative systems, and go-to-market structure.
-- [NewYorkLab](https://newyorklab.co/): Urban intelligence platform mapping the future state of cities through data, sensor networks, environmental analytics, real-time monitoring.
+- [NewYorkLab](https://www.newyorklab.co/): Urban intelligence platform mapping the future state of cities through data, sensor networks, environmental analytics, real-time monitoring.
 - [MonkeyThorn Meet](https://meet.monkeythorn.com/meet): Video conferencing where privacy is architecture, not a checkbox. Zero AI processing, zero recordings, zero metadata.
 - [gOOOvy](https://gooovy.com): Automated out-of-office engine for Google Voice built on schedule-aware intelligence.
 - [HMU API](https://hmuapi.com): Structured contact channels for people, apps, and AI agents. Don't email me. HMU.

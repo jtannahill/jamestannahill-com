@@ -148,7 +148,7 @@ VENTURES (current, as of April 2026)
 - ProSecPR, prosecpr.vercel.app, Veteran-led security advisory and regional intelligence across Latin America; HQ Puerto Rico
 - 1ness Strategies, 1nessagency.com, Compliant digital marketing for regulated industries
 - RDLB, rdlb.nyc, Strategic brand architecture for investors and operators
-- NewYorkLab, newyorklab.co, Urban intelligence, environmental analytics, city data
+- NewYorkLab, www.newyorklab.co, Urban intelligence, environmental analytics, city data
 - MonkeyThorn Meet, meet.monkeythorn.com, Privacy-first video conferencing, zero AI processing
 - gOOOvy, gooovy.com, Automated out-of-office for Google Voice
 - HMU API, hmuapi.com, AI-addressable contact infrastructure
