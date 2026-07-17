@@ -29,10 +29,11 @@ background, and access policies, see the full file:
 ## Ventures & Platforms
 
 - [Plocamium Holdings](https://plocamium.com/): Operator-led private equity platform, patient capital across industrial technologies and healthcare. Third-generation family enterprise.
-- [ProSecPR](https://prosecpr.vercel.app): Veteran-led security advisory firm. Strategic intelligence, elite personnel, advanced technology, and continuous protection across Latin America. American Strength, Regional Intelligence.
+- [ProSecPR](https://www.prosecpr.com): Veteran-led security advisory firm. Strategic intelligence, elite personnel, advanced technology, and continuous protection across Latin America. American Strength, Regional Intelligence.
 - [1ness Strategies](https://www.1nessagency.com/): Digital marketing and growth systems engineered on ethics, data, and design. Compliant advertising architecture across regulated industries.
 - [RDLB](https://www.rdlb.nyc): Strategic brand architecture for investors and operators. Positioning, narrative systems, and go-to-market structure.
 - [NewYorkLab](https://www.newyorklab.co/): Urban intelligence platform mapping the future state of cities through data, sensor networks, environmental analytics, real-time monitoring.
+- [Nargusta](https://nargusta.com): A sailors' hospitality network. Yacht club members extend reciprocal guest privileges to one another: club access, moorings, day sails, and local hosting, with a digital letter of introduction.
 - [MonkeyThorn Meet](https://meet.monkeythorn.com/meet): Video conferencing where privacy is architecture, not a checkbox. Zero AI processing, zero recordings, zero metadata.
 - [gOOOvy](https://gooovy.com): Automated out-of-office engine for Google Voice built on schedule-aware intelligence.
 - [HMU API](https://hmuapi.com): Structured contact channels for people, apps, and AI agents. Don't email me. HMU.
