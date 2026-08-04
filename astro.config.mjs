@@ -21,10 +21,7 @@ export default defineConfig({
     sitemap({
       // /resume is a noindex share landing, so keep it out of the sitemap and
       // avoid advertising a page we've told crawlers not to index.
-      // /thoughts is unlinked from site nav by design - keep it out of the
-      // sitemap too so it stays direct-link only (still crawlable/indexable
-      // if linked externally).
-      filter: (page) => !page.includes('/resume') && !page.includes('/thoughts'),
+      filter: (page) => !page.includes('/resume'),
       serialize(item) {
         // No lastmod: stamping build time on every URL is an inaccurate
         // lastmod, which Google's sitemap guidelines say gets ignored.

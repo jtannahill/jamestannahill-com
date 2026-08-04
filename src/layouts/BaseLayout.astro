@@ -13,14 +13,39 @@ interface Props {
   noindex?: boolean;
   ogImage?: string;
   ogImageAlt?: string;
+  ogType?: string;
+  extraSchema?: Record<string, unknown>[];
+  publishedTime?: string;
+  articleSection?: string;
 }
-const { title, description, canonical, noindex = false, ogImage, ogImageAlt } = Astro.props;
+const {
+  title,
+  description,
+  canonical,
+  noindex = false,
+  ogImage,
+  ogImageAlt,
+  ogType,
+  extraSchema,
+  publishedTime,
+  articleSection,
+} = Astro.props;
 const isHome = Astro.url.pathname === '/';
 ---
 <!doctype html>
 <html lang="en">
   <head>
-    <SEOHead title={title} description={description} canonical={canonical} ogImage={ogImage} ogImageAlt={ogImageAlt} />
+    <SEOHead
+      title={title}
+      description={description}
+      canonical={canonical}
+      ogImage={ogImage}
+      ogImageAlt={ogImageAlt}
+      ogType={ogType}
+      extraSchema={extraSchema}
+      publishedTime={publishedTime}
+      articleSection={articleSection}
+    />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="manifest" href="/manifest.json" />
     {isHome && <script src="/scripts/hero-preload.js" defer></script>}

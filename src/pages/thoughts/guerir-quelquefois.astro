@@ -1,11 +1,72 @@
 ---
 export const prerender = true;
 import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const url = 'https://jamestannahill.com/thoughts/guerir-quelquefois/';
+const published = '2026-08-04';
+const description =
+  'On the word cure, what it is hired to do in a biotechnology sentence, and who is paying its wages.';
+
+const schema = [
+  {
+    '@type': 'BlogPosting',
+    '@id': `${url}#post`,
+    isPartOf: { '@id': 'https://jamestannahill.com/thoughts/#blog' },
+    mainEntityOfPage: url,
+    url,
+    headline: 'Guérir Quelquefois',
+    alternativeHeadline: 'On the word "cure," and the men who sell it',
+    description,
+    image: 'https://jamestannahill.com/og-guerir-quelquefois.png',
+    datePublished: published,
+    dateModified: published,
+    inLanguage: 'en-US',
+    articleSection: 'Essays',
+    author: { '@id': 'https://jamestannahill.com/#person' },
+    publisher: { '@id': 'https://jamestannahill.com/#person' },
+    keywords: [
+      'biotechnology pricing',
+      'gene therapy',
+      'cure vs treatment',
+      'durable response',
+      'outcomes-based warranties',
+      'pharmaceutical language',
+    ],
+    about: [
+      { '@type': 'Thing', name: 'Gene therapy pricing' },
+      { '@type': 'Thing', name: 'Biotechnology investment analysis' },
+      { '@type': 'Thing', name: 'Corporate disclosure language' },
+    ],
+    // The French title has a pronunciation clip on the page.
+    subjectOf: {
+      '@type': 'AudioObject',
+      name: 'Pronunciation of Guérir Quelquefois',
+      contentUrl: 'https://jamestannahill.com/audio/guerir-quelquefois.mp3',
+      encodingFormat: 'audio/mpeg',
+      inLanguage: 'fr-FR',
+    },
+  },
+  {
+    '@type': 'BreadcrumbList',
+    '@id': `${url}#breadcrumb`,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://jamestannahill.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Thoughts', item: 'https://jamestannahill.com/thoughts/' },
+      { '@type': 'ListItem', position: 3, name: 'Guérir Quelquefois', item: url },
+    ],
+  },
+];
 ---
 <BaseLayout
   title="Guérir Quelquefois | James Tannahill"
-  description="On the word cure, what it is hired to do in a biotechnology sentence, and who is paying its wages."
-  canonical="https://jamestannahill.com/thoughts/guerir-quelquefois/"
+  description={description}
+  canonical={url}
+  ogType="article"
+  ogImage="https://jamestannahill.com/og-guerir-quelquefois.png"
+  ogImageAlt="Guérir Quelquefois - on the word cure, and the men who sell it"
+  publishedTime={published}
+  articleSection="Essays"
+  extraSchema={schema}
 >
   <div class="bg-white min-h-screen">
     <article class="max-w-3xl mx-auto px-6 py-16" data-ripple-text>
@@ -13,7 +74,25 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">
         <a href="/thoughts/" class="hover:opacity-70" style="color:var(--color-amber);">Thoughts</a>
       </p>
-      <h1 class="text-[28px] font-semibold tracking-tight mb-3" style="color:#1a1a1a;">Guérir Quelquefois</h1>
+      <div class="flex items-center gap-3 mb-1">
+        <h1 class="text-[28px] font-semibold tracking-tight" style="color:#1a1a1a;">Guérir Quelquefois</h1>
+        <button
+          type="button"
+          class="pronounce shrink-0"
+          data-pronounce="pron-guerir"
+          aria-label="Hear the French pronunciation of Guérir Quelquefois"
+          title="Hear it pronounced"
+        >
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M11 5 6 9H3v6h3l5 4V5z"/>
+            <path class="wave-1" d="M15.5 8.5a5 5 0 0 1 0 7"/>
+            <path class="wave-2" d="M18.5 5.5a9 9 0 0 1 0 13"/>
+          </svg>
+        </button>
+        <audio id="pron-guerir" src="/audio/guerir-quelquefois.mp3" preload="none"></audio>
+      </div>
+      <p class="text-[12px] mb-3" style="color:#b0b0b0; font-variant: none;">[ ɡe.ʁiʁ kɛl.kə.fwa ]</p>
       <p class="text-[17px] leading-[1.6] mb-2" style="color:#666;">On the word "cure," and the men who sell it</p>
       <p class="text-[12px] mb-12" style="color:#999;">August 2026</p>
 
@@ -129,6 +208,29 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       </div>
 
       <script src="/scripts/thoughts-ripple.js" defer></script>
+      <script src="/scripts/pronounce.js" defer></script>
+
+      <style>
+        .pronounce {
+          color: #c0c0c0;
+          transition: color 0.2s ease;
+          line-height: 0;
+        }
+        .pronounce:hover,
+        .pronounce:focus-visible { color: var(--color-amber); }
+        .pronounce.is-playing { color: var(--color-amber); }
+        /* Sound waves pulse outward only while the clip is playing. */
+        .pronounce.is-playing .wave-1 { animation: pronounceWave 0.9s ease-out infinite; }
+        .pronounce.is-playing .wave-2 { animation: pronounceWave 0.9s ease-out 0.15s infinite; }
+        @keyframes pronounceWave {
+          0%, 100% { opacity: 0.35; }
+          50% { opacity: 1; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .pronounce.is-playing .wave-1,
+          .pronounce.is-playing .wave-2 { animation: none; }
+        }
+      </style>
 
       <p class="mt-14 pt-8 border-t text-[12px] tracking-[0.1em]" style="border-color:#eee;">
         <a href="/thoughts/" class="hover:opacity-70" style="color:var(--color-amber);">Back to Thoughts</a>

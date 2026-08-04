@@ -10,13 +10,50 @@ const posts = [
     title: 'Guérir Quelquefois',
     standfirst: 'On the word "cure," and the men who sell it',
     date: 'August 2026',
+    published: '2026-08-04',
+  },
+];
+
+const description = 'Occasional essays on markets, medicine, and the language both are written in.';
+
+const schema = [
+  {
+    '@type': 'Blog',
+    '@id': 'https://jamestannahill.com/thoughts/#blog',
+    url: 'https://jamestannahill.com/thoughts/',
+    name: 'Thoughts',
+    description,
+    inLanguage: 'en-US',
+    author: { '@id': 'https://jamestannahill.com/#person' },
+    publisher: { '@id': 'https://jamestannahill.com/#person' },
+    blogPost: posts.map((post) => ({
+      '@type': 'BlogPosting',
+      '@id': `https://jamestannahill.com/thoughts/${post.slug}/#post`,
+      url: `https://jamestannahill.com/thoughts/${post.slug}/`,
+      headline: post.title,
+      alternativeHeadline: post.standfirst,
+      datePublished: post.published,
+      author: { '@id': 'https://jamestannahill.com/#person' },
+    })),
+  },
+  {
+    '@type': 'BreadcrumbList',
+    '@id': 'https://jamestannahill.com/thoughts/#breadcrumb',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://jamestannahill.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Thoughts', item: 'https://jamestannahill.com/thoughts/' },
+    ],
   },
 ];
 ---
 <BaseLayout
   title="Thoughts | James Tannahill"
-  description="Occasional essays on markets, medicine, and the language both are written in."
+  description={description}
   canonical="https://jamestannahill.com/thoughts/"
+  ogType="website"
+  ogImage="https://jamestannahill.com/og-thoughts.png"
+  ogImageAlt="Thoughts - occasional essays by James Tannahill"
+  extraSchema={schema}
 >
   <div class="bg-white min-h-screen">
     <div class="max-w-3xl mx-auto px-6 py-16">
