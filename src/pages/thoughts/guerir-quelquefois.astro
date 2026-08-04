@@ -37,14 +37,23 @@ const schema = [
       { '@type': 'Thing', name: 'Biotechnology investment analysis' },
       { '@type': 'Thing', name: 'Corporate disclosure language' },
     ],
-    // The French title has a pronunciation clip on the page.
-    subjectOf: {
-      '@type': 'AudioObject',
-      name: 'Pronunciation of Guérir Quelquefois',
-      contentUrl: 'https://jamestannahill.com/audio/guerir-quelquefois.mp3',
-      encodingFormat: 'audio/mpeg',
-      inLanguage: 'fr-FR',
-    },
+    // The French title and the Trudeau aphorism both have clips on the page.
+    subjectOf: [
+      {
+        '@type': 'AudioObject',
+        name: 'Pronunciation of Guérir Quelquefois',
+        contentUrl: 'https://jamestannahill.com/audio/guerir-quelquefois.mp3',
+        encodingFormat: 'audio/mpeg',
+        inLanguage: 'fr-FR',
+      },
+      {
+        '@type': 'AudioObject',
+        name: 'Pronunciation of Guérir quelquefois, soulager souvent, consoler toujours',
+        contentUrl: 'https://jamestannahill.com/audio/guerir-soulager-consoler.mp3',
+        encodingFormat: 'audio/mpeg',
+        inLanguage: 'fr-FR',
+      },
+    ],
   },
   {
     '@type': 'BreadcrumbList',
@@ -69,7 +78,7 @@ const schema = [
   extraSchema={schema}
 >
   <div class="bg-white min-h-screen">
-    <article class="max-w-3xl mx-auto px-6 py-16" data-ripple-text>
+    <article class="max-w-3xl mx-auto px-6 py-16">
 
       <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">
         <a href="/thoughts/" class="hover:opacity-70" style="color:var(--color-amber);">Thoughts</a>
@@ -96,11 +105,24 @@ const schema = [
       <p class="text-[17px] leading-[1.6] mb-2" style="color:#666;">On the word "cure," and the men who sell it</p>
       <p class="text-[12px] mb-12" style="color:#999;">August 2026</p>
 
-      <div class="text-[15px] leading-[1.85]" style="color:#444;">
+      <!-- Ripple is scoped to the body copy only: the headline, IPA gloss and
+           standfirst stay static. -->
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
         <p class="mb-6">
           Carved into the tradition of the sanatorium at Saranac Lake, and attributed variously to an anonymous
           medieval Frenchman and to Edward Livingston Trudeau himself, is a sentence that has survived every
-          advance in medicine since: <em>Guérir quelquefois, soulager souvent, consoler toujours.</em> To cure
+          advance in medicine since: <em>Guérir quelquefois, soulager souvent, consoler toujours.</em><button
+            type="button"
+            class="pronounce pronounce-inline"
+            data-pronounce="pron-aphorism"
+            aria-label="Hear the French pronunciation of Guérir quelquefois, soulager souvent, consoler toujours"
+            title="Hear it pronounced"
+          ><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M11 5 6 9H3v6h3l5 4V5z"/>
+              <path class="wave-1" d="M15.5 8.5a5 5 0 0 1 0 7"/>
+              <path class="wave-2" d="M18.5 5.5a9 9 0 0 1 0 13"/>
+            </svg></button><audio id="pron-aphorism" src="/audio/guerir-soulager-consoler.mp3" preload="none"></audio> To cure
           sometimes, to relieve often, to comfort always. Observe the architecture of the thing. Ambition
           descends as frequency rises; the rarest achievement is named first and immediately qualified. It is a
           physician's aphorism written by someone who had watched a great many patients die.
@@ -215,6 +237,13 @@ const schema = [
           color: #c0c0c0;
           transition: color 0.2s ease;
           line-height: 0;
+        }
+        /* Inline variant sits with the quoted French, riding the baseline. */
+        .pronounce-inline {
+          display: inline-block;
+          vertical-align: baseline;
+          margin-left: 5px;
+          transform: translateY(1px);
         }
         .pronounce:hover,
         .pronounce:focus-visible { color: var(--color-amber); }
