@@ -122,7 +122,7 @@ card(
 
 card(
     "og-the-unsmiling-class.png",
-    "art-arctic-60n-70w.png",
+    "art-region-60s-0e.png",
     "Thoughts",
     ["The Unsmiling", "Class"],
     ["On the finance headshot, and the face", "it has agreed to wear."],
