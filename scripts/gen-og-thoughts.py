@@ -113,7 +113,7 @@ def card(path, artwork, eyebrow, title_lines, standfirst_lines, url):
 
 card(
     "og-guerir-quelquefois.png",
-    "art-south-america-60s-60w.png",
+    "art-region-45s-80e.png",
     "Thoughts",
     ["Guérir", "Quelquefois"],
     ["On the word “cure,” and the men who sell it."],
@@ -122,7 +122,7 @@ card(
 
 card(
     "og-the-unsmiling-class.png",
-    "art-central-asia-45n-90e.png",
+    "art-arctic-60n-70w.png",
     "Thoughts",
     ["The Unsmiling", "Class"],
     ["On the finance headshot, and the face", "it has agreed to wear."],
@@ -131,7 +131,7 @@ card(
 
 card(
     "og-thoughts.png",
-    "art-region-60s-0e.png",
+    "art-tropical-south-america-15s-70w.png",
     "Thoughts",
     ["Occasional", "Essays"],
     ["Markets, medicine, and the language", "both are written in."],
@@ -140,7 +140,7 @@ card(
 
 card(
     "og-sea-room.png",
-    "art-arctic-60n-140e.png",
+    "art-b-region-60s-0e.png",
     "Thoughts",
     ["Sea", "Room"],
     ["On knowing where you are, and having", "somewhere to go."],

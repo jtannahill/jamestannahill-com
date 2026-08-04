@@ -2,8 +2,6 @@
 
 ## On the difference between knowing where you are and having somewhere to go
 
-the open independence of her sea. Melville, "The Lee Shore"
-
 Modern navigation has solved a problem that killed sailors for three thousand years, and it has solved it so completely that the achievement is now invisible. A receiver the size of a matchbox will report your position to within a few metres, continuously, in fog, at night, in weather that would have blinded Cook. There is no longer any serious sense in which a competent mariner does not know where he is.
 
 And yet the sea kills people at roughly the rate it always did, which should tell us something about what knowledge was ever worth.
