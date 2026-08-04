@@ -29,3 +29,4 @@ pnpm-debug.log*
 
 # Superpowers brainstorm scratch (local working artifacts, not site content)
 .superpowers/
+.claude/
