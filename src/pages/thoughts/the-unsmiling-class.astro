@@ -1,0 +1,211 @@
+---
+export const prerender = true;
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const url = 'https://jamestannahill.com/thoughts/the-unsmiling-class/';
+const published = '2026-08-04';
+const description =
+  'On the finance headshot, the nineteenth century face it borrows, and why an industry that sells trust has standardized on a portrait optimized for its own indictment.';
+
+const schema = [
+  {
+    '@type': 'BlogPosting',
+    '@id': `${url}#post`,
+    isPartOf: { '@id': 'https://jamestannahill.com/thoughts/#blog' },
+    mainEntityOfPage: url,
+    url,
+    headline: 'The Unsmiling Class',
+    alternativeHeadline: 'On the finance headshot, and the face it has agreed to wear',
+    description,
+    image: 'https://jamestannahill.com/og-the-unsmiling-class.png',
+    datePublished: published,
+    dateModified: published,
+    inLanguage: 'en-US',
+    articleSection: 'Essays',
+    author: { '@id': 'https://jamestannahill.com/#person' },
+    publisher: { '@id': 'https://jamestannahill.com/#person' },
+    keywords: [
+      'corporate headshots',
+      'private equity',
+      'professional signaling',
+      'institutional culture',
+      'trust and credibility',
+      'financial services branding',
+    ],
+    about: [
+      { '@type': 'Thing', name: 'Corporate portraiture' },
+      { '@type': 'Thing', name: 'Professional signaling' },
+      { '@type': 'Thing', name: 'Financial services culture' },
+    ],
+  },
+  {
+    '@type': 'BreadcrumbList',
+    '@id': `${url}#breadcrumb`,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://jamestannahill.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Thoughts', item: 'https://jamestannahill.com/thoughts/' },
+      { '@type': 'ListItem', position: 3, name: 'The Unsmiling Class', item: url },
+    ],
+  },
+];
+---
+<BaseLayout
+  title="The Unsmiling Class | James Tannahill"
+  description={description}
+  canonical={url}
+  ogType="article"
+  ogImage="https://jamestannahill.com/og-the-unsmiling-class.png"
+  ogImageAlt="The Unsmiling Class - on the finance headshot, and the face it has agreed to wear"
+  publishedTime={published}
+  articleSection="Essays"
+  extraSchema={schema}
+>
+  <div class="bg-white min-h-screen">
+    <article class="max-w-3xl mx-auto px-6 py-16">
+
+      <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">
+        <a href="/thoughts/" class="hover:opacity-70" style="color:var(--color-amber);">Thoughts</a>
+      </p>
+      <h1 class="text-[28px] font-semibold tracking-tight mb-3" style="color:#1a1a1a;">The Unsmiling Class</h1>
+      <p class="text-[17px] leading-[1.6] mb-2" style="color:#666;">On the finance headshot, and the face it has agreed to wear</p>
+      <p class="text-[12px] mb-12" style="color:#999;">August 2026</p>
+
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+        <p class="mb-6">
+          Open any private equity firm's team page and scroll. Forty faces, grey ground, quarter turn to the left, and not one of them will meet you with anything resembling pleasure. The jaw is set. The eyes are steady in the manner of a man being informed of a death he had privately anticipated. Occasionally there is a mouth movement of perhaps two millimetres, the facial equivalent of a bond trading a quarter point off par, and this is understood by all parties to be warmth. Scroll far enough and the faces begin to blur into a single composite person, which is worth noticing, because every one of them sat for that photograph believing it said something particular about him.
+        </p>
+        <p class="mb-6">
+          Consider what is actually being communicated. A photograph is a claim about a person. This particular claim, repeated across an entire industry with a uniformity no dress code ever achieved, is roughly: I have seen things. I am not going to enjoy this and neither are you. My seriousness is such that it has cost me the ordinary use of my face.
+        </p>
+        <p>
+          It is worth asking why an industry that prides itself on rational analysis has converged on a facial expression that, encountered anywhere else, would prompt a wellness check.
+        </p>
+      </div>
+      <figure class="my-14">
+        <img
+          src="https://art.jamestannahill.com/weather/2026-08-04-060044/central-asia-45n-90e/preview-1200.webp"
+          width="1024"
+          height="1024"
+          alt="Abstract expressionist painting of a single flat face with one eye and a closed mouth, generated from Central Asian weather data"
+          loading="lazy"
+          decoding="async"
+          class="w-full h-auto"
+          style="background:#f5f5f5;"
+        />
+        <figcaption class="mt-3 text-[11px] leading-[1.6]" style="color:#999;">
+          45N 90E, Central Asia, rendered through a Willem de Kooning lens from that day's atmospheric data.
+          From <a href="https://art.jamestannahill.com/weather/2026-08-04-060044/central-asia-45n-90e/" target="_blank" rel="noopener noreferrer"
+          class="underline hover:opacity-70" style="color:var(--color-amber);">art.jamestannahill.com</a>.
+        </figcaption>
+      </figure>
+      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Defense, Conceded</h2>
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+        <p class="mb-6">
+          The defense is always the same, and it is not stupid. Gravity signals competence. Clients are handing over the pension money of municipal firefighters, and they do not want it received with a grin. There is real research behind the intuition, the general finding being that faces read as warm and faces read as dominant are not the same faces, and that observers make these judgments in well under a second, before any information about the person has arrived. Fine. Concede the point entirely. Somewhere in the neighborhood of a smile there is a threshold past which a man looks like he is selling something, and past that threshold the money does not follow.
+        </p>
+        <p>
+          But notice how the argument gets used. It licenses the absence of warmth, not the presence of gravity, and those are different products. The industry has confused refusing to smile with having something serious to say. It is the professional equivalent of speaking slowly in order to sound wise. The technique is available to anyone, which is the problem: a signal that costs nothing to produce carries no information, and a face anyone can make while thinking about lunch is not evidence of judgment.
+        </p>
+      </div>
+      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Tell</h2>
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+        <p class="mb-6">
+          Here is the tell. The expression is not distributed the way a genuine strategy would be. It is not the case that the managing partners look grim and the associates look human, which is what you would expect if the convention were doing real signaling work, calibrated to seniority and to who actually carries the weight. Everyone looks grim, including the twenty-six-year-old three weeks out of a bank analyst program whose most harrowing professional experience to date was a broken pivot table at four in the morning. He has adopted the face of a man who has restructured a shipping line. Nobody instructed him. He simply looked at the wall of his superiors and understood what species he was joining.
+        </p>
+        <p>
+          That is not positioning. That is mimicry, and mimicry at that scale has a different name.
+        </p>
+      </div>
+      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">Where the Face Came From</h2>
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+        <p>
+          It helps to know where the face came from, because it was not designed. It was inherited. The unsmiling portrait is a nineteenth century artifact, produced first by exposure times that made any expression impossible to hold, then by a painting convention in which the open mouth belonged to peasants, drunks and the deranged, and reinforced by dentistry that gave most sitters little to advertise. The rest of the world abandoned all of this by about the middle of the last century, when film got fast and Kodak spent a fortune teaching families that a photograph was a happy occasion. Every other domain of portraiture moved. Finance did not, and the refusal was not an oversight. The industry wants to look like the older thing. The grey ground and the set jaw are a costume worn to suggest an institution that predates your problem and will outlast it, which is a reasonable thing to want to suggest and a strange thing to attempt with your face.
+        </p>
+      </div>
+      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">Optimized for the Indictment</h2>
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+        <p>
+          Then there is the question of what the photograph is optimized for, which almost nobody asks out loud. Look at a wall of finance headshots and ask where else you have seen that exact composition. Neutral ground, direct address, no expression, shoulders square. You have seen it in the newspaper, above a caption containing the word probe. The industry has standardized on a portrait that survives its worst possible use, the one that runs beside the enforcement action, the fund collapse, the perp walk. A smiling photograph is unusable in that context, since it reads as either mockery or delusion, and everyone knows it. So the convention quietly pre-hedges the scandal that has not happened yet. An industry whose portraiture is optimized for its own indictment is telling you something about its priors, and it is not telling you it has seen things. It is telling you it expects to be accused of them.
+        </p>
+      </div>
+      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">A Sick Institution, Not Sick People</h2>
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+        <p class="mb-6">
+          I want to be careful here, because the phrase gets thrown around and it should not be. A man with a stern headshot is not mentally ill, and treating a corporate photographic convention as a clinical matter would be both wrong and cheap. Individuals are fine. What is unwell is the organism they compose. Institutions are perfectly capable of exhibiting, at the collective level, behavior that would be diagnosable in a person: rigid affect, compulsive repetition, and a persistent belief that any display of ordinary human pleasure will be punished. Finance has all three, and it has framed them and hung them on the website.
+        </p>
+        <p class="mb-6">
+          The compulsive repetition is the strangest part. Every firm believes its photograph differentiates it. The grey backdrop, the quarter turn, the arms crossed if the firm is feeling bold, the folded hands if it is feeling approachable, the window with the skyline out of focus behind if it has recently raised a fund. The result is a sector of several thousand institutions whose leadership is visually indistinguishable, all of them convinced they are conveying something specific. You could shuffle the faces between firms and no client would detect the swap. A convention that produces perfect uniformity while every participant believes he is signaling individual credibility is not a strategy. It is a tic that has been rationalized after the fact, which is precisely how tics survive.
+        </p>
+        <p>
+          And the persistent belief in punishment. Ask anyone in the industry why he does not smile in his photograph and he will not say that he analyzed the evidence and concluded a smile costs him mandates. He will say some version of: it would look unprofessional. Pressed on who exactly would punish him, he cannot name the person. He is deferring to a tribunal that does not convene. The photograph is a defensive crouch against a threat nobody has ever confirmed exists, maintained at the cost of appearing, permanently and to everyone, like a man who has just received bad news from a doctor.
+        </p>
+      </div>
+      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">A Standard With Different Prices</h2>
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+        <p>
+          The convention also is not priced the same for everybody, which is the part that should bother anyone who defends it on efficiency grounds. The identical unsmiling frame that reads as authority on a fifty-five-year-old man reads as coldness on a woman thirty years younger, and the smile that would correct the impression costs her the seriousness he was never asked to earn. The formal experimental literature on this is contested and I will not pretend otherwise. The accumulated testimony of women who have sat for these photographs is not. A standard that charges different people different prices for compliance is not a standard. It is a tax, and it is collected by an institution that cannot name itself.
+        </p>
+      </div>
+      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">What It Actually Costs</h2>
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+        <p class="mb-6">
+          Notice also what the whole apparatus costs, which is not nothing. Trust is the actual product in this business. Not returns; returns are the promise. The product is a person a stranger is willing to hand money to, repeatedly, across a decade, through at least one stretch in which the numbers look terrible and the only thing keeping the capital in place is the belief that this particular human being is not going to lie about what happened. And the industry has decided that the optimal face for this is the one that communicates, before a word is exchanged, that the encounter will be unpleasant. It then spends enormous sums on relationship dinners to undo the impression created for free by its own photography.
+        </p>
+        <p>
+          Anyone who has actually attended those dinners knows the size of the gap. The people are funny. They are frequently the most entertaining company available at any table in the city, carrying two decades of stories they can only tell with the door closed. Then you look them up the next morning and find a man staring into the middle distance like a hostage. The photograph is the single least accurate document the firm produces, which is remarkable for an industry that has compliance review the footnotes of a quarterly letter. There is an arbitrage sitting in plain sight: be the one firm whose website tells the truth about what dinner is like.
+        </p>
+      </div>
+      <figure class="my-14">
+        <img
+          src="https://art.jamestannahill.com/weather/2026-08-04-060044/region-60s-0e/preview-1200.webp"
+          width="1152"
+          height="896"
+          alt="Abstract expressionist painting in pink, black, yellow and green, generated from Southern Ocean weather data"
+          loading="lazy"
+          decoding="async"
+          class="w-full h-auto"
+          style="background:#f5f5f5;"
+        />
+        <figcaption class="mt-3 text-[11px] leading-[1.6]" style="color:#999;">
+          60S 0E, Southern Ocean, rendered through a Willem de Kooning lens from that day's atmospheric data.
+          From <a href="https://art.jamestannahill.com/weather/2026-08-04-060044/region-60s-0e/" target="_blank" rel="noopener noreferrer"
+          class="underline hover:opacity-70" style="color:var(--color-amber);">art.jamestannahill.com</a>.
+        </figcaption>
+      </figure>
+      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Muscle You Cannot Operate</h2>
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+        <p class="mb-6">
+          The correct answer was never the grin, and this is where the defenders claim victory too early. It is the small, unforced thing a competent adult does with his face when he is looking at another person he is glad to see. The muscles around the eye do most of that work and they are close to impossible to operate deliberately, which is why the fake version is detected instantly by everyone and why the industry avoids the whole category. A real one requires actually feeling something at the moment of the shutter, in a room with a stranger holding a light meter, on a Tuesday. That is harder to produce on demand than a scowl. The wall of grey portraits is, in part, a wall of people who were not given a reason.
+        </p>
+        <p class="mb-6">
+          It is worth remembering that the most trusted capital allocator of the past half century spent sixty years being photographed mid-laugh, frequently holding food, and it does not appear to have cost him a single dollar of inflows. The counterexample is right there, permanently available, and the industry has looked at it and concluded that the lesson does not generalize.
+        </p>
+        <p>
+          Other professions get it wrong in their own directions. Law wears the same face with more books behind it. Medicine, interestingly, mostly does not, having worked out that a frightened patient does not need a portrait of severity. Technology overcorrected into the opposite pathology, the man laughing alone at something offscreen, which communicates its own species of unwellness: I am delighted by nothing in particular and would like you to find that trustworthy.
+        </p>
+      </div>
+      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Fix Is Embarrassingly Cheap</h2>
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+        <p>
+          The fix is embarrassingly cheap. Hire a photographer who talks, because the expression is produced by the conversation and not by the camera. Shoot enough frames that the tenth one arrives after the sitter has stopped performing. Ban the crossed arms, which have never once conveyed authority and have always conveyed a man waiting for an elevator. Retire the grey seamless. Then choose the frame in which the person looks like the person, and accept that this will feel, to a room of partners reviewing proofs, alarmingly informal, which is the only real evidence you need that the convention is doing something other than serving the client.
+        </p>
+      </div>
+      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Last Unhedged Position</h2>
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+        <p class="mb-6">
+          The headshot is the last unhedged position on the page. Everything else in the firm's public materials has been drafted, reviewed, softened and approved: the strategy language, the track record with its careful vintage disclosures, the biography that turns a mediocre decade into a formative one. The photograph is the one asset nobody thought to audit, and it is currently informing every prospective investor, silently and at no charge, that the man managing the money has not enjoyed anything in some time.
+        </p>
+        <p>
+          That is the ridiculousness. Not the absence of teeth, but the collective agreement to look afflicted, sustained by thousands of intelligent people who cannot identify who is enforcing it, in the service of a trust they then pay consultants to rebuild.
+        </p>
+      </div>
+
+      <script src="/scripts/thoughts-ripple.js" defer></script>
+
+      <p class="mt-14 pt-8 border-t text-[12px] tracking-[0.1em]" style="border-color:#eee;">
+        <a href="/thoughts/" class="hover:opacity-70" style="color:var(--color-amber);">Back to Thoughts</a>
+      </p>
+
+    </article>
+  </div>
+</BaseLayout>
