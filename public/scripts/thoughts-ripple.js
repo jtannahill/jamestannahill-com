@@ -9,11 +9,11 @@
 (function () {
   var state = null; // { raf, words, cleanup }
 
-  var RADIUS = 190;   // px of influence around the cursor
-  var AMP = 7.0;      // px peak displacement
-  var FREQ = 0.055;   // spatial frequency (rad/px)
+  var RADIUS = 260;   // px of influence around the cursor
+  var AMP = 15.0;     // px peak displacement
+  var FREQ = 0.032;   // spatial frequency (rad/px); lower = longer, more legible wave
   var SPEED = 3.2;    // temporal frequency (rad/s), same as the hero shader
-  var EASE = 0.14;    // per-frame approach toward the target offset
+  var EASE = 0.18;    // per-frame approach toward the target offset
 
   function teardown() {
     if (!state) return;
