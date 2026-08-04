@@ -137,3 +137,12 @@ card(
     ["Markets, medicine, and the language", "both are written in."],
     "jamestannahill.com/thoughts",
 )
+
+card(
+    "og-sea-room.png",
+    "art-arctic-60n-140e.png",
+    "Thoughts",
+    ["Sea", "Room"],
+    ["On knowing where you are, and having", "somewhere to go."],
+    "jamestannahill.com/thoughts",
+)
