@@ -164,3 +164,12 @@ card(
     ["On the staff function that must", "manufacture its own demand."],
     "jamestannahill.com/thoughts",
 )
+
+card(
+    "og-org-chart-travels.png",
+    "pm-region-30n-150e.png",
+    "Thoughts",
+    ["The Org Chart", "Travels"],
+    ["On what actually crosses a border", "when an idea is exported."],
+    "jamestannahill.com/thoughts",
+)
