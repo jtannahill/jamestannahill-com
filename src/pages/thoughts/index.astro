@@ -1,0 +1,44 @@
+---
+export const prerender = true;
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// Unlinked from the header and footer nav by design - /thoughts is reachable by
+// direct link only. Add new essays here, newest first.
+const posts = [
+  {
+    slug: 'guerir-quelquefois',
+    title: 'Guérir Quelquefois',
+    standfirst: 'On the word "cure," and the men who sell it',
+    date: 'August 2026',
+  },
+];
+---
+<BaseLayout
+  title="Thoughts | James Tannahill"
+  description="Occasional essays on markets, medicine, and the language both are written in."
+  canonical="https://jamestannahill.com/thoughts/"
+>
+  <div class="bg-white min-h-screen">
+    <div class="max-w-3xl mx-auto px-6 py-16">
+
+      <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">Thoughts</p>
+      <h1 class="text-[28px] font-semibold tracking-tight mb-2" style="color:#1a1a1a;">Thoughts</h1>
+      <p class="text-[15px] leading-[1.85] mb-12" style="color:#444;">
+        Occasional essays. Published when there is something worth saying, not on a schedule.
+      </p>
+
+      <ul class="list-none p-0 m-0">
+        {posts.map(post => (
+          <li class="border-t py-8" style="border-color:#eee;">
+            <p class="text-[12px] mb-3" style="color:#999;">{post.date}</p>
+            <h2 class="text-[20px] font-semibold tracking-tight mb-2" style="color:#1a1a1a;">
+              <a href={`/thoughts/${post.slug}/`} class="hover:opacity-70" style="color:#1a1a1a;">{post.title}</a>
+            </h2>
+            <p class="text-[15px] leading-[1.85]" style="color:#444;">{post.standfirst}</p>
+          </li>
+        ))}
+      </ul>
+
+    </div>
+  </div>
+</BaseLayout>
