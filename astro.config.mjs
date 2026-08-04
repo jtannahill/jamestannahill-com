@@ -5,7 +5,7 @@ import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
   // Apex is canonical: www 301s to the apex via a CF redirect rule, and all
-  // page canonicals use the apex. `site` drives sitemap URLs — keep aligned
+  // page canonicals use the apex. `site` drives sitemap URLs, so keep aligned
   // or GSC flags every sitemap entry as "Page with redirect".
   site: 'https://jamestannahill.com',
   output: 'server',
@@ -19,8 +19,8 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
-      // /resume is a noindex share landing — keep it out of the sitemap so we
-      // don't advertise a page we've told crawlers not to index.
+      // /resume is a noindex share landing, so keep it out of the sitemap and
+      // avoid advertising a page we've told crawlers not to index.
       // /thoughts is unlinked from site nav by design - keep it out of the
       // sitemap too so it stays direct-link only (still crawlable/indexable
       // if linked externally).
@@ -48,7 +48,7 @@ export default defineConfig({
       // Our CSP is strict: `script-src 'self'` with no 'unsafe-inline', nonce,
       // or hash (see src/lib/security-headers.ts). Astro inlines small
       // import-less hoisted scripts (<4KB) directly into the HTML, and the
-      // browser blocks every inline <script> under that policy — which
+      // browser blocks every inline <script> under that policy, which
       // silently killed the mobile hamburger toggle, scroll-reveal fallback,
       // and the RDLB reel. Force script chunks to emit as external
       // `_astro/*.js` files so `'self'` covers them; keep Vite's default
