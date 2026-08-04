@@ -40,6 +40,12 @@
         if (!part.trim()) { frag.appendChild(document.createTextNode(part)); return; }
         var s = document.createElement('span');
         s.className = 'rw';
+        // Styled here, not in CSS: Astro scopes component <style> blocks to a
+        // data-astro-cid-* attribute that these runtime-created spans never
+        // carry, so a stylesheet rule would silently never apply. inline-block
+        // is what makes a span transformable at all.
+        s.style.display = 'inline-block';
+        s.style.willChange = 'transform';
         s.textContent = part;
         frag.appendChild(s);
         spans.push(s);

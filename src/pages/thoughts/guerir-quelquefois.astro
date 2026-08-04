@@ -130,16 +130,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
       <script src="/scripts/thoughts-ripple.js" defer></script>
 
-      <style>
-        /* Word spans injected by thoughts-ripple.js. inline-block is what makes
-           them transformable; will-change keeps the per-frame transforms off
-           the main thread. */
-        [data-ripple-text] .rw {
-          display: inline-block;
-          will-change: transform;
-        }
-      </style>
-
       <p class="mt-14 pt-8 border-t text-[12px] tracking-[0.1em]" style="border-color:#eee;">
         <a href="/thoughts/" class="hover:opacity-70" style="color:var(--color-amber);">Back to Thoughts</a>
       </p>
