@@ -155,3 +155,12 @@ card(
     ["On an adversary that files its", "intentions publicly."],
     "jamestannahill.com/thoughts",
 )
+
+card(
+    "og-inventors-of-problems.png",
+    "f2.png",
+    "Thoughts",
+    ["Inventors of", "Problems"],
+    ["On the staff function that must", "manufacture its own demand."],
+    "jamestannahill.com/thoughts",
+)

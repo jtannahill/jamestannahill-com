@@ -14,6 +14,10 @@ Activity is easy to produce. You can always run another survey, publish another 
 
 Risk avoided is better still, because it is unfalsifiable. Nobody can demonstrate that the lawsuit which did not happen would have happened, and so any expenditure justified by its absence is immune to review. A function whose value is measured in counterfactual disasters has discovered the perfect business model: unlimited demand, no accountability, and a customer who cannot cancel.
 
+The order Rodentia takes its name from the Latin for to gnaw, and the defining feature of its members is dental rather than dietary. A rodent's incisors never stop growing. They are open rooted, they advance continuously through the animal's life, and they must be worn down against something or they curve back on themselves until the animal can no longer eat. The gnawing is therefore not a response to hunger. A well fed rodent gnaws exactly as much as a starving one, because the behavior is maintenance of the apparatus rather than pursuit of a meal. Deprive it of anything worth chewing and it will chew the cage.
+
+This is the most accurate available description of a staff function whose headcount grows independently of the work. The output is not a response to demand. It is what the teeth require, and the volume stays constant whether or not there is anything to eat.
+
 The predictable consequence is that problems get invented. Not maliciously, and usually not consciously. It is simply what a system does when growth requires demand and demand can be generated internally at no cost. Engagement scores decline slightly, so a program is required. A manager gives blunt feedback, so a communications standard is required. Two people in a company of nine thousand behave badly, so nine thousand people complete a ninety minute module. Each intervention is defensible in isolation. In aggregate they constitute an enormous, unbudgeted tax on the productive time of the firm, levied by a department that has never once been asked to demonstrate a return.
 
 ## The Evidence Was Always Bad
@@ -37,6 +41,20 @@ Take the two announcements together and the conclusion is unavoidable. If the co
 That is the actual objection to what gets called wokeness in the corporate setting, and it is not a complaint about values. It is a complaint about sincerity. A firm that adopts a moral position because it is currently cheap, and drops it the moment it becomes expensive, has not held a moral position at all. It has run a marketing campaign in the vocabulary of conscience, and it has done so using the working hours of employees who were required to attend.
 
 The people who suffer most from this cycle are the ones who took it seriously, including, conspicuously, the intended beneficiaries. Being hired into a role created for a press release, and discovering in the third year that the role was a line item in a budget nobody intended to defend, is a specific and avoidable humiliation. Cynical adoption is not kindness. It never was.
+
+## The Sound of Running Water
+
+The cleverest member of the order is worth a longer look, because it explains the mechanism rather than merely describing it.
+
+Beavers are rodents, the largest in North America, and they are genuine engineers. The dams they build create wetlands, moderate floods, recharge groundwater and support an enormous amount of life that would not otherwise be there. Nobody sensible disputes their competence.
+
+What triggers the building is the interesting part. In a series of classic experiments, the trigger was isolated: not the sight of a gap, not a rising water level, but the sound of running water. Play a recording of a flowing stream through a loudspeaker and a beaver will attempt to dam the loudspeaker. It will do this on dry land. It will pack mud and sticks around a machine that is impounding nothing, in a place where no water has ever flowed, and it will do so with the same care and the same competence it would bring to an actual breach.
+
+The animal is not stupid, and this is the point that matters. Over a long time in an environment where that sound reliably meant a leak, responding to the proxy rather than to the underlying condition was cheaper and faster than assessing each situation on its merits. The heuristic was correct until somebody introduced a speaker.
+
+A large organization is full of speakers. An engagement score ticks down two points. A manager sends a blunt message that gets forwarded. A competitor announces a policy and a headline follows. An anonymous comment appears in a survey. Each of these is the sound of running water: a signal that once correlated with a real breach, arriving now with no breach attached. And the response is immediate, competent, and thorough. A program is designed. A standard is drafted. A training is scheduled. Mud is packed around a loudspeaker with great professional skill.
+
+Watch what actually gets dammed and the pattern is unmistakable. The interventions cluster around whatever is audible rather than whatever is costly. Nobody builds anything in response to the best engineer in the firm quietly deciding, over eighteen months, that the place is not serious. That produces no sound at all until the resignation letter, and by then the water is somewhere else.
 
 ## Delegated Cowardice
 
@@ -73,6 +91,10 @@ The last question is the one that exposes the true cost. Every mechanism describ
 Nobody in this argument is asking for a firm with no people function. They are asking for one with a small, senior, expensive people function that does hard things, and no layer above it inventing work.
 
 Concretely: pay the compliance and payroll professionals well and staff them properly, because those are the parts with genuine downside. Employ two or three genuinely excellent investigators rather than twenty coordinators. Return hiring and firing authority to managers, along with the accountability that makes it real, and accept that some will use it badly and be replaced for it. Delete every mandatory training that cannot show evidence of behavior change, which will be most of them. Publish the fully loaded cost of every process the department imposes. And require the function's leader to defend headcount in the same forum, on the same terms and with the same skepticism applied to a request for a new sales region.
+
+When beavers dam a culvert and flood a road, the amateur reaches for a trap and discovers that the colony is replaced within a season, because the habitat is still good and the sound is still there. The professional installs a flow device: a pipe run through the dam, or a fence that moves the intake far enough upstream that the animal cannot hear the water leaving. The beaver stays, the pond stays, the road stays dry. Nothing is killed and nothing is lectured. The stimulus is simply decoupled from the response.
+
+That is the entire remedy for this function, and it is worth stating in the same terms. Firing the coordinator changes nothing, because the position refills and the sound is still playing. What works is turning off the speakers: stop commissioning surveys whose findings nobody intends to act on, stop treating a competitor's press release as a signal about your own firm, stop escalating every awkward exchange into a policy, and stop rewarding the department for the volume of its response to noise. Leave the real breaches, which are few and which deserve the full competence of a serious professional, and remove the phantom ones.
 
 The department did not seize this territory. It was handed the territory by executives who found it convenient to have somewhere to put the decisions they did not want their names on. The problems it invents are real problems now, because a sufficiently large organization will always make its fictions true. But they were invented, they were paid for, and the invoice was signed at the top.
 
