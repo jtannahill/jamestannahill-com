@@ -146,3 +146,12 @@ card(
     ["On knowing where you are, and having", "somewhere to go."],
     "jamestannahill.com/thoughts",
 )
+
+card(
+    "og-party-secretary.png",
+    "e-south.png",
+    "Thoughts",
+    ["Ask Who the", "Party Secretary Is"],
+    ["On an adversary that files its", "intentions publicly."],
+    "jamestannahill.com/thoughts",
+)

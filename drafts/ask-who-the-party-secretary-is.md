@@ -1,0 +1,107 @@
+# Ask Who the Party Secretary Is
+
+## On dealing with an adversary that files its intentions publicly, and the diligence question nobody wants to ask first
+
+There is a question that belongs in the first meeting with any Chinese counterparty, and it is almost never asked until the third year, usually by a lawyer, usually after something has gone wrong. The question is: who is your party secretary, and what does your charter say he is entitled to decide?
+
+It sounds impolite. It is not. It is closer to asking who chairs the audit committee. The structure being asked about is a legally mandated organ of the enterprise, disclosed in filings, and the counterparty's compliance department can produce the answer before lunch. The discomfort Western executives feel is a projection of their own vocabulary onto a system that uses different words and conceals far less than they assume. It publishes. We decline to read.
+
+## Say the Quiet Part
+
+Begin with the thing that most institutions will say privately and almost none will put in a memo: the People's Republic under the Communist Party is a strategic adversary of the United States and its allies, it says so in its own doctrinal language, and the commercial relationship is an instrument of that competition rather than an exception to it.
+
+This is not a mood. It is the operating assumption that makes the observable facts cohere, and the alternative assumption, that we are dealing with a normal counterparty who occasionally behaves strangely, requires explaining away a decade of consistent behavior as a series of unfortunate coincidences.
+
+The category error runs deep in Western boardrooms because the last forty years trained an entire generation of executives to treat market access as the terminal value and everything else as friction to be managed by government affairs. That training produced enormous returns and it is now a liability, because the counterparty never accepted the frame. It was always playing a longer game with different objectives, and it wrote them down.
+
+## The Doctrine Is Published
+
+Military-civil fusion is not an allegation made by hawks. It is a stated national strategy, elevated under the current leadership and administered through a central commission established for the purpose, whose entire point is to erase the separation between commercial technology development and military capability. When a Western firm partners with a Chinese entity on advanced technology, the question of whether the resulting capability reaches the People's Liberation Army is not a matter of the partner's good intentions. It is a matter of published policy.
+
+The industrial roadmap issued in 2015 named the sectors in which domestic champions were to displace foreign suppliers, with target percentages. The document was later de-emphasized in propaganda after it attracted attention abroad, but the substance continued. Firms in every one of the named sectors experienced the sequence: welcome, joint venture, technology transfer as a condition of access, domestic competitor, margin compression, exit.
+
+The theft cases are documented in Western courts rather than in think tank papers. A Chinese wind turbine manufacturer was convicted in a United States federal court in 2018 of stealing the source code of its American supplier, a theft that gutted the victim's market value. A Taiwanese chipmaker pleaded guilty in 2020 in connection with the misappropriation of an American memory manufacturer's trade secrets destined for a mainland partner. The 2018 indictment of hackers associated with the Ministry of State Security described a decade-long campaign against managed service providers, which is to say against the vendors holding the keys to everyone else's networks.
+
+None of this is contested by anyone who reads the filings. It is merely inconvenient for the deal in front of you.
+
+## The Law Does Not Recognize Your Contract
+
+The legal architecture is the part that converts geopolitics into a term you can underwrite.
+
+National intelligence legislation enacted in 2017 obliges organizations and citizens to support and cooperate with intelligence work, with a legal basis for compelling assistance. Data security and personal information statutes passed in 2021 subject data generated in country to state access and restrict its export. The counter-espionage law was broadened in 2023 in ways that expanded what may be treated as protected material, which is to say expanded the state's discretion.
+
+Two consequences follow for anyone signing anything.
+
+Your counterparty's obligations to the state are not contractual and therefore cannot be contracted away. A confidentiality agreement allocates risk between two commercial parties. It does not stand against a lawful instruction from a state that does not recognize your agreement as a competing claim.
+
+And when the instruction comes, it will be lawful where it is issued. Your counterparty will not have defected in his own frame; he will have complied. If you have filed this under bad faith you will misread every signal until the morning it happens, because you will be watching for a liar and you will meet a man discharging an obligation you declined to put on the risk register.
+
+## Coercion Is an Instrument, Not an Accident
+
+The pattern that should end the debate about intent is what happens to countries that displease the Party.
+
+Australia called for an independent inquiry into the origins of the pandemic in 2020 and found its barley, wine, coal and other exports subject to a rolling campaign of tariffs and informal bans. Lithuania permitted a Taiwanese representative office to open under that name in 2021 and discovered that its goods, and eventually goods from other countries containing Lithuanian components, could not clear customs. Neither episode involved a trade dispute in the ordinary sense. Both involved a state using the commercial relationship as a lever against the political choices of a sovereign government, which is precisely what the relationship is for.
+
+Export controls run the same direction. Restrictions announced in 2023 on gallium, germanium, graphite and rare earth processing technology were not industrial policy in the neutral sense. They were a demonstration that dependence is a weapon that can be fired, delivered by the state that had spent two decades acquiring the position.
+
+Then there are people. Two Canadian citizens were detained in December 2018, days after Canada arrested a Chinese executive on a United States warrant, and released in September 2021 within hours of that executive's release. Whatever one calls that, it is not a legal system that a foreign firm should expect to behave predictably toward its own employees when the wind changes. Exit bans on foreign executives in commercial disputes are documented practice.
+
+And for anyone who believes a signed instrument constrains the outcome: the treaty governing Hong Kong's handover, registered with the United Nations, was described by a Foreign Ministry spokesman in 2017 as a historical document without practical significance. Three years later the national security law arrived, a free press was dismantled, and the most prominent newspaper publisher in the territory went to prison. That is the precedent that matters for underwriting. Not that a treaty was broken, but that its breach was announced calmly, in advance, and that the counterparties who had priced it as binding simply absorbed the loss.
+
+## Ownership Was Always Conditional
+
+The commercial cases are ownership stories rather than espionage stories, which is why they generalize.
+
+An insurance conglomerate ran one of the more aggressive cross-border acquisition programs of the last decade. Its chairman was sentenced to eighteen years in 2018 and the state took the company. A private investment group of comparable scale lost its founder, removed from Hong Kong in 2017 and sentenced on the mainland in 2022, with assets disposed of by authorities. A payments giant days from the largest listing in history had it halted in November 2020 and spent years being restructured. A ride-hailing company listed in New York in mid-2021, was placed under cybersecurity review within days, and delisted inside a year. A prominent technology banker disappeared in early 2023; his firm later confirmed he was assisting an investigation.
+
+Every one of these looked privately owned on any Western balance sheet. In every one, the residual claimant turned out to be the state.
+
+Now add the structure through which most foreign investors held these companies. The variable interest entity was a workaround for prohibitions on foreign ownership in restricted sectors: what the offshore shareholder owns is a Cayman company holding contracts that purport to capture the economics of a mainland operating company it does not own. The arrangement has never been affirmatively blessed in a way that would survive a determined adverse ruling. Millions of Western retirement accounts hold this instrument. Most of the people who own it believe they own shares in a Chinese company. They own a contract, governed in part by a legal system that has told us what it thinks of contracts that become inconvenient.
+
+Audit access followed the same shape. American law finally forced the issue of inspecting the auditors of China-based issuers, and access was granted in late 2022 after years of refusal. Granted is the operative word. What was extended under pressure can be withdrawn under different pressure, and the underlying position, that the books of these companies were beyond the reach of the regulator whose market they were listed in, was held for over a decade without embarrassment.
+
+## The Target Is the Party-State, Not the People
+
+One distinction is worth stating precisely, and not as a hedge.
+
+The Party's most effective rhetorical move is to claim that it is China, so that criticism of a political apparatus reads as hostility toward a civilization of 1.4 billion people. Accepting that conflation does its work for it, and it is also strategically stupid, because it forfeits the strongest fact available: the system falls hardest on Chinese citizens. The founders in the cases above were Chinese. The entrepreneurs who lost a decade to an unappealable decision were Chinese. The people in Xinjiang who are the subject of American import restrictions are Chinese. A hawk who cannot distinguish between the Politburo and a Chinese engineer in Shenzhen is not a hardliner. He is a bad analyst.
+
+It is also poor tradecraft. Screening by ancestry generates noise, is unlawful as an employment practice across most jurisdictions your firm operates in, and misses the actual mechanism, which is structural and documented. The American research-security effort that drifted in that direction produced collapsed prosecutions and destroyed careers while the real transfers continued through channels that were, the entire time, described in public filings.
+
+Aim at the institution. It is a larger target and it does not move.
+
+## The Symmetry Argument, and Why It Fails
+
+Someone in the meeting always observes that Western states also lean on their firms: cleared contractors under mitigation agreements, export controls conscripting compliance departments, sanctions regimes deputizing banks, officials cycling in and out of industry. The observation is true and it is not equivalence.
+
+The difference is contestability. In the American or European case the instruction arrives through a process that can be read, challenged, litigated and occasionally defeated, and the record survives. A firm can refuse and go to court. The relevant question for underwriting is not whether a state can reach into an enterprise, since all of them can, but whether the reaching leaves a record the counterparty can see, contest and price.
+
+Where it does not, you are not holding a contract. You are holding a permission that has not yet been revoked.
+
+## What to Actually Ask
+
+The practical version fits on one page and belongs in the first management meeting, not the confirmatory phase.
+
+Does the entity have a party committee, and is it named in the articles of association? Who is the secretary, and does he hold a board or executive title? Does the charter require party committee discussion before board resolutions, and on which categories? What is the ownership chain to ultimate beneficial owner, including any state asset supervision body, provincial vehicle or government guidance fund? Are there special shares held by state-linked entities, and what consent rights attach? Where does operational data reside, which statutes govern its export, and what happens to our access on a bad day? Which of our people could be prevented from leaving if a dispute escalated? Does any part of the supply chain touch Xinjiang, and can you document it to a standard that survives a customs presumption of forced labor? And if a lawful instruction conflicted with our agreement, who makes that call, and would we be told?
+
+The last question is the only uncomfortable one, and it is uncomfortable because it asks a man to describe, in front of you, the circumstances under which he will lawfully defect. Serious operators answer it. They have thought about it more carefully than you have, because they live inside it.
+
+## The Variance Is the Finding
+
+Ask the full list, of three people, at the same organization, on separate occasions.
+
+A competent counterparty answers within a day, because the answers are filed and the structure is legally required to exist. Nothing has been extracted; you have read the organization chart aloud.
+
+Evasion is therefore informative, and it comes in grades. Puzzlement is usually genuine and means you are below the level where the question is real. Offense is a negotiating posture. Assurance without documents, especially the assurance that the committee is a pure formality, is the one to record verbatim and date, because a formality nobody will describe in writing is not a formality.
+
+The pattern to price is inconsistency. Three different accounts of who must be consulted before a major decision is not evidence of conspiracy. It is evidence that nobody in the room holds authority he can guarantee to you, which is more mundane and far more expensive.
+
+## Some Exposures Should Not Be Priced
+
+Most of this can be managed with structure. Keep the crown jewels out of a single jurisdiction. Assume any process that can be observed will be reproduced and decide in advance whether the reproduction is survivable. Dual-source anything whose interruption stops the line. Know which of your people carry exit exposure and stop sending them casually. Put forced transfer in the model as a branch with a probability rather than a footnote about geopolitical uncertainty, which is the phrase people use when they intend to think no further.
+
+But the harder discipline is knowing which exposures do not belong in the model at all. A supply chain that cannot be documented clear of forced labor is not a discount rate problem; it is a line you decline to cross, and the law in the United States now agrees with that instinct by presuming the worst until you prove otherwise. Technology whose transfer measurably advances the military capability of an adversary is not a margin question. Dependence on a single hostile jurisdiction for an input you cannot substitute is not a risk you hedge; it is a position you unwind, slowly and expensively, starting before you are forced to.
+
+The refusal to ask is not politeness. It is a decision to hold an unpriced position in something you have chosen not to examine, taken by people who would never accept the same treatment of a covenant, a lien or a tax exposure.
+
+Ask in the first meeting, when it is diligence. In the fourth year, after the joint venture is signed, the technology has moved and your engineering lead has been hired away, it is an accusation, and you will be making it with no leverage and no sea room.
