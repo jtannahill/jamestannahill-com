@@ -2,8 +2,9 @@
 export const prerender = true;
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-// Unlinked from the header and footer nav by design - /thoughts is reachable by
-// direct link only. Add new essays here, newest first.
+// Add new essays here, newest first. The first entry runs as the lead plate,
+// the rest fall into the grid below it. `art` is the same artwork that opens
+// the essay itself, so the index and the piece agree visually.
 const posts = [
   {
     slug: 'the-unsmiling-class',
@@ -11,6 +12,9 @@ const posts = [
     standfirst: 'On the finance headshot, and the face it has agreed to wear',
     date: 'August 2026',
     published: '2026-08-04',
+    art: 'https://art.jamestannahill.com/weather/2026-08-04-060044/central-asia-45n-90e/preview-1200.webp',
+    artAlt: 'Abstract expressionist painting of a single flat face with one eye and a closed mouth',
+    aspect: '16 / 9',
   },
   {
     slug: 'guerir-quelquefois',
@@ -18,8 +22,13 @@ const posts = [
     standfirst: 'On the word "cure," and the men who sell it',
     date: 'August 2026',
     published: '2026-08-04',
+    art: 'https://art.jamestannahill.com/weather/2026-08-04-060044/south-america-60s-60w/preview-1200.webp',
+    artAlt: 'Abstract expressionist painting in pink, black, orange and yellow',
+    aspect: '4 / 3',
   },
 ];
+
+const [lead, ...rest] = posts;
 
 const description = 'Occasional essays on markets, medicine, and the language both are written in.';
 
@@ -67,21 +76,92 @@ const schema = [
 
       <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">Thoughts</p>
       <h1 class="text-[28px] font-semibold tracking-tight mb-2" style="color:#1a1a1a;">Thoughts</h1>
-      <p class="text-[15px] leading-[1.85] mb-12" style="color:#444;">
+      <p class="text-[15px] leading-[1.85] mb-12 max-w-xl" style="color:#444;">
         Occasional essays. Published when there is something worth saying, not on a schedule.
       </p>
 
-      <ul class="list-none p-0 m-0">
-        {posts.map(post => (
-          <li class="border-t py-8" style="border-color:#eee;">
-            <p class="text-[12px] mb-3" style="color:#999;">{post.date}</p>
-            <h2 class="text-[20px] font-semibold tracking-tight mb-2" style="color:#1a1a1a;">
-              <a href={`/thoughts/${post.slug}/`} class="hover:opacity-70" style="color:#1a1a1a;">{post.title}</a>
-            </h2>
-            <p class="text-[15px] leading-[1.85]" style="color:#444;">{post.standfirst}</p>
-          </li>
-        ))}
-      </ul>
+      <!-- Lead: newest essay, full width, art first. -->
+      <a href={`/thoughts/${lead.slug}/`} class="tcard group block mb-16">
+        <div class="overflow-hidden" style="background:#f5f5f5;">
+          <img
+            src={lead.art}
+            alt={lead.artAlt}
+            width="1200"
+            height="675"
+            loading="eager"
+            decoding="async"
+            class="tcard-img w-full object-cover"
+            style={`aspect-ratio:${lead.aspect};`}
+          />
+        </div>
+        <div class="flex items-baseline gap-3 mt-5">
+          <span class="text-[9px] tracking-[0.25em] uppercase" style="color:var(--color-amber);">Latest</span>
+          <span class="text-[12px]" style="color:#999;">{lead.date}</span>
+        </div>
+        <h2 class="tcard-title text-[30px] leading-[1.15] font-semibold tracking-tight mt-2" style="color:#1a1a1a;">
+          {lead.title}
+        </h2>
+        <p class="text-[16px] leading-[1.7] mt-2 max-w-xl" style="color:#555;">{lead.standfirst}</p>
+        <span class="inline-block text-[11px] tracking-[0.18em] uppercase mt-4" style="color:var(--color-amber);">
+          Read the essay
+        </span>
+      </a>
+
+      {rest.length > 0 && (
+        <div class="border-t" style="border-color:#eee;">
+          {rest.map((post, i) => (
+            <a
+              href={`/thoughts/${post.slug}/`}
+              class="tcard group grid gap-6 sm:gap-8 sm:grid-cols-12 items-start py-10 border-b"
+              style="border-color:#eee;"
+            >
+              <div class="sm:col-span-5 overflow-hidden" style="background:#f5f5f5;">
+                <img
+                  src={post.art}
+                  alt={post.artAlt}
+                  width="1200"
+                  height="900"
+                  loading="lazy"
+                  decoding="async"
+                  class="tcard-img w-full object-cover"
+                  style={`aspect-ratio:${post.aspect};`}
+                />
+              </div>
+              <div class="sm:col-span-7">
+                <div class="flex items-baseline gap-3">
+                  <span class="text-[10px] tabular-nums" style="color:var(--color-amber);">
+                    {String(i + 2).padStart(2, '0')}
+                  </span>
+                  <span class="text-[12px]" style="color:#999;">{post.date}</span>
+                </div>
+                <h2 class="tcard-title text-[22px] leading-[1.25] font-semibold tracking-tight mt-1" style="color:#1a1a1a;">
+                  {post.title}
+                </h2>
+                <p class="text-[15px] leading-[1.75] mt-2" style="color:#555;">{post.standfirst}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      )}
+
+      <style>
+        .tcard-img {
+          transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), filter 0.4s ease;
+          filter: saturate(0.92);
+        }
+        .tcard:hover .tcard-img,
+        .tcard:focus-visible .tcard-img {
+          transform: scale(1.035);
+          filter: saturate(1.05);
+        }
+        .tcard-title { transition: color 0.25s ease; }
+        .tcard:hover .tcard-title,
+        .tcard:focus-visible .tcard-title { color: var(--color-amber); }
+        @media (prefers-reduced-motion: reduce) {
+          .tcard-img { transition: none; }
+          .tcard:hover .tcard-img { transform: none; }
+        }
+      </style>
 
     </div>
   </div>
