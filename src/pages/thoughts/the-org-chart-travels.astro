@@ -4,8 +4,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const url = 'https://jamestannahill.com/thoughts/the-org-chart-travels/';
 const published = '2026-08-04';
+const modified = '2026-08-05';
 const description =
-  'On what actually crosses a border when an idea is exported: not the argument but the apparatus, arriving as compliance rather than persuasion.';
+  'On what actually crosses a border when an idea is exported: not the argument but the apparatus, arriving as compliance rather than persuasion, and on Althusser with the middle word struck out.';
 
 const schema = [
   {
@@ -19,7 +20,7 @@ const schema = [
     description,
     image: 'https://jamestannahill.com/og-org-chart-travels.png?v=2',
     datePublished: published,
-    dateModified: published,
+    dateModified: modified,
     inLanguage: 'en-US',
     articleSection: 'Essays',
     author: { '@id': 'https://jamestannahill.com/#person' },
@@ -31,12 +32,28 @@ const schema = [
       'cultural export',
       'free speech law',
       'comparative politics',
+      'Louis Althusser',
+      'ideological state apparatuses',
+      'interpellation',
     ],
     about: [
       { '@type': 'Thing', name: 'Cultural globalization' },
       { '@type': 'Thing', name: 'Multinational corporate policy' },
       { '@type': 'Thing', name: 'Comparative politics' },
+      {
+        '@type': 'Thing',
+        name: 'Ideology and Ideological State Apparatuses',
+        sameAs: 'https://en.wikipedia.org/wiki/Ideology_and_Ideological_State_Apparatuses',
+      },
+      { '@type': 'Person', name: 'Louis Althusser', sameAs: 'https://en.wikipedia.org/wiki/Louis_Althusser' },
     ],
+    citation: {
+      '@type': 'CreativeWork',
+      name: 'Ideology and Ideological State Apparatuses',
+      author: { '@type': 'Person', name: 'Louis Althusser' },
+      datePublished: '1970',
+      sameAs: 'https://en.wikipedia.org/wiki/Ideology_and_Ideological_State_Apparatuses',
+    },
   },
   {
     '@type': 'BreadcrumbList',
@@ -122,6 +139,33 @@ const schema = [
           That mechanism explains most of what people find infuriating about the phenomenon abroad, and it does so without anyone having to agree about the merits. Even someone entirely sympathetic to the underlying claim is entitled to notice that it was not put to them. Compliance is not persuasion. It is the substitution of an org chart for a debate, and it produces the particular resentment reserved for things that are simultaneously moralizing and non-negotiable.
         </p>
       </div>
+      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Apparatus Had a Theorist</h2>
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+        <p class="mb-6">
+          None of which is new, and the priority is embarrassing enough to be worth stating plainly. In 1970 a French Marxist published an essay in <em>La Pensée</em> called <a href="https://en.wikipedia.org/wiki/Ideology_and_Ideological_State_Apparatuses" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-70" style="color:var(--color-amber);">Ideology and Ideological State Apparatuses</a>, and the section above is largely his.
+        </p>
+        <p class="mb-6">
+          Louis Althusser's distinction was between the repressive apparatus and the ideological ones. The first is the state's capacity for force: government, courts, police, army, unified, coercive, holding ideology in reserve behind the violence. The second set runs the other way round, ideology first and the coercion concealed and symbolic, and he listed them: religious, educational, family, legal, political, communications, cultural. His central and genuinely strange claim was that ideology does not live in anybody's head. It has a material existence. It exists in practices, in rituals, in the apparatus itself. Not what the staff in the regional office believe about the module. The module.
+        </p>
+        <p class="mb-6">
+          The mechanism he proposed for how it takes hold is interpellation, and the image is a policeman in the street shouting hey, you there. The person turns around, and in the turning becomes a subject: somebody addressed, somebody the hail was meant for. The turn is the entire operation. Belief is not required and was never requested. Only recognition is required.
+        </p>
+        <p class="mb-6">
+          Which accounts for the detail in Kuala Lumpur that otherwise looks like the apparatus failing. Everyone is bored. Everyone completes it. Boredom is not resistance, and completion is not assent, and the system asked for neither. The employee clicking acknowledge while privately mocking the slides has turned around. What the module wanted was the timestamp, in a database, retrievable by counsel in a jurisdiction eleven time zones away, and it got exactly that from the skeptic and the believer alike, which is why nobody administering it has ever cared which is which.
+        </p>
+        <p class="mb-6">
+          Now the amendment, because the essay has aged in an interesting direction. Althusser held that the school had supplanted the church as the dominant ideological apparatus. On current evidence the employer has supplanted the school: an adult spends more waking hours inside it, it grades continuously rather than annually, and its sanctions are material in a way a bad mark never was. But the deeper amendment is to the middle word of his term. Every apparatus on his list is national. Church, school, family, courts, parties, press: each of them bounded by a state, staffed by its nationals, arguing in its language. He called them state apparatuses because in 1970 an apparatus and a state were the same size, and that had been true for long enough to look like a law of nature.
+        </p>
+        <p class="mb-6">
+          It is not true now. The dominant apparatus has no state. It has a headquarters, a general counsel, a vendor contract and operations in a hundred and ninety jurisdictions, and it can install a practice in Malaysia without the Malaysian state holding any view on the matter, or being asked, or in most cases finding out. Strike the middle word. What is left is an ideological apparatus of a kind that did not previously exist, the first to reproduce a set of relations across social formations rather than within one.
+        </p>
+        <p class="mb-6">
+          That difference is the whole source of the resentment described above, and it is worth being precise about why. Being formed by the apparatus of your own society is invisible from the inside. It feels like weather, or like common sense, or like nothing at all, which is the condition Althusser was trying to make his readers notice. Being formed by somebody else's apparatus is not invisible in the least. It arrives with a foreign case study attached, and it feels like an instruction, because that is precisely what it is. The imported version fails at the one thing the domestic version does well, which is to disappear.
+        </p>
+        <p>
+          Two cautions, and the second is the serious one. He was a Marxist working out why the revolution had not arrived, and nothing here is that argument. More importantly, the framework as he left it has a defect that its admirers rarely concede: if everything is ideology and the hail always lands, then no observation counts against the theory and the analysis ends in a shrug. Ideology has no history, he wrote, and is eternal. That is the sort of claim which cannot be wrong, and cannot being wrong is a serious flaw rather than a strength. The mechanism is worth keeping. The fatalism is not, and there is a cheap way to test the difference, which is the subject of a later section.
+        </p>
+      </div>
       <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">Local Fights Have Local Content</h2>
       <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
         <p class="mb-6">
@@ -155,7 +199,7 @@ const schema = [
       <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Backlash Is an Export Too</h2>
       <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
         <p class="mb-6">
-          The tidy story in which an American ideology spreads outward while local traditions resist is wrong in one important respect. The counter-movement is at least as transnational and at least as professionalized.
+          The tidy story in which an American ideology spreads outward while local traditions resist is wrong in one important respect. The counter-movement is at least as transnational and at least as professionalized, which follows directly from the preceding section: an apparatus is indifferent to its payload, and anyone who enjoyed the analysis while it was aimed at a compliance department should expect it to work identically pointed the other way.
         </p>
         <p class="mb-6">
           An Argentine president denounces wokismo from a stage in Davos in the vocabulary of an American think tank. A Hungarian government builds an entire electoral identity around gender ideology as a foreign imposition. Russia moves from a law against propaganda to designating an international movement as extremist, and markets the whole package abroad as evidence of Western decadence. A Ugandan legislature passes severe legislation and frames rights advocacy as colonialism in modern dress, which is rhetorically effective precisely because the earlier export really was clumsy and really did arrive as a condition attached to aid.
@@ -187,8 +231,11 @@ const schema = [
         <p class="mb-6">
           Was this argued in the country where it will apply, in the local language, by people who live with the consequences, or was it translated? Who is the customer for it, and if the honest answer is the parent company's general counsel, say so in the memo rather than presenting it as a local initiative. And the decisive one: if headquarters stopped requiring this tomorrow, would the local organization keep any part of it?
         </p>
-        <p>
+        <p class="mb-6">
           That last question separates a genuine commitment from an act of compliance more cleanly than any survey, and the answer is usually known to everyone in the building before the question is asked. A practice that would not survive the removal of the mandate was never adopted. It was administered.
+        </p>
+        <p>
+          It is also the test the theory of apparatuses never supplied. An account in which everyone is always already a subject has no control group, and so it can name the apparatus and cannot measure it. A mandate is better than a theory in exactly one respect: it can be switched off. Switch it off in one region for two quarters, tell nobody it is an experiment, and count what remains. Whatever survives the withdrawal of the hail was a belief. Everything else was a timestamp.
         </p>
       </div>
       <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">Mars</h2>
@@ -223,7 +270,14 @@ const schema = [
 
       <script src="/scripts/thoughts-ripple.js" defer></script>
 
-      <p class="mt-14 pt-8 border-t text-[12px] tracking-[0.1em]" style="border-color:#eee;">
+      <p class="mt-14 pt-8 border-t text-[13px] leading-[1.75]" style="border-color:#eee; color:#888;">
+        The Althusser reading is owed to my good friend August Gold, who read this and pointed out that
+        a fair portion of it was re-deriving, at some length, a paper published in 1970. The section
+        titled The Apparatus Had a Theorist exists because he was right, and the argument is sturdier
+        for having an older and more dangerous author standing behind it.
+      </p>
+
+      <p class="mt-8 text-[12px] tracking-[0.1em]">
         <a href="/thoughts/" class="hover:opacity-70" style="color:var(--color-amber);">Back to Thoughts</a>
       </p>
 
