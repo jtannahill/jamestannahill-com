@@ -1,5 +1,12 @@
 # jamestannahill.com
 
+![Status](https://img.shields.io/badge/status-active-success)
+![Cloudflare Workers](https://img.shields.io/badge/Cloudflare%20Workers-F38020?logo=cloudflare&logoColor=white)
+![Astro](https://img.shields.io/badge/Astro-BC52EE?logo=astro&logoColor=white)
+[![Live](https://img.shields.io/badge/live-jamestannahill.com-blue)](https://jamestannahill.com)
+![License](https://img.shields.io/github/license/jtannahill/jamestannahill-com)
+![Last Commit](https://img.shields.io/github/last-commit/jtannahill/jamestannahill-com)
+
 Personal site for James Tannahill: operator, investor, builder.
 
 **Live:** [jamestannahill.com](https://jamestannahill.com)
