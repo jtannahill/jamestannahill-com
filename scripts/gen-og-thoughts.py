@@ -196,3 +196,12 @@ card(
     ["On automating the step you", "should have deleted."],
     "jamestannahill.com/thoughts",
 )
+
+card(
+    "og-tenure-without-persons.png",
+    "art-tsa-15s-70w.png",
+    "Thoughts",
+    ["Tenure Without", "Persons"],
+    ["On what actually becomes", "permanent inside an institution."],
+    "jamestannahill.com/thoughts",
+)

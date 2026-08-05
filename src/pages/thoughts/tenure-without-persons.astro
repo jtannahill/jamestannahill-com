@@ -1,0 +1,281 @@
+---
+export const prerender = true;
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const url = 'https://jamestannahill.com/thoughts/tenure-without-persons/';
+const published = '2026-08-05';
+const description =
+  'On tenured radicals, the accession number the Department of Education assigned to the book accusing it, and what becomes irrevocable inside a firm, a university, and eventually a settlement on Mars.';
+
+const schema = [
+  {
+    '@type': 'BlogPosting',
+    '@id': `${url}#post`,
+    isPartOf: { '@id': 'https://jamestannahill.com/thoughts/#blog' },
+    mainEntityOfPage: url,
+    url,
+    headline: 'Tenure Without Persons',
+    alternativeHeadline: 'On what actually becomes permanent inside an institution, and the accession number that answers a polemic',
+    description,
+    image: 'https://jamestannahill.com/og-tenure-without-persons.png?v=1',
+    datePublished: published,
+    dateModified: published,
+    inLanguage: 'en-US',
+    articleSection: 'Essays',
+    author: { '@id': 'https://jamestannahill.com/#person' },
+    publisher: { '@id': 'https://jamestannahill.com/#person' },
+    keywords: [
+      'academic tenure',
+      'academic freedom',
+      'tenured radicals',
+      'institutional design',
+      'corporate policy',
+      'compliance',
+      'space settlement governance',
+    ],
+    about: [
+      { '@type': 'Thing', name: 'Academic tenure' },
+      { '@type': 'Thing', name: 'Academic freedom' },
+      { '@type': 'Thing', name: 'Institutional economics' },
+      { '@type': 'Thing', name: 'Space colonization' },
+    ],
+    citation: [
+      {
+        '@type': 'Book',
+        name: 'Tenured Radicals: How Politics Has Corrupted Our Higher Education',
+        author: { '@type': 'Person', name: 'Roger Kimball' },
+        datePublished: '1990',
+        isbn: '0-06-016190-6',
+        sameAs: 'https://eric.ed.gov/?id=ED328110',
+      },
+      {
+        '@type': 'CreativeWork',
+        name: 'Defending Academic Freedom (Heritage Lecture 371)',
+        author: { '@type': 'Person', name: 'Michael P. McDonald' },
+        datePublished: '1992',
+        sameAs: 'https://static.heritage.org/1992/pdf/hl371.pdf',
+      },
+    ],
+  },
+  {
+    '@type': 'BreadcrumbList',
+    '@id': `${url}#breadcrumb`,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://jamestannahill.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Thoughts', item: 'https://jamestannahill.com/thoughts/' },
+      { '@type': 'ListItem', position: 3, name: 'Tenure Without Persons', item: url },
+    ],
+  },
+];
+---
+<BaseLayout
+  title="Tenure Without Persons | James Tannahill"
+  description={description}
+  canonical={url}
+  ogType="article"
+  ogImage="https://jamestannahill.com/og-tenure-without-persons.png?v=1"
+  ogImageAlt="Tenure Without Persons - on what actually becomes permanent inside an institution"
+  publishedTime={published}
+  articleSection="Essays"
+  extraSchema={schema}
+>
+  <div class="bg-white min-h-screen">
+    <article class="max-w-3xl mx-auto px-6 py-16">
+
+      <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">
+        <a href="/thoughts/" class="hover:opacity-70" style="color:var(--color-amber);">Thoughts</a>
+      </p>
+      <h1 class="text-[28px] font-semibold tracking-tight mb-3" style="color:#1a1a1a;">Tenure Without Persons</h1>
+      <p class="text-[17px] leading-[1.6] mb-2" style="color:#666;">On what actually becomes permanent inside an institution, and the accession number that answers a polemic</p>
+      <p class="text-[12px] mb-12" style="color:#999;">August 2026</p>
+
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+        <p class="mb-6">
+          In 1990 Roger Kimball published <em>Tenured Radicals: How Politics Has Corrupted Our Higher Education</em>, a book arguing that the American humanities had been captured by people whose commitments were political before they were scholarly. It is a polemic, it was meant to wound, and it did.
+        </p>
+        <p>
+          The United States Department of Education catalogued it. The record is <a href="https://eric.ed.gov/?id=ED328110" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-70" style="color:var(--color-amber);">ED328110</a> in ERIC, the federal education research database. Publication Type: Books; Opinion Papers. Two hundred and four pages. Harper and Row, ten East Fifty-third Street, New York, eighteen dollars and ninety-five cents. Full text not available. Descriptors assigned: College Faculty. Curriculum Development. Educational Trends. Feminism. Higher Education. Humanities Instruction. Ideology. Marxism. Moral Values. Political Influences. Western Civilization.
+        </p>
+      </div>
+
+      <figure class="my-14">
+        <img
+          src="https://art.jamestannahill.com/weather/2026-08-05-060044/tropical-south-america-15s-70w/preview-1200.webp"
+          width="960"
+          height="746"
+          alt="Two panel abstract painting of a dense green and yellow canopy with a pale seam running down the center"
+          loading="lazy"
+          decoding="async"
+          class="w-full h-auto"
+          style="background:#f5f5f5;"
+        />
+        <figcaption class="mt-3 text-[11px] leading-[1.6]" style="color:#999;">
+          15S 70W, Tropical South America, rendered from that day's atmospheric data.
+          From <a href="https://art.jamestannahill.com/weather/2026-08-05-060044/tropical-south-america-15s-70w/" target="_blank" rel="noopener noreferrer"
+          class="underline hover:opacity-70 break-all" style="color:var(--color-amber);">art.jamestannahill.com/weather/2026-08-05-060044/tropical-south-america-15s-70w</a>.
+        </figcaption>
+      </figure>
+
+      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Ratchet Has No Politics</h2>
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+        <p class="mb-6">
+          Before the irony, the mechanism, because the phrase everyone remembers has been read wrongly for thirty-five years by both the people who loved it and the people who hated it.
+        </p>
+        <p class="mb-6">
+          Tenured radicals is not a description of an ideology. It is a description of a phase transition. The adjective is doing all the work and the noun is doing almost none. What made the situation alarming to Kimball was never the content of the beliefs, which had been circulating harmlessly in the same buildings for two decades. It was that the beliefs had acquired an irrevocable claim on the institution's resources, and had acquired it through a procedure that could not be reversed by anybody who disagreed.
+        </p>
+        <p class="mb-6">
+          Tenure is a ratchet. The American version was formalized by the newly founded American Association of University Professors in its 1915 Declaration of Principles, which described the university as an intellectual experiment station where new ideas may germinate and where their fruit may be allowed to ripen until, perchance, it becomes part of the accepted intellectual food of the nation. The threat it was built against was the trustee: the wealthy donor or the political appointee who would fire a professor for reaching an unwelcome conclusion. It worked. It is one of the more successful institutional inventions of the twentieth century, and it worked exactly as specified.
+        </p>
+        <p>
+          Which is the problem, and the entire problem. A device that protects a scholar from dismissal on account of their views protects every scholar from dismissal on account of their views. It cannot be built any other way, because a version that discriminated on content would be the very thing it exists to prevent. So the ratchet turns for whoever is holding it when the ratchet turns. It has no politics. It has a direction.
+        </p>
+      </div>
+
+      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">Waved in Their Faces</h2>
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+        <p class="mb-6">
+          The best demonstration of that sentence I have found was written by somebody who very much did not want it to be true, and who published it anyway, which is to his credit and is the reason the document is worth reading now.
+        </p>
+        <p class="mb-6">
+          On the twenty-first of November 1991, Michael P. McDonald, president and general counsel of the Center for Individual Rights, spoke at the Heritage Foundation. The talk was published the following year as <a href="https://static.heritage.org/1992/pdf/hl371.pdf" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-70" style="color:var(--color-amber);">Heritage Lecture 371</a>, under the title Defending Academic Freedom. CIR had just established an Academic Freedom Defense Fund, offering free counsel to students and professors on the wrong end of what was then universally called political correctness, and McDonald described their remedy in five words borrowed from the public interest litigator John Banzhaf: sue the bastards.
+        </p>
+        <p class="mb-6">
+          They had been winning. A Georgetown law student who wrote in the student paper that the school applied a dual racial standard in admissions, and was charged with breach of confidentiality for the trouble, settled on favorable terms and graduated. A fraternity at George Mason, punished for an offensive charity contest, won on the First Amendment before Judge Claude Hilton. A professor at Delaware whose university had blocked her access to an outside foundation's research money got the ban voided in arbitration. And at the City College of New York, the philosopher Michael Levin, whose off-campus writing on race and intelligence had prompted the college to convene a committee on whether his views constituted conduct unbecoming a scholar and to run shadow sections of his classes so students could avoid him, won before Judge Kenneth Conboy, who found the college had punished him solely for his expressed ideas and enjoined it from harassing him further.
+        </p>
+        <p class="mb-6">
+          Then McDonald told the room what happened next, in a section he headed with a warning that victories may come back to haunt you and be used against you.
+        </p>
+        <p class="mb-6">
+          At the same college, in the same period, Leonard Jeffries chaired the department of African-American studies and was under mounting pressure over a speech in Albany that summer and over material he had long distributed in class. His reappointment as chairman was thought to be in danger. City College officials, McDonald reports, literally waved a copy of the Levin decision in the faces of those demanding that something be done, and said their hands were tied. Jeffries was reconfirmed.
+        </p>
+        <p class="mb-6">
+          Sit with the shape of that for a moment. A conservative public interest firm builds an instrument to protect a professor from an administration that wanted him gone for his opinions. Within weeks the same administration picks up the instrument and uses it to protect the professor those litigants regarded as the worst actor on that campus, and to do so while claiming, with what McDonald called appalling but predictable disingenuousness, that it had no choice. Both professors sued the same college president. The two case names differ only in the plaintiff.
+        </p>
+        <p>
+          McDonald did not pretend this away, and his conclusion is the most durable thing in the lecture: judicial protection of the principle of academic freedom, he wrote, does very little to improve and enhance the quality of what is being done in the name of academic freedom. That is a man watching his own tool work perfectly and produce a result he hated, and understanding why. The instrument was neutral as to payload. It had to be. That is what made it an instrument rather than a faction.
+        </p>
+      </div>
+
+      <figure class="my-14">
+        <img
+          src="https://art.jamestannahill.com/weather/2026-08-05-060044/arctic-60n-0e/preview-1200.webp"
+          width="960"
+          height="746"
+          alt="Two panel abstract painting shading from massed yellow at the top through green to blue and crimson drips at the base"
+          loading="lazy"
+          decoding="async"
+          class="w-full h-auto"
+          style="background:#f5f5f5;"
+        />
+        <figcaption class="mt-3 text-[11px] leading-[1.6]" style="color:#999;">
+          60N 0E, Arctic, rendered from that day's atmospheric data.
+          From <a href="https://art.jamestannahill.com/weather/2026-08-05-060044/arctic-60n-0e/" target="_blank" rel="noopener noreferrer"
+          class="underline hover:opacity-70 break-all" style="color:var(--color-amber);">art.jamestannahill.com/weather/2026-08-05-060044/arctic-60n-0e</a>.
+        </figcaption>
+      </figure>
+
+      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Descriptors Are the Reply</h2>
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+        <p class="mb-6">
+          Now back to the catalogue record, because it is the same finding arriving by a quieter road, and because it is funnier.
+        </p>
+        <p class="mb-6">
+          Kimball's charge was that the education establishment had been captured. The education establishment's response, at the level of the federal database, was to accession him. Not to refute him, not to suppress him, not to answer him at all. To assign him a number, a publication type and eleven controlled vocabulary terms, one of which is Marxism, and to note the retail price.
+        </p>
+        <p class="mb-6">
+          It is tempting to read this as suppression by burial, and I think that reading is wrong in a way worth correcting, because the truth is less flattering to everyone. Nobody buried it. The record is exactly as accessible as every other record, which in a database of well over a million items is functionally indistinguishable from being hidden, and requires no intent whatever. This is not censorship and it is not tolerance either. It is processing. An apparatus does not need to refute a criticism. It needs to index it.
+        </p>
+        <p class="mb-6">
+          Notice what the descriptors accomplish, entirely without malice, applied by a cataloguer following a manual. Ideology is a term in the thesaurus. So is Marxism, and Feminism, and Moral Values, and Western Civilization. Every charged word in the book has a corresponding neutral slot, and once the words are in the slots the book is no longer an accusation. It is a document about certain topics, sitting alongside other documents about the same topics, retrievable by anyone researching those topics. The polemic went in and a record came out. That transformation is the whole of the institution's immune response, and it is more effective than any rebuttal, because a rebuttal would have conceded that there was something to rebut.
+        </p>
+        <p>
+          The publication type is the detail I cannot stop thinking about. Books; Opinion Papers. Not wrong. Precisely correct, in fact, which is what makes it devastating. A man writes two hundred and four pages to say that scholarship has been displaced by opinion, and is filed, accurately, under opinion.
+        </p>
+      </div>
+
+      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Firm Grants Tenure to Ideas</h2>
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+        <p class="mb-6">
+          All of which would be a period piece about universities, except that the interesting institution is now the other one, and it solved the same problem in the opposite direction.
+        </p>
+        <p class="mb-6">
+          Corporate America has no tenure. Nearly everyone in an American company is employed at will, which is to say dismissible on a Tuesday for a reason nobody is required to state. By the logic of the previous sections that should make a firm the least capturable institution in the country: no ratchet, no irrevocability, no protected cadre, every belief held only as long as its holder holds a badge.
+        </p>
+        <p class="mb-6">
+          The opposite happened, and the reason is that firms found a way to grant tenure without granting it to anybody. A belief that has been written into a mandatory system has acquired precisely what tenure confers: an irrevocable claim on the institution's resources and attention, immune to the departure of the person who introduced it, defended by a procedure rather than by an argument. The required training module, the field that cannot be left blank, the metric on the dashboard, the clause in the vendor contract, the policy with an effective date and no expiry. None of these can be fired. None of them will be reviewed, because a process is only reviewed when it hurts, and, as I have argued elsewhere, automating a process removes exactly the pain that would have caused somebody to remove it.
+        </p>
+        <p class="mb-6">
+          So ask the question directly. Who holds tenure inside a large firm? Not the chief executive, whose median tenure is measured in a handful of years and who is fired for two bad quarters. Not the staff, who are at will by construction. Not even the founders, who get diluted and then managed out. The answer is that the systems hold it. The tenured radical of corporate America is a required field in a form, and it has better job security than anyone reading this.
+        </p>
+        <p class="mb-6">
+          This is a better arrangement for the institution and a considerably worse one for every person in it, and the asymmetry is exact. In the university the radical had to win tenure, which meant surviving a review, being named, and being individually identifiable ever afterward as the person whose commitments those were. Whatever else that system did, it kept belief attached to a human being who could be argued with, mocked, or outlived. The corporate version detaches them. The belief becomes permanent and the believer stays disposable. Nobody has to defend the module, because the module's author has left, and the module remains.
+        </p>
+        <p>
+          Which also explains why the corporate fight has the sour, unsatisfying quality that the campus fight, whatever its excesses, did not. You could name Jeffries. You could name Levin. Both of them stood up and said what they thought, under their own names, and were sued and sued back. There is nobody to name in a compliance workflow. There is only an owner field, and it usually points at a distribution list.
+        </p>
+      </div>
+
+      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Template Was the Export</h2>
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+        <p class="mb-6">
+          A brief note, because it connects to an argument I have made at length elsewhere and the connection is load bearing rather than decorative.
+        </p>
+        <p class="mb-6">
+          Tenure itself traveled. So did the American speech code, the American administrative office with its American job description, and the American mandatory module. None of them crossed a border as a proposition to be evaluated by the people who would live under them. They crossed as templates, in procurement, because a single global standard is cheaper to administer than forty local ones. What arrives in a country is never the argument. It is the apparatus, and the apparatus is portable in a way an argument has never been.
+        </p>
+        <p>
+          The relevant property is the same one that made the Levin decision usable by the people it was won against. An instrument that works regardless of who holds it will eventually be held by somebody you did not anticipate, and the more neutral and well engineered it is, the more completely this is guaranteed. Neutrality is not a safeguard against capture. It is the precondition for transfer.
+        </p>
+      </div>
+
+      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Checklist Is the First Institution</h2>
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+        <p class="mb-6">
+          So: will there be radicals elsewhere who win tenure? On the Moon, on Mars, on whatever comes after those.
+        </p>
+        <p class="mb-6">
+          Yes, quickly, and they will not look like radicals, and there will be no tenure for them to win.
+        </p>
+        <p class="mb-6">
+          Start with what an early settlement actually is. It is a workplace, operated by a corporation, staffed entirely by employees at will, with no legislature, no courts of its own, no First Amendment, no faculty senate and no AAUP. Whatever protections exist arrive as company policy, which is to say as something the company may amend. The dissenting engineer on Mars, the one who thinks the seal specification is wrong or the medical protocol is unethical or the rotation schedule is a slow injury, has no Levin decision to wave at anybody. That is the least protected working population in the history of the species, and it will be composed of extraordinarily capable people who each cost a hundred million dollars to deliver, which is a strange combination that has never existed before and whose consequences nobody has thought through.
+        </p>
+        <p class="mb-6">
+          But something there will become irrevocable, because something always does, and the substrate is sitting in plain view. On a world where the atmosphere is inside the building, every rule can be justified as life support. This is safety-critical is the most powerful conversation-ending claim ever devised, more powerful than compliance requires it, more powerful than the board has decided, because the person overruling it is proposing to gamble with a hull. Some of those rules will be genuinely load bearing. Others will be a preference that arrived on the first ship inside a document written by somebody in Hawthorne who is now retired, and after ten years nobody will be able to tell which is which, and asking will carry a cost that asking about a training module never did.
+        </p>
+        <p class="mb-6">
+          That is tenure. Not for a person. For a paragraph. The first permanent institution off Earth will not be a parliament or a university or a church. It will be a checklist, and it will outlast everyone who wrote it, and it will be defended by people who have no idea why the item is there and every reason not to be the one who removed it.
+        </p>
+        <p>
+          The radicals, then, will be whoever happened to be present when the settlement decided what it would not revisit. They will not have argued for permanence and may not have wanted it. They will simply have been in the room, holding the pen, during the eighteen months when the procedures were written and everybody was too busy staying alive to litigate the wording. That is how it has always worked. Nobody wins tenure by arguing for tenure. They win it by being early.
+        </p>
+      </div>
+
+      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">Name the Thing You Cannot Undo</h2>
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+        <p class="mb-6">
+          The instinct at this point is to ask how to keep the wrong ideas out, and that instinct should be abandoned, because the record is unambiguous that it cannot be done.
+        </p>
+        <p class="mb-6">
+          Kimball's side could not do it. They were sophisticated, well counseled and correct about the specific abuses they litigated, and their own instrument turned in their hand inside a single semester, in the same building, against the same defendant. If a firm of lawyers who spent their careers thinking about exactly this problem could not build a ratchet that only turned their way, the confidence of a policy committee that it can screen for the right permanent beliefs is not a plan. It is a mood.
+        </p>
+        <p class="mb-6">
+          The answerable question is a different one and it is embarrassingly simple. Which of your rules is revocable, by whom, on what evidence, and how would you find out? Any institution should be able to produce, on request, the list of things it cannot undo, along with the name of whoever could undo them if they could be undone. Almost none can. The list exists in every case, it is longer than management believes, and it is discovered the way City College discovered it, which is late, in public, when somebody waves a copy of it in your face.
+        </p>
+        <p class="mb-6">
+          So write the list. On a campus, in a firm, and above all in the first eighteen months of a settlement, when everything still looks provisional and nothing is. Mark each item with what would have to be true for it to be reversed, and if the honest answer for an item is nothing, that item is now part of your constitution and you should say so out loud, because that is what a constitution is: not the document that says what you believe, the document that lists what you have agreed not to reopen.
+        </p>
+        <p>
+          And keep the record, ED328110, somewhere you can see it. A man wrote a book accusing an institution of being unable to tolerate criticism. The institution catalogued the book, assigned it eleven descriptors, listed its price, declined to hold the full text, and moved on to the next item. Nobody suppressed anything. Nobody had to. The apparatus was never going to argue with him, and it did not need to win, because it was still going to be there in 2026, indexing, when everybody involved in the argument was gone.
+        </p>
+      </div>
+
+      <script src="/scripts/thoughts-ripple.js" defer></script>
+
+      <p class="mt-14 pt-8 border-t text-[12px] tracking-[0.1em]" style="border-color:#eee;">
+        <a href="/thoughts/" class="hover:opacity-70" style="color:var(--color-amber);">Back to Thoughts</a>
+      </p>
+
+    </article>
+  </div>
+</BaseLayout>
