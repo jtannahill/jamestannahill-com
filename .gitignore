@@ -30,3 +30,8 @@ pnpm-debug.log*
 # Superpowers brainstorm scratch (local working artifacts, not site content)
 .superpowers/
 .claude/
+
+# Source paintings for OG cards (fetched from art.jamestannahill.com, not site content)
+art-*.png
+# Fonts unpacked from woff2 by the OG generator
+scripts/ttf/

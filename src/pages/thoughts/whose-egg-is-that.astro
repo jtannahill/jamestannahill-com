@@ -1,0 +1,236 @@
+---
+export const prerender = true;
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const url = 'https://jamestannahill.com/thoughts/whose-egg-is-that/';
+const published = '2026-08-05';
+const description =
+  'On abolishing the hiring layer, returning the decision to the executives who must live with it, and the screen that quietly selects for agreement rather than ability.';
+
+const schema = [
+  {
+    '@type': 'BlogPosting',
+    '@id': `${url}#post`,
+    isPartOf: { '@id': 'https://jamestannahill.com/thoughts/#blog' },
+    mainEntityOfPage: url,
+    url,
+    headline: 'Whose Egg Is That',
+    alternativeHeadline: 'On abolishing the hiring layer, and returning the decision to the people who have to live with it',
+    description,
+    image: 'https://jamestannahill.com/og-whose-egg-is-that.png?v=1',
+    datePublished: published,
+    dateModified: published,
+    inLanguage: 'en-US',
+    articleSection: 'Essays',
+    author: { '@id': 'https://jamestannahill.com/#person' },
+    publisher: { '@id': 'https://jamestannahill.com/#person' },
+    keywords: [
+      'hiring',
+      'human resources',
+      'talent acquisition',
+      'work sample testing',
+      'management accountability',
+      'executive hiring',
+      'organizational design',
+    ],
+    about: [
+      { '@type': 'Thing', name: 'Recruitment' },
+      { '@type': 'Thing', name: 'Human resource management' },
+      { '@type': 'Thing', name: 'Corporate governance' },
+    ],
+  },
+  {
+    '@type': 'BreadcrumbList',
+    '@id': `${url}#breadcrumb`,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://jamestannahill.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Thoughts', item: 'https://jamestannahill.com/thoughts/' },
+      { '@type': 'ListItem', position: 3, name: 'Whose Egg Is That', item: url },
+    ],
+  },
+];
+---
+<BaseLayout
+  title="Whose Egg Is That | James Tannahill"
+  description={description}
+  canonical={url}
+  ogType="article"
+  ogImage="https://jamestannahill.com/og-whose-egg-is-that.png?v=1"
+  ogImageAlt="Whose Egg Is That - on abolishing the hiring layer"
+  publishedTime={published}
+  articleSection="Essays"
+  extraSchema={schema}
+>
+  <div class="bg-white min-h-screen">
+    <article class="max-w-3xl mx-auto px-6 py-16">
+
+      <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">
+        <a href="/thoughts/" class="hover:opacity-70" style="color:var(--color-amber);">Thoughts</a>
+      </p>
+      <h1 class="text-[28px] font-semibold tracking-tight mb-3" style="color:#1a1a1a;">Whose Egg Is That</h1>
+      <p class="text-[17px] leading-[1.6] mb-2" style="color:#666;">On abolishing the hiring layer, and returning the decision to the people who have to live with it</p>
+      <p class="text-[12px] mb-12" style="color:#999;">August 2026</p>
+
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+        <p class="mb-6">
+          A previous essay argued that the people function is a supplier rather than a culprit, and that the invoice for its excesses is signed at the top. That is true, and it is also an unsatisfying place to stop, because a diagnosis which ends in shared responsibility tends to end in nothing at all. So here is the specific proposal, stated without hedging, and then the honest account of where it breaks.
+        </p>
+        <p>
+          Abolish the layer that evaluates candidates. Not the payroll team, not the benefits administrators, not the immigration filings, not the two serious investigators every large firm needs and rarely has. The layer that reads the resumes, runs the screens, owns the rubric, administers the values questionnaire and holds the veto: that one goes. The evaluation returns to the operator who will have to work with the answer, and for the senior roles that means the chief executive and the chief operating officer sitting in the room themselves, on the record, with their names attached to the outcome.
+        </p>
+      </div>
+      <figure class="my-14">
+        <img
+          src="https://art.jamestannahill.com/weather/2026-08-04-060044/arctic-60n-140e/preview-1200.webp"
+          width="874"
+          height="1148"
+          alt="Abstract painting of broad pink, coral and green fields cut by a heavy black diagonal stroke"
+          loading="lazy"
+          decoding="async"
+          class="w-full h-auto"
+          style="background:#f5f5f5;"
+        />
+        <figcaption class="mt-3 text-[11px] leading-[1.6]" style="color:#999;">
+          60N 140E, Arctic, rendered from that day's atmospheric data.
+          From <a href="https://art.jamestannahill.com/weather/2026-08-04-060044/arctic-60n-140e/" target="_blank" rel="noopener noreferrer"
+          class="underline hover:opacity-70 break-all" style="color:var(--color-amber);">art.jamestannahill.com/weather/2026-08-04-060044/arctic-60n-140e</a>.
+        </figcaption>
+      </figure>
+
+      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Person Deciding Does Not Pay</h2>
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+        <p class="mb-6">
+          Every bad institution can be described by a single sentence about who bears the consequence. In hiring the sentence is short. The person who decides which candidates are seen will never work with any of them.
+        </p>
+        <p class="mb-6">
+          Consider what that arrangement asks. A coordinator with no experience of the craft in question is handed two hundred applications and a requisition written by a manager in a hurry, and is asked to reduce the pile to eight. Nothing in the coordinator's training, incentives or working life equips them to recognise the third best structural engineer in the state, or the trader who has an actual edge, or the nurse who is calm in the worst twenty minutes of somebody's life. So they do the only thing the position permits. They match strings. Years in seat, title held, school attended, keyword present, gap explained, degree required even where the degree is decorative.
+        </p>
+        <p class="mb-6">
+          The result is a filter tuned precisely to the qualities that are cheap to fake and cheap to acquire, and blind to the ones that are neither. The people who game it get through. The people who spent those years getting good at something instead of getting good at describing it do not. This is not a moral failing on anyone's part. It is what happens when you ask someone to grade an exam in a subject they have not studied, and then tell them they will never meet the students.
+        </p>
+        <p>
+          Meanwhile the manager who will live with the hire, who knows exactly which two paragraphs of a resume matter and could sort the pile properly in ninety minutes, is not permitted to see the pile. They receive the eight. They are told this is efficient. It is efficient in the same sense that not reading the loan documents is efficient.
+        </p>
+      </div>
+
+      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">Rejection Is a Skill, and It Decays</h2>
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+        <p class="mb-6">
+          There is a piece of natural history that describes this better than any management literature, and it is worth the detour because it explains the mechanism rather than merely naming the fault.
+        </p>
+        <p class="mb-6">
+          The common cuckoo does not raise its young. It lays a single egg in the nest of another species, and the host, most famously the reed warbler, incubates it, feeds it and raises the chick that has already pushed the host's own eggs over the rim. The arms race between the two is one of the best documented in biology. The cuckoo's egg mimics the host's in colour and speckling, sometimes with startling accuracy, and the host's counter is the ability to look at its own clutch and reject the one that does not belong.
+        </p>
+        <p class="mb-6">
+          The detail that matters is what happens to that ability when it is not used. Populations of the same host species living on islands or in regions where the cuckoo has been absent for a long time are markedly worse at rejection. They accept eggs that a parasitised population would throw out immediately. The discrimination is not free and it is not permanent. It is maintained by exercise, it costs something to keep, and where the pressure lifts it fades within a manageable number of generations. Reintroduce the parasite and the naive population is defenceless for a while, not because the birds are stupid, but because nobody in that lineage has had to look closely at an egg in a very long time.
+        </p>
+        <p class="mb-6">
+          A firm that has outsourced candidate evaluation for fifteen years is that island population. Its managers have not had to look closely at an egg. Ask a director in such a company to run a hiring process from a blank page and watch what happens: they will ask for the rubric, request the standard question bank, wonder aloud whether they are allowed to ask that, and end by deferring to whoever seemed most confident in the debrief. The capability has not been suppressed by policy. It has atrophied from disuse, and this is the real cost of the arrangement, larger than any single bad hire, because it is the cost of a firm that has forgotten how to tell what belongs in its own nest.
+        </p>
+        <p>
+          Which is also the answer to the obvious objection that executives are not trained recruiters. Correct. They were not born trained sailors either. Judgment about people is the central competence of running a company, and a chief executive who cannot exercise it without a facilitator has a problem that no amount of process will solve, only conceal.
+        </p>
+      </div>
+
+      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Screen That Selects for Agreement</h2>
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+        <p class="mb-6">
+          Now the part that people prefer to argue about in bad faith, so it is worth being exact about what is and is not being claimed.
+        </p>
+        <p class="mb-6">
+          Somewhere in the last decade a second filter was added on top of the first. It goes by several names, and it usually appears as a required statement, a values rubric, a set of scored questions about contribution to an inclusive culture, or a culture-fit dimension in the debrief that any interviewer may invoke without evidence. The stated purpose is to widen the pool. The actual function is to test whether the candidate can produce a paragraph in a particular register.
+        </p>
+        <p class="mb-6">
+          That is the objection, and it is a narrow one. It is not an argument against treating people decently, and it is emphatically not an argument for reopening the question of whether race or sex or religion or age may be used against a candidate. Those are settled, they are settled correctly, and any executive who reads this as licence to relitigate them has misread it badly and should expect the full attention of the law. The objection is to a screen that scores a candidate on fluency in an idiom rather than capability in a job, and which therefore does precisely the opposite of what it advertises.
+        </p>
+        <p class="mb-6">
+          Consider who actually clears such a filter. Someone who spent four years at an institution where the vocabulary is native. Someone with the time and the coaching to prepare a polished statement. Someone who has been taught, formally, which words carry credit this season. Now consider who does not: the candidate who came up through a trade, the immigrant who is superb at the work and awkward in the register, the person who did not go to the kind of school where this is a spoken language, the one who declines on principle to perform a belief on demand. The screen was sold as an instrument of access and it functions as a class filter with a conscience. It selects for the credentialed and articulate, which is exactly the population that needed no help getting through the door.
+        </p>
+        <p>
+          The second cost is to the firm, and it is the one that should concern a board. A screen for agreement produces agreement. Run it for five years and you have assembled a room in which everyone shares a set of premises, which is a pleasant room to work in and a catastrophic one in which to assess a risk. Firms do not usually die of insufficient harmony. They die because nobody in the meeting was constitutionally capable of saying that the thing did not work.
+        </p>
+      </div>
+      <figure class="my-14">
+        <img
+          src="https://art.jamestannahill.com/weather/2026-08-04-060044/western-pacific-15n-120e/preview-1200.webp"
+          width="1024"
+          height="1024"
+          alt="Abstract painting of yellow, red and grey blocks massed against a broad pink ground"
+          loading="lazy"
+          decoding="async"
+          class="w-full h-auto"
+          style="background:#f5f5f5;"
+        />
+        <figcaption class="mt-3 text-[11px] leading-[1.6]" style="color:#999;">
+          15N 120E, Western Pacific, rendered from that day's atmospheric data.
+          From <a href="https://art.jamestannahill.com/weather/2026-08-04-060044/western-pacific-15n-120e/" target="_blank" rel="noopener noreferrer"
+          class="underline hover:opacity-70 break-all" style="color:var(--color-amber);">art.jamestannahill.com/weather/2026-08-04-060044/western-pacific-15n-120e</a>.
+        </figcaption>
+      </figure>
+
+      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">What Replaces It</h2>
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+        <p class="mb-6">
+          A proposal that stops at abolition is a complaint. Here is the mechanism, and it is deliberately dull, because the good version of this is dull.
+        </p>
+        <p class="mb-6">
+          Every open role has exactly one owner, named in writing, who is the person the hire will report to. That owner reads every application. Not a summary, not a shortlist, the actual pile, which for most roles is a single afternoon and for the rest is the most valuable afternoon of the quarter. The coordination function survives and is genuinely useful: scheduling, sourcing, candidate communication, offer mechanics, records, compliance with the law. It has no rubric, no veto, and no scored opinion on anyone.
+        </p>
+        <p class="mb-6">
+          The evaluation itself is a work sample. Not a conversation about the work, the work: a real problem from the last six months, presented with real constraints and messy data, done in front of people who do that job, and paid for if it takes more than a couple of hours. The evidence that structured work samples and structured interviews predict performance better than unstructured conversation has been stable in the literature for decades and is one of the few findings in this entire field that has survived scrutiny. Almost nobody uses it, because it requires the hiring manager to prepare, and preparation is exactly what the delegated process was purchased to avoid.
+        </p>
+        <p class="mb-6">
+          For any role reporting to the executive team, and for the first year of the new regime for any role at all above a certain line, the chief executive or the chief operating officer takes the final session personally. Not to add a signature. To sit with the candidate, to see the work, and to be the person who was in the room. The point is not that the chief executive has superior insight into a staff engineer. The point is that the parasite is reintroduced. The muscle only comes back under load.
+        </p>
+        <p class="mb-6">
+          Then the accountability, which is the part everyone skips and the part that makes the rest real. Record the decision and who made it. Twelve months later, look at every hire against what the owner said they would deliver, and eighteen months after that, look again. Publish inside the firm the retention and performance of hires by hiring owner. A manager whose hires reliably work out gets more authority and more headcount. A manager whose hires reliably do not is not sent to a workshop, they are relieved of the authority, and if the pattern is bad enough they are relieved of the job. That is what it means for a decision to have an owner, and it is the thing the entire apparatus was built to make impossible.
+        </p>
+        <p>
+          Delete the values statement and the culture-fit score. Replace them with two questions that are legitimate, answerable and about the work: can this person do the job, and can the team do its job with this person in it. The second question is not a smuggled version of the first screen. It is about conduct, reliability and whether colleagues can rely on what the candidate says, and it is assessed from evidence of how they have actually behaved rather than from a paragraph they wrote about how they would.
+        </p>
+      </div>
+
+      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">Where This Breaks</h2>
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+        <p class="mb-6">
+          Anyone who presents a plan like this without the failure modes is selling something, so here they are, and two of them are serious.
+        </p>
+        <p class="mb-6">
+          It does not scale by arithmetic. A chief executive can be personally present for perhaps forty hires a year before the presence becomes a rubber stamp, which is worse than absence because it launders the decision. In a firm hiring four thousand people a year the executive cannot be in the room, and the honest version of the proposal is that authority devolves to the named owner at every level while the executive presence is reserved for the top two layers and for the first year of the reform, when the capability is being rebuilt. Pretend otherwise and you have simply moved the bottleneck.
+        </p>
+        <p class="mb-6">
+          Unmanaged line hiring reproduces the line. Managers left entirely to themselves hire people who resemble them, went where they went and think as they think, which is the same homogeneity problem arriving by a different road, and it is a real business defect before it is anything else. This is precisely what the structured work sample is for. It is not a concession to the thing being abolished, it is the discipline that makes devolved authority defensible: same problem, same conditions, same scoring, applied to everyone, recorded. Devolution without structure is not liberation, it is just a different set of arbitrary filters with fewer witnesses.
+        </p>
+        <p class="mb-6">
+          The legal exposure is real and it moves. Employment law does not care how a firm has arranged its org chart, and a company that removes its process without replacing it with something documented has not reduced its risk, it has stopped writing down the evidence that would defend it. The structured work sample and the recorded decision are what makes the devolved model safer than the process it replaces, not less safe, and any firm that adopts the first half of this argument while skipping the second half deserves what follows.
+        </p>
+        <p>
+          And the last one, which is the hardest to admit: some of the process exists because some managers genuinely should not be trusted with it. That is a true observation and a terrible justification, because the response of the last forty years has been to build a permanent apparatus around the untrustworthy manager rather than to remove the manager. The apparatus is the more expensive option and it never ends. Removing the manager is cheap, finite and unpleasant, which is the actual reason it does not happen.
+        </p>
+      </div>
+
+      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">Look at the Clutch</h2>
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+        <p class="mb-6">
+          The reed warbler that has kept the habit does something very simple and very unglamorous. It looks at its own eggs. It does this itself, in its own nest, having seen a great many eggs, and it accepts the small chance of being wrong because the alternative is raising something that will destroy everything else in the nest and demand to be fed while doing it.
+        </p>
+        <p class="mb-6">
+          There is no version of that behaviour which can be delegated. No bird can be told what its eggs look like. The whole competence consists of having looked, repeatedly, at the thing you are responsible for, and the population that stops looking does not become more tolerant. It becomes easier to parasitise, and it will not notice for several seasons.
+        </p>
+        <p class="mb-6">
+          Firms are in the same position and have the same choice, and the choice is not really about a department. It is about whether the people running the company are willing to spend an afternoon on the pile, to sit in the room, to say a name out loud and be wrong in public sometimes. Everything else in this argument is scaffolding around that, and the scaffolding is only necessary because the underlying act has become unfamiliar.
+        </p>
+        <p>
+          Fire the layer if you like. It will grow back within three years unless the executives who found it convenient develop the habit it was hired to replace. The department was never the parasite. It was the accommodation reached by a firm that had stopped looking at its own nest, and the remedy is not a reorganisation. It is an afternoon, repeated, by the people whose names are on the door.
+        </p>
+      </div>
+
+      <script src="/scripts/thoughts-ripple.js" defer></script>
+
+      <p class="mt-14 pt-8 border-t text-[12px] tracking-[0.1em]" style="border-color:#eee;">
+        <a href="/thoughts/" class="hover:opacity-70" style="color:var(--color-amber);">Back to Thoughts</a>
+      </p>
+
+    </article>
+  </div>
+</BaseLayout>

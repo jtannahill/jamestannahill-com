@@ -74,6 +74,11 @@ def veil(base):
 
 
 def card(path, artwork, eyebrow, title_lines, standfirst_lines, url):
+    # Source paintings are kept out of the repo. Skip any card whose artwork is
+    # not present locally rather than failing the whole run.
+    if not (ART / artwork).exists():
+        print("skip", path, "(missing", artwork + ")")
+        return
     art = Image.open(ART / artwork).convert("RGB")
     img = cover(art, W, H)
     img = ImageEnhance.Color(img).enhance(0.82)
@@ -166,10 +171,28 @@ card(
 )
 
 card(
+    "og-whose-egg-is-that.png",
+    "art-south-america-60s-60w.png",
+    "Thoughts",
+    ["Whose Egg", "Is That"],
+    ["On returning the hiring decision to", "the people who live with it."],
+    "jamestannahill.com/thoughts",
+)
+
+card(
     "og-org-chart-travels.png",
     "pm-region-30n-150e.png",
     "Thoughts",
     ["The Org Chart", "Travels"],
     ["On what actually crosses a border", "when an idea is exported."],
+    "jamestannahill.com/thoughts",
+)
+
+card(
+    "og-nothing-to-photograph.png",
+    "art-europe-45n-30w.png",
+    "Thoughts",
+    ["Nothing to", "Photograph"],
+    ["On automating the step you", "should have deleted."],
     "jamestannahill.com/thoughts",
 )

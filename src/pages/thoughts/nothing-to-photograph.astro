@@ -1,0 +1,241 @@
+---
+export const prerender = true;
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const url = 'https://jamestannahill.com/thoughts/nothing-to-photograph/';
+const published = '2026-08-05';
+const description =
+  'On why firms automate the step they should have deleted, the committee that makes it inevitable, and the sampling bias that turns a pilot portfolio into a map of its own convenience.';
+
+const schema = [
+  {
+    '@type': 'BlogPosting',
+    '@id': `${url}#post`,
+    isPartOf: { '@id': 'https://jamestannahill.com/thoughts/#blog' },
+    mainEntityOfPage: url,
+    url,
+    headline: 'Nothing to Photograph',
+    alternativeHeadline: 'On why firms automate the step they should have deleted, and the committee that makes it inevitable',
+    description,
+    image: 'https://jamestannahill.com/og-nothing-to-photograph.png?v=1',
+    datePublished: published,
+    dateModified: published,
+    inLanguage: 'en-US',
+    articleSection: 'Essays',
+    author: { '@id': 'https://jamestannahill.com/#person' },
+    publisher: { '@id': 'https://jamestannahill.com/#person' },
+    keywords: [
+      'automation',
+      'artificial intelligence adoption',
+      'process design',
+      'engineering management',
+      'sampling bias',
+      'corporate governance',
+      'enterprise software',
+    ],
+    about: [
+      { '@type': 'Thing', name: 'Automation' },
+      { '@type': 'Thing', name: 'Business process management' },
+      { '@type': 'Thing', name: 'Artificial intelligence' },
+    ],
+  },
+  {
+    '@type': 'BreadcrumbList',
+    '@id': `${url}#breadcrumb`,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://jamestannahill.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Thoughts', item: 'https://jamestannahill.com/thoughts/' },
+      { '@type': 'ListItem', position: 3, name: 'Nothing to Photograph', item: url },
+    ],
+  },
+];
+---
+<BaseLayout
+  title="Nothing to Photograph | James Tannahill"
+  description={description}
+  canonical={url}
+  ogType="article"
+  ogImage="https://jamestannahill.com/og-nothing-to-photograph.png?v=1"
+  ogImageAlt="Nothing to Photograph - on automating the step you should have deleted"
+  publishedTime={published}
+  articleSection="Essays"
+  extraSchema={schema}
+>
+  <div class="bg-white min-h-screen">
+    <article class="max-w-3xl mx-auto px-6 py-16">
+
+      <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">
+        <a href="/thoughts/" class="hover:opacity-70" style="color:var(--color-amber);">Thoughts</a>
+      </p>
+      <h1 class="text-[28px] font-semibold tracking-tight mb-3" style="color:#1a1a1a;">Nothing to Photograph</h1>
+      <p class="text-[17px] leading-[1.6] mb-2" style="color:#666;">On why firms automate the step they should have deleted, and the committee that makes it inevitable</p>
+      <p class="text-[12px] mb-12" style="color:#999;">August 2026</p>
+
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+        <p class="mb-6">
+          Every large firm now has a portfolio of pilots, and the portfolios are strangely alike. A document summariser. An assistant that drafts the first version of a memo nobody reads carefully. A chatbot sitting on a policy library. A tool that turns a call transcript into a structured note. The demos work. The slides are honest. Eighteen months and a considerable sum later the firm has changed nothing it would miss, and somebody senior concludes that the technology was oversold.
+        </p>
+        <p>
+          The technology was not oversold. The selection was broken, and it was broken in a way that is specific enough to name. These pilots were not chosen against pain. They were chosen against reviewability. Every one of them can be explained to a steering committee in eight minutes, measured inside a quarter and failed in public without anybody losing a job. Almost nothing that actually costs the firm money satisfies all three conditions, which is precisely why almost nothing that actually costs the firm money is on the list.
+        </p>
+      </div>
+
+      <figure class="my-14">
+        <img
+          src="https://art.jamestannahill.com/weather/2026-08-05-060044/europe-45n-30w/preview-1200.webp"
+          width="960"
+          height="746"
+          alt="Abstract painting of dense green, yellow and blue dabs massed across a pale ground like a canopy seen from above"
+          loading="lazy"
+          decoding="async"
+          class="w-full h-auto"
+          style="background:#f5f5f5;"
+        />
+        <figcaption class="mt-3 text-[11px] leading-[1.6]" style="color:#999;">
+          45N 30W, Europe, rendered from that day's atmospheric data.
+          From <a href="https://art.jamestannahill.com/weather/2026-08-05-060044/europe-45n-30w/" target="_blank" rel="noopener noreferrer"
+          class="underline hover:opacity-70 break-all" style="color:var(--color-amber);">art.jamestannahill.com/weather/2026-08-05-060044/europe-45n-30w</a>.
+        </figcaption>
+      </figure>
+
+      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Only Step That Photographs</h2>
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+        <p class="mb-6">
+          There is a well known sequence for improving anything, five steps in a fixed order, and the order is the whole of the idea. Question the requirement, and insist that the requirement carry the name of a living person rather than the name of a department. Delete the part or the process. Simplify what survives. Accelerate the cycle time. Then, last, automate. The warning attached to it is blunter than most management advice ever manages to be: the most common error of a capable engineer is to optimise a thing that should not exist.
+        </p>
+        <p class="mb-6">
+          It is usually read as a lesson about discipline, a reminder to be rigorous before being clever. That reading is too kind, because it locates the failure in the individual, and the failure is structural. Look at what each step produces as an artefact.
+        </p>
+        <p class="mb-6">
+          Question a requirement and, when it succeeds, you have a shorter list. Delete a process and you have an absence. Simplify and you have a thing that looks like the old thing with fewer moving parts, which photographs as almost nothing at all. Accelerate cycle time and you have a chart, and everybody in the room has learned to distrust that particular chart. Automate, and you have a screen. A live one. It moves, it produces output while people watch, it can be shown to the board, filmed, put in the annual letter and pointed at by the person who sponsored it.
+        </p>
+        <p class="mb-6">
+          Four of the five steps produce nothing to photograph. One of them produces a photograph. Firms fund photographs.
+        </p>
+        <p>
+          So the sequence does not merely get skipped through carelessness. It gets skipped by a mechanism that runs identically in every large organisation, requires no bad actors, and looks like diligence from the inside all the way to the end. A capital process that requires demonstrable output before approval is a machine for jumping to step five, and no amount of quoting the correct order at people will change what that machine rewards.
+        </p>
+      </div>
+
+      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">Three Filters, and What They Throw Away</h2>
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+        <p class="mb-6">
+          The reviewability filter has three parts, and it is worth being exact about what each one removes, because the pattern in the discards is the finding.
+        </p>
+        <p class="mb-6">
+          The first is explainability to a room. A pilot must be describable to eight people, most of whom do not do the work, in the time before the next item. This immediately excludes every problem whose difficulty lives in the detail: the reconciliation that fails on nine unrelated edge cases, the handoff between two teams who describe the same object with different words, the approval that is fast on paper and takes eleven days because one person is the only one who understands the exception. Those are the expensive problems. They are expensive precisely because they cannot be summarised, and the filter is a summarisation test.
+        </p>
+        <p class="mb-6">
+          The second is measurability inside a quarter. The clock is set by the reporting cycle rather than by the problem, so anything whose benefit arrives as an absence of a future event is unfundable. Nobody gets promoted for the incident that did not happen or the reconciliation break that never opened. The pilots that survive this filter are the ones with a metric that moves while somebody is watching, which is a much smaller set than the set of things worth doing, and it correlates with value almost not at all.
+        </p>
+        <p class="mb-6">
+          The third is safety in failure, and this one does the most damage. A pilot must be in a place where being wrong is survivable, which sounds like prudence and functions as a ban on touching anything that matters. The work where an error is unacceptable is, definitionally, the work the firm considers important. Excluding it excludes the entire load bearing structure of the business and leaves the periphery, and the periphery is where every one of those identical portfolios ends up.
+        </p>
+        <p>
+          Run those three filters together and you do not get a conservative selection of the valuable work. You get a systematically inverted one. The three tests are close to a negative image of importance, and a firm applying them faithfully will assemble, with total sincerity, a portfolio of impressive irrelevance.
+        </p>
+      </div>
+
+      <figure class="my-14">
+        <img
+          src="https://art.jamestannahill.com/weather/2026-08-05-060044/arctic-70n-20w/preview-1200.webp"
+          width="768"
+          height="1344"
+          alt="Tall abstract painting of blue, green, yellow and orange spatter running in vertical bands with pigment dripping to the base"
+          loading="lazy"
+          decoding="async"
+          class="w-full h-auto"
+          style="background:#f5f5f5;"
+        />
+        <figcaption class="mt-3 text-[11px] leading-[1.6]" style="color:#999;">
+          70N 20W, Arctic, rendered from that day's atmospheric data.
+          From <a href="https://art.jamestannahill.com/weather/2026-08-05-060044/arctic-70n-20w/" target="_blank" rel="noopener noreferrer"
+          class="underline hover:opacity-70 break-all" style="color:var(--color-amber);">art.jamestannahill.com/weather/2026-08-05-060044/arctic-70n-20w</a>.
+        </figcaption>
+      </figure>
+
+      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Map of the Forest Is a Map of the Roads</h2>
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+        <p class="mb-6">
+          There is a problem in field biology that describes this better than any case study, and it is worth the detour because it supplies the mechanism rather than merely restating the complaint.
+        </p>
+        <p class="mb-6">
+          Biodiversity records are collected by people who have to physically reach the place where the organism is. The consequence, documented repeatedly and known in the literature as roadside bias, is that the great majority of specimen records in the global databases sit within a short walk of a road, a navigable river, a trail or a research station. New species are described in disproportionate numbers near field stations, which is to say near the places where biologists already sleep. The published map of life on earth is, to a first approximation, a map of access.
+        </p>
+        <p class="mb-6">
+          The important part is what this does to confidence. The bias does not announce itself as a gap, because the sampled areas are sampled thoroughly. The data are abundant, precise, replicated and rich in detail, and every one of those qualities makes the picture feel more trustworthy. A researcher looking at the records sees density and reads it as knowledge. The interior of the range, where nobody has walked, does not appear as a warning. It appears as nothing, and nothing is easy to mistake for empty. So the error compounds in the least helpful direction: the more effort goes into the accessible ground, the more authoritative the wrong map becomes.
+        </p>
+        <p class="mb-6">
+          Ecologists have known this long enough to have built corrections for it. They weight for effort, they design surveys that deliberately sample the inconvenient interior, and when they publish a range map they publish the sampling effort alongside it, because a distribution without its collection history is not a finding. That discipline, not the observation of the bias, is the transferable part.
+        </p>
+        <p>
+          A pilot portfolio is a specimen collection assembled by the same rule. It is dense, well documented, honestly recorded, and it maps the parts of the firm that were easy to reach. No firm publishes the sampling effort next to it. This is the drunkard's search, told properly, with the mechanism intact: the point of the story was never that the man was foolish for looking under the lamp. It is that he had a well lit, thoroughly examined patch of ground and no reason on the evidence in front of him to believe the keys were anywhere else.
+        </p>
+      </div>
+
+      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">Automation Is a Preservative</h2>
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+        <p class="mb-6">
+          Now the part that makes this worse than waste, and it is the argument I would defend hardest.
+        </p>
+        <p class="mb-6">
+          A manual process carries its own cost, and that cost is not only a loss. It is a signal, and it is the only signal in most firms strong enough to eventually kill a bad process. Somebody has to do the thing every week, they resent it, they say so, the resentment accumulates, and one day the cost of the process exceeds somebody's tolerance and the process is questioned and deleted. That is a slow and undignified mechanism, and in the absence of anyone with the authority to think clearly about requirements, it is the mechanism that does most of the actual cleaning.
+        </p>
+        <p class="mb-6">
+          Automate that process and you have not removed it. You have removed the pain that would have removed it. The weekly reconciliation that four people hated is now free, silent and invisible, and it will therefore run until the company is sold. The approval chain nobody could defend now takes ninety seconds instead of nine days, which means nobody will ever again be angry enough to ask why it exists. The report that six people read has become a report that six people receive.
+        </p>
+        <p class="mb-6">
+          Automation is a preservative. It does not merely fail to delete the process, it actively immunises the process against deletion, by removing exactly the friction that constituted the case for deleting it. Every firm that automated its way out of a bad approval chain has embalmed the chain and called it transformation, and the tell is that these things are never revisited. Nobody audits a cheap process. The cost that would have triggered the audit is the thing that was optimised away.
+        </p>
+        <p>
+          This is why the order of the five steps is not a stylistic preference. Running step five before steps one and two does not produce a worse version of the same outcome. It produces an outcome that is difficult to reverse, because it converts a temporary bad decision into permanent low cost infrastructure, and the firm's balance of evidence now argues for keeping it. The clearest public admission of this I know came from Tesla in 2018, after the Nevada battery line was over automated and had to be partly taken back out: the mistake was named as excessive automation, the ownership was personal, and the conclusion was that humans had been underrated. Taking automation out again is expensive, visible and humiliating. Firms will do almost anything rather than that, which is precisely why the ordering matters more than the enthusiasm.
+        </p>
+      </div>
+
+      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">Who Is Allowed to Delete</h2>
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+        <p class="mb-6">
+          Here is the strongest objection to everything above, and it is strong enough that I think it relocates the fault rather than answering it.
+        </p>
+        <p class="mb-6">
+          The five step sequence assumes an engineer with authority over the requirement. Steps one and two are not techniques, they are exercises of power. Questioning a requirement means telling a named person that the thing they asked for is not worth what it costs. Deleting a process means overruling whoever put it there, who is frequently still employed and frequently senior. Neither step is available to somebody who lacks standing, and the person actually running an AI programme in a large firm almost never has it. They can add. They cannot subtract. They can propose a new tool and they cannot retire an old committee.
+        </p>
+        <p class="mb-6">
+          Given a person who may add but not subtract, jumping to step five is not indiscipline. It is the only legal move on the board. And it explains something otherwise puzzling, which is why these programmes are so reliably staffed by capable people producing weak results. The constraint is not talent and it is not tooling. A firm that delegates the automation budget while retaining the deletion authority several levels above it has guaranteed the outcome it is disappointed by, and has done so in the org chart rather than in any decision anyone remembers making.
+        </p>
+        <p class="mb-6">
+          The second objection is fairer still. Sometimes you genuinely cannot delete. The requirement is a regulation, the process is a legal obligation, the report is filed with a supervisor who will not be persuaded by an argument about elegance. In those cases automation is the correct answer and the sequence agrees, because step one was to question the requirement, not to assume it is fake. The discipline is in demanding the name. A requirement with a person attached can be argued with, and sometimes the argument is lost honestly. A requirement attributed to compliance, or to the way we do things, or to a policy whose author has left, is not a requirement. It is a rumour with a budget.
+        </p>
+        <p>
+          And one concession, because starting where the light is has a legitimate use. A first pilot should absolutely be somewhere safe, legible and quick, because the purpose of a first pilot is to learn whether the team can ship anything at all. That is a training exercise, and it is defensible. What is indefensible is the second year of it. Firms never distinguish the two, and the way to tell which one you are in is to ask whether anything since the first pilot has moved toward the difficult interior, or whether the programme has simply produced more specimens from the same roadside.
+        </p>
+      </div>
+
+      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">Say the Name of the Requirement</h2>
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+        <p class="mb-6">
+          The remedy is not a better prioritisation framework. Frameworks are step three applied to step one, which is the same error wearing a different suit.
+        </p>
+        <p class="mb-6">
+          Take the current list of pilots and, for each one, write the name of the living person who asked for the underlying process to exist. Not the department. The person. Most of the list will fail at this line, and the failures are the finding, because a process nobody will claim is a process nobody is defending. Delete those first, and measure the programme that year by what it removed rather than by what it shipped. A programme with no deletions in twelve months has not been automating. It has been decorating.
+        </p>
+        <p class="mb-6">
+          Then publish the sampling effort. Alongside the portfolio, write down which parts of the firm were never considered and why, in one line each, and read that list aloud in the same meeting. The excluded list is short to produce and almost never written, and it is the only document that distinguishes a deliberate strategy from a map of convenience. It will be uncomfortable, because the reasons will mostly turn out to be that the work was hard to explain, slow to measure, or dangerous to be wrong about, which is a compact description of the three things worth doing.
+        </p>
+        <p class="mb-6">
+          And accept a deletion that produces nothing to show. Fund it, count it, credit the person who did it, and let the steering committee sit through an item with no screen attached to it. That single act is the whole reform, because everything else in this argument follows from a capital process that can only see artefacts. A firm that can approve an absence can run the five steps in order. A firm that cannot will run step five forever and describe it as momentum.
+        </p>
+        <p>
+          The keys are not under the lamp. They were never going to be. But the ground under the lamp is well lit, the search there is genuinely thorough, and everybody involved is working hard and telling the truth about what they found, which is why this particular failure is so difficult to see from inside it and so obvious from ten feet away. Turn the light off for an hour. Whatever you can still find is what you actually knew.
+        </p>
+      </div>
+
+      <script src="/scripts/thoughts-ripple.js" defer></script>
+
+      <p class="mt-14 pt-8 border-t text-[12px] tracking-[0.1em]" style="border-color:#eee;">
+        <a href="/thoughts/" class="hover:opacity-70" style="color:var(--color-amber);">Back to Thoughts</a>
+      </p>
+
+    </article>
+  </div>
+</BaseLayout>
