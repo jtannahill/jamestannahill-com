@@ -1,0 +1,260 @@
+---
+export const prerender = true;
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const url = 'https://jamestannahill.com/thoughts/decline-to-self-identify/';
+const published = '2026-08-06';
+const description =
+  'On the voluntary self-identification questionnaire at the end of every job application, the categories it invents rather than counts, and the one box on the page that has a fact behind it.';
+
+const schema = [
+  {
+    '@type': 'BlogPosting',
+    '@id': `${url}#post`,
+    isPartOf: { '@id': 'https://jamestannahill.com/thoughts/#blog' },
+    mainEntityOfPage: url,
+    url,
+    headline: 'Decline to Self-Identify',
+    alternativeHeadline: 'On the questionnaire that invents the person it counts, and the one box on it that cannot',
+    description,
+    image: 'https://jamestannahill.com/og-decline-to-self-identify.png?v=1',
+    datePublished: published,
+    dateModified: published,
+    inLanguage: 'en-US',
+    articleSection: 'Essays',
+    author: { '@id': 'https://jamestannahill.com/#person' },
+    publisher: { '@id': 'https://jamestannahill.com/#person' },
+    keywords: [
+      'self-identification',
+      'EEO-1',
+      'demographic data',
+      'disability disclosure',
+      'protected veteran',
+      'classification',
+      'Ian Hacking',
+      'looping effect',
+      'employment law',
+    ],
+    about: [
+      { '@type': 'Thing', name: 'Equal employment opportunity' },
+      { '@type': 'Thing', name: 'Classification of people' },
+      { '@type': 'Thing', name: 'Official statistics' },
+    ],
+  },
+  {
+    '@type': 'BreadcrumbList',
+    '@id': `${url}#breadcrumb`,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://jamestannahill.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Thoughts', item: 'https://jamestannahill.com/thoughts/' },
+      { '@type': 'ListItem', position: 3, name: 'Decline to Self-Identify', item: url },
+    ],
+  },
+];
+---
+<BaseLayout
+  title="Decline to Self-Identify | James Tannahill"
+  description={description}
+  canonical={url}
+  ogType="article"
+  ogImage="https://jamestannahill.com/og-decline-to-self-identify.png?v=1"
+  ogImageAlt="Decline to Self-Identify - on the questionnaire that invents the person it counts"
+  publishedTime={published}
+  articleSection="Essays"
+  extraSchema={schema}
+>
+  <div class="bg-white min-h-screen">
+    <article class="max-w-3xl mx-auto px-6 py-16">
+
+      <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">
+        <a href="/thoughts/" class="hover:opacity-70" style="color:var(--color-amber);">Thoughts</a>
+      </p>
+      <h1 class="text-[28px] font-semibold tracking-tight mb-3" style="color:#1a1a1a;">Decline to Self-Identify</h1>
+      <p class="text-[17px] leading-[1.6] mb-2" style="color:#666;">On the questionnaire that invents the person it counts, and the one box on it that cannot</p>
+      <p class="text-[12px] mb-12" style="color:#999;">August 2026</p>
+
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+        <p class="mb-6">
+          It comes at the end, which is the interesting part. You have uploaded the resume, retyped the resume into eleven boxes because the parser mangled it, named a salary, surrendered three references and agreed to terms nobody reads. Only then, when you are tired and invested and would very much like this to be over, does the application ask what you are.
+        </p>
+        <p class="mb-6">
+          The page is titled <span class="italic">Voluntary Self-Identification of Disability</span>. In the corner, in small type, it carries an OMB control number, 1250-0005, and an expiration date. A federal document that asks you to declare your condition has, itself, a shelf life. There is a companion page for race and ethnicity, and another for veteran status, and each offers three ways out of the question, the third of which is the most philosophically loaded sentence in American employment law: <span class="italic">I do not wish to answer</span>, or in the older and better phrasing, <span class="italic">decline to self-identify</span>.
+        </p>
+        <p>
+          Consider what that phrasing assumes. It presupposes a self, already identified, sitting somewhere behind the applicant, being withheld. It treats the answer as a fact you possess and are choosing not to hand over, like a phone number. The purpose of this essay is to argue that in several important cases there is no such fact waiting to be disclosed, that the form is not reading the answer off the applicant but writing it onto them, and that this is happening at a scale of tens of millions of encounters a year without anyone having decided to do it.
+        </p>
+      </div>
+      <figure class="my-14">
+        <img
+          src="https://art.jamestannahill.com/weather/2026-08-06-060044/region-45s-80e/preview-1200.webp"
+          width="1024"
+          height="1024"
+          alt="Dense abstract painting of pale interlocking lines and filaments woven across a dark blue and black ground"
+          loading="lazy"
+          decoding="async"
+          class="w-full h-auto"
+          style="background:#f5f5f5;"
+        />
+        <figcaption class="mt-3 text-[11px] leading-[1.6]" style="color:#999;">
+          45S 80E, Southern Indian Ocean, rendered from that day's atmospheric data.
+          From <a href="https://art.jamestannahill.com/weather/2026-08-06-060044/region-45s-80e/" target="_blank" rel="noopener noreferrer"
+          class="underline hover:opacity-70 break-all" style="color:var(--color-amber);">art.jamestannahill.com/weather/2026-08-06-060044/region-45s-80e</a>.
+        </figcaption>
+      </figure>
+
+      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Drawer, Not the Bird</h2>
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+        <p class="mb-6">
+          The best available vocabulary for this problem was coined by Darwin in a letter to Hooker in 1857, and he was complaining about colleagues. Those who make many species, he wrote, are the splitters, and those who make few are the lumpers. He meant it lightly. It has outlasted almost everything else in the letter, because the distinction it names turns out to be permanent.
+        </p>
+        <p class="mb-6">
+          Here is how a species is anchored. Somewhere there is a type specimen, a single dead individual in a drawer, usually in London or Washington or Leiden, and the name is attached not to the population in the field but to that one carcass. Everything else is argument. Whether the birds on this island and the birds on that island are one species or two is settled by committees, which meet, deliberate and vote, and which have been known to reverse themselves twice within a working lifetime. The world's bird species number somewhere around eleven thousand, except that the two principal checklists disagree with each other by several hundred, and a well-known analysis in 2016 argued that under a stricter species concept the true figure is closer to eighteen thousand. That is not a rounding error. That is seven thousand kinds of animal appearing and vanishing according to which definition is in fashion, while not one organism in the field moves an inch or notices anything at all.
+        </p>
+        <p class="mb-6">
+          This should be the whole essay, and it is not, because of a single asymmetry that the bird cannot supply. The bird does not read the checklist. It has never been informed of its promotion, has formed no view on the committee, and will breed or fail to breed on exactly the terms it would have used had the volume never been printed. Ian Hacking called these indifferent kinds. Quarks and mosses and weather systems do not consult their classification, which is precisely why the classification can be treated as a description of them.
+        </p>
+        <p>
+          The other sort he called interactive kinds, and the entire difficulty is contained in the difference. When you classify a person, the person may find out. Having found out, they may agree, resist, organise, apply for something, adjust their account of their own history, or simply begin to notice things about themselves that they had not previously assembled under a heading. The classified thing changes, which changes what is true of the class, which changes the classification, which is available to be read again. Hacking called this the looping effect, and he spent a career on the observation that in the human sciences the instrument is never merely an instrument. A drawer that talks back is not a drawer.
+        </p>
+      </div>
+
+      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Enumerated Self</h2>
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+        <p class="mb-6">
+          Which brings us back to the last page of the application, and to the fact that it does not ask an abstract question.
+        </p>
+        <p class="mb-6">
+          The current disability form does not say "do you have a disability" and leave you to it. It prints a list. Alcohol or other substance use disorder. Autoimmune disorder, including lupus, fibromyalgia and rheumatoid arthritis. Blind or low vision. Cancer, past or present. Celiac disease. Deaf or hard of hearing. Depression or anxiety. Diabetes. Epilepsy. Gastrointestinal disorders. Mental health conditions, including bipolar disorder, schizophrenia, post-traumatic stress disorder and obsessive compulsive disorder. Missing limbs. Nervous system conditions, including migraine headaches. Neurodivergence, including attention deficit hyperactivity disorder, autism spectrum disorder and dyslexia. Short stature. Traumatic brain injury.
+        </p>
+        <p class="mb-6">
+          Read that as an applicant rather than as a compliance officer. It is not the grammar of measurement. Measurement asks a question and waits. This enumerates and invites recognition, which is the grammar of a screening questionnaire, and it is the same grammar a clinician uses at intake. The difference is that a clinician has fifteen minutes, a history and a duty of care, whereas this list is administered by a payroll vendor to a person who has just typed their own name for the fourth time and would like to know about the health plan.
+        </p>
+        <p class="mb-6">
+          So: does it do anything. You asked whether anyone has ever read that page and gone looking for a diagnosis, and the honest answer is that the mechanism is well understood and the direction of travel is not in serious doubt. Migraine and depression and adult attention deficit are conditions with genuine biology, wide prevalence and enormous diagnostic latitude at the margin, and a person's decision to seek assessment is influenced heavily by whether the category has been made available to them in a form that seems to fit. Hacking's original case study was multiple personality, where the availability of the description and its circulation through clinics and paperback memoirs preceded and produced the epidemiology. You do not have to accept that reading in full to accept the general point, which is modest: categories that are printed, official, repeated annually and attached to a benefit will be inhabited more than categories that are not.
+        </p>
+        <p>
+          The same is true, more quietly, of the demographic page. The single cleanest example in American statistics is the word Hispanic, which was manufactured. Before the mid-1970s the federal government had no such category, and Mexican Americans, Puerto Ricans and Cuban Americans did not generally regard themselves as belonging to a common kind. A congressional act in 1976 and an OMB directive in 1977 created the classification for statistical purposes, activists and broadcasters and marketers then had an interest in filling it, and within two decades a genuine shared identity existed where there had been none, with its own politics and its own media market. Cristina Mora's history of the process is called <span class="italic">Making Hispanics</span> and the title is not a provocation, it is a description. And the process has not stopped. In March 2024 the OMB revised the standards again, folded race and ethnicity into a single question and added a Middle Eastern or North African category. Several million people became a new kind of American by administrative revision, having done nothing whatever, in the manner of a bird promoted to full species while asleep. The difference, once again, is that they can read the notice.
+        </p>
+      </div>
+      <figure class="my-14">
+        <img
+          src="https://art.jamestannahill.com/weather/2026-08-06-060044/arctic-70n-20w/preview-1200.webp"
+          width="1024"
+          height="1024"
+          alt="Abstract painting of a bright gold and white burst throwing pale filaments across a deep blue and black field"
+          loading="lazy"
+          decoding="async"
+          class="w-full h-auto"
+          style="background:#f5f5f5;"
+        />
+        <figcaption class="mt-3 text-[11px] leading-[1.6]" style="color:#999;">
+          70N 20W, Greenland Sea, rendered from that day's atmospheric data.
+          From <a href="https://art.jamestannahill.com/weather/2026-08-06-060044/arctic-70n-20w/" target="_blank" rel="noopener noreferrer"
+          class="underline hover:opacity-70 break-all" style="color:var(--color-amber);">art.jamestannahill.com/weather/2026-08-06-060044/arctic-70n-20w</a>.
+        </figcaption>
+      </figure>
+
+      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">Asked Twice, and Not the Same Question</h2>
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+        <p class="mb-6">
+          There is a wrinkle in the practice that makes the argument easier to see, and it is common enough that most people who have applied for anything in the last decade have met it without registering it. Some employers ask twice. Before the federal pages arrive, in the body of the application itself, sitting among the custom questions the company has built for its own purposes in its own applicant tracking system, there is a second set of demographic questions, written in-house.
+        </p>
+        <p class="mb-6">
+          Point72 did this for years and the evidence is public. Pull any of their Greenhouse job pages out of the Internet Archive, a snapshot from November 2021 or one from January 2025, and partway down the form, after school and degree and years of experience, there is a section headed Diversity. It explains that the firm invites the information to track the effectiveness of its diversity initiatives in connection with its recruitment outreach, that provision is voluntary, and that the answers will not form part of the application. Then it asks. <span class="italic">I identify as</span>: male, female, non-binary, decline to self-identify. <span class="italic">Are you Hispanic/Latinx?</span> <span class="italic">Ethnicity/Race</span>: African American or Black, Asian, Multiracial, Native American Indian or Alaska Native, White or Caucasian, each of them tagged not Hispanic or Latinx, and at the bottom, I choose not to provide this information.
+        </p>
+        <p class="mb-6">
+          To their credit the fields are optional, the disclaimer is prominent, there is no disability question anywhere in the block, and nothing about any of it is unlawful. Grant all of that, without grudging it, because it is true and because the firm went to some trouble to make it true. But then: why ask.
+        </p>
+        <p class="mb-6">
+          The number already exists. The federal instrument, three pages later, on the same afternoon, under the same roof, collects the same information and produces the same count, and the firm is obliged to file it whether it wants to or not. So the second asking cannot be about whether the number exists. The stated purpose says plainly what it is about, and it is worth reading slowly: effectiveness of diversity initiatives in connection with recruitment outreach. That is attribution. Not how many, but which channel, which campus, which posting, which stage of the funnel, at what cost per applicant. It is ordinary marketing analytics, competently specified, and the units are people.
+        </p>
+        <p class="mb-6">
+          Two things follow. The first is that none of it requires asking before the offer. Ask afterwards and you learn the conversion rate you actually care about, from the population you actually hired, at no cost to the several thousand people who were never going to work there. What the pre-offer question buys, and the only thing it buys, is the top of the funnel: the denominator, which is to say the ratio, which is to say the slide. The second is subtler and it matters more. The federal separation between the answer and the decision is architecture. It is a legal requirement, it has an inspector behind it, and it survives a change of management. The house separation is a sentence. Will not form part of your application is a promise written by the party making it, about data sitting in that party's own system, enforced by nobody, audited by nobody, and reversible by a configuration change that generates no notice to anyone. Both boxes look the same on the screen. Only one of them is load-bearing, and the applicant has no way whatever to tell which.
+        </p>
+        <p class="mb-6">
+          Which is precisely why it is the useful example, because now look at the two menus side by side. The federal instrument offers Hispanic or Latino and does not recognise non-binary. The house instrument offers Latinx and does. The federal instrument treats Hispanic origin as an ethnicity crossed with a separate race question, or after the 2024 revision as a single combined question, depending on which vintage of the form the vendor has loaded. The house instrument does something else again. The applicant, in one sitting, on one afternoon, is asked what they are twice, by two taxonomies that do not agree, and must produce an answer to each.
+        </p>
+        <p class="mb-6">
+          Two rulers that give different lengths mean that at least one of them is not a ruler. If these categories were descriptions of an antecedent fact about the person, sitting there behind them waiting to be reported, this could not happen. The fact would not change between the eleventh and the fourteenth question of the same form. What changes is the menu, and the applicant obligingly changes with it, which is the entire argument of this essay arriving unbidden in the middle of a hedge fund's application and requiring no interpretation whatsoever. Which is also why the answer to why ask matters less than the fact of the asking. Whatever the question does to the person on the other side of it, a second question, in a different vocabulary, ten minutes later, does it again.
+        </p>
+        <p class="mb-6">
+          Not every employer is so careful, and this is where the practice stops being merely interesting. A house-built demographic field that is marked required is a different animal from an invitation. For race the position is untidy: collecting it is not itself unlawful, employers have to collect it to file at all, and a mandatory field is best understood not as a crime but as a document your future counsel will wish did not exist. For disability it is not untidy at all. The Americans with Disabilities Act bars disability-related inquiries before a conditional offer, without qualification, and the only reason a company may put the disability question in front of an applicant at the application stage is a narrow regulatory carve-out for federal contractors, whose conditions are that the question be an invitation, that it be voluntary, and that it use the prescribed form and not a rewritten one. Build your own version, in your own words, and require it, and you have not merely bent the exemption. You have removed the thing that made asking lawful in the first place and kept the asking.
+        </p>
+        <p>
+          And who complains. That is the honest end of it. The remedy exists, it is real, it has teeth, and reaching it requires being the applicant who wrote in to object, at the precise moment they were hoping to be liked, about a field on a form, to a firm that has not yet decided whether to interview them. Nobody is fooled about what that costs. To object is to volunteer a different and far more consequential piece of information about yourself than any of the boxes were asking for, which is that you are the sort of person who reads the form. A right that can only be exercised by someone who has already given up the thing they wanted is not quite a right. It is a fire exit with a camera over it, and the building is not lying when it says the door is unlocked.
+        </p>
+      </div>
+
+      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">A Liturgy With No Congregation</h2>
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+        <p class="mb-6">
+          The natural next question is who reads the answers, and the answer is nearly nobody, which is both the reassuring part and the funniest part.
+        </p>
+        <p class="mb-6">
+          The responses do not reach the hiring manager. They are not supposed to, they are generally walled off in the applicant tracking system, and this is the one component of the apparatus that works exactly as designed. They are aggregated. They become a count in an EEO-1 filing, or a VETS-4212 report, or a utilization analysis measured against the Section 503 goal that seven percent of each job group be individuals with disabilities, or against the veteran hiring benchmark that the Labor Department revises annually and sets somewhere around five percent. The count is filed. In the ordinary case the count is then looked at by an in-house employment lawyer, once, in a bad mood, and by nobody else ever.
+        </p>
+        <p class="mb-6">
+          There is something genuinely comic in the scale of this. Tens of millions of times a year, at the exact moment a person is most anxious to be liked, an institution stops and asks a question about the constitution of their being, and then takes elaborate technical measures to ensure that no one in the building will ever see the answer. It has the structure of a sacrament conducted by a congregation that has mislaid the god but kept the vestments and the calendar. The asking has become the point, because the asking is what is auditable.
+        </p>
+        <p>
+          It is worth noting how differently the same problem has been answered elsewhere, since you raised the question of applications abroad. Britain asks all of this and more, with a longer list of ethnic categories and better manners about it, usually on a monitoring form physically detached from the application so that the separation is visible rather than merely asserted. France has taken the opposite view and very nearly forbids the exercise. Collecting data that reveals racial or ethnic origin has been restricted there since the data protection law of 1978, and when the legislature tried to open the door to ethnic statistics in 2007 the Constitutional Council shut it. The French position is that a republic of undifferentiated citizens cannot enumerate its citizens by kind without ceasing to be one, and that counting the thing is a way of sustaining it. Two liberal democracies, the same history in view, opposite conclusions about whether the census is the cure or the disease. Both cannot be right, and the interesting possibility is that both are describing real costs and simply pricing them differently.
+        </p>
+      </div>
+
+      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The One Box That Cannot Loop</h2>
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+        <p class="mb-6">
+          And then, on the same page, sitting there unremarked, is the veteran question. It is the most useful thing on the form, and not for the reason it was put there.
+        </p>
+        <p class="mb-6">
+          Protected veteran status has an unglamorous document behind it. There is a DD-214, a certificate of release or discharge from active duty, which records the dates, the character of the service and the campaign badges. There is an enlistment on one side of it and a separation on the other, both of them events in the world with witnesses. The categories are dull and legally precise: disabled veteran, recently separated veteran, active duty wartime or campaign badge veteran, Armed Forces service medal veteran. The federal government, when it asks you this, is asking for information it already holds.
+        </p>
+        <p class="mb-6">
+          Nobody has ever read the phrase "protected veteran" on a job application and gone quiet for a moment, wondering. Nobody has ever seen that box and thought: I have always been tired in a way I could not name, and now that I read the list, perhaps. Nobody joins a veterans' organisation, adopts the vocabulary, revises their account of their twenties and gradually becomes the kind of person the classification describes. The category does not loop, because it is not a kind of person at all. It is a record of an act, chosen, dated and stamped, and the person is only the party who performed it.
+        </p>
+        <p>
+          Put that box next to the other two and the asymmetry is glaring in a way that no amount of argument about the other two could establish on its own. One question on that page has an external referent that would survive the abolition of the question. The others, to varying degrees, do not. This is not a claim that race and disability are unreal, which would be both false and stupid; a severed spinal cord is not a social construction and neither is the history of the American South. It is the narrower claim that where the veteran box points at a filing cabinet, the disability box points at a mirror, and the applicant is asked to look into it and report.
+        </p>
+      </div>
+
+      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">Where This Breaks</h2>
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+        <p class="mb-6">
+          The objection to all of the above is decisive as far as it goes, and anyone making this argument who does not concede it in full is not arguing in good faith.
+        </p>
+        <p class="mb-6">
+          The counting worked. That is the concession, and it is not a small one. You cannot detect a pattern you have refused to measure, and the entire structure of American antidiscrimination law after 1964 depends on the ability to compare a workforce with a population and notice a gap. Griggs, in 1971, is not a hoax and was not a technicality: a company using a diploma requirement and an aptitude test that screened out black applicants at a wildly disproportionate rate, for jobs the requirement had nothing to do with, was stopped, and it was stopped by arithmetic. Without denominators there is no disparate impact, and without disparate impact the only remaining remedy requires proving intent, which is to say proving what is in a man's head, which is to say almost never proving anything. The French position, whatever its philosophical elegance, has left France conspicuously unable to answer basic empirical questions about its own society, and a state that cannot see a problem is not thereby a state without one.
+        </p>
+        <p class="mb-6">
+          Grant all of that, and something survives, because the concession is about counting and the objection is not. A count can be assembled from records, from payroll, from observation, from what an institution already knows about the people inside it. The Census Bureau has spent decades refining methods for exactly this and does not, in general, need to hand any individual a printed list of conditions and invite them to recognise themselves in it. What the last page of a job application does is something different in kind from measurement. It is enumeration delivered to the subject, at the least appropriate moment, by an institution with power over them, with a menu attached.
+        </p>
+        <p>
+          Separate the two and most of the difficulty dissolves. Keep the audit, which is defensible and probably necessary. Lose the catechism. If the aggregate is genuinely all that matters, and the wall between the answer and the decision-maker is real and load-bearing, then the burden of self-examination placed on the individual applicant is pure deadweight: a cost imposed on the one party in the transaction who gets nothing from it. The obvious partial answer, which costs nothing, is to move the whole business to after the offer, where the count is just as good and the applicant is no longer being asked to audition.
+        </p>
+      </div>
+
+      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">Look Again at the Drawer</h2>
+      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+        <p class="mb-6">
+          The committee that splits a species into two has not done anything to the birds. It has done something to the ornithologists, who will now go into the field carrying a distinction they did not have last season, and who will find it, because that is what a distinction is for. The subsequent literature will report a great many sightings of a bird that was previously not there to be seen. None of this is fraud. It is what happens when you improve the resolution of an instrument: you get more objects, and the objects are real, and they were not previously separate.
+        </p>
+        <p class="mb-6">
+          Do that to people and you get the same result with one addition, which is that the people are also holding the checklist. The form at the end of the application does not manufacture a disabled person out of nothing, and it does not create a woman or a veteran or anyone else. What it reliably produces is applicants who have looked. That is a smaller effect than the alarmists claim and a considerably larger one than the drafters ever intended, and it is entirely unmeasured, because the one thing this apparatus is not instrumented to count is what the counting does.
+        </p>
+        <p class="mb-6">
+          None of which is an argument for abolition, and the reader who wants one will have to find it elsewhere. It is an argument for knowing what you have built. The people who wrote these forms believed they were installing a thermometer. They installed something closer to a mirror with a caption, hung it in a corridor that every working adult in the country walks down several times a decade, and then, having taken great care that no one would look at the readings, declared the matter handled.
+        </p>
+        <p>
+          And at the bottom of the page, patiently, in the same typeface as the rest: <span class="italic">decline to self-identify</span>. It is offered as the modest option, the one for people who would rather not make a fuss. It is in fact the only line on the form that gets the metaphysics right, since it is the only one that allows for the possibility that the question has no answer waiting behind it. That it is presented as a refusal, rather than as a position, tells you everything about which way the institution thinks the arrow of description runs.
+        </p>
+      </div>
+
+      <script src="/scripts/thoughts-ripple.js" defer></script>
+
+      <p class="mt-14 pt-8 border-t text-[12px] tracking-[0.1em]" style="border-color:#eee;">
+        <a href="/thoughts/" class="hover:opacity-70" style="color:var(--color-amber);">Back to Thoughts</a>
+      </p>
+
+    </article>
+  </div>
+</BaseLayout>

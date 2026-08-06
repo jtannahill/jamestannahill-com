@@ -205,3 +205,12 @@ card(
     ["On what actually becomes", "permanent inside an institution."],
     "jamestannahill.com/thoughts",
 )
+
+card(
+    "og-decline-to-self-identify.png",
+    "art-decline-tsa.png",
+    "Thoughts",
+    ["Decline to", "Self-Identify"],
+    ["On the questionnaire that invents", "the person it counts."],
+    "jamestannahill.com/thoughts",
+)
