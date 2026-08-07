@@ -29,6 +29,8 @@ const ventures: Venture[] = [
     name: 'RDLB',
     description: 'Strategic brand architecture for investors and operators. Engineers positioning, narrative systems, and go-to-market structure - converting trust into momentum and intention into capital movement.',
     url: 'https://www.rdlb.nyc/',
+    url2: 'https://rdlbagentic.com/',
+    url2Label: 'RDLB Agentic',
     logo: '/logos/rdlb.png',
     logoH: 36,
   },
@@ -137,6 +139,13 @@ const ventures: Venture[] = [
                    class="mt-4 inline-block py-2 text-[13px] tracking-[0.15em] uppercase"
                    style="color:var(--color-amber); min-height:44px; display:flex; align-items:center;">
                   Visit →
+                </a>
+              )}
+              {v.url2 && (
+                <a href={v.url2} target="_blank" rel="noopener noreferrer"
+                   class="inline-block py-2 text-[13px] tracking-[0.15em] uppercase"
+                   style="color:#E91E8E; min-height:44px; display:flex; align-items:center;">
+                  {v.url2Label || 'Visit'} →
                 </a>
               )}
             </>
