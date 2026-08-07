@@ -11,97 +11,81 @@ interface Props {
 }
 
 const { essays, label } = Astro.props as Props;
-const heading = label ?? (essays.length > 1 ? 'Related Essays' : 'Related Essay');
+const heading = label ?? 'See Also';
 ---
-<aside class="related-essays my-14">
-  <div class="flex items-center gap-4 mb-5">
-    <span class="text-[9px] tracking-[0.25em] uppercase whitespace-nowrap" style="color:var(--color-amber);">{heading}</span>
-    <span class="h-px flex-1" style="background:#eae7e1;"></span>
+<aside class="see-also">
+  <p class="see-also-label">{heading}</p>
+  <div class="see-also-list">
+    {essays.map((essay) => (
+      <a href={essay.href} class="see-also-item">
+        <span class="see-also-title">{essay.title}</span>
+        <span class="see-also-blurb">{essay.blurb}</span>
+      </a>
+    ))}
   </div>
-
-  {essays.map((essay) => (
-    <a href={essay.href} class="related-essay group">
-      <span class="related-essay-title">
-        {essay.title}
-        <span class="related-essay-arrow" aria-hidden="true">&rarr;</span>
-      </span>
-      <span class="related-essay-blurb">{essay.blurb}</span>
-    </a>
-  ))}
 </aside>
 
 <style>
-  .related-essay {
+  .see-also {
+    margin: 56px 0;
+    padding-top: 14px;
+    border-top: 1px solid #1a1a1a;
+  }
+
+  .see-also-label {
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--color-amber);
+    margin: 0 0 14px;
+  }
+
+  .see-also-item {
     display: block;
-    padding: 18px 22px;
-    margin-bottom: 10px;
     text-decoration: none;
-    background: #fbfaf8;
-    border: 1px solid #ece9e3;
-    border-left: 2px solid var(--color-amber);
-    transition:
-      background 0.25s ease,
-      border-color 0.25s ease,
-      transform 0.25s ease;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #eee;
   }
 
-  .related-essay:last-child {
+  .see-also-item:last-child {
+    padding-bottom: 0;
     margin-bottom: 0;
+    border-bottom: 0;
   }
 
-  .related-essay:hover {
-    background: #fff;
-    border-color: #e0dbd2;
-    border-left-color: var(--color-amber);
-    transform: translateX(3px);
-  }
-
-  .related-essay-title {
-    display: block;
-    font-size: 16px;
+  .see-also-title {
+    display: inline;
+    font-size: 15px;
     font-weight: 600;
     letter-spacing: -0.01em;
-    line-height: 1.35;
     color: #1a1a1a;
-    margin-bottom: 5px;
-    transition: color 0.25s ease;
+    box-shadow: inset 0 -1px 0 0 #ddd;
+    transition: box-shadow 0.2s ease;
   }
 
-  .related-essay:hover .related-essay-title {
-    color: var(--color-amber);
+  .see-also-item:hover .see-also-title {
+    box-shadow: inset 0 -1px 0 0 var(--color-amber);
   }
 
-  .related-essay-arrow {
-    display: inline-block;
-    margin-left: 8px;
-    font-weight: 400;
-    color: var(--color-amber);
-    opacity: 0;
-    transform: translateX(-4px);
-    transition:
-      opacity 0.25s ease,
-      transform 0.25s ease;
-  }
-
-  .related-essay:hover .related-essay-arrow {
-    opacity: 1;
-    transform: translateX(0);
-  }
-
-  .related-essay-blurb {
+  .see-also-blurb {
     display: block;
-    font-size: 13px;
+    margin-top: 5px;
+    font-size: 11px;
     line-height: 1.6;
-    color: #6b6b6b;
+    color: #999;
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .related-essay,
-    .related-essay-arrow {
-      transition: none;
+  @media (min-width: 640px) {
+    .see-also {
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      column-gap: 24px;
     }
-    .related-essay:hover {
-      transform: none;
+
+    .see-also-label {
+      margin-bottom: 0;
+      padding-top: 3px;
     }
   }
 </style>
