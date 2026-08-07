@@ -1,6 +1,7 @@
 ---
 export const prerender = true;
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import RelatedEssay from '../../components/RelatedEssay.astro';
 
 const url = 'https://jamestannahill.com/thoughts/whose-egg-is-that/';
 const published = '2026-08-05';
@@ -167,6 +168,12 @@ const schema = [
           class="underline hover:opacity-70 break-all" style="color:var(--color-amber);">art.jamestannahill.com/weather/2026-08-04-060044/western-pacific-15n-120e</a>.
         </figcaption>
       </figure>
+
+      <RelatedEssay essays={[{
+        href: '/thoughts/inventors-of-problems/',
+        title: 'Inventors of Problems',
+        blurb: 'On the staff function that must manufacture demand, and the executives who pay it to do so',
+      }]} />
 
       <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">What Replaces It</h2>
       <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>

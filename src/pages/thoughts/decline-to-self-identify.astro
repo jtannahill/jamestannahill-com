@@ -1,6 +1,7 @@
 ---
 export const prerender = true;
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import RelatedEssay from '../../components/RelatedEssay.astro';
 
 const url = 'https://jamestannahill.com/thoughts/decline-to-self-identify/';
 const published = '2026-08-06';
@@ -185,13 +186,11 @@ const schema = [
         </p>
       </div>
 
-      <aside class="my-10">
-        <a href="/thoughts/the-org-chart-travels/" class="group block border-l-2 pl-5 py-1 no-underline transition-opacity hover:opacity-70" style="border-color:var(--color-amber);">
-          <span class="block text-[9px] tracking-[0.25em] uppercase mb-2" style="color:var(--color-amber);">Related Essay</span>
-          <span class="block text-[17px] font-semibold tracking-tight mb-1" style="color:#1a1a1a;">The Org Chart Travels</span>
-          <span class="block text-[13px] leading-[1.6]" style="color:#666;">On what actually crosses a border when an idea is exported, and why the argument stays home</span>
-        </a>
-      </aside>
+      <RelatedEssay essays={[{
+        href: '/thoughts/the-org-chart-travels/',
+        title: 'The Org Chart Travels',
+        blurb: 'On what actually crosses a border when an idea is exported, and why the argument stays home',
+      }]} />
 
       <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
         <p class="mb-6">
@@ -249,6 +248,12 @@ const schema = [
           Separate the two and most of the difficulty dissolves. Keep the audit, which is defensible and probably necessary. Lose the catechism. If the aggregate is genuinely all that matters, and the wall between the answer and the decision-maker is real and load-bearing, then the burden of self-examination placed on the individual applicant is pure deadweight: a cost imposed on the one party in the transaction who gets nothing from it. The obvious partial answer, which costs nothing, is to move the whole business to after the offer, where the count is just as good and the applicant is no longer being asked to audition.
         </p>
       </div>
+
+      <RelatedEssay essays={[{
+        href: '/thoughts/whose-egg-is-that/',
+        title: 'Whose Egg Is That',
+        blurb: 'On abolishing the hiring layer, and returning the decision to the people who have to live with it',
+      }]} />
 
       <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">Look Again at the Drawer</h2>
       <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>

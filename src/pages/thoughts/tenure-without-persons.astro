@@ -1,6 +1,7 @@
 ---
 export const prerender = true;
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import RelatedEssay from '../../components/RelatedEssay.astro';
 
 const url = 'https://jamestannahill.com/thoughts/tenure-without-persons/';
 const published = '2026-08-05';
@@ -19,7 +20,7 @@ const schema = [
     description,
     image: 'https://jamestannahill.com/og-tenure-without-persons.png?v=1',
     datePublished: published,
-    dateModified: published,
+    dateModified: '2026-08-07',
     inLanguage: 'en-US',
     articleSection: 'Essays',
     author: { '@id': 'https://jamestannahill.com/#person' },
@@ -246,10 +247,19 @@ const schema = [
         <p class="mb-6">
           That is tenure. Not for a person. For a paragraph. The first permanent institution off Earth will not be a parliament or a university or a church. It will be a checklist, and it will outlast everyone who wrote it, and it will be defended by people who have no idea why the item is there and every reason not to be the one who removed it.
         </p>
+        <p class="mb-6">
+          It is worth being clear about how that paragraph gets there, because it does not originate on Mars. It arrives written on Earth, to satisfy an authority on Earth, in a payload assembled by an entity with a headquarters and a general counsel, and it is mandatory on arrival for reasons nobody at the destination was consulted about.
+        </p>
         <p>
           The radicals, then, will be whoever happened to be present when the settlement decided what it would not revisit. They will not have argued for permanence and may not have wanted it. They will simply have been in the room, holding the pen, during the eighteen months when the procedures were written and everybody was too busy staying alive to litigate the wording. That is how it has always worked. Nobody wins tenure by arguing for tenure. They win it by being early.
         </p>
       </div>
+
+      <RelatedEssay essays={[{
+        href: '/thoughts/the-org-chart-travels/',
+        title: 'The Org Chart Travels',
+        blurb: 'On what actually crosses a border when an idea is exported, and why the argument stays home',
+      }]} />
 
       <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">Name the Thing You Cannot Undo</h2>
       <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>

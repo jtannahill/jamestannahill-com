@@ -1,6 +1,7 @@
 ---
 export const prerender = true;
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import RelatedEssay from '../../components/RelatedEssay.astro';
 
 const url = 'https://jamestannahill.com/thoughts/nothing-to-photograph/';
 const published = '2026-08-05';
@@ -210,6 +211,12 @@ const schema = [
           And one concession, because starting where the light is has a legitimate use. A first pilot should absolutely be somewhere safe, legible and quick, because the purpose of a first pilot is to learn whether the team can ship anything at all. That is a training exercise, and it is defensible. What is indefensible is the second year of it. Firms never distinguish the two, and the way to tell which one you are in is to ask whether anything since the first pilot has moved toward the difficult interior, or whether the programme has simply produced more specimens from the same roadside.
         </p>
       </div>
+
+      <RelatedEssay essays={[{
+        href: '/thoughts/inventors-of-problems/',
+        title: 'Inventors of Problems',
+        blurb: 'On the staff function that must manufacture demand, and the executives who pay it to do so',
+      }]} />
 
       <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">Say the Name of the Requirement</h2>
       <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>

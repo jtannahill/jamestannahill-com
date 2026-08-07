@@ -1,6 +1,7 @@
 ---
 export const prerender = true;
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import RelatedEssay from '../../components/RelatedEssay.astro';
 
 const url = 'https://jamestannahill.com/thoughts/inventors-of-problems/';
 const published = '2026-08-04';
@@ -205,6 +206,12 @@ const schema = [
           Any critique that stops at the department is therefore a critique that lets the buyer off. The department is a supplier. The demand comes from the top.
         </p>
       </div>
+
+      <RelatedEssay essays={[{
+        href: '/thoughts/whose-egg-is-that/',
+        title: 'Whose Egg Is That',
+        blurb: 'On abolishing the hiring layer, and returning the decision to the people who have to live with it',
+      }]} />
       <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">What Is Actually Load-Bearing</h2>
       <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
         <p class="mb-6">
@@ -220,6 +227,12 @@ const schema = [
           The dysfunction is not the existence of the function. It is the layer built on top of the load-bearing work, which grew because nothing constrained it, and which now consumes the majority of the budget and nearly all of the attention.
         </p>
       </div>
+
+      <RelatedEssay essays={[{
+        href: '/thoughts/nothing-to-photograph/',
+        title: 'Nothing to Photograph',
+        blurb: 'On why firms automate the step they should have deleted, and the committee that makes it inevitable',
+      }]} />
       <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Measurements Nobody Runs</h2>
       <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
         <p class="mb-6">

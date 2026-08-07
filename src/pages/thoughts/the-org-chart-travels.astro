@@ -1,6 +1,7 @@
 ---
 export const prerender = true;
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import RelatedEssay from '../../components/RelatedEssay.astro';
 
 const url = 'https://jamestannahill.com/thoughts/the-org-chart-travels/';
 const published = '2026-08-04';
@@ -267,6 +268,19 @@ const schema = [
           That is not a prediction about ideology. It is a prediction about org charts, which are the only thing in this entire argument with a demonstrated capacity to cross a vacuum.
         </p>
       </div>
+
+      <RelatedEssay essays={[
+        {
+          href: '/thoughts/decline-to-self-identify/',
+          title: 'Decline to Self-Identify',
+          blurb: 'On the questionnaire that invents the person it counts, and the one box on it that cannot',
+        },
+        {
+          href: '/thoughts/tenure-without-persons/',
+          title: 'Tenure Without Persons',
+          blurb: 'On what actually becomes permanent inside an institution, and the accession number that answers a polemic',
+        },
+      ]} />
 
       <script src="/scripts/thoughts-ripple.js" defer></script>
 
