@@ -16,6 +16,8 @@ export interface VenturePage {
   body: string[];
   /** Phrases inside `body` to turn into outbound links, matched literally. */
   links?: { text: string; url: string }[];
+  /** Where the name comes from, set apart at the foot of the page. */
+  namesake?: string;
   /** Title and description for the page's own metadata. */
   metaTitle: string;
   metaDescription: string;
@@ -51,6 +53,7 @@ export const ventures: Venture[] = [
         'The structure is a third-generation family enterprise, engineered for continuity, control, and multi-decade value creation. That inheritance sets the holding period. Capital that does not have to be returned on a fund clock can sit inside a business long enough to fix what is actually wrong with it, which is usually not the thing a diligence memo flags first.',
         'The work is post-transaction integration, organizational architecture, and operational transformation, carried out from inside the business rather than presented to it. The thesis is that operational complexity is not a discount to be priced in, it is the position itself: the companies worth owning are the ones whose difficulty keeps other buyers away.',
       ],
+      namesake: 'Plocamium is a genus of red algae found in cold coastal waters worldwide. It grows in fine branching fronds that hold their structure in heavy water, and it is studied for the halogenated compounds it produces to defend itself.',
       metaTitle: 'Plocamium Holdings - James Tannahill',
       metaDescription: 'Operator-led private equity deploying patient capital across industrial technologies and healthcare. A third-generation family enterprise built for multi-decade value creation.',
     },

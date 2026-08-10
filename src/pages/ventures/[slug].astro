@@ -143,6 +143,29 @@ const schema = [
     .v-body a.v-inline:hover { color: var(--color-ink); }
     .v-body a.v-inline:focus-visible { outline: 2px solid #1d5c63; outline-offset: 2px; }
 
+    /* The namesake note is an aside, not argument: marine rule, smaller type,
+       set off from the body so it reads as a margin gloss. */
+    .v-namesake {
+      margin: 34px 0 8px;
+      padding-left: 18px;
+      border-left: 2px solid #1d5c63;
+      max-width: 58ch;
+    }
+    .v-namesake .label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #1d5c63;
+    }
+    .v-namesake p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.75;
+      color: #6b6660;
+    }
+
     /* A bordered block rather than an underlined word: the underline sat
        detached from the text once the 44px tap target was applied. */
     .v-visit {
@@ -206,6 +229,13 @@ const schema = [
         <p class={i === 0 ? 'lead' : ''} set:html={linkify(para)} />
       ))}
     </div>
+
+    {page.namesake && (
+      <aside class="v-namesake">
+        <span class="label">The name</span>
+        <p>{page.namesake}</p>
+      </aside>
+    )}
 
     <a class="v-visit" href={venture.url} target="_blank" rel="noopener noreferrer">
       <span>{venture.url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')}</span>
