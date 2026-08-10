@@ -31,100 +31,114 @@ const competencies = [
 ];
 ---
 <style>
+  .comp-section {
+    /* Marine ramp — the row tint is mixed between these two endpoints. */
+    --comp-ground: #eef0f0;
+    --comp-rule: #d8dcdc;
+    --comp-accent: #1d5c63;
+    --comp-tint-cool: #eef2f2;
+    --comp-tint-deep: #0f3b43;
+    --comp-ink-cool: #0b2124;
+    --comp-ink-deep: #eaf4f5;
+    --comp-sub-cool: #4a6265;
+    --comp-sub-deep: #a8c9cc;
+    background: var(--comp-ground);
+  }
+
+  .comp-eyebrow {
+    color: var(--comp-accent);
+  }
+
   .comp-index {
-    position: relative;
-    padding-left: 22px;
+    border-top: 1px solid var(--comp-rule);
   }
-  /* One continuous spine for the whole list, instead of a rule on every card. */
-  .comp-index::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 1px;
-    background: var(--color-amber-subtle);
-  }
+
   .comp-row {
+    /* Scroll-driven intensity, 0 (cool) to 1 (deep). Written by the script below. */
+    --i: 0;
     position: relative;
     display: grid;
     grid-template-columns: 1fr;
     gap: 10px 32px;
-    padding: 20px 0;
-    border-top: 1px solid #e0ddd6;
+    padding: 24px 20px 26px;
+    border-bottom: 1px solid var(--comp-rule);
+    background: color-mix(in oklab, var(--comp-tint-deep) calc(var(--i) * 100%), var(--comp-tint-cool));
+    color: color-mix(in oklab, var(--comp-ink-deep) calc(var(--i) * 100%), var(--comp-ink-cool));
+    transition: background 220ms linear, color 220ms linear;
   }
-  .comp-row:first-child {
-    border-top: 0;
-  }
-  /* The spine lights up only at the row being read. */
+
+  /* The spine lights in proportion to the same intensity. */
   .comp-row::before {
     content: '';
     position: absolute;
-    left: -22px;
+    left: 0;
     top: -1px;
     bottom: -1px;
     width: 2px;
-    background: var(--color-amber);
-    transform: scaleY(0);
+    background: var(--comp-accent);
+    transform: scaleY(var(--i));
     transform-origin: center;
-    transition: transform 0.28s cubic-bezier(0.22, 0.61, 0.36, 1);
+    transition: transform 220ms linear;
   }
-  .comp-row:hover::before,
-  .comp-row:focus-within::before {
-    transform: scaleY(1);
+
+  .comp-num {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    font-variant-numeric: tabular-nums;
+    opacity: 0.65;
   }
+
   .comp-title {
+    margin: 0;
     font-family: 'NHG Display', sans-serif;
     font-size: clamp(19px, 2.5vw, 28px);
     font-weight: 500;
     letter-spacing: -0.02em;
     line-height: 1.15;
-    color: #0a0a0a;
-    transition: transform 0.28s cubic-bezier(0.22, 0.61, 0.36, 1);
+    text-wrap: balance;
   }
-  .comp-row:hover .comp-title,
-  .comp-row:focus-within .comp-title {
-    transform: translateX(4px);
-  }
+
   .comp-practices {
+    margin: 0;
+    padding: 0;
+    list-style: none;
     display: grid;
     grid-template-columns: 1fr;
     gap: 4px 28px;
     font-size: 11px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #8a857e;
     line-height: 1.7;
+    color: color-mix(in oklab, var(--comp-sub-deep) calc(var(--i) * 100%), var(--comp-sub-cool));
+    transition: color 220ms linear;
   }
+
   @media (min-width: 768px) {
-    .comp-index {
-      padding-left: 28px;
-    }
     .comp-row {
-      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+      grid-template-columns: 44px minmax(0, 0.8fr) minmax(0, 1.1fr);
       align-items: baseline;
-      padding: 26px 0;
-    }
-    .comp-row::before {
-      left: -28px;
+      padding: 30px 24px 32px;
     }
     .comp-practices {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
+
   @media (prefers-reduced-motion: reduce) {
+    .comp-row,
     .comp-row::before,
-    .comp-title {
+    .comp-practices {
       transition: none;
     }
   }
 </style>
-<section class="border-t border-[#e8e5de]" style="background:#f2f0eb;">
+<section class="comp-section border-t border-[#e8e5de]">
   <div class="max-w-6xl mx-auto px-6 md:px-14 py-12 md:py-16">
-    <h2 class="tracking-[0.2em] uppercase mb-8 md:mb-10" style="font-size:17px; color:var(--color-amber);">Competencies</h2>
-    <div class="comp-index">
+    <h2 class="comp-eyebrow tracking-[0.2em] uppercase mb-8 md:mb-10" style="font-size:17px;">Competencies</h2>
+    <div class="comp-index" data-comp-index>
       {competencies.map((c, i) => (
-        <div class="sr comp-row" style={`transition-delay: ${i * 60}ms;`}>
+        <div class="comp-row">
+          <span class="comp-num">{i + 1}</span>
           <h3 class="comp-title">{c.title}</h3>
           <ul class="comp-practices">
             {c.practices.map((p) => (<li>{p}</li>))}
@@ -134,3 +148,64 @@ const competencies = [
     </div>
   </div>
 </section>
+<script>
+  (function () {
+    var rows = Array.prototype.slice.call(
+      document.querySelectorAll('[data-comp-index] .comp-row')
+    );
+    if (!rows.length) return;
+
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    // Static fallback: a plain top-to-bottom ramp, no scroll coupling.
+    function paintStatic() {
+      rows.forEach(function (row, n) {
+        row.style.setProperty('--i', (n / (rows.length - 1)).toFixed(3));
+      });
+    }
+
+    // The reading line sits a little above centre, where the eye actually rests.
+    var FOCUS = 0.42;
+    // How far from the reading line a row still picks up tint, in viewport heights.
+    var FALLOFF = 0.55;
+
+    function paint() {
+      var vh = window.innerHeight;
+      var focusY = vh * FOCUS;
+      var reach = vh * FALLOFF;
+      for (var n = 0; n < rows.length; n++) {
+        var box = rows[n].getBoundingClientRect();
+        var d = Math.abs(box.top + box.height / 2 - focusY) / reach;
+        var i = Math.max(0, 1 - d);
+        // Ease so the deep end concentrates on one or two rows, not a smear.
+        i = i * i * (3 - 2 * i);
+        rows[n].style.setProperty('--i', i.toFixed(3));
+      }
+    }
+
+    var queued = false;
+    function onScroll() {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(function () {
+        queued = false;
+        paint();
+      });
+    }
+
+    function start() {
+      if (reduced.matches) {
+        window.removeEventListener('scroll', onScroll);
+        window.removeEventListener('resize', onScroll);
+        paintStatic();
+        return;
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      paint();
+    }
+
+    if (reduced.addEventListener) reduced.addEventListener('change', start);
+    start();
+  })();
+</script>
