@@ -20,10 +20,12 @@ import { ventures } from '../data/ventures';
     position: relative;
   }
 </style>
-<section id="ventures" class="border-t border-[var(--color-border)] bg-white" style="scroll-margin-top:80px;">
+<section class="border-t border-[var(--color-border)] bg-white">
   <div class="max-w-6xl mx-auto px-4 md:px-14 py-12 md:py-16">
     <h2 class="tracking-[0.2em] uppercase mb-10" style="font-size:17px; color:var(--color-amber);">Ventures & Platforms</h2>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-[var(--color-border)]">
+    {/* The anchor sits on the grid, not the section: landing on /#ventures
+        should put the cards on screen, not the section's top padding. */}
+    <div id="ventures" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-[var(--color-border)]" style="scroll-margin-top:24px;">
       {ventures.map((v, i) => (
         <div
           id={`ventures-${v.slug}`}
