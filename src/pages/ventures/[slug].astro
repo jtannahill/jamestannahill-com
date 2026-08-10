@@ -1,0 +1,178 @@
+---
+export const prerender = true;
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { venturePages } from '../../data/ventures';
+
+export function getStaticPaths() {
+  return venturePages.map((v, i) => ({
+    params: { slug: v.slug },
+    props: {
+      venture: v,
+      // Prev/next walk the portfolio in its published order, wrapping at the ends.
+      prev: venturePages[(i - 1 + venturePages.length) % venturePages.length],
+      next: venturePages[(i + 1) % venturePages.length],
+    },
+  }));
+}
+
+const { venture, prev, next } = Astro.props;
+const page = venture.page!;
+const canonical = `https://jamestannahill.com/ventures/${venture.slug}/`;
+
+const schema = [
+  {
+    '@type': 'Organization',
+    '@id': `${canonical}#organization`,
+    name: venture.name,
+    url: venture.url,
+    description: venture.description,
+  },
+  {
+    '@type': 'WebPage',
+    '@id': canonical,
+    url: canonical,
+    name: page.metaTitle,
+    description: page.metaDescription,
+    about: { '@id': `${canonical}#organization` },
+    isPartOf: { '@id': 'https://jamestannahill.com/#website' },
+    breadcrumb: {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'James Tannahill', item: 'https://jamestannahill.com/' },
+        { '@type': 'ListItem', position: 2, name: 'Ventures & Platforms', item: 'https://jamestannahill.com/#ventures' },
+        { '@type': 'ListItem', position: 3, name: venture.name, item: canonical },
+      ],
+    },
+  },
+];
+---
+<BaseLayout
+  title={page.metaTitle}
+  description={page.metaDescription}
+  canonical={canonical}
+  ogImage={`https://jamestannahill.com/og-venture-${venture.slug}.png`}
+  ogImageAlt={`${venture.name} - ${page.thesis}`}
+  ogType="website"
+  extraSchema={schema}
+>
+  <style>
+    .v-shell { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+    .v-crumb {
+      border-bottom: 1px solid var(--color-border);
+      padding: 18px 0;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #8a857e;
+    }
+    .v-crumb a { color: #8a857e; text-decoration: none; }
+    .v-crumb a:hover { color: var(--color-amber); }
+
+    .v-title {
+      margin: 52px 0 18px;
+      font-family: 'NHG Display', sans-serif;
+      font-size: clamp(36px, 6.5vw, 64px);
+      font-weight: 500;
+      letter-spacing: -0.035em;
+      line-height: 1;
+      color: var(--color-ink);
+      text-wrap: balance;
+    }
+
+    .v-thesis {
+      margin: 0 0 26px;
+      max-width: 28ch;
+      font-size: clamp(18px, 2.2vw, 23px);
+      line-height: 1.35;
+      letter-spacing: -0.015em;
+      color: #444;
+      text-wrap: balance;
+    }
+
+    /* One line of record: what the venture is. */
+    .v-record {
+      margin: 0 0 40px;
+      padding: 12px 0;
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 14px;
+      font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #8a857e;
+    }
+
+    .v-body p {
+      margin: 0 0 22px;
+      max-width: 64ch;
+      font-size: 15px;
+      line-height: 1.85;
+      color: #444;
+    }
+    .v-body p.lead { font-size: 17px; line-height: 1.75; color: var(--color-ink); }
+
+    .v-visit {
+      display: inline-block;
+      margin: 14px 0 56px;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #1d5c63;
+      text-decoration: none;
+      border-bottom: 1px solid currentColor;
+      padding-bottom: 3px;
+      min-height: 44px;
+    }
+    .v-visit:hover { color: var(--color-ink); }
+    .v-visit::after { content: ' \2197'; }
+
+    .v-foot {
+      border-top: 1px solid var(--color-border);
+      padding: 22px 0 56px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px 24px;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    .v-foot a { color: #8a857e; text-decoration: none; }
+    .v-foot a:hover { color: var(--color-amber); }
+  </style>
+
+  <div class="v-shell">
+    <nav class="v-crumb" aria-label="Breadcrumb">
+      <a href="/">James Tannahill</a>
+      &nbsp;/&nbsp;
+      <a href="/#ventures">Ventures &amp; Platforms</a>
+    </nav>
+
+    <h1 class="v-title">{venture.name}</h1>
+    <p class="v-thesis">{page.thesis}</p>
+
+    <p class="v-record">
+      {page.record.map((r) => (<span>{r}</span>))}
+    </p>
+
+    <div class="v-body">
+      {page.body.map((para, i) => (
+        <p class={i === 0 ? 'lead' : ''}>{para}</p>
+      ))}
+    </div>
+
+    <a class="v-visit" href={venture.url} target="_blank" rel="noopener noreferrer">
+      {venture.url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')}
+    </a>
+
+    <nav class="v-foot" aria-label="More ventures">
+      <a href={`/ventures/${prev.slug}/`}>&larr; {prev.name}</a>
+      <a href="/#ventures">All ventures</a>
+      <a href={`/ventures/${next.slug}/`}>{next.name} &rarr;</a>
+    </nav>
+  </div>
+</BaseLayout>

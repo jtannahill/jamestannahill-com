@@ -1,35 +1,24 @@
 ---
-// Each row optionally links to the venture that most demonstrates it.
 const competencies = [
   {
     title: 'Capital & Financial Architecture',
     practices: ['Strategic finance', 'Capital deployment', 'Investment structuring', 'M&A advisory'],
-    href: 'https://plocamium.com',
-    hrefLabel: 'Plocamium Holdings',
   },
   {
     title: 'Applied Intelligence',
     practices: ['AI systems architecture', 'ML pipelines', 'Intelligent automation', 'Data infrastructure'],
-    href: 'https://rdlbagentic.com/',
-    hrefLabel: 'RDLB Agentic',
   },
   {
     title: 'AI in Regulated Markets',
     practices: ['Capital markets', 'Healthcare and life sciences', 'Model governance', 'Compliant deployment'],
-    href: 'https://www.1nessagency.com/',
-    hrefLabel: '1ness Strategies',
   },
   {
     title: 'Operational Engineering',
     practices: ['Post-transaction integration', 'Organizational architecture', 'Operational transformation'],
-    href: 'https://www.prosecpr.com',
-    hrefLabel: 'PROSEC Defense Group',
   },
   {
     title: 'Leadership & Decision Design',
     practices: ['Board and executive advisory', 'Operating cadence', 'Incentive design'],
-    href: 'https://www.rdlb.nyc/',
-    hrefLabel: 'RDLB',
   },
 ];
 ---
@@ -82,28 +71,6 @@ const competencies = [
     transform: scaleY(var(--i));
     transform-origin: center;
     transition: transform 220ms linear;
-  }
-
-  a.comp-row {
-    text-decoration: none;
-  }
-  a.comp-row:focus-visible {
-    outline: 2px solid var(--comp-accent);
-    outline-offset: -4px;
-  }
-
-  /* The destination stays quiet until the row is the one being read. */
-  .comp-link {
-    grid-column: 1 / -1;
-    justify-self: start;
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    opacity: calc(0.25 + var(--i) * 0.65);
-    transition: opacity 220ms linear;
-  }
-  .comp-link::after {
-    content: ' \2197';
   }
 
   .comp-num {
@@ -162,20 +129,13 @@ const competencies = [
     <h2 class="comp-eyebrow tracking-[0.2em] uppercase mb-8 md:mb-10" style="font-size:17px;">Competencies</h2>
     <div class="comp-index" data-comp-index>
       {competencies.map((c, i) => (
-        <a
-          class="comp-row"
-          href={c.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`${c.title}. See ${c.hrefLabel}, opens in a new tab.`}
-        >
+        <div class="comp-row">
           <span class="comp-num">{i + 1}</span>
           <h3 class="comp-title">{c.title}</h3>
           <ul class="comp-practices">
             {c.practices.map((p) => (<li>{p}</li>))}
           </ul>
-          <span class="comp-link" aria-hidden="true">{c.hrefLabel}</span>
-        </a>
+        </div>
       ))}
     </div>
   </div>
