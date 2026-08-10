@@ -191,6 +191,13 @@ const schema = [
     .v-visit:focus-visible { outline: 2px solid #1d5c63; outline-offset: 2px; }
     .v-visit .arrow { font-size: 13px; line-height: 1; }
 
+    /* Arrows are decoration; drop them on narrow screens. */
+    @media (max-width: 767px) {
+      .v-visit .arrow,
+      .v-foot .arr { display: none; }
+      .v-visit { gap: 0; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .v-visit { transition: none; }
     }
@@ -243,9 +250,9 @@ const schema = [
     </a>
 
     <nav class="v-foot" aria-label="More ventures">
-      <a href={`/ventures/${prev.slug}/`}>&larr; {prev.name}</a>
+      <a href={`/ventures/${prev.slug}/`}><span class="arr">&larr; </span>{prev.name}</a>
       <a href="/#ventures">All ventures</a>
-      <a href={`/ventures/${next.slug}/`}>{next.name} &rarr;</a>
+      <a href={`/ventures/${next.slug}/`}>{next.name}<span class="arr"> &rarr;</span></a>
     </nav>
   </div>
 </BaseLayout>

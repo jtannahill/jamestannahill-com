@@ -6,6 +6,11 @@ import { ventures } from '../data/ventures';
     border-top: 2px solid transparent;
     transition: border-top-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
   }
+  /* Arrows are decoration; on narrow screens they cost a line-break more
+     often than they add meaning. */
+  @media (max-width: 767px) {
+    .arr { display: none; }
+  }
   .venture-card:hover {
     border-top-color: var(--color-amber);
     transform: translateY(-3px);
@@ -55,20 +60,20 @@ import { ventures } from '../data/ventures';
                 <a href={`/ventures/${v.slug}/`}
                    class="mt-4 inline-block py-2 text-[13px] tracking-[0.15em] uppercase"
                    style="color:var(--color-amber); min-height:44px; display:flex; align-items:center;">
-                  More Here →
+                  More Here<span class="arr"> →</span>
                 </a>
               ) : v.url && (
                 <a href={v.url} target="_blank" rel="noopener noreferrer"
                    class="mt-4 inline-block py-2 text-[13px] tracking-[0.15em] uppercase"
                    style="color:var(--color-amber); min-height:44px; display:flex; align-items:center;">
-                  Visit →
+                  Visit<span class="arr"> →</span>
                 </a>
               )}
               {v.url2 && (
                 <a href={v.url2} target="_blank" rel="noopener noreferrer"
                    class="inline-block py-2 text-[13px] tracking-[0.15em] uppercase"
                    style="color:#E91E8E; min-height:44px; display:flex; align-items:center;">
-                  {v.url2Label || 'Visit'} →
+                  {v.url2Label || 'Visit'}<span class="arr"> →</span>
                 </a>
               )}
             </>
