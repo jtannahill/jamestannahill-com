@@ -14,6 +14,8 @@ export interface VenturePage {
   record: string[];
   /** Body paragraphs. The first is set as the lead. */
   body: string[];
+  /** Phrases inside `body` to turn into outbound links, matched literally. */
+  links?: { text: string; url: string }[];
   /** Title and description for the page's own metadata. */
   metaTitle: string;
   metaDescription: string;
@@ -90,6 +92,7 @@ export const ventures: Venture[] = [
         'Brand work aimed at capital audiences is a different discipline from brand work aimed at consumers. An LP or a counterparty is not persuaded by aesthetics, they are persuaded by coherence, by a firm whose stated thesis, published work, and actual behavior all describe the same institution. The output is closer to systems design than to campaigns.',
         'RDLB Agentic extends that into software, building the AI-native systems that carry positioning through to execution rather than leaving it in a deck.',
       ],
+      links: [{ text: 'RDLB Agentic', url: 'https://rdlbagentic.com/' }],
       metaTitle: 'RDLB - James Tannahill',
       metaDescription: 'Strategic brand architecture for investors and operators: positioning, narrative systems, and go-to-market structure, extended into AI-native execution by RDLB Agentic.',
     },

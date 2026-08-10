@@ -19,6 +19,24 @@ const { venture, prev, next } = Astro.props;
 const page = venture.page!;
 const canonical = `https://jamestannahill.com/ventures/${venture.slug}/`;
 
+/** Escape first, then link, so body copy can never inject markup. */
+function linkify(text: string): string {
+  const html = text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+  return (page.links ?? []).reduce((acc, link) => {
+    const needle = link.text
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+    return acc.replace(
+      needle,
+      `<a class="v-inline" href="${link.url}" target="_blank" rel="noopener noreferrer">${needle}</a>`
+    );
+  }, html);
+}
+
 const schema = [
   {
     '@type': 'Organization',
@@ -115,6 +133,16 @@ const schema = [
     }
     .v-body p.lead { font-size: 17px; line-height: 1.75; color: var(--color-ink); }
 
+    /* Inline links inside body copy: marine, underlined at a readable offset. */
+    .v-body a.v-inline {
+      color: #1d5c63;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+    .v-body a.v-inline:hover { color: var(--color-ink); }
+    .v-body a.v-inline:focus-visible { outline: 2px solid #1d5c63; outline-offset: 2px; }
+
     /* A bordered block rather than an underlined word: the underline sat
        detached from the text once the 44px tap target was applied. */
     .v-visit {
@@ -175,7 +203,7 @@ const schema = [
 
     <div class="v-body">
       {page.body.map((para, i) => (
-        <p class={i === 0 ? 'lead' : ''}>{para}</p>
+        <p class={i === 0 ? 'lead' : ''} set:html={linkify(para)} />
       ))}
     </div>
 
