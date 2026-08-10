@@ -115,20 +115,34 @@ const schema = [
     }
     .v-body p.lead { font-size: 17px; line-height: 1.75; color: var(--color-ink); }
 
+    /* A bordered block rather than an underlined word: the underline sat
+       detached from the text once the 44px tap target was applied. */
     .v-visit {
-      display: inline-block;
-      margin: 14px 0 56px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin: 18px 0 56px;
+      min-height: 44px;
+      padding: 0 18px;
       font-size: 11px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: #1d5c63;
       text-decoration: none;
-      border-bottom: 1px solid currentColor;
-      padding-bottom: 3px;
-      min-height: 44px;
+      border: 1px solid #1d5c63;
+      transition: background 180ms ease, color 180ms ease;
     }
-    .v-visit:hover { color: var(--color-ink); }
-    .v-visit::after { content: ' \2197'; }
+    .v-visit:hover,
+    .v-visit:focus-visible {
+      background: #1d5c63;
+      color: #f2f0eb;
+    }
+    .v-visit:focus-visible { outline: 2px solid #1d5c63; outline-offset: 2px; }
+    .v-visit .arrow { font-size: 13px; line-height: 1; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .v-visit { transition: none; }
+    }
 
     .v-foot {
       border-top: 1px solid var(--color-border);
@@ -166,7 +180,8 @@ const schema = [
     </div>
 
     <a class="v-visit" href={venture.url} target="_blank" rel="noopener noreferrer">
-      {venture.url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')}
+      <span>{venture.url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')}</span>
+      <span class="arrow" aria-hidden="true">&#8599;</span>
     </a>
 
     <nav class="v-foot" aria-label="More ventures">
