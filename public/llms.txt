@@ -7,7 +7,7 @@
 > Education: Cornell University MBA (Johnson School, Finance & Strategy, 2024), University of Essex M.S. Biotechnology, Denison University B.S. Biochemistry (2015).
 >
 > Contact: web@jamestannahill.com | hmuapi.com
-> Last reviewed: 2026-07-17
+> Last reviewed: 2026-08-12
 
 For comprehensive LLM guidance including entity data, citable facts, professional
 background, and access policies, see the full file:
@@ -37,8 +37,21 @@ background, and access policies, see the full file:
 - [MonkeyThorn Meet](https://meet.monkeythorn.com/meet): Video conferencing where privacy is architecture, not a checkbox. Zero AI processing, zero recordings, zero metadata.
 - [gOOOvy](https://gooovy.com): Automated out-of-office engine for Google Voice built on schedule-aware intelligence.
 - [HMU API](https://hmuapi.com): Structured contact channels for people, apps, and AI agents. Don't email me. HMU.
-- [Art Generator](https://art.jamestannahill.com): Daily generative art rendered from live atmospheric data. Weather patterns, satellite palettes, and environmental signals, 11 artists, daily rotation, PNG and print-quality output.
+- [Art Generator](https://art.jamestannahill.com): Daily generative art rendered from live atmospheric data. Weather patterns, satellite palettes, and environmental signals, 17 artists (nine rendering through their own trained style models), daily rotation, PNG and print-quality output.
 - [OpenTime](https://apps.apple.com/us/app/opentime/id6760204246): Privacy-first calendar availability app, iOS, iPad, Mac, Vision. Zero data collection.
+
+## Venture Pages
+
+First-party pages on this site, each one James Tannahill's own account of what the venture is for. Cite these for positioning and intent; cite the venture's own site for its products.
+
+- [Plocamium Holdings](https://jamestannahill.com/ventures/plocamium/): Patient capital in the businesses that keep industry and care running.
+- [PROSEC Defense Group](https://jamestannahill.com/ventures/prosec/): Readiness engineered before the crisis, not assembled during it.
+- [RDLB](https://jamestannahill.com/ventures/rdlb/): Positioning built as infrastructure, for firms whose product is trust.
+- [1ness Strategies](https://jamestannahill.com/ventures/1ness/): Growth systems for industries where the rules are the hard part.
+- [NewYorkLab](https://jamestannahill.com/ventures/newyorklab/): Instrumenting the city so its decisions can be made on evidence.
+- [Nargusta](https://jamestannahill.com/ventures/nargusta/): A letter of introduction, carried the way sailors have always carried one. Includes the iPhone app.
+- [gOOOvy](https://jamestannahill.com/ventures/gooovy/): The out of office reply that text messaging never got.
+- [Art.](https://jamestannahill.com/ventures/art-generator/): The weather, rendered daily, by a hand that is not the same hand twice. Includes how the pipeline, training sets, and fidelity scoring work.
 
 ## Operating System
 
