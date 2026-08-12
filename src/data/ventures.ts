@@ -18,6 +18,13 @@ export interface VenturePage {
   links?: { text: string; url: string }[];
   /** Where the name comes from, set apart at the foot of the page. */
   namesake?: string;
+  /** How the thing is actually built, for the readers who want that. */
+  technical?: {
+    /** Paragraphs, same voice as `body`, set after the argument. */
+    body: string[];
+    /** Mono spec rows, label and value. */
+    spec: { label: string; value: string }[];
+  };
   /** An iOS app to download, shown as icon plus App Store badge. */
   app?: {
     /** Square icon in /public, drawn at 72px with the App Store corner radius. */
@@ -210,19 +217,38 @@ export const ventures: Venture[] = [
   {
     name: 'Art Generator',
     slug: 'art-generator',
-    description: 'Daily generative art rendered from live atmospheric data. Weather patterns, satellite palettes, and environmental signals converted into original artworks - 11 artists, daily rotation, PNG and print-quality output.',
+    description: 'Daily generative art rendered from live atmospheric data. Weather patterns, satellite palettes, and environmental signals converted into original artworks - 17 artists, nine of them trained style models, daily rotation, PNG and print-quality output.',
     url: 'https://art.jamestannahill.com',
     logo: '',
     logoH: 44,
     logoText: 'Art.',
     page: {
       thesis: 'The weather, rendered daily, by a hand that is not the same hand twice.',
-      record: ['Generative art', 'Atmospheric data', 'Daily rotation'],
+      record: ['Generative art', 'Atmospheric data', 'Trained style models'],
       body: [
-        'Art. renders daily generative art from live atmospheric data. Weather patterns, satellite palettes, and environmental signals are converted into original artworks, on a rotation of eleven artists, in PNG and print-quality output.',
-        'Most generative art is prompted, which means its subject is ultimately the person writing the prompt. Here the subject is the sky over a specific place on a specific morning: pressure, cloud, temperature, and light are the input, and nobody chooses them. The work is figurative in an unusual sense, in that it is a picture of something that was actually there.',
-        'The eleven artists are the second half of the argument. Each one holds a fixed sensibility, its own palette, mark, and restraint, so the same weather resolves eleven different ways and none of them is the house style. Rotation makes the point that a system with a single aesthetic is not an artist, it is a filter.',
+        'Art. renders daily generative art from live atmospheric data. Weather patterns, satellite palettes, and environmental signals are converted into original artworks, on a rotation of seventeen artists, in PNG and print-quality output.',
+        'Most generative art is prompted, which means its subject is ultimately the person writing the prompt. Here the subject is the sky over a specific place on a specific morning: pressure, humidity, wind, and precipitation are the input, and nobody chooses them. The work is figurative in an unusual sense, in that it is a picture of something that was actually there.',
+        'The seventeen artists are the second half of the argument. Each one holds a fixed sensibility, its own palette, mark, and restraint, so the same weather resolves seventeen different ways and none of them is the house style. Rotation makes the point that a system with a single aesthetic is not an artist, it is a filter.',
       ],
+      technical: {
+        body: [
+          'The input is measurement, not mood. Each morning the pipeline pulls hourly observations from Open-Meteo for the day\'s locations, temperature, relative humidity, surface pressure, wind speed and direction, and precipitation, and separately pulls Sentinel-2 scenes from the Copernicus Data Space over a set of thirty sites that rotate by season. The satellite pass is not used as an image. It is sampled for colour, so a palette comes off actual ground and actual cloud rather than off a designer\'s swatch.',
+          'Each artist carries a profile rather than a prompt: how each weather dimension maps to that artist\'s visual language, what the work is emphatically not, and a palette constraint. Rothko takes temperature as the primary axis and pressure as the number of bands. Mondrian gets pressure as grid density and a hard prohibition on curves and diagonals. Kusama takes wind as dot density. The negative constraint does most of the work, because the common failure of a general model asked for a style is not that it misses the style, it is that it adds.',
+          'Nine of the seventeen render through their own fine-tuned weights, FLUX.1-dev LoRAs trained on Replicate against curated sets of a single artist\'s canvases, from sixty-six down to fourteen where copyright limits what can be sourced. Fourteen was enough. The training sets are deliberately small and hand-picked, with early and figurative work excluded, because a style adapter learns a manner faster from a coherent handful than from everything an artist ever signed.',
+          'The system grades itself. A vision model scores every finished piece against that artist\'s visual markers, and the fidelity score is stored alongside the work rather than thrown away. It is the scoring that drives the roadmap: the artist rendering worst was the one who then got trained weights, and the same score afterward confirmed the fix. What that instrumentation also showed is that weak style transfer is usually a prompt problem rather than a training problem, since a verbose prompt loaded with literal weather tokens dilutes the very adapter it is sitting on top of.',
+        ],
+        spec: [
+          { label: 'Weather data', value: 'Open-Meteo hourly, six variables per location' },
+          { label: 'Imagery', value: 'Sentinel-2 via Copernicus, 30 seasonal sites, sampled for palette' },
+          { label: 'Renderer', value: 'FLUX 1.1 Pro, with per-artist FLUX.1-dev LoRAs' },
+          { label: 'Trained models', value: '9 artist LoRAs, rank 16 to 32, 1,000 to 1,500 steps' },
+          { label: 'Training sets', value: '14 to 66 curated canvases per artist' },
+          { label: 'Evaluation', value: 'Vision model scores quality and artist fidelity, 1 to 10' },
+          { label: 'Vector output', value: 'Claude on Bedrock renders an SVG in parallel' },
+          { label: 'Orchestration', value: 'Step Functions on a 06:00 UTC schedule, Python Lambdas' },
+          { label: 'Infrastructure', value: 'AWS via CDK: S3, DynamoDB, CloudFront, EventBridge' },
+        ],
+      },
       metaTitle: 'Art. - James Tannahill',
       metaDescription: 'Daily generative art rendered from live atmospheric data. Weather patterns and environmental signals converted into original works by eleven rotating artists.',
     },
