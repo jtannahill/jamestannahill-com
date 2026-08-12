@@ -38,6 +38,18 @@ function linkify(text: string): string {
 }
 
 const schema = [
+  ...(page.app
+    ? [{
+        '@type': 'MobileApplication',
+        '@id': `${canonical}#app`,
+        name: venture.name,
+        operatingSystem: 'iOS',
+        applicationCategory: 'LifestyleApplication',
+        url: page.app.url,
+        description: page.app.line,
+        publisher: { '@id': `${canonical}#organization` },
+      }]
+    : []),
   {
     '@type': 'Organization',
     '@id': `${canonical}#organization`,
@@ -175,6 +187,51 @@ const schema = [
       color: #6b6660;
     }
 
+    /* The app block sits between the argument and the visit link: icon, one
+       line of what it is, and Apple's own badge, which must be shown as
+       supplied rather than restyled. */
+    .v-app {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin: 34px 0 8px;
+      padding: 20px 0;
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+      max-width: 64ch;
+    }
+    .v-app img.icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 16px;
+      flex: none;
+    }
+    .v-app .copy { flex: 1 1 240px; }
+    .v-app .label {
+      display: block;
+      margin-bottom: 6px;
+      font-family: var(--v-mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #1d5c63;
+    }
+    .v-app p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.7;
+      color: #6b6660;
+    }
+    .v-app .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      flex: none;
+    }
+    .v-app .badge img { display: block; width: 150px; height: auto; }
+    .v-app .badge:focus-visible { outline: 2px solid #1d5c63; outline-offset: 4px; }
+
     /* A bordered block rather than an underlined word: the underline sat
        detached from the text once the 44px tap target was applied. */
     .v-visit {
@@ -253,6 +310,19 @@ const schema = [
         <span class="label">The name</span>
         <p>{page.namesake}</p>
       </aside>
+    )}
+
+    {page.app && (
+      <div class="v-app">
+        <img class="icon" src={page.app.icon} width="72" height="72" alt={`${venture.name} app icon`} />
+        <div class="copy">
+          <span class="label">On iPhone</span>
+          <p>{page.app.line}</p>
+        </div>
+        <a class="badge" href={page.app.url} target="_blank" rel="noopener noreferrer">
+          <img src="/app-store-badge.svg" width="150" height="50" alt="Download on the App Store" />
+        </a>
+      </div>
     )}
 
     <a class="v-visit" href={venture.url} target="_blank" rel="noopener noreferrer">

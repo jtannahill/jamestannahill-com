@@ -18,6 +18,15 @@ export interface VenturePage {
   links?: { text: string; url: string }[];
   /** Where the name comes from, set apart at the foot of the page. */
   namesake?: string;
+  /** An iOS app to download, shown as icon plus App Store badge. */
+  app?: {
+    /** Square icon in /public, drawn at 72px with the App Store corner radius. */
+    icon: string;
+    /** What the app is, one line, beside the icon. */
+    line: string;
+    /** App Store product page. */
+    url: string;
+  };
   /** Title and description for the page's own metadata. */
   metaTitle: string;
   metaDescription: string;
@@ -145,6 +154,23 @@ export const ventures: Venture[] = [
     url: 'https://nargusta.com',
     logo: '/logos/nargusta.png',
     logoH: 40,
+    page: {
+      thesis: 'A letter of introduction, carried the way sailors have always carried one.',
+      record: ['Hospitality network', 'Yacht clubs', 'Web and iPhone'],
+      body: [
+        'Nargusta is a sailors\' hospitality network. Yacht club members extend reciprocal guest privileges to one another, club access, moorings, day sails, and local hosting, carried on a digital letter of introduction.',
+        'Reciprocity between clubs is an old institution that still runs on paper and on who happens to know whom. A member arriving in an unfamiliar port either has a letter from their secretary or spends the afternoon establishing that they are who they say they are. The custom is sound, the mechanism is what has aged.',
+        'The network keeps the custom and replaces the mechanism. Membership is verified by phone against a club roster, every member decides for themselves what they offer and to whom, and the letter travels with the sailor rather than sitting in an office ashore. What is deliberately absent is a marketplace: nothing here is bought, because the thing being extended is not a service, it is standing.',
+      ],
+      namesake: 'Nargusta is a tropical hardwood of the American tropics, Terminalia amazonia, prized in boatbuilding for holding its shape in salt water and for taking fastenings without splitting.',
+      app: {
+        icon: '/nargusta-app-icon.png',
+        line: 'Search hosts near any port, post a passage, and keep your letters with you at landfall.',
+        url: 'https://apps.apple.com/us/app/nargusta/id6793273419',
+      },
+      metaTitle: 'Nargusta - James Tannahill',
+      metaDescription: 'A sailors\' hospitality network. Yacht club members extend reciprocal guest privileges to one another on a digital letter of introduction. Web and iPhone.',
+    },
   },
   {
     name: 'HMU API',
@@ -169,6 +195,17 @@ export const ventures: Venture[] = [
     url: 'https://gooovy.com',
     logo: '/logos/gooovy.png',
     logoH: 36,
+    page: {
+      thesis: 'The out of office reply that text messaging never got.',
+      record: ['Messaging automation', 'Google Voice', 'Schedule aware'],
+      body: [
+        'gOOOvy is an automated out-of-office engine for Google Voice, built on schedule-aware intelligence. It converts missed texts into instant, contextual responses, so you stay present while staying reachable.',
+        'Email solved this in the 1990s and messaging never bothered. A text arriving during a flight, a surgery, a crossing, or a school pickup looks identical to a text arriving at a desk, and the silence that follows is read as indifference rather than as absence. The cost is not the missed message, it is the wrong conclusion the sender draws from it.',
+        'The engine reads the calendar rather than a toggle, so the reply knows whether you are away for an hour or a week and answers accordingly, and it answers immediately. Presence, in practice, is not being available. It is having your absence be legible.',
+      ],
+      metaTitle: 'gOOOvy - James Tannahill',
+      metaDescription: 'Automated out-of-office replies for Google Voice. Schedule-aware, contextual responses to missed texts, so absence is legible instead of silent.',
+    },
   },
   {
     name: 'Art Generator',
@@ -178,6 +215,17 @@ export const ventures: Venture[] = [
     logo: '',
     logoH: 44,
     logoText: 'Art.',
+    page: {
+      thesis: 'The weather, rendered daily, by a hand that is not the same hand twice.',
+      record: ['Generative art', 'Atmospheric data', 'Daily rotation'],
+      body: [
+        'Art. renders daily generative art from live atmospheric data. Weather patterns, satellite palettes, and environmental signals are converted into original artworks, on a rotation of eleven artists, in PNG and print-quality output.',
+        'Most generative art is prompted, which means its subject is ultimately the person writing the prompt. Here the subject is the sky over a specific place on a specific morning: pressure, cloud, temperature, and light are the input, and nobody chooses them. The work is figurative in an unusual sense, in that it is a picture of something that was actually there.',
+        'The eleven artists are the second half of the argument. Each one holds a fixed sensibility, its own palette, mark, and restraint, so the same weather resolves eleven different ways and none of them is the house style. Rotation makes the point that a system with a single aesthetic is not an artist, it is a filter.',
+      ],
+      metaTitle: 'Art. - James Tannahill',
+      metaDescription: 'Daily generative art rendered from live atmospheric data. Weather patterns and environmental signals converted into original works by eleven rotating artists.',
+    },
   },
 ];
 

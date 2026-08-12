@@ -163,6 +163,15 @@ CARDS = [
     ("newyorklab", "NewYorkLab",
      "Instrumenting the city so its decisions can be made on evidence.",
      "newyorklab"),
+    ("nargusta", "Nargusta",
+     "A letter of introduction, carried the way sailors have always carried one.",
+     "nargusta"),
+    ("gooovy", "gOOOvy",
+     "The out of office reply that text messaging never got.",
+     "gooovy"),
+    ("art-generator", "Art.",
+     "The weather, rendered daily, by a hand that is not the same hand twice.",
+     None),
 ]
 
 for c in CARDS:
