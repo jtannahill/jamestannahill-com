@@ -3,7 +3,7 @@ export const prerender = true;
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import RelatedEssay from '../../components/RelatedEssay.astro';
 
-const url = 'https://jamestannahill.com/thoughts/whose-egg-is-that/';
+const url = 'https://jamestannahill.com/thoughts/whose-egg-is-that';
 const published = '2026-08-05';
 const description =
   'On abolishing the hiring layer, returning the decision to the executives who must live with it, and the screen that quietly selects for agreement rather than ability.';
@@ -12,7 +12,7 @@ const schema = [
   {
     '@type': 'BlogPosting',
     '@id': `${url}#post`,
-    isPartOf: { '@id': 'https://jamestannahill.com/thoughts/#blog' },
+    isPartOf: { '@id': 'https://jamestannahill.com/thoughts#blog' },
     mainEntityOfPage: url,
     url,
     headline: 'Whose Egg Is That',
@@ -45,7 +45,7 @@ const schema = [
     '@id': `${url}#breadcrumb`,
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://jamestannahill.com/' },
-      { '@type': 'ListItem', position: 2, name: 'Thoughts', item: 'https://jamestannahill.com/thoughts/' },
+      { '@type': 'ListItem', position: 2, name: 'Thoughts', item: 'https://jamestannahill.com/thoughts' },
       { '@type': 'ListItem', position: 3, name: 'Whose Egg Is That', item: url },
     ],
   },
@@ -66,7 +66,7 @@ const schema = [
     <article class="max-w-3xl mx-auto px-6 py-16">
 
       <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">
-        <a href="/thoughts/" class="hover:opacity-70" style="color:var(--color-amber);">Thoughts</a>
+        <a href="/thoughts" class="hover:opacity-70" style="color:var(--color-amber);">Thoughts</a>
       </p>
       <h1 class="text-[28px] font-semibold tracking-tight mb-3" style="color:#1a1a1a;">Whose Egg Is That</h1>
       <p class="text-[17px] leading-[1.6] mb-2" style="color:#666;">On abolishing the hiring layer, and returning the decision to the people who have to live with it</p>
@@ -170,7 +170,7 @@ const schema = [
       </figure>
 
       <RelatedEssay essays={[{
-        href: '/thoughts/inventors-of-problems/',
+        href: '/thoughts/inventors-of-problems',
         title: 'Inventors of Problems',
         blurb: 'On the staff function that must manufacture demand, and the executives who pay it to do so',
       }]} />
@@ -235,7 +235,7 @@ const schema = [
       <script src="/scripts/thoughts-ripple.js" defer></script>
 
       <p class="mt-14 pt-8 border-t text-[12px] tracking-[0.1em]" style="border-color:#eee;">
-        <a href="/thoughts/" class="hover:opacity-70" style="color:var(--color-amber);">Back to Thoughts</a>
+        <a href="/thoughts" class="hover:opacity-70" style="color:var(--color-amber);">Back to Thoughts</a>
       </p>
 
     </article>

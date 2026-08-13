@@ -2,7 +2,7 @@
 export const prerender = true;
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const url = 'https://jamestannahill.com/thoughts/guerir-quelquefois/';
+const url = 'https://jamestannahill.com/thoughts/guerir-quelquefois';
 const published = '2026-08-04';
 const description =
   'On the word cure, what it is hired to do in a biotechnology sentence, and who is paying its wages.';
@@ -11,7 +11,7 @@ const schema = [
   {
     '@type': 'BlogPosting',
     '@id': `${url}#post`,
-    isPartOf: { '@id': 'https://jamestannahill.com/thoughts/#blog' },
+    isPartOf: { '@id': 'https://jamestannahill.com/thoughts#blog' },
     mainEntityOfPage: url,
     url,
     headline: 'Guérir Quelquefois',
@@ -60,7 +60,7 @@ const schema = [
     '@id': `${url}#breadcrumb`,
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://jamestannahill.com/' },
-      { '@type': 'ListItem', position: 2, name: 'Thoughts', item: 'https://jamestannahill.com/thoughts/' },
+      { '@type': 'ListItem', position: 2, name: 'Thoughts', item: 'https://jamestannahill.com/thoughts' },
       { '@type': 'ListItem', position: 3, name: 'Guérir Quelquefois', item: url },
     ],
   },
@@ -81,7 +81,7 @@ const schema = [
     <article class="max-w-3xl mx-auto px-6 py-16">
 
       <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">
-        <a href="/thoughts/" class="hover:opacity-70" style="color:var(--color-amber);">Thoughts</a>
+        <a href="/thoughts" class="hover:opacity-70" style="color:var(--color-amber);">Thoughts</a>
       </p>
       <div class="flex items-center gap-3 mb-1">
         <h1 class="text-[28px] font-semibold tracking-tight" style="color:#1a1a1a;">Guérir Quelquefois</h1>
@@ -329,7 +329,7 @@ const schema = [
       </style>
 
       <p class="mt-14 pt-8 border-t text-[12px] tracking-[0.1em]" style="border-color:#eee;">
-        <a href="/thoughts/" class="hover:opacity-70" style="color:var(--color-amber);">Back to Thoughts</a>
+        <a href="/thoughts" class="hover:opacity-70" style="color:var(--color-amber);">Back to Thoughts</a>
       </p>
 
     </article>

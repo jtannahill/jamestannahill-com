@@ -14,7 +14,13 @@ export default defineConfig({
     platformProxy: { enabled: true },
   }),
   redirects: {
-    '/about': '/',
+    // NOTE: '/about' is deliberately NOT here. A config redirect whose target
+    // is a prerendered page gets baked into _redirects, where the Cloudflare
+    // adapter's internal ASSETS.fetch follows the 301 and returns 200 with the
+    // homepage body. GSC (2026-08-13) had /about filed under "Alternate page
+    // with proper canonical tag" because of it. src/pages/about.astro is an
+    // SSR stub instead, so Astro returns a real 301. The two entries below are
+    // fine: one target is external, the other is not a prerendered HTML page.
     '/insights': 'https://www.plocamium.com/globals',
     // @astrojs/sitemap emits sitemap-index.xml + sitemap-0.xml, so the
     // conventional /sitemap.xml 404s. robots.txt points at the right file
@@ -26,9 +32,28 @@ export default defineConfig({
   integrations: [
     sitemap({
       // /resume is a noindex share landing, so keep it out of the sitemap and
-      // avoid advertising a page we've told crawlers not to index.
-      filter: (page) => !page.includes('/resume'),
+      // avoid advertising a page we've told crawlers not to index. The rest
+      // are 301 stubs, not pages: listing them would tell Google to keep
+      // crawling URLs that only ever answer with a redirect, which is how
+      // they end up parked in "Crawled - currently not indexed".
+      filter: (page) => {
+        const path = new URL(page).pathname.replace(/\/+$/, '');
+        return !['/resume', '/about', '/agency', '/blog', '/contact'].includes(
+          path,
+        );
+      },
       serialize(item) {
+        // Emit the no-trailing-slash form, matching the canonical tags and
+        // wrangler.toml's html_handling = "drop-trailing-slash". Previously
+        // the sitemap advertised /faqs/ while Google spent its crawl budget
+        // on /faqs; as of 2026-08-13 the slashed form had never been fetched
+        // at all ("Discovered - currently not indexed") while the bare form
+        // sat in "Crawled - currently not indexed".
+        item.url = item.url.replace(
+          /^(https:\/\/jamestannahill\.com\/.+?)\/+$/,
+          '$1',
+        );
+
         // No lastmod: stamping build time on every URL is an inaccurate
         // lastmod, which Google's sitemap guidelines say gets ignored.
         if (item.url === 'https://jamestannahill.com/') {

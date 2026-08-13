@@ -3,7 +3,7 @@ export const prerender = true;
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import RelatedEssay from '../../components/RelatedEssay.astro';
 
-const url = 'https://jamestannahill.com/thoughts/the-org-chart-travels/';
+const url = 'https://jamestannahill.com/thoughts/the-org-chart-travels';
 const published = '2026-08-04';
 const modified = '2026-08-07';
 const description =
@@ -13,7 +13,7 @@ const schema = [
   {
     '@type': 'BlogPosting',
     '@id': `${url}#post`,
-    isPartOf: { '@id': 'https://jamestannahill.com/thoughts/#blog' },
+    isPartOf: { '@id': 'https://jamestannahill.com/thoughts#blog' },
     mainEntityOfPage: url,
     url,
     headline: 'The Org Chart Travels',
@@ -63,7 +63,7 @@ const schema = [
     '@id': `${url}#breadcrumb`,
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://jamestannahill.com/' },
-      { '@type': 'ListItem', position: 2, name: 'Thoughts', item: 'https://jamestannahill.com/thoughts/' },
+      { '@type': 'ListItem', position: 2, name: 'Thoughts', item: 'https://jamestannahill.com/thoughts' },
       { '@type': 'ListItem', position: 3, name: 'The Org Chart Travels', item: url },
     ],
   },
@@ -84,7 +84,7 @@ const schema = [
     <article class="max-w-3xl mx-auto px-6 py-16">
 
       <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">
-        <a href="/thoughts/" class="hover:opacity-70" style="color:var(--color-amber);">Thoughts</a>
+        <a href="/thoughts" class="hover:opacity-70" style="color:var(--color-amber);">Thoughts</a>
       </p>
       <h1 class="text-[28px] font-semibold tracking-tight mb-3" style="color:#1a1a1a;">The Org Chart Travels</h1>
       <p class="text-[17px] leading-[1.6] mb-2" style="color:#666;">On what actually crosses a border when an idea is exported, and why the argument stays home</p>
@@ -291,12 +291,12 @@ const schema = [
 
       <RelatedEssay essays={[
         {
-          href: '/thoughts/decline-to-self-identify/',
+          href: '/thoughts/decline-to-self-identify',
           title: 'Decline to Self-Identify',
           blurb: 'On the questionnaire that invents the person it counts, and the one box on it that cannot',
         },
         {
-          href: '/thoughts/tenure-without-persons/',
+          href: '/thoughts/tenure-without-persons',
           title: 'Tenure Without Persons',
           blurb: 'On what actually becomes permanent inside an institution, and the accession number that answers a polemic',
         },
@@ -312,7 +312,7 @@ const schema = [
       </p>
 
       <p class="mt-8 text-[12px] tracking-[0.1em]">
-        <a href="/thoughts/" class="hover:opacity-70" style="color:var(--color-amber);">Back to Thoughts</a>
+        <a href="/thoughts" class="hover:opacity-70" style="color:var(--color-amber);">Back to Thoughts</a>
       </p>
 
     </article>

@@ -1,0 +1,290 @@
+<title>Competencies — scroll-reactive tint mockup</title>
+<style>
+  :root {
+    --page: #ffffff;
+    --ink: #0a0a0a;
+    --muted: #8a857e;
+    --rule: #e0ddd6;
+
+    --ground: #eef0f0;
+    --row-rule: #d8dcdc;
+    --accent: #1d5c63;
+
+    /* Marine ramp endpoints — every row background is mixed between these. */
+    --tint-cool: #eef2f2;
+    --tint-deep: #0f3b43;
+
+    --ink-on-cool: #0b2124;
+    --ink-on-deep: #eaf4f5;
+    --sub-on-cool: #4a6265;
+    --sub-on-deep: #a8c9cc;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --page: #0c0b09;
+      --ink: #f4f1ea;
+      --muted: #928b80;
+      --rule: #2a2620;
+
+      --ground: #0e1516;
+      --row-rule: #212c2e;
+      --accent: #6fb4bb;
+
+      --tint-cool: #0e1516;
+      --tint-deep: #79bfc6;
+
+      --ink-on-cool: #e6f2f3;
+      --ink-on-deep: #082022;
+      --sub-on-cool: #7f9698;
+      --sub-on-deep: #17454b;
+    }
+  }
+  :root[data-theme="dark"] {
+    --page: #0c0b09;
+    --ink: #f4f1ea;
+    --muted: #928b80;
+    --rule: #2a2620;
+
+    --ground: #0e1516;
+    --row-rule: #212c2e;
+    --accent: #6fb4bb;
+
+    --tint-cool: #0e1516;
+    --tint-deep: #79bfc6;
+
+    --ink-on-cool: #e6f2f3;
+    --ink-on-deep: #082022;
+    --sub-on-cool: #7f9698;
+    --sub-on-deep: #17454b;
+  }
+
+  body {
+    margin: 0;
+    background: var(--page);
+    color: var(--ink);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .spacer {
+    height: 62vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .spacer p {
+    margin: 0;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  section.comp {
+    background: var(--ground);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 56px 0 64px;
+  }
+  .inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  h2.eyebrow {
+    margin: 0 0 30px;
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .comp-index {
+    border-top: 1px solid var(--row-rule);
+  }
+
+  .comp-row {
+    /* --i is the scroll-driven intensity, 0 (cool) to 1 (deep). JS writes it. */
+    --i: 0;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px 32px;
+    padding: 24px 20px 26px;
+    border-bottom: 1px solid var(--row-rule);
+    background: color-mix(in oklab, var(--tint-deep) calc(var(--i) * 100%), var(--tint-cool));
+    color: color-mix(in oklab, var(--ink-on-deep) calc(var(--i) * 100%), var(--ink-on-cool));
+    transition: background 220ms linear, color 220ms linear;
+  }
+
+  /* The spine lights in proportion to the same intensity. */
+  .comp-row::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: -1px;
+    bottom: -1px;
+    width: 2px;
+    background: var(--accent);
+    transform: scaleY(var(--i));
+    transform-origin: center;
+    transition: transform 220ms linear;
+  }
+
+  .comp-num {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    font-variant-numeric: tabular-nums;
+    opacity: 0.65;
+  }
+  .comp-title {
+    margin: 0;
+    font-size: clamp(19px, 2.5vw, 28px);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+  .comp-practices {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4px 28px;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    line-height: 1.7;
+    color: color-mix(in oklab, var(--sub-on-deep) calc(var(--i) * 100%), var(--sub-on-cool));
+    transition: color 220ms linear;
+  }
+
+  @media (min-width: 768px) {
+    .comp-row {
+      grid-template-columns: 44px minmax(0, 0.8fr) minmax(0, 1.1fr);
+      align-items: baseline;
+      padding: 30px 24px 32px;
+    }
+    .comp-practices { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  /* No scroll-driven motion when the reader has asked for less: the ramp
+     falls back to a fixed top-to-bottom gradient set inline by JS. */
+  @media (prefers-reduced-motion: reduce) {
+    .comp-row,
+    .comp-row::before,
+    .comp-practices { transition: none; }
+  }
+</style>
+
+<div class="spacer"><p>Scroll down</p></div>
+
+<section class="comp">
+  <div class="inner">
+    <h2 class="eyebrow">Competencies</h2>
+    <div class="comp-index" id="compIndex">
+      <div class="comp-row">
+        <span class="comp-num">1</span>
+        <h3 class="comp-title">Capital &amp; Financial Architecture</h3>
+        <ul class="comp-practices"><li>Strategic finance</li><li>Capital deployment</li><li>Investment structuring</li><li>M&amp;A advisory</li></ul>
+      </div>
+      <div class="comp-row">
+        <span class="comp-num">2</span>
+        <h3 class="comp-title">Applied Intelligence</h3>
+        <ul class="comp-practices"><li>AI systems architecture</li><li>ML pipelines</li><li>Intelligent automation</li><li>Data infrastructure</li></ul>
+      </div>
+      <div class="comp-row">
+        <span class="comp-num">3</span>
+        <h3 class="comp-title">AI Strategy &amp; Enablement</h3>
+        <ul class="comp-practices"><li>AI strategy</li><li>AI enablement</li><li>AI/ML in finance</li><li>Regulated industries</li><li>Capital markets</li></ul>
+      </div>
+      <div class="comp-row">
+        <span class="comp-num">4</span>
+        <h3 class="comp-title">Operational Engineering</h3>
+        <ul class="comp-practices"><li>Post-transaction integration</li><li>Organizational architecture</li><li>Operational transformation</li></ul>
+      </div>
+      <div class="comp-row">
+        <span class="comp-num">5</span>
+        <h3 class="comp-title">Brand &amp; Market Positioning</h3>
+        <ul class="comp-practices"><li>Brand architecture</li><li>Narrative positioning</li><li>Market differentiation</li></ul>
+      </div>
+      <div class="comp-row">
+        <span class="comp-num">6</span>
+        <h3 class="comp-title">Regulatory &amp; Data Systems</h3>
+        <ul class="comp-practices"><li>Regulatory-compliant growth</li><li>Digital infrastructure</li><li>Data systems</li></ul>
+      </div>
+      <div class="comp-row">
+        <span class="comp-num">7</span>
+        <h3 class="comp-title">Leadership &amp; Decision Design</h3>
+        <ul class="comp-practices"><li>Decision design</li><li>Leadership frameworks</li><li>Organizational operating models</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="spacer"><p>Tint tracks the reading line</p></div>
+
+<script>
+  (function () {
+    var rows = Array.prototype.slice.call(
+      document.querySelectorAll('#compIndex .comp-row')
+    );
+    if (!rows.length) return;
+
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    // Static fallback: a plain top-to-bottom ramp, no scroll coupling.
+    function paintStatic() {
+      rows.forEach(function (row, n) {
+        row.style.setProperty('--i', (n / (rows.length - 1)).toFixed(3));
+      });
+    }
+
+    // The reading line sits a little above centre, where the eye actually rests.
+    var FOCUS = 0.42;
+    // How far from the reading line a row still picks up tint, in viewport heights.
+    var FALLOFF = 0.55;
+
+    function paint() {
+      var vh = window.innerHeight;
+      var focusY = vh * FOCUS;
+      var reach = vh * FALLOFF;
+      for (var n = 0; n < rows.length; n++) {
+        var box = rows[n].getBoundingClientRect();
+        var d = Math.abs(box.top + box.height / 2 - focusY) / reach;
+        var i = Math.max(0, 1 - d);
+        // Ease so the deep end concentrates on one or two rows, not a smear.
+        i = i * i * (3 - 2 * i);
+        rows[n].style.setProperty('--i', i.toFixed(3));
+      }
+    }
+
+    var queued = false;
+    function onScroll() {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(function () {
+        queued = false;
+        paint();
+      });
+    }
+
+    function start() {
+      if (reduced.matches) {
+        window.removeEventListener('scroll', onScroll);
+        window.removeEventListener('resize', onScroll);
+        paintStatic();
+        return;
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      paint();
+    }
+
+    if (reduced.addEventListener) reduced.addEventListener('change', start);
+    start();
+  })();
+</script>

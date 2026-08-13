@@ -10,7 +10,7 @@ const cdn = 'https://media.jamestannahill.com';
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  '@id': 'https://jamestannahill.com/faqs/#faq',
+  '@id': 'https://jamestannahill.com/faqs#faq',
   mainEntity: faqs.map((f) => ({
     '@type': 'Question',
     name: f.q,
@@ -21,7 +21,7 @@ const faqSchema = {
 <BaseLayout
   title="James Tannahill | Contact, FAQs & Professional Inquiries"
   description="Contact James Tannahill for private equity advisory and value engineering. Answers to common questions on valuation levers, exit multiples, and applied AI."
-  canonical="https://jamestannahill.com/faqs/"
+  canonical="https://jamestannahill.com/faqs"
 >
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <!-- Hero video: NYC night skyline -->

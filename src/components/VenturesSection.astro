@@ -59,7 +59,7 @@ import { ventures } from '../data/ventures';
               <p class="flex-1" style="font-size:13.5px; line-height:1.7; color:#888; display:-webkit-box; -webkit-line-clamp:8; -webkit-box-orient:vertical; overflow:hidden; overflow-wrap:break-word; hyphens:auto;">{v.description}</p>
               {/* Ventures with a page of their own send readers there first. */}
               {v.page ? (
-                <a href={`/ventures/${v.slug}/`}
+                <a href={`/ventures/${v.slug}`}
                    class="mt-4 inline-block py-2 text-[13px] tracking-[0.15em] uppercase"
                    style="color:var(--color-amber); min-height:44px; display:flex; align-items:center;">
                   More Here<span class="arr"> →</span>

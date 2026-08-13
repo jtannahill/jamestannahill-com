@@ -1,0 +1,6 @@
+---
+// Was a config redirect, which the Cloudflare adapter resolved internally and
+// served as a 200 copy of the homepage. SSR so Astro returns a real 301.
+export const prerender = false;
+return Astro.redirect('/', 301);
+---

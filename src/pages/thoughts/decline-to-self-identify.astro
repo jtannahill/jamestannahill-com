@@ -3,7 +3,7 @@ export const prerender = true;
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import RelatedEssay from '../../components/RelatedEssay.astro';
 
-const url = 'https://jamestannahill.com/thoughts/decline-to-self-identify/';
+const url = 'https://jamestannahill.com/thoughts/decline-to-self-identify';
 const published = '2026-08-06';
 const description =
   'On the voluntary self-identification questionnaire at the end of every job application, the categories it invents rather than counts, and the one box on the page that has a fact behind it.';
@@ -12,7 +12,7 @@ const schema = [
   {
     '@type': 'BlogPosting',
     '@id': `${url}#post`,
-    isPartOf: { '@id': 'https://jamestannahill.com/thoughts/#blog' },
+    isPartOf: { '@id': 'https://jamestannahill.com/thoughts#blog' },
     mainEntityOfPage: url,
     url,
     headline: 'Decline to Self-Identify',
@@ -47,7 +47,7 @@ const schema = [
     '@id': `${url}#breadcrumb`,
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://jamestannahill.com/' },
-      { '@type': 'ListItem', position: 2, name: 'Thoughts', item: 'https://jamestannahill.com/thoughts/' },
+      { '@type': 'ListItem', position: 2, name: 'Thoughts', item: 'https://jamestannahill.com/thoughts' },
       { '@type': 'ListItem', position: 3, name: 'Decline to Self-Identify', item: url },
     ],
   },
@@ -68,7 +68,7 @@ const schema = [
     <article class="max-w-3xl mx-auto px-6 py-16">
 
       <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">
-        <a href="/thoughts/" class="hover:opacity-70" style="color:var(--color-amber);">Thoughts</a>
+        <a href="/thoughts" class="hover:opacity-70" style="color:var(--color-amber);">Thoughts</a>
       </p>
       <h1 class="text-[28px] font-semibold tracking-tight mb-3" style="color:#1a1a1a;">Decline to Self-Identify</h1>
       <p class="text-[17px] leading-[1.6] mb-2" style="color:#666;">On the questionnaire that invents the person it counts, and the one box on it that cannot</p>
@@ -187,7 +187,7 @@ const schema = [
       </div>
 
       <RelatedEssay essays={[{
-        href: '/thoughts/the-org-chart-travels/',
+        href: '/thoughts/the-org-chart-travels',
         title: 'The Org Chart Travels',
         blurb: 'On what actually crosses a border when an idea is exported, and why the argument stays home',
       }]} />
@@ -250,7 +250,7 @@ const schema = [
       </div>
 
       <RelatedEssay essays={[{
-        href: '/thoughts/whose-egg-is-that/',
+        href: '/thoughts/whose-egg-is-that',
         title: 'Whose Egg Is That',
         blurb: 'On abolishing the hiring layer, and returning the decision to the people who have to live with it',
       }]} />
@@ -274,7 +274,7 @@ const schema = [
       <script src="/scripts/thoughts-ripple.js" defer></script>
 
       <p class="mt-14 pt-8 border-t text-[12px] tracking-[0.1em]" style="border-color:#eee;">
-        <a href="/thoughts/" class="hover:opacity-70" style="color:var(--color-amber);">Back to Thoughts</a>
+        <a href="/thoughts" class="hover:opacity-70" style="color:var(--color-amber);">Back to Thoughts</a>
       </p>
 
     </article>
