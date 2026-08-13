@@ -214,3 +214,12 @@ card(
     ["On the questionnaire that invents", "the person it counts."],
     "jamestannahill.com/thoughts",
 )
+
+card(
+    "og-a-skull-from-georgia.png",
+    "art-skull-30n-60w.png",
+    "Thoughts",
+    ["A Skull", "from Georgia"],
+    ["On the one category defined by", "what it is not."],
+    "jamestannahill.com/thoughts",
+)
