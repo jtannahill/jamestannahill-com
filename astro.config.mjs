@@ -16,6 +16,12 @@ export default defineConfig({
   redirects: {
     '/about': '/',
     '/insights': 'https://www.plocamium.com/globals',
+    // @astrojs/sitemap emits sitemap-index.xml + sitemap-0.xml, so the
+    // conventional /sitemap.xml 404s. robots.txt points at the right file
+    // and Google is fine, but plenty of crawlers probe /sitemap.xml directly.
+    // 301 (not the string shorthand's default 302) so the convention resolves
+    // permanently.
+    '/sitemap.xml': { status: 301, destination: '/sitemap-index.xml' },
   },
   integrations: [
     sitemap({
