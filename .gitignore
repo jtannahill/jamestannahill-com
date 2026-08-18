@@ -33,5 +33,6 @@ pnpm-debug.log*
 
 # Source paintings for OG cards (fetched from art.jamestannahill.com, not site content)
 art-*.png
+art-*.webp
 # Fonts unpacked from woff2 by the OG generator
 scripts/ttf/

@@ -223,3 +223,12 @@ card(
     ["On the one category defined by", "what it is not."],
     "jamestannahill.com/thoughts",
 )
+
+card(
+    "og-skin-in-the-game.png",
+    "art-tropical-africa-30s-0e.webp",
+    "Thoughts",
+    ["Skin in", "the Game"],
+    ["On the two percent a manager puts into", "his own fund, and who actually pays it."],
+    "jamestannahill.com/thoughts",
+)

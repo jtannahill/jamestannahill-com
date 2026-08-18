@@ -1,0 +1,205 @@
+---
+export const prerender = true;
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EssayHeader from '../../components/EssayHeader.astro';
+import EssayFooter from '../../components/EssayFooter.astro';
+import RelatedEssay from '../../components/RelatedEssay.astro';
+
+const url = 'https://jamestannahill.com/thoughts/skin-in-the-game';
+const published = '2026-08-18';
+const description =
+  'On the general partner commitment: the one to two percent a fund manager puts into his own fund, where the number came from, who actually writes the cheque, and what the sentence about alignment is really promising.';
+
+const schema = [
+  {
+    '@type': 'BlogPosting',
+    '@id': `${url}#post`,
+    isPartOf: { '@id': 'https://jamestannahill.com/thoughts#blog' },
+    mainEntityOfPage: url,
+    url,
+    headline: 'Skin in the Game',
+    alternativeHeadline: 'On the two percent a manager puts into his own fund, and who actually pays it',
+    description,
+    image: 'https://jamestannahill.com/og-skin-in-the-game.png?v=1',
+    datePublished: published,
+    dateModified: published,
+    inLanguage: 'en-US',
+    articleSection: 'Essays',
+    author: { '@id': 'https://jamestannahill.com/#person' },
+    publisher: { '@id': 'https://jamestannahill.com/#person' },
+    keywords: [
+      'GP commitment',
+      'general partner commitment',
+      'alignment of interests',
+      'private equity fees',
+      'management fee waiver',
+      'carried interest',
+      'ILPA principles',
+      'GP stakes',
+      'limited partners',
+      'fund diligence',
+    ],
+    about: [
+      { '@type': 'Thing', name: 'Private equity fund terms' },
+      { '@type': 'Thing', name: 'Principal-agent alignment' },
+      { '@type': 'Thing', name: 'Limited partner due diligence' },
+    ],
+  },
+  {
+    '@type': 'BreadcrumbList',
+    '@id': `${url}#breadcrumb`,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://jamestannahill.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Thoughts', item: 'https://jamestannahill.com/thoughts' },
+      { '@type': 'ListItem', position: 3, name: 'Skin in the Game', item: url },
+    ],
+  },
+];
+---
+<BaseLayout
+  title="Skin in the Game | James Tannahill"
+  description={description}
+  canonical={url}
+  ogType="article"
+  ogImage="https://jamestannahill.com/og-skin-in-the-game.png?v=1"
+  ogImageAlt="Skin in the Game - on the general partner commitment and who actually pays it"
+  publishedTime={published}
+  articleSection="Essays"
+  extraSchema={schema}
+>
+  <div class="thoughts-page min-h-screen">
+    <article class="max-w-[728px] mx-auto px-6 py-16">
+
+      <EssayHeader slug="skin-in-the-game" />
+
+      <div class="e-body" data-ripple-text>
+        <p class="mb-6">
+          There is a sentence in every private fund document that gets read aloud more often than any other and read silently almost never. It sits in the summary of terms, somewhere after the management fee and before the key person clause, and it says, with small variations, that the General Partner will commit an amount equal to two percent of aggregate Commitments to the Fund, in order to ensure an alignment of interests between the General Partner and the Limited Partners. Then the phrase gets its own life. It appears on the third slide of the deck. It comes up in the first meeting, unprompted, usually with a hand placed briefly on the chest. It is the answer to a question the investor has not yet asked, and it is offered early precisely so the question is never asked in the form that would matter.
+        </p>
+        <p class="mb-6">
+          I have sat on both sides of it. For a while my job was to read that sentence in other people's documents on behalf of a family that was being asked to sign, and later my job was to help write it. What strikes me now is not that the sentence is false. It is not false. The money does go in. What strikes me is that everyone in the room, on both sides of the table, treats a number as a virtue, and that nobody in fifty years has felt the need to say where the number came from, who is actually paying it, or what it would have to look like to do the thing it claims to do.
+        </p>
+        <p>
+          So take it apart. It has three components, and like most sentences that survive unread for decades, each of them is doing something other than what it says.
+        </p>
+      </div>
+
+      <figure class="my-14">
+        <img
+          src="https://art.jamestannahill.com/weather/2026-08-18-060044/tropical-africa-30s-0e/preview-1200.webp"
+          width="1024"
+          height="1024"
+          alt="Hard-edged abstract painting of black discs and red, yellow and blue bars cut by a black diagonal, with a small yellow square set inside the largest disc"
+          loading="lazy"
+          decoding="async"
+          class="w-full h-auto t-plate"
+        />
+        <figcaption class="e-cap mt-3">
+          30S 0E, South Atlantic off the Cape, rendered from that day's atmospheric data.
+          From <a href="https://art.jamestannahill.com/weather/2026-08-18-060044/tropical-africa-30s-0e/" target="_blank" rel="noopener noreferrer"
+          class="underline hover:opacity-70 break-all">art.jamestannahill.com/weather/2026-08-18-060044/tropical-africa-30s-0e</a>.
+        </figcaption>
+      </figure>
+
+      <h2 class="e-h2">Where One Percent Came From</h2>
+      <div class="e-body" data-ripple-text>
+        <p class="mb-6">
+          Start with the number, because the number is the part everyone assumes was chosen. For most of the industry's history it was one percent. It is now more often two, sometimes three, and the placement agent will tell you that five is what the best houses do. Ask why the convention settled at one and you will get a story about custom, or about what the market bears, or a shrug. Here is the actual answer. In 1989 the Internal Revenue Service issued a revenue procedure setting out when it would treat a limited partnership as a partnership rather than a corporation for tax purposes. Among the conditions was that the general partners, in aggregate, hold at least a one percent interest in each material item of the partnership's income, gain, loss, deduction and credit. Not for alignment. For classification. A general partner with less than one percent looked, to the Service, too much like a manager and not enough like a partner, and the whole vehicle risked being taxed as a corporation. So every fund formed in the following decade put one percent of the general partner's own money in, because the lawyers said to, and the lawyers said to because of a tax safe harbor.
+        </p>
+        <p class="mb-6">
+          In 1997 the Treasury adopted what everyone calls the check-the-box regulations, and the classification question went away. An entity could elect its tax treatment on a form. The safe harbor lost its purpose. The one percent stayed. It stayed because by then it was in every precedent document, every fund lawyer had drafted it a hundred times, and every investor had been told, and had come to believe, that it was there for them. Within a few years the phrase about alignment of interests had been attached to it, and a compliance floor put in place to satisfy a revenue agent had become a moral commitment made to a pension fund.
+        </p>
+        <p>
+          I raise this not to say the commitment is a fraud. I raise it because the industry tells you the number is a measure of conviction, and the number was never a measure of anything. It was a threshold. When the threshold was retired, nobody recalculated. They just kept the figure and changed the story about what it meant, and the story is what gets read aloud in the meeting.
+        </p>
+      </div>
+
+      <h2 class="e-h2">Who Writes the Cheque</h2>
+      <div class="e-body" data-ripple-text>
+        <p class="mb-6">
+          The second component is the verb. The General Partner will commit. The passive-sounding grammar hides a question that any investor would ask about any other counterparty in any other transaction and that limited partners, as a class, almost never ask here: with what?
+        </p>
+        <p class="mb-6">
+          There are three honest answers and the document rarely says which one applies. The first is cash, from the personal balance sheets of the individuals who run the firm, wired in alongside the investors' capital on the same day. That is what the sentence implies and what the hand on the chest is meant to convey. The second is a management fee waiver. The manager elects to forgo some portion of the fee it would otherwise be paid, and in exchange receives an interest in the fund's profits that the documents treat as though the waived amount had been contributed as capital. No cash moves. The commitment is funded out of the fee, which is funded by the investors, which means the investors are financing the manager's alignment with the investors and being told it is a sign of the manager's conviction. The Treasury took an interest in this arrangement in 2015, for reasons of its own that had to do with converting ordinary income into deferred capital gain, and proposed rules to curb the more aggressive versions. The practice did not stop. It moved into the footnotes.
+        </p>
+        <p class="mb-6">
+          The third answer is that the money is borrowed. A bank lends against the management fee stream, which is contractual and lasts ten years, or against the expected carried interest, and the loan funds the commitment. Or, increasingly, a stake in the management company is sold to a specialist buyer, and the proceeds fund the commitment to the next fund. Look at the use-of-proceeds paragraph in almost any GP stakes transaction and you will find the phrase in plain sight: to fund general partner commitments to future funds. The firm has sold a piece of its future fee income to a third party in order to be able to say to its investors that it is putting its own money in. Nothing in the fund documents changes. The sentence about alignment reads exactly as it did.
+        </p>
+        <p>
+          None of these three arrangements is hidden, exactly. All of them are disclosed somewhere, if you know the paragraph to look for. But the sentence in the summary of terms does not distinguish between them, the slide does not distinguish between them, and the meeting does not distinguish between them, and the difference between a partner wiring two percent of a fund from his own account and a firm borrowing it against fees the same investors will pay is not a difference of degree. It is the difference between having skin in the game and having a photograph of some.
+        </p>
+      </div>
+
+      <RelatedEssay essays={[{
+        href: '/thoughts/ask-who-the-party-secretary-is',
+        title: 'Ask Who the Party Secretary Is',
+        blurb: 'On dealing with an adversary that files its intentions publicly, and the diligence question nobody wants to ask first',
+      }]} />
+
+      <h2 class="e-h2">The Arithmetic of Alignment</h2>
+      <div class="e-body" data-ripple-text>
+        <p class="mb-6">
+          The third component is the noun, alignment, and here it is worth doing something almost nobody in the room does, which is the arithmetic.
+        </p>
+        <p class="mb-6">
+          Take a fund of a billion dollars. Two percent commitment: twenty million from the general partner, if it is cash, which we have established it may not be. Management fee at the customary rate: twenty million a year during the investment period, stepping down thereafter, call it a hundred and fifty million over the life of the fund in round numbers, more if there are fee-bearing successor vehicles. Carried interest at twenty percent of profits above a hurdle. If the fund doubles, the carry is on the order of two hundred million.
+        </p>
+        <p class="mb-6">
+          Now set the general partner's exposures next to each other. On the downside, if the fund goes to zero, the general partner loses twenty million, and has been paid a hundred and fifty million in fees for the privilege. On the upside, if the fund doubles, the general partner makes twenty million on its capital and two hundred million on its carry. The commitment is not the alignment. The commitment is a rounding error on the alignment. Whatever concordance of interest exists between the manager and the investor comes almost entirely from the carry, and the carry has the shape of an option: all of the upside above a line, none of the downside below it. The two percent is a small premium paid, or waived, or borrowed, to make the option look like a share.
+        </p>
+        <p class="mb-6">
+          There is a way to say this that is fair to the manager, and it is this. Fund managers do not have to put money into their funds at all. The commitment is a real cost, especially for the younger partners at a firm, who are frequently required to take up their allocated share of it and who often borrow from the firm to do so, at an age and a net worth where two percent of a large fund is a genuinely large number for them. If you want to find the people whose skin is actually in the game, look there: not at the founder, whose share of the commitment is a fraction of a fraction of his liquid net worth, but at the thirty-four-year-old principal with a loan against a bonus that has not been paid yet. She is aligned. She is also not the person making the investment decisions.
+        </p>
+        <p>
+          Which is the quiet inversion at the centre of the sentence. Alignment is a relationship between the person deciding and the person bearing the consequences. The commitment, as it is usually structured, achieves the opposite. It concentrates the consequences on the people with the least say and dilutes them for the people with the most, and then reports the total to the investor as a single percentage, as if the general partner were a person.
+        </p>
+      </div>
+
+      <h2 class="e-h2">Where This Breaks</h2>
+      <div class="e-body" data-ripple-text>
+        <p class="mb-6">
+          The strongest objection is that the industry has already noticed. The institutional investors' trade body has been saying for years that the commitment should be substantial, should be funded in cash rather than through fee waivers, and should be disclosed by source, and the better limited partners now ask exactly the questions this essay says are never asked. Some firms, particularly the ones still run by their founders, put in five and ten percent from personal accounts and say so, and for them the sentence means what it says. First-time funds, which have no track record to sell, use a large cash commitment as the only credible signal they have, and there it carries real information. All of that is true and none of it is contradicted here. The claim is not that the commitment is always a fiction. The claim is that the sentence is written the same way whether it is a fiction or not, and that the way it is read aloud in the room is designed to make the distinction disappear.
+        </p>
+        <p class="mb-6">
+          The second objection is more interesting. Suppose you took the essay's logic to its end and demanded a commitment scaled to what would actually hurt, some meaningful fraction of each partner's liquid net worth. You would have built a rule that only the already rich can satisfy. A talented manager without inherited capital could not raise a fund. You would have entrenched the incumbents in the name of aligning them, and the incumbents, who can afford it, would be the first to endorse the rule. That is a serious objection and I do not have a clean answer to it, except to note that it is an objection to a remedy, not to the diagnosis, and that a rule which cannot be fixed cleanly is a poor reason to keep reading a number aloud as though it were a virtue.
+        </p>
+        <p>
+          The third objection is that the carry is the alignment, that everyone knows this, and that the commitment was always understood as ceremony. Perhaps. But if it is ceremony, then say so, and stop putting the phrase about alignment of interests after it. A firm that describes its two percent as customary is being accurate. A firm that describes it as ensuring alignment is making a claim, and the claim can be checked, and the checking is the whole point.
+        </p>
+      </div>
+
+      <RelatedEssay essays={[{
+        href: '/thoughts/inventors-of-problems',
+        title: 'Inventors of Problems',
+        blurb: 'On the staff function that must manufacture demand, and the executives who pay it to do so',
+      }]} />
+
+      <h2 class="e-h2">Three Questions</h2>
+      <div class="e-body" data-ripple-text>
+        <p class="mb-6">
+          What follows is small, on purpose. Not a reform of fund terms, which is beyond any one investor, but three questions that fit on an index card and that change what the sentence is worth the moment they are asked.
+        </p>
+        <p class="mb-6">
+          How is it funded? Cash, waiver or borrowed, and in what proportions. This is a factual question with a factual answer, and a manager who cannot or will not give it in one sentence has answered it. Insist on the split. A commitment that is sixty percent fee waiver is a commitment of forty percent of the number on the slide, and the investor is entitled to know which number he is being asked to admire.
+        </p>
+        <p class="mb-6">
+          Whose money is it? Not the general partner as an entity. The people. What share of the commitment is borne by the founders, what share by the investment partners who sit on the committee, what share by the people below them, and is any of it lent by the firm to the individuals who owe it. This is the question that exposes the inversion. If most of the commitment sits with the people who make the decisions, the sentence is doing what it says. If most of it sits with the people who execute them, it is not, and the honest description would be that the firm has arranged for its junior staff to be aligned on the senior staff's behalf.
+        </p>
+        <p class="mb-6">
+          What is it, to them? This is the one nobody asks because it sounds impolite, and it is the only one that measures anything. Two percent of a fund is not a fact about conviction. Two percent of a fund as a proportion of the committing partner's liquid net worth is. A manager for whom the commitment is a tenth of what he has outside the firm is exposed. A manager for whom it is a hundredth is making a gesture, and a gesture is a fine thing, so long as it is not written into a document as an assurance.
+        </p>
+        <p class="mb-6">
+          Behind all three is one observation about how the sentence works. It takes a threshold set by a tax authority, keeps the number after the threshold is retired, attaches a phrase about alignment that the number never earned, allows the amount to be funded by the very people it claims to protect, distributes the real cost to the people with the least say, and then reads the total aloud as a virtue in a room where nobody has done the division. Every part of that is disclosed somewhere. None of it is said.
+        </p>
+        <p>
+          The general partner will commit two percent of aggregate Commitments to the Fund, in order to ensure an alignment of interests. Read it once more, slowly, as a piece of writing. It is a compliance floor from 1989 with a moral sentence bolted to the front of it, and it is still in production, in every deck, in every first meeting, in front of an investor who is about to sign for a hundred times as much and who has been trained by the sentence not to ask the only questions that would tell him what it means.
+        </p>
+      </div>
+
+      <script src="/scripts/thoughts-ripple.js" defer></script>
+
+      <EssayFooter slug="skin-in-the-game" />
+
+    </article>
+  </div>
+</BaseLayout>

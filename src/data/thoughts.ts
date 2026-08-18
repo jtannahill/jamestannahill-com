@@ -16,6 +16,16 @@ export interface Post {
 
 export const posts: Post[] = [
   {
+    slug: 'skin-in-the-game',
+    title: 'Skin in the Game',
+    standfirst: 'On the two percent a manager puts into his own fund, and who actually pays it',
+    date: 'August 2026',
+    published: '2026-08-18',
+    art: 'https://art.jamestannahill.com/weather/2026-08-18-060044/tropical-africa-30s-0e/preview-1200.webp',
+    artAlt: 'Hard-edged abstract painting of black discs and red, yellow and blue bars cut by a black diagonal, with a small yellow square set inside the largest disc',
+    aspect: '4 / 3',
+  },
+  {
     slug: 'a-skull-from-georgia',
     title: 'A Skull from Georgia',
     standfirst: 'On the one category defined by what it is not, and the relic bolted to the front of it',
