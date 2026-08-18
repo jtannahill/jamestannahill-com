@@ -1,6 +1,8 @@
 ---
 export const prerender = true;
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import EssayHeader from '../../components/EssayHeader.astro';
+import EssayFooter from '../../components/EssayFooter.astro';
 import RelatedEssay from '../../components/RelatedEssay.astro';
 
 const url = 'https://jamestannahill.com/thoughts/tenure-without-persons';
@@ -83,17 +85,12 @@ const schema = [
   articleSection="Essays"
   extraSchema={schema}
 >
-  <div class="bg-white min-h-screen">
-    <article class="max-w-3xl mx-auto px-6 py-16">
+  <div class="thoughts-page min-h-screen">
+    <article class="max-w-[728px] mx-auto px-6 py-16">
 
-      <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">
-        <a href="/thoughts" class="hover:opacity-70" style="color:var(--color-amber);">Thoughts</a>
-      </p>
-      <h1 class="text-[28px] font-semibold tracking-tight mb-3" style="color:#1a1a1a;">Tenure Without Persons</h1>
-      <p class="text-[17px] leading-[1.6] mb-2" style="color:#666;">On what actually becomes permanent inside an institution, and the accession number that answers a polemic</p>
-      <p class="text-[12px] mb-12" style="color:#999;">August 2026</p>
+      <EssayHeader slug="tenure-without-persons" />
 
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           In 1990 Roger Kimball published <em>Tenured Radicals: How Politics Has Corrupted Our Higher Education</em>, a book arguing that the American humanities had been captured by people whose commitments were political before they were scholarly. It is a polemic, it was meant to wound, and it did.
         </p>
@@ -110,18 +107,17 @@ const schema = [
           alt="Two panel abstract painting of a dense green and yellow canopy with a pale seam running down the center"
           loading="lazy"
           decoding="async"
-          class="w-full h-auto"
-          style="background:#f5f5f5;"
+          class="w-full h-auto t-plate"
         />
-        <figcaption class="mt-3 text-[11px] leading-[1.6]" style="color:#999;">
+        <figcaption class="e-cap mt-3">
           15S 70W, Tropical South America, rendered from that day's atmospheric data.
           From <a href="https://art.jamestannahill.com/weather/2026-08-05-060044/tropical-south-america-15s-70w/" target="_blank" rel="noopener noreferrer"
-          class="underline hover:opacity-70 break-all" style="color:var(--color-amber);">art.jamestannahill.com/weather/2026-08-05-060044/tropical-south-america-15s-70w</a>.
+          class="underline hover:opacity-70 break-all">art.jamestannahill.com/weather/2026-08-05-060044/tropical-south-america-15s-70w</a>.
         </figcaption>
       </figure>
 
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Ratchet Has No Politics</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">The Ratchet Has No Politics</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           Before the irony, the mechanism, because the phrase everyone remembers has been read wrongly for thirty-five years by both the people who loved it and the people who hated it.
         </p>
@@ -136,8 +132,8 @@ const schema = [
         </p>
       </div>
 
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">Waved in Their Faces</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">Waved in Their Faces</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           The best demonstration of that sentence I have found was written by somebody who very much did not want it to be true, and who published it anyway, which is to his credit and is the reason the document is worth reading now.
         </p>
@@ -169,18 +165,17 @@ const schema = [
           alt="Two panel abstract painting shading from massed yellow at the top through green to blue and crimson drips at the base"
           loading="lazy"
           decoding="async"
-          class="w-full h-auto"
-          style="background:#f5f5f5;"
+          class="w-full h-auto t-plate"
         />
-        <figcaption class="mt-3 text-[11px] leading-[1.6]" style="color:#999;">
+        <figcaption class="e-cap mt-3">
           60N 0E, Arctic, rendered from that day's atmospheric data.
           From <a href="https://art.jamestannahill.com/weather/2026-08-05-060044/arctic-60n-0e/" target="_blank" rel="noopener noreferrer"
-          class="underline hover:opacity-70 break-all" style="color:var(--color-amber);">art.jamestannahill.com/weather/2026-08-05-060044/arctic-60n-0e</a>.
+          class="underline hover:opacity-70 break-all">art.jamestannahill.com/weather/2026-08-05-060044/arctic-60n-0e</a>.
         </figcaption>
       </figure>
 
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Descriptors Are the Reply</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">The Descriptors Are the Reply</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           Now back to the catalogue record, because it is the same finding arriving by a quieter road, and because it is funnier.
         </p>
@@ -198,8 +193,8 @@ const schema = [
         </p>
       </div>
 
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Firm Grants Tenure to Ideas</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">The Firm Grants Tenure to Ideas</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           All of which would be a period piece about universities, except that the interesting institution is now the other one, and it solved the same problem in the opposite direction.
         </p>
@@ -220,8 +215,8 @@ const schema = [
         </p>
       </div>
 
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Template Was the Export</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">The Template Was the Export</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           A brief note, because it connects to an argument I have made at length elsewhere and the connection is load bearing rather than decorative.
         </p>
@@ -233,8 +228,8 @@ const schema = [
         </p>
       </div>
 
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Checklist Is the First Institution</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">The Checklist Is the First Institution</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           So: will there be radicals elsewhere who win tenure? On the Moon, on Mars, on whatever comes after those.
         </p>
@@ -288,8 +283,8 @@ const schema = [
         blurb: 'On what actually crosses a border when an idea is exported, and why the argument stays home',
       }]} />
 
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">Name the Thing You Cannot Undo</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">Name the Thing You Cannot Undo</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           The instinct at this point is to ask how to keep the wrong ideas out, and that instinct should be abandoned, because the record is unambiguous that it cannot be done.
         </p>
@@ -309,9 +304,7 @@ const schema = [
 
       <script src="/scripts/thoughts-ripple.js" defer></script>
 
-      <p class="mt-14 pt-8 border-t text-[12px] tracking-[0.1em]" style="border-color:#eee;">
-        <a href="/thoughts" class="hover:opacity-70" style="color:var(--color-amber);">Back to Thoughts</a>
-      </p>
+      <EssayFooter slug="tenure-without-persons" />
 
     </article>
   </div>

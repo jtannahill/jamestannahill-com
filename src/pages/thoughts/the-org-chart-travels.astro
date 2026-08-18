@@ -1,6 +1,8 @@
 ---
 export const prerender = true;
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import EssayHeader from '../../components/EssayHeader.astro';
+import EssayFooter from '../../components/EssayFooter.astro';
 import RelatedEssay from '../../components/RelatedEssay.astro';
 
 const url = 'https://jamestannahill.com/thoughts/the-org-chart-travels';
@@ -80,17 +82,12 @@ const schema = [
   articleSection="Essays"
   extraSchema={schema}
 >
-  <div class="bg-white min-h-screen">
-    <article class="max-w-3xl mx-auto px-6 py-16">
+  <div class="thoughts-page min-h-screen">
+    <article class="max-w-[728px] mx-auto px-6 py-16">
 
-      <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">
-        <a href="/thoughts" class="hover:opacity-70" style="color:var(--color-amber);">Thoughts</a>
-      </p>
-      <h1 class="text-[28px] font-semibold tracking-tight mb-3" style="color:#1a1a1a;">The Org Chart Travels</h1>
-      <p class="text-[17px] leading-[1.6] mb-2" style="color:#666;">On what actually crosses a border when an idea is exported, and why the argument stays home</p>
-      <p class="text-[12px] mb-12" style="color:#999;">August 2026</p>
+      <EssayHeader slug="the-org-chart-travels" />
 
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           A regional office outside Kuala Lumpur runs a ninety minute module on unconscious bias. The slides were built in California. They have been localized, which means the stock photography was changed and the text was translated, and they retain a case study involving a hiring panel, a candidate with a name the local staff cannot place, and a legal framework that does not exist in Malaysia. Everyone completes it. Everyone is bored. Nobody, in the entire chain between the vendor and the room, was ever asked whether the thing being described is a problem in that country.
         </p>
@@ -106,17 +103,16 @@ const schema = [
           alt="Psychedelic poster painting of Earth as a glowing orb encircled by neon rainbow rings in a starfield"
           loading="lazy"
           decoding="async"
-          class="w-full h-auto"
-          style="background:#f5f5f5;"
+          class="w-full h-auto t-plate"
         />
-        <figcaption class="mt-3 text-[11px] leading-[1.6]" style="color:#999;">
+        <figcaption class="e-cap mt-3">
           60N 0E, Arctic, rendered through a Peter Max lens from that day's atmospheric data.
           From <a href="https://art.jamestannahill.com/weather/2026-08-04-193850/arctic-60n-0e/" target="_blank" rel="noopener noreferrer"
-          class="underline hover:opacity-70 break-all" style="color:var(--color-amber);">art.jamestannahill.com/weather/2026-08-04-193850/arctic-60n-0e</a>.
+          class="underline hover:opacity-70 break-all">art.jamestannahill.com/weather/2026-08-04-193850/arctic-60n-0e</a>.
         </figcaption>
       </figure>
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Word Is Not the Thing</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">The Word Is Not the Thing</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           Start by separating three items that are habitually confused: a word, a set of underlying disputes, and a machine for distributing policy.
         </p>
@@ -127,8 +123,8 @@ const schema = [
           The consequence is that outside America the word functions almost exclusively as a weapon. Nobody in Lyon or Seoul describes themselves as woke. They are described that way, usually by a politician, usually in a sentence about foreign contamination. Any question of the form does wokeness exist in country X therefore has a trivial answer about vocabulary and a serious answer about substance, and the two get switched in most conversations.
         </p>
       </div>
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Apparatus Is the Payload</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">The Apparatus Is the Payload</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           The serious answer begins with what actually crosses a border reliably, and it is not an argument. It is an organizational chart.
         </p>
@@ -142,8 +138,8 @@ const schema = [
           That mechanism explains most of what people find infuriating about the phenomenon abroad, and it does so without anyone having to agree about the merits. Even someone entirely sympathetic to the underlying claim is entitled to notice that it was not put to them. Compliance is not persuasion. It is the substitution of an org chart for a debate, and it produces the particular resentment reserved for things that are simultaneously moralizing and non-negotiable.
         </p>
       </div>
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Apparatus Had a Theorist</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">The Apparatus Had a Theorist</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           None of which is new, and the priority is embarrassing enough to be worth stating plainly. In 1970 a French Marxist published an essay in <em>La Pensée</em> called <a href="https://en.wikipedia.org/wiki/Ideology_and_Ideological_State_Apparatuses" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-70" style="color:var(--color-amber);">Ideology and Ideological State Apparatuses</a>, and the section above is largely his.
         </p>
@@ -169,8 +165,8 @@ const schema = [
           Two cautions, and the second is the serious one. He was a Marxist working out why the revolution had not arrived, and nothing here is that argument. More importantly, the framework as he left it has a defect that its admirers rarely concede: if everything is ideology and the hail always lands, then no observation counts against the theory and the analysis ends in a shrug. Ideology has no history, he wrote, and is eternal. That is the sort of claim which cannot be wrong, and cannot being wrong is a serious flaw rather than a strength. The mechanism is worth keeping. The fatalism is not, and there is a cheap way to test the difference, which is the subject of a later section.
         </p>
       </div>
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">Local Fights Have Local Content</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">Local Fights Have Local Content</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           Meanwhile there are real disputes in these countries, and they run on domestic material that the imported framework describes badly.
         </p>
@@ -187,8 +183,8 @@ const schema = [
           The pattern is consistent. Where the conflict is real it is local, and where the vocabulary is American the vocabulary is usually the least interesting part of it.
         </p>
       </div>
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Legal Substrate Explains the Difference in Style</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">The Legal Substrate Explains the Difference in Style</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           One structural fact accounts for more cross-country variation than any amount of cultural analysis, and it is almost always omitted.
         </p>
@@ -199,8 +195,8 @@ const schema = [
           American cancel culture is therefore not evidence of a uniquely censorious population. It is what censoriousness looks like in a system that has closed the legislative route. The European version is calmer in the same way that a regulated utility is calmer than an unregulated market, and just as final. A German prosecuted for a post and an American fired for one have both been sanctioned for speech. Only one of them can appeal to a court, which is a point in Europe's favor, and only one of them is subject to a rule enacted by a legislature that can be voted out, which is also a point in Europe's favor. The American arrangement gets the worst of both: no due process and no democratic authorship.
         </p>
       </div>
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Backlash Is an Export Too</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">The Backlash Is an Export Too</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           The tidy story in which an American ideology spreads outward while local traditions resist is wrong in one important respect. The counter-movement is at least as transnational and at least as professionalized, which follows directly from the preceding section: an apparatus is indifferent to its payload, and anyone who enjoyed the analysis while it was aimed at a compliance department should expect it to work identically pointed the other way.
         </p>
@@ -211,8 +207,8 @@ const schema = [
           That last point deserves more discomfort than it usually receives from either side. The manner of the export handed genuinely repressive governments a defensible-sounding argument, and the people who pay for that are local, vulnerable and now less protected than before. Delivering universal claims as compliance does not merely fail to persuade. It discredits the claims themselves, and it does so most severely in the places with the least margin for error.
         </p>
       </div>
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Thin Version and the Thick Version</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">The Thin Version and the Thick Version</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           Which leaves the question worth actually answering: how much of this is universal?
         </p>
@@ -226,8 +222,8 @@ const schema = [
           The honest position is that the thin version should be universal because it already nearly is, and the thick version should stay home, not because it is wicked but because it is parochial, and parochial things become ridiculous in transit.
         </p>
       </div>
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Test</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">The Test</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           The instrument, for anyone running a multinational, is three questions about any people policy arriving from headquarters.
         </p>
@@ -241,7 +237,7 @@ const schema = [
           It is also the test the theory of apparatuses never supplied. An account in which everyone is always already a subject has no control group, and so it can name the apparatus and cannot measure it. A mandate is better than a theory in exactly one respect: it can be switched off. Switch it off in one region for two quarters, tell nobody it is an experiment, and count what remains. Whatever survives the withdrawal of the hail was a belief. Everything else was a timestamp.
         </p>
       </div>
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">Mars</h2>
+      <h2 class="e-h2">Mars</h2>
       <figure class="my-14">
         <img
           src="https://art.jamestannahill.com/weather/2026-08-04-193850/europe-30n-15w/preview-1200.webp"
@@ -250,16 +246,15 @@ const schema = [
           alt="Psychedelic poster painting of a magenta canyon landscape under a rainbow arc, with Earth glowing small in the sky"
           loading="lazy"
           decoding="async"
-          class="w-full h-auto"
-          style="background:#f5f5f5;"
+          class="w-full h-auto t-plate"
         />
-        <figcaption class="mt-3 text-[11px] leading-[1.6]" style="color:#999;">
+        <figcaption class="e-cap mt-3">
           30N 15W, Eastern Atlantic, rendered through a Peter Max lens from that day's atmospheric data.
           From <a href="https://art.jamestannahill.com/weather/2026-08-04-193850/europe-30n-15w/" target="_blank" rel="noopener noreferrer"
-          class="underline hover:opacity-70 break-all" style="color:var(--color-amber);">art.jamestannahill.com/weather/2026-08-04-193850/europe-30n-15w</a>.
+          class="underline hover:opacity-70 break-all">art.jamestannahill.com/weather/2026-08-04-193850/europe-30n-15w</a>.
         </figcaption>
       </figure>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           The pattern will not stop at national borders, because the mechanism has nothing to do with nations. It is a property of organizations that operate in more than one place and prefer one policy to several.
         </p>
@@ -304,16 +299,14 @@ const schema = [
 
       <script src="/scripts/thoughts-ripple.js" defer></script>
 
-      <p class="mt-14 pt-8 border-t text-[13px] leading-[1.75]" style="border-color:#eee; color:#888;">
+      <p class="mt-14 pt-8 border-t text-[13px] leading-[1.75]" style="border-color:var(--t-rule); color:var(--t-muted);">
         The Althusser reading is owed to my good friend August Gold, who read this and pointed out that
         a fair portion of it was re-deriving, at some length, a paper published in 1970. The section
         titled The Apparatus Had a Theorist exists because he was right, and the argument is sturdier
         for having an older and more dangerous author standing behind it.
       </p>
 
-      <p class="mt-8 text-[12px] tracking-[0.1em]">
-        <a href="/thoughts" class="hover:opacity-70" style="color:var(--color-amber);">Back to Thoughts</a>
-      </p>
+      <EssayFooter slug="the-org-chart-travels" />
 
     </article>
   </div>

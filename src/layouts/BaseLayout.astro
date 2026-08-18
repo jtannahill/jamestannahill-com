@@ -17,6 +17,8 @@ interface Props {
   extraSchema?: Record<string, unknown>[];
   publishedTime?: string;
   articleSection?: string;
+  /** Absolute URL of the above-the-fold hero image to preload (LCP). */
+  preloadImage?: string;
 }
 const {
   title,
@@ -29,6 +31,7 @@ const {
   extraSchema,
   publishedTime,
   articleSection,
+  preloadImage,
 } = Astro.props;
 const isHome = Astro.url.pathname === '/';
 ---
@@ -48,6 +51,7 @@ const isHome = Astro.url.pathname === '/';
     />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="manifest" href="/manifest.json" />
+    {preloadImage && <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />}
     {isHome && <script src="/scripts/hero-preload.js" defer></script>}
     <noscript>
       <style>

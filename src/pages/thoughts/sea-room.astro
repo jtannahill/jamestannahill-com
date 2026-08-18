@@ -1,6 +1,8 @@
 ---
 export const prerender = true;
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import EssayHeader from '../../components/EssayHeader.astro';
+import EssayFooter from '../../components/EssayFooter.astro';
 
 const url = 'https://jamestannahill.com/thoughts/sea-room';
 const published = '2026-08-04';
@@ -69,18 +71,13 @@ const schema = [
   articleSection="Essays"
   extraSchema={schema}
 >
-  <div class="bg-white min-h-screen">
-    <article class="max-w-3xl mx-auto px-6 py-16">
+  <div class="thoughts-page min-h-screen">
+    <article class="max-w-[728px] mx-auto px-6 py-16">
 
-      <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">
-        <a href="/thoughts" class="hover:opacity-70" style="color:var(--color-amber);">Thoughts</a>
-      </p>
-      <h1 class="text-[28px] font-semibold tracking-tight mb-3" style="color:#1a1a1a;">Sea Room</h1>
-      <p class="text-[17px] leading-[1.6] mb-2" style="color:#666;">On the difference between knowing where you are and having somewhere to go</p>
-      <p class="text-[12px] mb-12" style="color:#999;">August 2026</p>
+      <EssayHeader slug="sea-room" />
 
 
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           Modern navigation has solved a problem that killed sailors for three thousand years, and it has solved it so completely that the achievement is now invisible. A receiver the size of a matchbox will report your position to within a few metres, continuously, in fog, at night, in weather that would have blinded Cook. There is no longer any serious sense in which a competent mariner does not know where he is.
         </p>
@@ -105,17 +102,16 @@ const schema = [
           alt="Vertical abstract expressionist painting, a black mass sweeping across pink and green, generated from Arctic weather data"
           loading="lazy"
           decoding="async"
-          class="w-full h-auto"
-          style="background:#f5f5f5;"
+          class="w-full h-auto t-plate"
         />
-        <figcaption class="mt-3 text-[11px] leading-[1.6]" style="color:#999;">
+        <figcaption class="e-cap mt-3">
           60N 140E, Arctic, rendered through a Willem de Kooning lens from that day's atmospheric data.
           From <a href="https://art.jamestannahill.com/weather/2026-08-04-060044/arctic-60n-140e/" target="_blank" rel="noopener noreferrer"
-          class="underline hover:opacity-70 break-all" style="color:var(--color-amber);">art.jamestannahill.com/weather/2026-08-04-060044/arctic-60n-140e</a>.
+          class="underline hover:opacity-70 break-all">art.jamestannahill.com/weather/2026-08-04-060044/arctic-60n-140e</a>.
         </figcaption>
       </figure>
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">Episteme and Phronesis</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">Episteme and Phronesis</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           Aristotle drew a distinction that the entire modern apparatus of measurement has quietly collapsed. There is <em>episteme</em>, knowledge of what is the case, demonstrable and teachable and true in the same way for everyone. And there is <em>phronesis</em>, practical wisdom, which is the capacity to act well in particular circumstances that will never recur in exactly that form again. He was explicit that the second cannot be derived from the first. You cannot reason your way from a set of true propositions to a good decision in a situation, because the situation contains features that no proposition anticipated, and because acting well is a matter of timing and proportion rather than inference.
         </p>
@@ -126,8 +122,8 @@ const schema = [
           Seamanship is <em>phronesis</em>, and it consists almost entirely of maintaining conditions under which decisions remain possible. The competent sailor is not the one who computes the optimal course. He is the one who, three hours before anything has gone wrong, has arranged matters so that when something does, he still has choices. This is not caution. Caution is a temperament and often a vice. It is a structural preference for positions from which more than one thing can be done.
         </p>
       </div>
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Two Freedoms</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">The Two Freedoms</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           Isaiah Berlin's famous distinction between negative and positive liberty is usually taught as a political matter and it is, but the negative half of it is best understood at sea. Negative liberty, in Berlin's account, is simply the absence of obstruction: the extent of the space in which one is not prevented from acting. It is not about what you want, or whether you are wise enough to want the right things. It is about how much room there is.
         </p>
@@ -141,8 +137,8 @@ const schema = [
           This is why the sailor's fear of a lee shore is not fear of the rocks. It is a recognition that the character of one's agency has already changed, hours before the impact, and that no amount of subsequent excellence reverses it.
         </p>
       </div>
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Culminating Point</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">The Culminating Point</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           Clausewitz, writing about war rather than water, named a related thing precisely. Every advance has a culminating point, the moment beyond which the force can no longer sustain itself, and the difficulty is that it is nearly impossible to identify from inside the advance. Everything up to that point feels like success. The culminating point is not announced by a reversal. It arrives while things are still going well, and it is only visible afterwards, in the shape of the collapse.
         </p>
@@ -156,8 +152,8 @@ const schema = [
           Samuel Johnson, who loathed the sea and said so, described a ship as a jail with the added prospect of drowning. He was wrong about ships and right about enclosure, which is the thing he actually could not bear: an arrangement in which the number of available actions has fallen to one.
         </p>
       </div>
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">What Our Instruments Actually Measure</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">What Our Instruments Actually Measure</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           Return now to the matchbox receiver, because the modern condition is a specific and correctable error.
         </p>
@@ -179,17 +175,16 @@ const schema = [
           alt="Abstract expressionist painting in pink, yellow, red and black, generated from Western Pacific weather data"
           loading="lazy"
           decoding="async"
-          class="w-full h-auto"
-          style="background:#f5f5f5;"
+          class="w-full h-auto t-plate"
         />
-        <figcaption class="mt-3 text-[11px] leading-[1.6]" style="color:#999;">
+        <figcaption class="e-cap mt-3">
           15N 120E, Western Pacific, rendered through a Willem de Kooning lens from that day's atmospheric data.
           From <a href="https://art.jamestannahill.com/weather/2026-08-04-060044/western-pacific-15n-120e/" target="_blank" rel="noopener noreferrer"
-          class="underline hover:opacity-70 break-all" style="color:var(--color-amber);">art.jamestannahill.com/weather/2026-08-04-060044/western-pacific-15n-120e</a>.
+          class="underline hover:opacity-70 break-all">art.jamestannahill.com/weather/2026-08-04-060044/western-pacific-15n-120e</a>.
         </figcaption>
       </figure>
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">Now Say the Word</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">Now Say the Word</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           Everything above has been about water, and none of it has been. The quantity being described is liquidity, and the reason for withholding the term is that the word has been worn smooth by use into something that sounds like a ratio, when what it actually denotes is the amount of future in which you are still the one deciding.
         </p>
@@ -203,8 +198,8 @@ const schema = [
           That outcome is not a failure of <em>episteme</em>. Nobody was ignorant. It is a failure to hold open the space in which knowledge could still be acted on, and it is the single most common way that intelligent people in this industry are destroyed.
         </p>
       </div>
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Discipline</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">The Discipline</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           The practical instruction is unglamorous and takes about an hour a quarter.
         </p>
@@ -221,8 +216,8 @@ const schema = [
           Institutions are structurally incapable of rewarding this, which is why it must be a private discipline rather than a policy. No committee has ever promoted a man for the drawdown that failed to happen.
         </p>
       </div>
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Lee Shore</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">The Lee Shore</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           Melville's argument, in the end, is not about seamanship at all. What makes the lee shore terrible in his telling is that it is the safe thing: it is harbour, it is land, it is the place where the ordinary comforts are, and it is the only object in the entire ocean capable of destroying the vessel. The open sea offers nothing except the absence of anything to hit.
         </p>
@@ -239,9 +234,7 @@ const schema = [
 
       <script src="/scripts/thoughts-ripple.js" defer></script>
 
-      <p class="mt-14 pt-8 border-t text-[12px] tracking-[0.1em]" style="border-color:#eee;">
-        <a href="/thoughts" class="hover:opacity-70" style="color:var(--color-amber);">Back to Thoughts</a>
-      </p>
+      <EssayFooter slug="sea-room" />
 
     </article>
   </div>

@@ -4,8 +4,13 @@ const navLinks = [
   { label: 'INSIGHTS', href: 'https://www.plocamium.com/globals', external: true },
   { label: 'THE AGENCY', href: 'https://www.1nessagency.com/', external: true },
   { label: 'RDLB', href: 'https://www.rdlb.nyc/', external: true },
+  { label: 'THOUGHTS', href: '/thoughts' },
   { label: 'CONTACT', href: '/faqs' },
 ];
+// Active state is resolved server-side for the first paint and re-applied
+// client-side after view transitions (the header is transition:persist).
+const path = Astro.url.pathname;
+const isActive = (href: string) => href !== '/' && path.startsWith(href);
 ---
 <header transition:persist class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/[0.06]">
   <div class="max-w-6xl mx-auto px-6 h-13 flex items-center justify-between">
@@ -19,9 +24,11 @@ const navLinks = [
           href={link.href}
           target={link.external ? '_blank' : undefined}
           rel={link.external ? 'noopener noreferrer' : undefined}
-          class={`text-[11px] tracking-[0.18em] uppercase transition-colors ${
+          data-nav-link={link.external ? undefined : link.href}
+          aria-current={isActive(link.href) ? 'page' : undefined}
+          class={`nav-link text-[11px] tracking-[0.18em] uppercase transition-colors ${
             link.label === 'CONTACT'
-              ? 'text-[var(--color-amber)] hover:text-[var(--color-amber-dark)]'
+              ? 'nav-cta text-[var(--color-amber)] hover:text-[var(--color-amber-dark)]'
               : 'text-white/40 hover:text-white'
           }`}
         >
@@ -45,9 +52,11 @@ const navLinks = [
       href={link.href}
       target={link.external ? '_blank' : undefined}
       rel={link.external ? 'noopener noreferrer' : undefined}
-      class={`text-sm tracking-[0.2em] uppercase min-h-[48px] flex items-center transition-colors ${
+      data-nav-link={link.external ? undefined : link.href}
+      aria-current={isActive(link.href) ? 'page' : undefined}
+      class={`nav-link text-sm tracking-[0.2em] uppercase min-h-[48px] flex items-center transition-colors ${
         link.label === 'CONTACT'
-          ? 'text-[var(--color-amber)]'
+          ? 'nav-cta text-[var(--color-amber)]'
           : 'text-white/60 hover:text-white'
       }`}
     >
@@ -56,7 +65,32 @@ const navLinks = [
   ))}
 </div>
 
+<style>
+  .nav-link { position: relative; }
+  .nav-link:not(.nav-cta)[aria-current="page"] { color: #fff; }
+  .nav-link[aria-current="page"]::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: -6px;
+    height: 1px;
+    background: var(--color-amber);
+  }
+</style>
+
 <script>
+  // Keep aria-current honest across client-side navigations.
+  function syncActive() {
+    const path = window.location.pathname;
+    document.querySelectorAll<HTMLAnchorElement>('[data-nav-link]').forEach((a) => {
+      const href = a.getAttribute('data-nav-link') || '';
+      const active = href !== '/' && path.startsWith(href);
+      if (active) a.setAttribute('aria-current', 'page');
+      else a.removeAttribute('aria-current');
+    });
+  }
+  document.addEventListener('astro:page-load', syncActive);
+  syncActive();
+
   const toggle = document.getElementById('menu-toggle');
   const menu = document.getElementById('mobile-menu');
   toggle?.addEventListener('click', () => {

@@ -1,6 +1,8 @@
 ---
 export const prerender = true;
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import EssayHeader from '../../components/EssayHeader.astro';
+import EssayFooter from '../../components/EssayFooter.astro';
 import RelatedEssay from '../../components/RelatedEssay.astro';
 
 const url = 'https://jamestannahill.com/thoughts/a-skull-from-georgia';
@@ -65,17 +67,12 @@ const schema = [
   articleSection="Essays"
   extraSchema={schema}
 >
-  <div class="bg-white min-h-screen">
-    <article class="max-w-3xl mx-auto px-6 py-16">
+  <div class="thoughts-page min-h-screen">
+    <article class="max-w-[728px] mx-auto px-6 py-16">
 
-      <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">
-        <a href="/thoughts" class="hover:opacity-70" style="color:var(--color-amber);">Thoughts</a>
-      </p>
-      <h1 class="text-[28px] font-semibold tracking-tight mb-3" style="color:#1a1a1a;">A Skull from Georgia</h1>
-      <p class="text-[17px] leading-[1.6] mb-2" style="color:#666;">On the one category defined by what it is not, and the relic bolted to the front of it</p>
-      <p class="text-[12px] mb-12" style="color:#999;">August 2026</p>
+      <EssayHeader slug="a-skull-from-georgia" />
 
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           You have met this line. It sits in a dropdown near the bottom of a job application, fourth or fifth down depending on the vendor, and it reads, in full: <span class="italic">White or Caucasian (Not Hispanic or Latino)</span>. Roughly three in five Americans pick it. Almost nobody reads it. Nothing in it looks like news.
         </p>
@@ -95,18 +92,17 @@ const schema = [
           alt="Hard-edged abstract painting of overlapping circles in red, orange, blue, yellow and black crossed by fine ruled lines on a cream ground"
           loading="lazy"
           decoding="async"
-          class="w-full h-auto"
-          style="background:#f5f5f5;"
+          class="w-full h-auto t-plate"
         />
-        <figcaption class="mt-3 text-[11px] leading-[1.6]" style="color:#999;">
+        <figcaption class="e-cap mt-3">
           30N 60W, western North Atlantic, rendered from that day's atmospheric data.
           From <a href="https://art.jamestannahill.com/weather/2026-08-12-060044/region-30n-60w/" target="_blank" rel="noopener noreferrer"
-          class="underline hover:opacity-70 break-all" style="color:var(--color-amber);">art.jamestannahill.com/weather/2026-08-12-060044/region-30n-60w</a>.
+          class="underline hover:opacity-70 break-all">art.jamestannahill.com/weather/2026-08-12-060044/region-30n-60w</a>.
         </figcaption>
       </figure>
 
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Prettiest One in the Cabinet</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">The Prettiest One in the Cabinet</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           Johann Friedrich Blumenbach taught medicine at Göttingen and collected skulls, some sixty of them, acquired through the ordinary channels of eighteenth-century natural history, which is to say through soldiers, physicians, travellers and the Russian court. In the third edition of his treatise on the natural varieties of mankind, published in 1795, he settled on five varieties, and for the one that included Europeans he coined a word that had not previously existed in this sense. He called them Caucasian.
         </p>
@@ -121,8 +117,8 @@ const schema = [
         </p>
       </div>
 
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Words That Were Removed</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">The Words That Were Removed</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           The first hypocrisy needs no theory at all. It is a comparison of two lists. American officialdom has spent fifty years removing exactly this kind of language, category by category, and has generally been right to. The Census retired the word Negro from its forms after the 2010 count, on the reasonable ground that it belonged to a vocabulary the described population had stopped using about itself two generations earlier. In 2016 a statute struck Oriental and Negro from the body of federal law outright, replacing them with terms people actually use. The category once labelled Asian or Pacific Islander was split in two, because the Pacific Islander population objected that being averaged into a much larger group made them statistically invisible. American Indian acquired Alaska Native. Hispanic acquired or Latino, and then in a great many private systems acquired or Latinx as well. Every one of these changes came from the same argument, made by the people described: the word is an artifact of somebody else's taxonomy, we did not choose it, and we would like a different one.
         </p>
@@ -148,18 +144,17 @@ const schema = [
           alt="Abstract painting of large red, black, yellow and blue discs behind vertical black rules on a pale ground"
           loading="lazy"
           decoding="async"
-          class="w-full h-auto"
-          style="background:#f5f5f5;"
+          class="w-full h-auto t-plate"
         />
-        <figcaption class="mt-3 text-[11px] leading-[1.6]" style="color:#999;">
+        <figcaption class="e-cap mt-3">
           70N 20E, Norwegian Sea, rendered from that day's atmospheric data.
           From <a href="https://art.jamestannahill.com/weather/2026-08-12-060044/arctic-70n-20e/" target="_blank" rel="noopener noreferrer"
-          class="underline hover:opacity-70 break-all" style="color:var(--color-amber);">art.jamestannahill.com/weather/2026-08-12-060044/arctic-70n-20e</a>.
+          class="underline hover:opacity-70 break-all">art.jamestannahill.com/weather/2026-08-12-060044/arctic-70n-20e</a>.
         </figcaption>
       </figure>
 
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">Defined by Subtraction</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">Defined by Subtraction</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           The front half of the phrase is stranger than the back half, and much less remarked on. Every other line on the form is constituted positively. Black or African American names an origin. Asian names an origin. American Indian or Alaska Native names an origin, and in the more careful instruments names a tribal enrollment behind it. Non-Hispanic White names an origin and then removes part of it. Alone among the categories, it is defined in part by what its members are not, and the thing they are not is a classification that was manufactured, by legislation in 1976 and by administrative directive the following year, out of populations that had not previously regarded themselves as a common kind.
         </p>
@@ -171,8 +166,8 @@ const schema = [
         </p>
       </div>
 
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">What the Box Is Wired To</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">What the Box Is Wired To</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           Fine, says a reasonable person: the word is silly, the boundary is arbitrary, and none of it matters, because the answer goes into a filing cabinet and no one acts on it. Then here is the direct answer. Categories built on exactly this footing, self-reported, uncriterioned, drawn by committee, have been wired into decisions with bodies on the other end, and were still wired in within the last five years.
         </p>
@@ -187,8 +182,8 @@ const schema = [
         </p>
       </div>
 
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">Twice, Within a Year</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">Twice, Within a Year</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           The Supreme Court settled whether the boundary is drawn or found, twice, in consecutive terms, contradicting itself so plainly that the second opinion has to spend several pages explaining why the first one does not count.
         </p>
@@ -206,8 +201,8 @@ const schema = [
         </p>
       </div>
 
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Load-Bearing Or</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">The Load-Bearing Or</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           Which raises the question the label invites and has never had to answer: are the two terms mutually exclusive, coextensive, or neither. The word joining them makes a promise, that they pick out the same set and the second is a courtesy to readers who prefer it. The promise fails in both directions at once.
         </p>
@@ -240,8 +235,8 @@ const schema = [
         blurb: 'On the questionnaire that invents the person it counts, and the one box on it that cannot',
       }]} />
 
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">Resolution Follows Politics</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">Resolution Follows Politics</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           The second hypocrisy is about how much detail the instrument will collect, and where. A good modern form asks Asian applicants to specify, and offers Chinese, Filipino, Asian Indian, Vietnamese, Korean, Japanese and a write-in. It separates Native Hawaiian from Samoan from Chamorro. It asks American Indian respondents to name the enrolled or principal tribe. This is right, and it is right for a reason that was argued for and won: aggregation destroys information, and the destroyed information was in each case load-bearing for someone's understanding of their own position.
         </p>
@@ -264,18 +259,17 @@ const schema = [
           alt="Abstract painting of layered translucent circles in red, blue, yellow and grey crossed by long ruled diagonals on a pale ground"
           loading="lazy"
           decoding="async"
-          class="w-full h-auto"
-          style="background:#f5f5f5;"
+          class="w-full h-auto t-plate"
         />
-        <figcaption class="mt-3 text-[11px] leading-[1.6]" style="color:#999;">
+        <figcaption class="e-cap mt-3">
           15S 70W, tropical South America, rendered from that day's atmospheric data.
           From <a href="https://art.jamestannahill.com/weather/2026-08-12-060044/tropical-south-america-15s-70w/" target="_blank" rel="noopener noreferrer"
-          class="underline hover:opacity-70 break-all" style="color:var(--color-amber);">art.jamestannahill.com/weather/2026-08-12-060044/tropical-south-america-15s-70w</a>.
+          class="underline hover:opacity-70 break-all">art.jamestannahill.com/weather/2026-08-12-060044/tropical-south-america-15s-70w</a>.
         </figcaption>
       </figure>
 
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">Who Is Being Inconsistent</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">Who Is Being Inconsistent</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           It would be convenient to load all of this onto one faction, and the convenience is why it should be resisted. The contradictions are distributed with unusual evenness.
         </p>
@@ -290,8 +284,8 @@ const schema = [
         </p>
       </div>
 
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">Where This Breaks</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">Where This Breaks</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           The obvious objection is strong, and anyone making this argument who does not concede it plainly is playing a different game than the one advertised. Incoherent at the edges is not the same as meaningless at the centre, and the American racial system was never a description of biology in the first place. It was an allocation of standing, enforced by statute, deed covenant, lending map and mob, and it operated on perception rather than on definition. Which means that a perception-based category, self-reported and fuzzy at the margin, is not a defect of the instrument. It is a reasonably faithful copy of the thing being measured. The Federal Housing Administration did not require a coherent theory of ancestry to draw the red line, and the fact that Blumenbach's word is nonsense does not refund a single mortgage. If you want to know whether a neighbourhood was excluded, whether a workforce looks like its labour market, or whether a lending pattern is what the bank says it is, you need a category that tracks how people were and are seen, and this one, for all its provenance, does.
         </p>
@@ -308,8 +302,8 @@ const schema = [
         blurb: 'On abolishing the hiring layer, and returning the decision to the people who have to live with it',
       }]} />
 
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">Delete One Word</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">Delete One Word</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           Three things follow, and they are deliberately the size of things a single person with access to the system can do on a Thursday.
         </p>
@@ -335,9 +329,7 @@ const schema = [
 
       <script src="/scripts/thoughts-ripple.js" defer></script>
 
-      <p class="mt-14 pt-8 border-t text-[12px] tracking-[0.1em]" style="border-color:#eee;">
-        <a href="/thoughts" class="hover:opacity-70" style="color:var(--color-amber);">Back to Thoughts</a>
-      </p>
+      <EssayFooter slug="a-skull-from-georgia" />
 
     </article>
   </div>

@@ -1,6 +1,8 @@
 ---
 export const prerender = true;
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import EssayHeader from '../../components/EssayHeader.astro';
+import EssayFooter from '../../components/EssayFooter.astro';
 import RelatedEssay from '../../components/RelatedEssay.astro';
 
 const url = 'https://jamestannahill.com/thoughts/inventors-of-problems';
@@ -61,17 +63,12 @@ const schema = [
   articleSection="Essays"
   extraSchema={schema}
 >
-  <div class="bg-white min-h-screen">
-    <article class="max-w-3xl mx-auto px-6 py-16">
+  <div class="thoughts-page min-h-screen">
+    <article class="max-w-[728px] mx-auto px-6 py-16">
 
-      <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">
-        <a href="/thoughts" class="hover:opacity-70" style="color:var(--color-amber);">Thoughts</a>
-      </p>
-      <h1 class="text-[28px] font-semibold tracking-tight mb-3" style="color:#1a1a1a;">Inventors of Problems</h1>
-      <p class="text-[17px] leading-[1.6] mb-2" style="color:#666;">On the staff function that must manufacture demand, and the executives who pay it to do so</p>
-      <p class="text-[12px] mb-12" style="color:#999;">August 2026</p>
+      <EssayHeader slug="inventors-of-problems" />
 
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           Every large organization contains a department that grows during hiring freezes. It has no revenue, no margin, no unit economics and no natural size, and it is the only function in the building whose output is consumed almost entirely by itself. It has been renamed three times in forty years, which is the surest available sign that something is wrong with the underlying thing, since functions confident of their contribution do not require rebranding. Personnel became human resources, human resources became people operations, people operations became talent, and at no point did the renaming follow a demonstrated improvement in the quality of anybody's working life.
         </p>
@@ -87,17 +84,16 @@ const schema = [
           alt="Hard-edged painting scattered with dozens of small circles, squares and diagonal bands on white"
           loading="lazy"
           decoding="async"
-          class="w-full h-auto"
-          style="background:#f5f5f5;"
+          class="w-full h-auto t-plate"
         />
-        <figcaption class="mt-3 text-[11px] leading-[1.6]" style="color:#999;">
+        <figcaption class="e-cap mt-3">
           45S 80E, Southern Indian Ocean, rendered from that day's atmospheric data.
           From <a href="https://art.jamestannahill.com/weather/2026-08-01-060044/region-45s-80e/" target="_blank" rel="noopener noreferrer"
-          class="underline hover:opacity-70 break-all" style="color:var(--color-amber);">art.jamestannahill.com/weather/2026-08-01-060044/region-45s-80e</a>.
+          class="underline hover:opacity-70 break-all">art.jamestannahill.com/weather/2026-08-01-060044/region-45s-80e</a>.
         </figcaption>
       </figure>
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">A Function Without a P&L Must Invent Its Demand</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">A Function Without a P&L Must Invent Its Demand</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           Begin with the arithmetic that governs everything else. A department that cannot point to revenue must justify its headcount by some other measure, and the only measures available to it are activity and risk avoided.
         </p>
@@ -117,8 +113,8 @@ const schema = [
           The predictable consequence is that problems get invented. Not maliciously, and usually not consciously. It is simply what a system does when growth requires demand and demand can be generated internally at no cost. Engagement scores decline slightly, so a program is required. A manager gives blunt feedback, so a communications standard is required. Two people in a company of nine thousand behave badly, so nine thousand people complete a ninety minute module. Each intervention is defensible in isolation. In aggregate they constitute an enormous, unbudgeted tax on the productive time of the firm, levied by a department that has never once been asked to demonstrate a return.
         </p>
       </div>
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Evidence Was Always Bad</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">The Evidence Was Always Bad</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           The remarkable thing about the last decade of corporate people programs is not that they were political. It is that they were, by the standards of any other capital allocation decision, evidentially unserious.
         </p>
@@ -132,8 +128,8 @@ const schema = [
           Consider what that combination means. A staff function persuaded boards to commit hundreds of millions of dollars and tens of millions of employee hours to interventions whose supporting literature was, at best, contested and, in the mandatory case, actively negative. Any operating executive who proposed a capital program on that evidentiary basis would be asked to leave the room. The programs survived because they were not, in fact, being evaluated as interventions. They were being purchased as insurance and displayed as signals.
         </p>
       </div>
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Rollback Proved the Point</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">The Rollback Proved the Point</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           Then came the part nobody in the field likes to discuss.
         </p>
@@ -150,8 +146,8 @@ const schema = [
           The people who suffer most from this cycle are the ones who took it seriously, including, conspicuously, the intended beneficiaries. Being hired into a role created for a press release, and discovering in the third year that the role was a line item in a budget nobody intended to defend, is a specific and avoidable humiliation. Cynical adoption is not kindness. It never was.
         </p>
       </div>
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Sound of Running Water</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">The Sound of Running Water</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           The cleverest member of the order is worth a longer look, because it explains the mechanism rather than merely describing it.
         </p>
@@ -179,17 +175,16 @@ const schema = [
           alt="Painting in which dense coloured splatter rings the edges of the canvas around an empty white centre"
           loading="lazy"
           decoding="async"
-          class="w-full h-auto"
-          style="background:#f5f5f5;"
+          class="w-full h-auto t-plate"
         />
-        <figcaption class="mt-3 text-[11px] leading-[1.6]" style="color:#999;">
+        <figcaption class="e-cap mt-3">
           60S 0E, Southern Ocean, rendered from that day's atmospheric data.
           From <a href="https://art.jamestannahill.com/weather/2026-08-02-020121/region-60s-0e/" target="_blank" rel="noopener noreferrer"
-          class="underline hover:opacity-70 break-all" style="color:var(--color-amber);">art.jamestannahill.com/weather/2026-08-02-020121/region-60s-0e</a>.
+          class="underline hover:opacity-70 break-all">art.jamestannahill.com/weather/2026-08-02-020121/region-60s-0e</a>.
         </figcaption>
       </figure>
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">Delegated Cowardice</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">Delegated Cowardice</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           Here is the part the critics usually miss, and it is the part that matters most, because it identifies who is actually responsible.
         </p>
@@ -212,8 +207,8 @@ const schema = [
         title: 'Whose Egg Is That',
         blurb: 'On abolishing the hiring layer, and returning the decision to the people who have to live with it',
       }]} />
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">What Is Actually Load-Bearing</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">What Is Actually Load-Bearing</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           Honesty requires the other half of the ledger, and it is not small.
         </p>
@@ -233,8 +228,8 @@ const schema = [
         title: 'Nothing to Photograph',
         blurb: 'On why firms automate the step they should have deleted, and the committee that makes it inevitable',
       }]} />
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Measurements Nobody Runs</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">The Measurements Nobody Runs</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           The remedy is unexciting and entirely available, and it consists of subjecting the function to the same questions every other cost center answers annually.
         </p>
@@ -245,8 +240,8 @@ const schema = [
           The last question is the one that exposes the true cost. Every mechanism described above is a compression mechanism. Bands compress pay, calibration compresses ratings, uniform process compresses managerial discretion, and the aggregate effect is a firm that is systematically better at retaining its median employee and systematically worse at retaining its best one. That trade is never stated, never voted on, and never measured. It is simply the output of a system optimizing for the absence of complaints.
         </p>
       </div>
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">What Good Looks Like</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">What Good Looks Like</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           Nobody in this argument is asking for a firm with no people function. They are asking for one with a small, senior, expensive people function that does hard things, and no layer above it inventing work.
         </p>
@@ -269,9 +264,7 @@ const schema = [
 
       <script src="/scripts/thoughts-ripple.js" defer></script>
 
-      <p class="mt-14 pt-8 border-t text-[12px] tracking-[0.1em]" style="border-color:#eee;">
-        <a href="/thoughts" class="hover:opacity-70" style="color:var(--color-amber);">Back to Thoughts</a>
-      </p>
+      <EssayFooter slug="inventors-of-problems" />
 
     </article>
   </div>

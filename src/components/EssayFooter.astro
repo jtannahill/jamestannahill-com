@@ -1,0 +1,97 @@
+---
+// Standard chrome at the end of every /thoughts essay: share row, author
+// line, previous/next by date, back link.
+import { getPost, neighbors, readingMinutes } from '../data/thoughts';
+
+interface Props {
+  slug: string;
+}
+const { slug } = Astro.props as Props;
+const post = getPost(slug);
+if (!post) throw new Error(`EssayFooter: unknown slug "${slug}"`);
+const url = `https://jamestannahill.com/thoughts/${slug}`;
+const { newer, older } = neighbors(slug);
+const shareText = encodeURIComponent(`${post.title} - James Tannahill`);
+const encUrl = encodeURIComponent(url);
+---
+<footer class="mt-16 pt-8 border-t t-rule-strong" data-essay-footer>
+
+  <div class="flex flex-wrap items-center justify-between gap-y-4 gap-x-6">
+    <div class="flex items-center gap-5">
+      <span class="t-eyebrow">Share</span>
+      <a class="e-share" href={`https://x.com/intent/post?text=${shareText}&url=${encUrl}`} target="_blank" rel="noopener noreferrer" aria-label="Share on X">X</a>
+      <a class="e-share" href={`https://www.linkedin.com/sharing/share-offsite/?url=${encUrl}`} target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn">LinkedIn</a>
+      <a class="e-share" href={`mailto:?subject=${shareText}&body=${encUrl}`} aria-label="Share by email">Email</a>
+      <button type="button" class="e-share" data-copy-link={url} aria-live="polite">Copy link</button>
+    </div>
+    <a href="/thoughts" class="e-share">All essays</a>
+  </div>
+
+  <div class="mt-10 flex items-start gap-4">
+    <img src="/headshot.webp" alt="" width="44" height="44" class="rounded-full shrink-0" loading="lazy" decoding="async" style="width:44px;height:44px;object-fit:cover;" />
+    <p class="text-[13px] leading-[1.7] t-body" style="text-wrap:pretty;">
+      <span class="font-semibold t-ink">James Tannahill</span> writes here occasionally, when there is something worth saying. President and Managing Partner, Plocamium Holdings; formerly biotech equity research and a third-generation family office. <a href="/" class="t-amber hover:opacity-70">About</a>.
+    </p>
+  </div>
+
+  {(newer || older) && (
+    <nav class="mt-12 grid sm:grid-cols-2 gap-px t-plate" aria-label="Neighbouring essays">
+      {newer ? (
+        <a href={`/thoughts/${newer.slug}`} class="e-nav-link">
+          <span class="t-eyebrow">Newer</span>
+          <span class="e-nav-title">{newer.title}</span>
+          <span class="e-nav-meta">{newer.date} · {readingMinutes(newer.slug)} min</span>
+        </a>
+      ) : <span class="e-nav-link e-nav-empty" aria-hidden="true"><span class="t-eyebrow">Newer</span><span class="e-nav-meta">This is the latest essay</span></span>}
+      {older ? (
+        <a href={`/thoughts/${older.slug}`} class="e-nav-link e-nav-right">
+          <span class="t-eyebrow">Older</span>
+          <span class="e-nav-title">{older.title}</span>
+          <span class="e-nav-meta">{older.date} · {readingMinutes(older.slug)} min</span>
+        </a>
+      ) : <span class="e-nav-link e-nav-right e-nav-empty" aria-hidden="true"><span class="t-eyebrow">Older</span><span class="e-nav-meta">This is the first essay</span></span>}
+    </nav>
+  )}
+</footer>
+
+<style>
+  .e-share {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--t-muted);
+    background: none;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    font: inherit;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    transition: color 0.2s ease;
+  }
+  .e-share:hover, .e-share:focus-visible { color: var(--color-amber); outline: none; }
+  .e-share[data-copied="true"] { color: var(--color-amber); }
+  .e-nav-link {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 20px 22px 22px;
+    background: var(--t-bg);
+    text-decoration: none;
+    transition: background 0.25s ease;
+  }
+  .e-nav-right { text-align: right; align-items: flex-end; }
+  a.e-nav-link:hover, a.e-nav-link:focus-visible { background: var(--t-plate); outline: none; }
+  a.e-nav-link:hover .e-nav-title { color: var(--color-amber); }
+  .e-nav-title {
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+    color: var(--t-ink);
+    text-wrap: balance;
+    transition: color 0.2s ease;
+  }
+  .e-nav-meta { font-size: 11px; color: var(--t-muted); }
+  .e-nav-empty { opacity: 0.6; }
+</style>

@@ -29,11 +29,11 @@ const heading = label ?? 'See Also';
   .see-also {
     margin: 56px 0;
     padding-top: 14px;
-    border-top: 1px solid #1a1a1a;
+    border-top: 1px solid var(--t-rule-strong);
   }
 
   .see-also-label {
-    font-size: 9px;
+    font-size: 10px;
     letter-spacing: 0.25em;
     text-transform: uppercase;
     color: var(--color-amber);
@@ -45,7 +45,7 @@ const heading = label ?? 'See Also';
     text-decoration: none;
     padding-bottom: 12px;
     margin-bottom: 12px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--t-rule);
   }
 
   .see-also-item:last-child {
@@ -59,8 +59,8 @@ const heading = label ?? 'See Also';
     font-size: 15px;
     font-weight: 600;
     letter-spacing: -0.01em;
-    color: #1a1a1a;
-    box-shadow: inset 0 -1px 0 0 #ddd;
+    color: var(--t-ink);
+    box-shadow: inset 0 -1px 0 0 var(--t-rule);
     transition: box-shadow 0.2s ease;
   }
 
@@ -73,7 +73,7 @@ const heading = label ?? 'See Also';
     margin-top: 5px;
     font-size: 11px;
     line-height: 1.6;
-    color: #999;
+    color: var(--t-muted);
   }
 
   @media (min-width: 640px) {

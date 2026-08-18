@@ -2,121 +2,9 @@
 export const prerender = true;
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-// Add new essays here, newest first. The first entry runs as the lead plate,
-// the rest fall into the grid below it. `art` is the same artwork that opens
-// the essay itself, so the index and the piece agree visually.
-const posts = [
-  {
-    slug: 'a-skull-from-georgia',
-    title: 'A Skull from Georgia',
-    standfirst: 'On the one category defined by what it is not, and the relic bolted to the front of it',
-    date: 'August 2026',
-    published: '2026-08-13',
-    art: 'https://art.jamestannahill.com/weather/2026-08-12-060044/region-30n-60w/preview-1200.webp',
-    artAlt: 'Hard-edged abstract painting of overlapping circles in red, orange, blue, yellow and black crossed by fine ruled lines on a cream ground',
-    aspect: '4 / 3',
-  },
-  {
-    slug: 'decline-to-self-identify',
-    title: 'Decline to Self-Identify',
-    standfirst: 'On the questionnaire that invents the person it counts, and the one box on it that cannot',
-    date: 'August 2026',
-    published: '2026-08-06',
-    art: 'https://art.jamestannahill.com/weather/2026-08-06-060044/tropical-south-america-15s-70w/preview-1200.webp',
-    artAlt: 'Abstract painting of a luminous pale knot caught in a wide web of fine lines across a dark blue ground',
-    aspect: '4 / 3',
-  },
-  {
-    slug: 'tenure-without-persons',
-    title: 'Tenure Without Persons',
-    standfirst: 'On what actually becomes permanent inside an institution, and the accession number that answers a polemic',
-    date: 'August 2026',
-    published: '2026-08-05',
-    art: 'https://art.jamestannahill.com/weather/2026-08-05-060044/tropical-south-america-15s-70w/preview-1200.webp',
-    artAlt: 'Two panel abstract painting of a dense green and yellow canopy with a pale seam running down the center',
-    aspect: '4 / 3',
-  },
-  {
-    slug: 'nothing-to-photograph',
-    title: 'Nothing to Photograph',
-    standfirst: 'On why firms automate the step they should have deleted, and the committee that makes it inevitable',
-    date: 'August 2026',
-    published: '2026-08-05',
-    art: 'https://art.jamestannahill.com/weather/2026-08-05-060044/europe-45n-30w/preview-1200.webp',
-    artAlt: 'Abstract painting of dense green, yellow and blue dabs massed across a pale ground like a canopy seen from above',
-    aspect: '4 / 3',
-  },
-  {
-    slug: 'whose-egg-is-that',
-    title: 'Whose Egg Is That',
-    standfirst: 'On abolishing the hiring layer, and returning the decision to the people who have to live with it',
-    date: 'August 2026',
-    published: '2026-08-05',
-    art: 'https://art.jamestannahill.com/weather/2026-08-04-060044/south-america-60s-60w/preview-1200.webp',
-    artAlt: 'Abstract painting of pink, black, yellow and coral strokes stacked across a pale ground',
-    aspect: '16 / 9',
-  },
-  {
-    slug: 'the-org-chart-travels',
-    title: 'The Org Chart Travels',
-    standfirst: 'On what actually crosses a border when an idea is exported, and why the argument stays home',
-    date: 'August 2026',
-    published: '2026-08-04',
-    art: 'https://art.jamestannahill.com/weather/2026-08-04-193850/western-pacific-15n-160e/preview-1200.webp',
-    artAlt: 'Psychedelic poster painting of Earth blazing at the centre of a starburst of neon rainbow rays',
-    aspect: '4 / 3',
-  },
-  {
-    slug: 'inventors-of-problems',
-    title: 'Inventors of Problems',
-    standfirst: 'On the staff function that must manufacture demand, and the executives who pay it to do so',
-    date: 'August 2026',
-    published: '2026-08-04',
-    art: 'https://art.jamestannahill.com/weather/2026-08-03-212941/central-asia-45n-90e/preview-1200.webp',
-    artAlt: 'Painting of four dense splatter bursts in yellow, red, green and blue radiating across white',
-    aspect: '4 / 3',
-  },
-  {
-    slug: 'ask-who-the-party-secretary-is',
-    title: 'Ask Who the Party Secretary Is',
-    standfirst: 'On dealing with an adversary that files its intentions publicly, and the diligence question nobody wants to ask first',
-    date: 'August 2026',
-    published: '2026-08-04',
-    art: 'https://art.jamestannahill.com/weather/2026-08-01-060044/region-60s-0e/preview-1200.webp',
-    artAlt: 'Hard-edged abstract painting of circles and rectangles in red, yellow and blue on white, cut by black diagonals',
-    aspect: '4 / 3',
-  },
-  {
-    slug: 'sea-room',
-    title: 'Sea Room',
-    standfirst: 'On the difference between knowing where you are and having somewhere to go',
-    date: 'August 2026',
-    published: '2026-08-04',
-    art: 'https://art.jamestannahill.com/weather/2026-08-03-060044/tropical-south-america-15s-70w/preview-1200.webp',
-    artAlt: 'Abstract painting of stacked biomorphic shapes in yellow, blue and red on a peach ground',
-    aspect: '4 / 3',
-  },
-  {
-    slug: 'the-unsmiling-class',
-    title: 'The Unsmiling Class',
-    standfirst: 'On the finance headshot, and the face it has agreed to wear',
-    date: 'August 2026',
-    published: '2026-08-04',
-    art: 'https://art.jamestannahill.com/weather/2026-08-03-060044/north-america-45n-120w/preview-1200.webp',
-    artAlt: 'Abstract painting of soft-edged sprayed forms in red, yellow and navy on a tan ground',
-    aspect: '4 / 3',
-  },
-  {
-    slug: 'guerir-quelquefois',
-    title: 'Guérir Quelquefois',
-    standfirst: 'On the word "cure," and the men who sell it',
-    date: 'August 2026',
-    published: '2026-08-04',
-    art: 'https://art.jamestannahill.com/weather/2026-08-02-060044/central-asia-45n-90e/preview-1200.webp',
-    artAlt: 'Abstract painting of overlapping pale rounded shapes in grey, cream and rose',
-    aspect: '4 / 3',
-  },
-];
+// Essays live in src/data/thoughts.ts (newest first). The first entry runs as
+// the lead plate, the rest fall into the list below it.
+import { posts, readingMinutes } from '../../data/thoughts';
 
 const [lead, ...rest] = posts;
 
@@ -160,74 +48,83 @@ const schema = [
   ogImage="https://jamestannahill.com/og-thoughts.png?v=4"
   ogImageAlt="Thoughts - occasional essays by James Tannahill"
   extraSchema={schema}
+  preloadImage={lead.art}
 >
-  <div class="bg-white min-h-screen">
+  <div class="thoughts-page min-h-screen">
     <div class="max-w-3xl mx-auto px-6 py-16">
 
-      <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">Thoughts</p>
-      <h1 class="text-[28px] font-semibold tracking-tight mb-2" style="color:#1a1a1a;">Thoughts</h1>
-      <p class="text-[15px] leading-[1.85] mb-12 max-w-xl" style="color:#444;">
+      <p class="t-eyebrow mb-4">Thoughts</p>
+      <h1 class="text-[28px] font-semibold tracking-tight mb-2 t-ink">Thoughts</h1>
+      <p class="text-[15px] leading-[1.85] mb-12 max-w-xl t-body" style="text-wrap:pretty;">
         Occasional essays. Published when there is something worth saying, not on a schedule.
       </p>
 
       <!-- Lead: newest essay, full width, art first. -->
-      <a href={`/thoughts/${lead.slug}`} class="tcard group block mb-16">
-        {lead.art && <div class="overflow-hidden" style="background:#f5f5f5;">
+      <a href={`/thoughts/${lead.slug}`} class="tcard tcard-lead group block mb-16">
+        {lead.art && <div class="overflow-hidden t-plate">
           <img
             src={lead.art}
             alt={lead.artAlt}
             width="1200"
             height="675"
             loading="eager"
+            fetchpriority="high"
             decoding="async"
-            class="tcard-img w-full object-cover"
+            class="tcard-img tcard-img-lead w-full object-cover"
             style={`aspect-ratio:${lead.aspect};`}
           />
         </div>}
         <div class="flex items-baseline gap-3 mt-5">
-          <span class="text-[9px] tracking-[0.25em] uppercase" style="color:var(--color-amber);">Latest</span>
-          <span class="text-[12px]" style="color:#999;">{lead.date}</span>
+          <span class="t-eyebrow">Latest</span>
+          <span class="text-[12px] t-muted">{lead.date}</span>
+          <span class="text-[12px] t-muted">{readingMinutes(lead.slug)} min read</span>
         </div>
-        <h2 class="tcard-title text-[30px] leading-[1.15] font-semibold tracking-tight mt-2" style="color:#1a1a1a;">
+        <h2 class="tcard-title text-[30px] leading-[1.15] font-semibold tracking-tight mt-2 t-ink" style="text-wrap:balance;">
           {lead.title}
         </h2>
-        <p class="text-[16px] leading-[1.7] mt-2 max-w-xl" style="color:#555;">{lead.standfirst}</p>
-        <span class="inline-block text-[11px] tracking-[0.18em] uppercase mt-4" style="color:var(--color-amber);">
+        <p class="text-[16px] leading-[1.7] mt-2 max-w-xl t-body" style="text-wrap:pretty;">{lead.standfirst}</p>
+        <span class="tcard-cta inline-block text-[11px] tracking-[0.18em] uppercase mt-4">
           Read the essay
         </span>
       </a>
 
       {rest.length > 0 && (
-        <div class="border-t" style="border-color:#eee;">
+        <div>
+          <div class="flex items-baseline justify-between t-rule-strong border-t pt-4 mb-2">
+            <p class="t-eyebrow">More essays</p>
+            <p class="text-[12px] t-muted tabular-nums">{rest.length} earlier</p>
+          </div>
           {rest.map((post, i) => (
             <a
               href={`/thoughts/${post.slug}`}
-              class="tcard group grid gap-6 sm:gap-8 sm:grid-cols-12 items-start py-10 border-b"
-              style="border-color:#eee;"
+              class="tcard group grid gap-5 sm:gap-8 sm:grid-cols-12 items-start py-9 border-b t-rule"
             >
-              {post.art && <div class="sm:col-span-5 overflow-hidden" style="background:#f5f5f5;">
+              {post.art && <div class="sm:col-span-4 overflow-hidden t-plate">
                 <img
                   src={post.art}
                   alt={post.artAlt}
                   width="1200"
-                  height="900"
+                  height="800"
                   loading="lazy"
                   decoding="async"
-                  class="tcard-img w-full object-cover"
-                  style={`aspect-ratio:${post.aspect};`}
+                  class="tcard-img tcard-img-row w-full object-cover"
                 />
               </div>}
-              <div class="sm:col-span-7">
-                <div class="flex items-baseline gap-3">
-                  <span class="text-[10px] tabular-nums" style="color:var(--color-amber);">
+              <div class="sm:col-span-8">
+                <div class="flex items-baseline gap-4">
+                  <span class="tcard-num text-[20px] leading-none tabular-nums font-normal">
                     {String(i + 2).padStart(2, '0')}
                   </span>
-                  <span class="text-[12px]" style="color:#999;">{post.date}</span>
+                  <span class="text-[12px] t-muted">{post.date}</span>
+                  <span class="text-[12px] t-muted">{readingMinutes(post.slug)} min read</span>
                 </div>
-                <h2 class="tcard-title text-[22px] leading-[1.25] font-semibold tracking-tight mt-1" style="color:#1a1a1a;">
+                <h2 class="tcard-title text-[22px] leading-[1.25] font-semibold tracking-tight mt-2 t-ink" style="text-wrap:balance;">
                   {post.title}
                 </h2>
-                <p class="text-[15px] leading-[1.75] mt-2" style="color:#555;">{post.standfirst}</p>
+                <p class="text-[15px] leading-[1.75] mt-2 t-body" style="text-wrap:pretty;">{post.standfirst}</p>
+                <span class="tcard-cta inline-block text-[11px] tracking-[0.18em] uppercase mt-4">
+                  Read the essay
+                </span>
               </div>
             </a>
           ))}
@@ -235,9 +132,15 @@ const schema = [
       )}
 
       <style>
+        .tcard { border-radius: 2px; outline: none; }
+        .tcard:focus-visible { box-shadow: 0 0 0 2px var(--t-bg), 0 0 0 4px var(--color-amber); }
         .tcard-img {
           transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), filter 0.4s ease;
           filter: saturate(0.92);
+        }
+        .tcard-img-row { aspect-ratio: 3 / 2; }
+        @media (max-width: 639px) {
+          .tcard-img-lead, .tcard-img-row { aspect-ratio: 16 / 9 !important; }
         }
         .tcard:hover .tcard-img,
         .tcard:focus-visible .tcard-img {
@@ -247,8 +150,20 @@ const schema = [
         .tcard-title { transition: color 0.25s ease; }
         .tcard:hover .tcard-title,
         .tcard:focus-visible .tcard-title { color: var(--color-amber); }
+        .tcard-num { color: var(--t-faint); }
+        .tcard-cta {
+          color: var(--color-amber);
+          background-image: linear-gradient(var(--color-amber), var(--color-amber));
+          background-repeat: no-repeat;
+          background-size: 0% 1px;
+          background-position: 0 100%;
+          padding-bottom: 2px;
+          transition: background-size 0.3s ease;
+        }
+        .tcard:hover .tcard-cta,
+        .tcard:focus-visible .tcard-cta { background-size: 100% 1px; }
         @media (prefers-reduced-motion: reduce) {
-          .tcard-img { transition: none; }
+          .tcard-img, .tcard-cta { transition: none; }
           .tcard:hover .tcard-img { transform: none; }
         }
       </style>

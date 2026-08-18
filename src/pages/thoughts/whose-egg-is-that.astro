@@ -1,6 +1,8 @@
 ---
 export const prerender = true;
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import EssayHeader from '../../components/EssayHeader.astro';
+import EssayFooter from '../../components/EssayFooter.astro';
 import RelatedEssay from '../../components/RelatedEssay.astro';
 
 const url = 'https://jamestannahill.com/thoughts/whose-egg-is-that';
@@ -62,17 +64,12 @@ const schema = [
   articleSection="Essays"
   extraSchema={schema}
 >
-  <div class="bg-white min-h-screen">
-    <article class="max-w-3xl mx-auto px-6 py-16">
+  <div class="thoughts-page min-h-screen">
+    <article class="max-w-[728px] mx-auto px-6 py-16">
 
-      <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">
-        <a href="/thoughts" class="hover:opacity-70" style="color:var(--color-amber);">Thoughts</a>
-      </p>
-      <h1 class="text-[28px] font-semibold tracking-tight mb-3" style="color:#1a1a1a;">Whose Egg Is That</h1>
-      <p class="text-[17px] leading-[1.6] mb-2" style="color:#666;">On abolishing the hiring layer, and returning the decision to the people who have to live with it</p>
-      <p class="text-[12px] mb-12" style="color:#999;">August 2026</p>
+      <EssayHeader slug="whose-egg-is-that" />
 
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           A previous essay argued that the people function is a supplier rather than a culprit, and that the invoice for its excesses is signed at the top. That is true, and it is also an unsatisfying place to stop, because a diagnosis which ends in shared responsibility tends to end in nothing at all. So here is the specific proposal, stated without hedging, and then the honest account of where it breaks.
         </p>
@@ -88,18 +85,17 @@ const schema = [
           alt="Abstract painting of broad pink, coral and green fields cut by a heavy black diagonal stroke"
           loading="lazy"
           decoding="async"
-          class="w-full h-auto"
-          style="background:#f5f5f5;"
+          class="w-full h-auto t-plate"
         />
-        <figcaption class="mt-3 text-[11px] leading-[1.6]" style="color:#999;">
+        <figcaption class="e-cap mt-3">
           60N 140E, Arctic, rendered from that day's atmospheric data.
           From <a href="https://art.jamestannahill.com/weather/2026-08-04-060044/arctic-60n-140e/" target="_blank" rel="noopener noreferrer"
-          class="underline hover:opacity-70 break-all" style="color:var(--color-amber);">art.jamestannahill.com/weather/2026-08-04-060044/arctic-60n-140e</a>.
+          class="underline hover:opacity-70 break-all">art.jamestannahill.com/weather/2026-08-04-060044/arctic-60n-140e</a>.
         </figcaption>
       </figure>
 
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Person Deciding Does Not Pay</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">The Person Deciding Does Not Pay</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           Every bad institution can be described by a single sentence about who bears the consequence. In hiring the sentence is short. The person who decides which candidates are seen will never work with any of them.
         </p>
@@ -114,8 +110,8 @@ const schema = [
         </p>
       </div>
 
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">Rejection Is a Skill, and It Decays</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">Rejection Is a Skill, and It Decays</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           There is a piece of natural history that describes this better than any management literature, and it is worth the detour because it explains the mechanism rather than merely naming the fault.
         </p>
@@ -133,8 +129,8 @@ const schema = [
         </p>
       </div>
 
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">The Screen That Selects for Agreement</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">The Screen That Selects for Agreement</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           Now the part that people prefer to argue about in bad faith, so it is worth being exact about what is and is not being claimed.
         </p>
@@ -159,13 +155,12 @@ const schema = [
           alt="Abstract painting of yellow, red and grey blocks massed against a broad pink ground"
           loading="lazy"
           decoding="async"
-          class="w-full h-auto"
-          style="background:#f5f5f5;"
+          class="w-full h-auto t-plate"
         />
-        <figcaption class="mt-3 text-[11px] leading-[1.6]" style="color:#999;">
+        <figcaption class="e-cap mt-3">
           15N 120E, Western Pacific, rendered from that day's atmospheric data.
           From <a href="https://art.jamestannahill.com/weather/2026-08-04-060044/western-pacific-15n-120e/" target="_blank" rel="noopener noreferrer"
-          class="underline hover:opacity-70 break-all" style="color:var(--color-amber);">art.jamestannahill.com/weather/2026-08-04-060044/western-pacific-15n-120e</a>.
+          class="underline hover:opacity-70 break-all">art.jamestannahill.com/weather/2026-08-04-060044/western-pacific-15n-120e</a>.
         </figcaption>
       </figure>
 
@@ -175,8 +170,8 @@ const schema = [
         blurb: 'On the staff function that must manufacture demand, and the executives who pay it to do so',
       }]} />
 
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">What Replaces It</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">What Replaces It</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           A proposal that stops at abolition is a complaint. Here is the mechanism, and it is deliberately dull, because the good version of this is dull.
         </p>
@@ -197,8 +192,8 @@ const schema = [
         </p>
       </div>
 
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">Where This Breaks</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">Where This Breaks</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           Anyone who presents a plan like this without the failure modes is selling something, so here they are, and two of them are serious.
         </p>
@@ -216,8 +211,8 @@ const schema = [
         </p>
       </div>
 
-      <h2 class="text-[9px] tracking-[0.25em] uppercase mt-12 mb-5" style="color:var(--color-amber);">Look at the Clutch</h2>
-      <div class="text-[15px] leading-[1.85]" style="color:#444;" data-ripple-text>
+      <h2 class="e-h2">Look at the Clutch</h2>
+      <div class="e-body" data-ripple-text>
         <p class="mb-6">
           The reed warbler that has kept the habit does something very simple and very unglamorous. It looks at its own eggs. It does this itself, in its own nest, having seen a great many eggs, and it accepts the small chance of being wrong because the alternative is raising something that will destroy everything else in the nest and demand to be fed while doing it.
         </p>
@@ -234,9 +229,7 @@ const schema = [
 
       <script src="/scripts/thoughts-ripple.js" defer></script>
 
-      <p class="mt-14 pt-8 border-t text-[12px] tracking-[0.1em]" style="border-color:#eee;">
-        <a href="/thoughts" class="hover:opacity-70" style="color:var(--color-amber);">Back to Thoughts</a>
-      </p>
+      <EssayFooter slug="whose-egg-is-that" />
 
     </article>
   </div>

@@ -161,3 +161,83 @@ body {
     animation: none !important;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   /thoughts design tokens. Light by default, dark under prefers-color-scheme.
+   Essay pages and the index reference these instead of hex literals so the
+   whole section flips together. Header/footer stay ink in both schemes.
+   --------------------------------------------------------------------------- */
+:root {
+  --t-bg: #ffffff;
+  --t-ink: #1a1a1a;
+  --t-body: #444444;
+  --t-deck: #666666;
+  --t-muted: #999999;
+  --t-faint: #b8b8b8;
+  --t-rule: #eeeeee;
+  --t-rule-strong: #1a1a1a;
+  --t-plate: #f5f5f5;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --t-bg: #121212;
+    --t-ink: #f2f0ea;
+    --t-body: #c9c6bd;
+    --t-deck: #a8a59c;
+    --t-muted: #7f7c74;
+    --t-faint: #5c5a54;
+    --t-rule: #262626;
+    --t-rule-strong: #e6e2d8;
+    --t-plate: #1c1c1c;
+  }
+}
+.thoughts-page { background: var(--t-bg); color: var(--t-body); }
+.t-ink { color: var(--t-ink); }
+.t-body { color: var(--t-body); }
+.t-deck { color: var(--t-deck); }
+.t-muted { color: var(--t-muted); }
+.t-faint { color: var(--t-faint); }
+.t-amber { color: var(--color-amber); }
+.t-rule { border-color: var(--t-rule); }
+.t-rule-strong { border-color: var(--t-rule-strong); }
+.t-plate { background: var(--t-plate); }
+.t-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-amber);
+}
+/* Essay body: 17px on a 680px measure lands near 70 characters per line. */
+.e-body { font-size: 17px; line-height: 1.7; color: var(--t-body); }
+.e-body .italic { color: var(--t-ink); }
+.e-h2 {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-amber);
+  margin-top: 3.5rem;
+  margin-bottom: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--t-rule);
+}
+.e-cap { font-size: 12px; line-height: 1.6; color: var(--t-muted); }
+.e-cap a { color: var(--color-amber); }
+/* Reading progress bar, painted just under the fixed header. */
+.e-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  background: var(--color-amber);
+  z-index: 60;
+  pointer-events: none;
+}
+/* Header hides on scroll-down inside long essays, returns on scroll-up. */
+header.hdr-hidden { transform: translateY(-100%); }
+header { transition: transform 0.28s ease; }
+@media (prefers-reduced-motion: reduce) {
+  header { transition: none; }
+}
