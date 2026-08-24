@@ -24,7 +24,7 @@
 # dialog and downloads use a professional name instead of "profile.pdf".
 /profile.pdf
   X-Robots-Tag: noindex, nofollow
-  Content-Disposition: inline; filename="James_Tannahill_Profile.pdf"
+  Content-Disposition: inline; filename="James_Tannahill_Executive_Profile.pdf"
 
 /.well-known/*
   Cache-Control: public, max-age=86400
