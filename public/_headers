@@ -10,12 +10,13 @@
   Permissions-Policy: accelerometer=(), autoplay=(self), camera=(), cross-origin-isolated=(), display-capture=(), encrypted-media=(self), fullscreen=(self), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(self), publickey-credentials-get=(), screen-wake-lock=(), sync-xhr=(), usb=(), web-share=(), xr-spatial-tracking=()
   Content-Security-Policy: default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://challenges.cloudflare.com https://static.cloudflareinsights.com https://*.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.jamestannahill.com; font-src 'self' https://fonts.jamestannahill.com data:; img-src 'self' https: data: blob:; media-src 'self' https://media.jamestannahill.com; frame-src https://challenges.cloudflare.com; connect-src 'self' https://www.google-analytics.com https://*.googletagmanager.com https://stats.g.doubleclick.net https://challenges.cloudflare.com https://*.clarity.ms https://email.us-east-1.amazonaws.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests
 
-# Resume landing page. The HTML carries <meta name="robots" content="noindex,
-# nofollow"> and this makes the header agree. The /* block deliberately does
-# NOT set X-Robots-Tag: "index, follow" is already the default, so stating it
-# globally bought nothing and collided with the noindex rules below (the page
-# was serving both answers at once, seen 2026-08-13).
-/resume
+# Profile landing page (moved from /resume, which is now an SSR 301 stub).
+# The HTML carries <meta name="robots" content="noindex, nofollow"> and this
+# makes the header agree. The /* block deliberately does NOT set X-Robots-Tag:
+# "index, follow" is already the default, so stating it globally bought
+# nothing and collided with the noindex rules below (the page was serving
+# both answers at once, seen 2026-08-13).
+/profile
   X-Robots-Tag: noindex, nofollow
 
 # Executive profile PDF: shareable via direct link, but kept out of search

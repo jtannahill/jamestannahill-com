@@ -31,14 +31,22 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
-      // /resume is a noindex share landing, so keep it out of the sitemap and
+      // /profile is a noindex share landing (and /resume its 301 stub), so
+      // keep both out of the sitemap and
       // avoid advertising a page we've told crawlers not to index. The rest
       // are 301 stubs, not pages: listing them would tell Google to keep
       // crawling URLs that only ever answer with a redirect, which is how
       // they end up parked in "Crawled - currently not indexed".
       filter: (page) => {
         const path = new URL(page).pathname.replace(/\/+$/, '');
-        return !['/resume', '/about', '/agency', '/blog', '/contact'].includes(
+        return ![
+          '/profile',
+          '/resume',
+          '/about',
+          '/agency',
+          '/blog',
+          '/contact',
+        ].includes(
           path,
         );
       },
