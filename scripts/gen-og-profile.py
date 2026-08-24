@@ -1,9 +1,9 @@
-"""OG card for /profile: dark ink ground, amber hairline, tracked eyebrow,
-NHG Display headline, amber rule, grey standfirst, amber URL, with the
-headshot in a circle on the right. Same furniture as the thoughts cards.
+"""OG card for /profile: split panel. Full-bleed headshot on the right
+behind an amber divider, ink type panel on the left (tracked eyebrow,
+NHG Display headline, amber rule, grey standfirst, amber URL).
 """
 from fontTools.ttLib import TTFont
-from PIL import Image, ImageDraw, ImageFont, ImageOps
+from PIL import Image, ImageDraw, ImageFont
 import pathlib
 
 SRC = pathlib.Path.home() / "jamestannahill-map/fonts"
@@ -38,49 +38,30 @@ def tracked(draw, xy, text, font, fill, tracking):
 
 
 img = Image.new("RGB", (W, H), INK)
-d = ImageDraw.Draw(img)
-d.rectangle([0, 0, W, 6], fill=AMBER)
 
-# Headshot in a circle on the right, with a thin amber ring.
 shot = Image.open(OUT / "headshot.jpg").convert("RGB")
-side = min(shot.size)
-shot = shot.crop((
-    (shot.width - side) // 2,
-    (shot.height - side) // 2,
-    (shot.width + side) // 2,
-    (shot.height + side) // 2,
-))
-DIA = 300
-shot = shot.resize((DIA, DIA), Image.LANCZOS)
-mask = Image.new("L", (DIA * 4, DIA * 4), 0)
-ImageDraw.Draw(mask).ellipse([0, 0, DIA * 4, DIA * 4], fill=255)
-mask = mask.resize((DIA, DIA), Image.LANCZOS)
-cx, cy = W - 90 - DIA, (H - DIA) // 2
-img.paste(shot, (cx, cy), mask)
-d.ellipse([cx - 3, cy - 3, cx + DIA + 3, cy + DIA + 3], outline=AMBER, width=3)
+scale = H / shot.height
+sw = round(shot.width * scale)
+shot = shot.resize((sw, H), Image.LANCZOS)
+panel = 660
+left = max(0, (sw - (W - panel)) // 2)
+img.paste(shot.crop((left, 0, left + (W - panel), H)), (panel, 0))
+
+d = ImageDraw.Draw(img)
+d.rectangle([panel - 6, 0, panel - 1, H], fill=AMBER)
 
 f_eyebrow = ImageFont.truetype(MED, 21)
-f_title = ImageFont.truetype(BOLD, 76)
-f_sub = ImageFont.truetype(ROMAN, 27)
-f_url = ImageFont.truetype(BOLD, 27)
+f_name = ImageFont.truetype(BOLD, 72)
+f_sub = ImageFont.truetype(ROMAN, 26)
+f_url = ImageFont.truetype(BOLD, 24)
 
-x, y = 90, 132
-tracked(d, (x, y), "JAMES TANNAHILL", f_eyebrow, AMBER, 6)
-
-y += 56
-for line in ("Executive", "Profile"):
-    d.text((x, y), line, font=f_title, fill=WHITE)
-    y += 88
-
-y += 18
-d.rectangle([x, y, x + 62, y + 4], fill=AMBER)
-
-y += 38
-for line in ("Investor, operator, and builder.", "One page, PDF."):
-    d.text((x, y), line, font=f_sub, fill=GREY)
-    y += 40
-
-d.text((90, H - 90), "jamestannahill.com/profile", font=f_url, fill=AMBER)
+tracked(d, (80, 150), "JAMES TANNAHILL", f_eyebrow, AMBER, 6)
+d.text((80, 205), "Executive", font=f_name, fill=WHITE)
+d.text((80, 285), "Profile", font=f_name, fill=WHITE)
+d.rectangle([80, 400, 142, 404], fill=AMBER)
+d.text((80, 430), "Investor, operator, and builder.", font=f_sub, fill=GREY)
+d.text((80, 466), "One page, PDF.", font=f_sub, fill=GREY)
+d.text((80, H - 84), "jamestannahill.com/profile", font=f_url, fill=AMBER)
 
 img.save(OUT / "og-profile.png", optimize=True)
 print("wrote og-profile.png", img.size)
