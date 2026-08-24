@@ -18,12 +18,12 @@
 /resume
   X-Robots-Tag: noindex, nofollow
 
-# Resume PDF: shareable via direct link, but kept out of search indexes.
-# inline => still opens in-browser; filename => recruiter's save dialog
-# and downloads use a professional name instead of "resume.pdf".
-/resume.pdf
+# Executive profile PDF: shareable via direct link, but kept out of search
+# indexes. inline => still opens in-browser; filename => recruiter's save
+# dialog and downloads use a professional name instead of "profile.pdf".
+/profile.pdf
   X-Robots-Tag: noindex, nofollow
-  Content-Disposition: inline; filename="James_Tannahill_Resume.pdf"
+  Content-Disposition: inline; filename="James_Tannahill_Profile.pdf"
 
 /.well-known/*
   Cache-Control: public, max-age=86400

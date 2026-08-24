@@ -2,15 +2,15 @@
 export const prerender = true;
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const pdf = '/resume.pdf';
+const pdf = '/profile.pdf';
 ---
 <BaseLayout
-  title="James Tannahill | Résumé"
-  description="Résumé of James Tannahill. Investor, operator, and builder with 10+ years across PE-backed, public, and growth-stage companies; currently building AI-native financial intelligence at xAI."
+  title="James Tannahill | Executive Profile"
+  description="Executive profile of James Tannahill. Investor, operator, and builder with 10+ years across PE-backed, public, and growth-stage companies; currently building AI-native financial intelligence at xAI."
   canonical="https://jamestannahill.com/resume"
   noindex={true}
   ogImage="https://jamestannahill.com/og-resume.png"
-  ogImageAlt="James Tannahill Résumé"
+  ogImageAlt="James Tannahill Executive Profile"
 >
   <div class="bg-white min-h-screen px-6 py-20">
     <div class="w-full max-w-xl mx-auto text-center">
@@ -26,7 +26,7 @@ const pdf = '/resume.pdf';
         />
       </a>
 
-      <p class="text-[9px] tracking-[0.25em] uppercase mb-3" style="color:var(--color-amber);">Résumé</p>
+      <p class="text-[9px] tracking-[0.25em] uppercase mb-3" style="color:var(--color-amber);">Executive Profile</p>
       <h1 class="text-[30px] font-semibold tracking-tight mb-3" style="color:#1a1a1a;">James Tannahill</h1>
       <p class="text-[15px] leading-[1.7] mb-6 mx-auto max-w-md" style="color:#555;">
         Investor, operator, and builder with 10+ years across PE-backed, public, and growth-stage
@@ -42,11 +42,11 @@ const pdf = '/resume.pdf';
       <div class="flex flex-wrap items-center justify-center gap-3">
         <a
           href={pdf}
-          download="James_Tannahill_Resume.pdf"
+          download="James_Tannahill_Profile.pdf"
           class="inline-flex items-center gap-2 px-7 py-3 text-[13px] font-medium rounded-full transition-opacity hover:opacity-90"
           style="background:var(--color-ink);color:#fff;"
         >
-          Download résumé (PDF)
+          Download profile (PDF)
           <span aria-hidden="true">↓</span>
         </a>
       </div>
@@ -55,12 +55,12 @@ const pdf = '/resume.pdf';
     <!-- Inline preview: a rendered image of the page (works identically on
          mobile and desktop, unlike an embedded PDF). Tap/click opens the PDF. -->
     <div class="max-w-2xl mx-auto mt-14">
-      <a href={pdf} class="block group" aria-label="Open the full résumé PDF">
+      <a href={pdf} class="block group" aria-label="Open the full executive profile PDF">
         <picture>
-          <source srcset="/resume-preview.webp" type="image/webp" />
+          <source srcset="/profile-preview.webp" type="image/webp" />
           <img
-            src="/resume-preview.jpg"
-            alt="James Tannahill résumé, full page"
+            src="/profile-preview.jpg"
+            alt="James Tannahill executive profile, full page"
             width="1224"
             height="1584"
             loading="lazy"
