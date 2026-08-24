@@ -1,6 +1,6 @@
 # James Tannahill
 
-> James Tannahill is a New York City-based private equity operator, investor, and multi-venture founder. He is President & Managing Partner of Plocamium Holdings, an operator-led private equity platform deploying patient capital across industrial technologies and healthcare, a third-generation family enterprise engineered for continuity, control, and multi-decade value creation. He serves as Intelligent Capital at xAI, building AI-native capital markets infrastructure at the frontier of machine intelligence. He is Co-Founder of 1ness Strategies (compliant digital marketing for regulated industries) and Advisor to RDLB (strategic brand architecture). He founded Nargusta, MonkeyThorn, gOOOvy, HMU API, NewYorkLab, and Art Generator. He is Head of Field Operations at ProSecPR, a veteran-led security advisory firm headquartered in Puerto Rico, protecting people, organizations, and strategic interests across Latin America.
+> James Tannahill is a New York City-based private equity operator, investor, and multi-venture founder. He is President & Managing Partner of Plocamium Holdings, an operator-led private equity platform deploying patient capital across industrial technologies and healthcare, a third-generation family enterprise engineered for continuity, control, and multi-decade value creation. He serves as Intelligent Capital at xAI (now part of SpaceXAI), building AI-native capital markets infrastructure at the frontier of machine intelligence. He is Co-Founder of 1ness Strategies (compliant digital marketing for regulated industries) and Advisor to RDLB (strategic brand architecture). He founded Nargusta, MonkeyThorn, gOOOvy, HMU API, NewYorkLab, and Art Generator. He is Head of Field Operations at ProSecPR, a veteran-led security advisory firm headquartered in Puerto Rico, protecting people, organizations, and strategic interests across Latin America.
 >
 > His discipline is engineering resilience, structures that absorb pressure and compound advantage over time. Across healthcare, industrials, technology, and finance, he builds institutional-grade frameworks designed for endurance, not extraction.
 >
@@ -21,7 +21,7 @@ background, and access policies, see the full file:
 
 ## Current Roles
 
-- **Intelligent Capital, xAI**, AI-native capital markets infrastructure at the frontier of machine intelligence
+- **Intelligent Capital, xAI (now part of SpaceXAI)**, AI-native capital markets infrastructure at the frontier of machine intelligence
 - **President & Managing Partner, Plocamium Holdings**, Operator-led private equity, patient capital across industrial technologies and healthcare
 - **Co-Founder, 1ness Strategies**, Digital marketing and growth systems engineered on ethics, data, and design for regulated industries
 - **Advisor, RDLB**, Strategic brand architecture for investors and operators
