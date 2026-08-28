@@ -1,0 +1,114 @@
+---
+export const prerender = true;
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="SigScan Privacy Policy | James Tannahill"
+  description="Privacy policy for the SigScan iOS app - what data the app handles and how it stays on your device."
+  canonical="https://jamestannahill.com/sigscan/privacy"
+>
+  <div class="bg-white min-h-screen">
+    <div class="max-w-3xl mx-auto px-6 py-16">
+
+      <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">Legal</p>
+      <h1 class="text-[28px] font-semibold tracking-tight mb-2" style="color:#1a1a1a;">SigScan Privacy Policy</h1>
+      <p class="text-[12px] mb-12" style="color:#999;">Last updated: August 28, 2026</p>
+
+      <section class="mb-10">
+        <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">Overview</p>
+        <p class="text-[15px] leading-[1.85] mb-4" style="color:#444;">
+          This Privacy Policy describes how the <strong>SigScan</strong> iOS application ("the App") handles
+          information. SigScan is a utility for viewing the wireless environment around your own device. It has
+          no user accounts, no advertising, no third-party analytics, and no tracking of any kind.
+        </p>
+        <p class="text-[15px] leading-[1.85]" style="color:#444;">
+          The short version: your scan data and your location stay on your device. Nothing is collected about you.
+        </p>
+      </section>
+
+      <section class="mb-10">
+        <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">Data the App Handles On-Device</p>
+        <p class="text-[15px] leading-[1.85] mb-4" style="color:#444;">
+          To do its job, SigScan processes the following information locally on your iPhone:
+        </p>
+        <ul class="text-[15px] leading-[1.85] mb-4 pl-5 list-disc" style="color:#444;">
+          <li>Bluetooth advertisements broadcast by nearby devices (names, manufacturer data, signal strength)</li>
+          <li>NFC tag contents when you deliberately hold your phone against a tag</li>
+          <li>Your current WiFi network details and devices advertising services on your local network</li>
+          <li>Carrier and radio technology information from iOS</li>
+          <li>Camera frames, used only to render the live augmented reality view; frames are never saved or transmitted</li>
+          <li>Your GPS location, used only to stamp your own scan history so you can review it on a map</li>
+        </ul>
+        <p class="text-[15px] leading-[1.85]" style="color:#444;">
+          All of this is stored on your device using Apple's SwiftData framework. It is never uploaded to any
+          server, and it is included in your device backups only according to your own iOS backup settings.
+          Deleting the App deletes this data. CSV export shares data only where you explicitly choose to send it.
+        </p>
+      </section>
+
+      <section class="mb-10">
+        <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">The AI Assistant Feature</p>
+        <p class="text-[15px] leading-[1.85] mb-4" style="color:#444;">
+          SigScan includes an optional assistant that answers questions about your scan results. When you type a
+          question, the App sends your question together with a brief summary of recently scanned devices (device
+          names, types, and signal strengths) to a server operated by the developer, which forwards it to
+          Anthropic's Claude API and returns the answer.
+        </p>
+        <ul class="text-[15px] leading-[1.85] mb-4 pl-5 list-disc" style="color:#444;">
+          <li>No location data is ever transmitted</li>
+          <li>No device identifiers, advertising identifiers, or account information are transmitted (the App has no accounts)</li>
+          <li>Queries are processed transiently to produce the answer and are not used to build any profile of you</li>
+        </ul>
+        <p class="text-[15px] leading-[1.85]" style="color:#444;">
+          If you never use the assistant, the App makes no network requests with your scan data at all.
+          Anthropic's handling of API traffic is described in the
+          <a href="https://www.anthropic.com/legal/privacy" class="underline hover:opacity-70" style="color:var(--color-amber);">Anthropic Privacy Policy</a>.
+        </p>
+      </section>
+
+      <section class="mb-10">
+        <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">Data Collection</p>
+        <p class="text-[15px] leading-[1.85]" style="color:#444;">
+          The App collects no personal data. There are no accounts, no analytics SDKs, no advertising SDKs, no
+          crash reporting services, and no tracking across apps or websites. The developer receives no information
+          about you or your use of the App, other than the transient AI assistant queries described above and
+          standard aggregate App Store statistics provided by Apple.
+        </p>
+      </section>
+
+      <section class="mb-10">
+        <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">Permissions</p>
+        <p class="text-[15px] leading-[1.85]" style="color:#444;">
+          SigScan requests Bluetooth, Camera, Location, NFC, HomeKit, and Local Network permissions solely to
+          provide the features described above. Each permission is optional; the App degrades gracefully if a
+          permission is declined. You can change permissions at any time in iOS Settings.
+        </p>
+      </section>
+
+      <section class="mb-10">
+        <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">Children</p>
+        <p class="text-[15px] leading-[1.85]" style="color:#444;">
+          The App is not directed at children and collects no personal data from anyone, including children.
+        </p>
+      </section>
+
+      <section class="mb-10">
+        <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">Changes</p>
+        <p class="text-[15px] leading-[1.85]" style="color:#444;">
+          Material changes to this Policy will be reflected on this page with an updated date above. Continued use
+          of the App after changes constitutes acceptance of the revised Policy.
+        </p>
+      </section>
+
+      <section class="mb-10">
+        <p class="text-[9px] tracking-[0.25em] uppercase mb-4" style="color:var(--color-amber);">Contact</p>
+        <p class="text-[15px] leading-[1.85]" style="color:#444;">
+          Questions about this Policy or the App can be sent via the
+          <a href="/faqs/" class="underline hover:opacity-70" style="color:var(--color-amber);">contact form</a>
+          on this site.
+        </p>
+      </section>
+
+    </div>
+  </div>
+</BaseLayout>
