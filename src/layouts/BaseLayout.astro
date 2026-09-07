@@ -148,8 +148,9 @@ const isHome = Astro.url.pathname === '/';
         initTracking();
       });
 
-      initScrollReveal();
-      initTracking();
+      // initScrollReveal/initTracking run from astro:page-load, which ClientRouter
+      // also fires on the initial load - calling them here too double-binds every
+      // listener and sends each GA4 event twice.
       registerServiceWorker();
     </script>
   </body>
