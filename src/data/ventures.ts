@@ -205,12 +205,12 @@ export const ventures: Venture[] = [
           'LiDAR does the rest. A mesh raycast clamps each bubble to the real surface in front of it, occlusion hides bubbles behind real walls, and a bubble whose LiDAR surface sits closer than its RSSI estimate is tinted to say so, which is what a device behind a wall looks like. Manufacturers resolve against the official Bluetooth SIG registry rather than a hand-typed table, an earlier version of which had three vendors keyed to the wrong identifiers and was quietly misclassifying hardware.',
         ],
         spec: [
-          { label: 'Radios', value: 'CoreBluetooth, CoreNFC, NetworkExtension, CoreTelephony, HomeKit' },
-          { label: 'Spatial', value: 'ARKit and RealityKit, LiDAR mesh occlusion and scene depth' },
-          { label: 'Ranging', value: 'RSSI beam-forming blended with gradient-descent trilateration' },
-          { label: 'Identification', value: 'Bluetooth SIG company registry, fingerprint profiles, risk flags' },
-          { label: 'Storage', value: 'SwiftData on device, GPS-stamped sessions, CSV export' },
-          { label: 'Assistant', value: 'Claude via a Cloudflare Worker proxy, no credentials in the app' },
+          { label: 'Radios', value: 'CoreBluetooth, CoreNFC, HomeKit, CoreTelephony' },
+          { label: 'Spatial', value: 'ARKit and RealityKit, LiDAR mesh and depth' },
+          { label: 'Ranging', value: 'RSSI beam-forming blended with trilateration' },
+          { label: 'Identification', value: 'Bluetooth SIG registry, fingerprints, risk flags' },
+          { label: 'Storage', value: 'SwiftData on device, GPS-stamped, CSV export' },
+          { label: 'Assistant', value: 'Claude via a Cloudflare Worker proxy' },
         ],
       },
       app: {
