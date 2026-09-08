@@ -180,6 +180,49 @@ export const ventures: Venture[] = [
     },
   },
   {
+    name: 'SigScan',
+    slug: 'sigscan',
+    description: 'A signal radar for the iPhone. Every Bluetooth device around you appears as a bubble in augmented reality, identified, ranged, and flagged when it should not be there. NFC tags, WiFi, and HomeKit accessories are read the same way, and nothing leaves the phone.',
+    url: 'https://jtannahill.github.io/sigscan-site/',
+    logo: '',
+    logoH: 44,
+    logoText: 'SigScan',
+    page: {
+      thesis: 'The air is full of signals. Now you can see them.',
+      record: ['RF environment scanner', 'Augmented reality', 'iPhone'],
+      body: [
+        'SigScan is a signal radar for the iPhone. Point the phone around a room and every Bluetooth device nearby appears as a floating bubble in augmented reality: named, attributed to a manufacturer, ranged by path loss, and flagged when it looks like something that should not be there.',
+        'A room reads as empty because the things filling it broadcast on frequencies people cannot hear. The average living room holds a dozen radios announcing themselves continuously, and the one that matters, a tracker in a coat lining or a bag, is indistinguishable from the eleven that are simply headphones and a television. The existing answer is a list of hex strings, which tells you a signal exists without telling you what or where it is.',
+        'Putting the signal in space is the whole argument. A bubble anchored where the device actually sits, hidden by the wall it is actually behind, turns a scan into something a person can act on: walk toward it, look at it, decide. The same instinct runs through the rest of the app, where NFC tags, the network you are joined to, and every HomeKit accessory with its firmware version are all read and shown plainly rather than summarised.',
+        'What the app does not do is the other half. There are no accounts, no advertising, no analytics, and no upload: scans and locations are held on the phone in SwiftData and go nowhere. The one exception is the assistant, which sends a typed question and a short summary of device names to be answered, carrying no location and no identifier. An instrument for seeing who is listening should not itself be listening.',
+      ],
+      links: [
+        { text: 'signal radar for the iPhone', url: 'https://apps.apple.com/app/sigscan-signal-radar/id6806315838' },
+      ],
+      technical: {
+        body: [
+          'Position is inferred rather than reported, because a Bluetooth advertisement carries signal strength and nothing else. Each RSSI sample is recorded with the camera position and forward vector that observed it, and those vectors are weighted exponentially by strength and averaged, so a device resolves in direction from rotation alone with no need to walk around. Gradient-descent trilateration runs alongside it and is blended in proportion to how far you have actually moved, which is the only condition under which trilateration is worth anything.',
+          'LiDAR does the rest. A mesh raycast clamps each bubble to the real surface in front of it, occlusion hides bubbles behind real walls, and a bubble whose LiDAR surface sits closer than its RSSI estimate is tinted to say so, which is what a device behind a wall looks like. Manufacturers resolve against the official Bluetooth SIG registry rather than a hand-typed table, an earlier version of which had three vendors keyed to the wrong identifiers and was quietly misclassifying hardware.',
+        ],
+        spec: [
+          { label: 'Radios', value: 'CoreBluetooth, CoreNFC, NetworkExtension, CoreTelephony, HomeKit' },
+          { label: 'Spatial', value: 'ARKit and RealityKit, LiDAR mesh occlusion and scene depth' },
+          { label: 'Ranging', value: 'RSSI beam-forming blended with gradient-descent trilateration' },
+          { label: 'Identification', value: 'Bluetooth SIG company registry, fingerprint profiles, risk flags' },
+          { label: 'Storage', value: 'SwiftData on device, GPS-stamped sessions, CSV export' },
+          { label: 'Assistant', value: 'Claude via a Cloudflare Worker proxy, no credentials in the app' },
+        ],
+      },
+      app: {
+        icon: '/sigscan-app-icon.png',
+        line: 'See the Bluetooth, NFC, WiFi, and HomeKit traffic around you, mapped in augmented reality and kept on your phone.',
+        url: 'https://apps.apple.com/app/sigscan-signal-radar/id6806315838',
+      },
+      metaTitle: 'SigScan - James Tannahill',
+      metaDescription: 'A signal radar for the iPhone. Bluetooth devices identified, ranged, and placed in augmented reality, with NFC, WiFi, and HomeKit read on device and nothing uploaded.',
+    },
+  },
+  {
     name: 'HMU API',
     slug: 'hmu-api',
     description: 'People, apps, and AI agents all need a way to reach you - HMU API gives them structured channels that self-organize, so you stop managing inbound and start making decisions. Don\'t email me. HMU. HitMyAPI.com',
