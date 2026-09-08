@@ -62,6 +62,7 @@ const isHome = Astro.url.pathname === '/';
     <link rel="preload" href="https://fonts.jamestannahill.com/NHGDisplay-Medium.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="https://fonts.jamestannahill.com/NHGDisplay-Bold.woff2" as="font" type="font/woff2" crossorigin />
     <ClientRouter />
+    <script src="/scripts/tracking.js" defer></script>
     <script src="/scripts/analytics.js" defer></script>
   </head>
   <body>
@@ -73,13 +74,6 @@ const isHome = Astro.url.pathname === '/';
     <ConsentBanner />
     <script src="/scripts/consent.js" defer></script>
     <script>
-      // ── Event tracking helper ────────────────────────────────────
-      function gtrack(event_name: string, params: Record<string, string> = {}) {
-        if (typeof (window as any).gtag === 'function') {
-          (window as any).gtag('event', event_name, params);
-        }
-      }
-
       // ── Scroll reveal - JS fallback for browsers without animation-timeline ──
       function initScrollReveal() {
         if (CSS.supports('animation-timeline', 'scroll()')) return;
@@ -97,60 +91,22 @@ const isHome = Astro.url.pathname === '/';
         document.querySelectorAll('.sr').forEach((el) => revealObserver.observe(el));
       }
 
-      // ── Per-page event listeners ─────────────────────────────────
-      function initTracking() {
-        document.querySelector('main a[href^="/faqs"]')?.addEventListener('click', () => {
-          gtrack('cta_click', { cta_label: 'Get in Touch', location: 'hero' });
-        });
-
-        document.querySelectorAll('header a[target="_blank"]').forEach((el) => {
-          el.addEventListener('click', () => {
-            gtrack('nav_click', { label: (el as HTMLElement).textContent?.trim() ?? '' });
-          });
-        });
-
-        document.querySelectorAll('a[href*="plocamium"], a[href*="rdlb"], a[href*="1ness"], a[href*="newyorklab"], a[href*="hmuapi"], a[href*="monkeythorn"], a[href*="gooovy"], a[href*="art.jamestannahill"]').forEach((el) => {
-          el.addEventListener('click', () => {
-            const url = (el as HTMLAnchorElement).href;
-            gtrack('venture_click', { venture_url: url });
-          });
-        });
-
-        document.querySelectorAll('details').forEach((el) => {
-          el.addEventListener('toggle', () => {
-            if ((el as HTMLDetailsElement).open) {
-              const q = el.querySelector('summary span')?.textContent?.trim().slice(0, 60) ?? '';
-              gtrack('faq_open', { question: q });
-            }
-          });
-        });
-
-        document.querySelectorAll('video').forEach((v) => {
-          v.addEventListener('play', () => {
-            gtrack('video_play', { video_src: (v as HTMLVideoElement).currentSrc || (v as HTMLVideoElement).src || 'unknown' });
-          }, { once: true });
-        });
-      }
-
       function registerServiceWorker() {
         if (!('serviceWorker' in navigator)) return;
         navigator.serviceWorker.register('/sw.js').catch(() => {});
       }
 
+      // Event tracking itself lives in /scripts/tracking.js, which instruments
+      // every page from one place: page_view, links (outbound, App Store,
+      // mailto, downloads), FAQ opens, video, scroll depth and form starts.
       document.addEventListener('astro:page-load', () => {
-        if (typeof (window as any).gtag === 'function') {
-          (window as any).gtag('event', 'page_view', {
-            page_location: window.location.href,
-            page_title: document.title,
-          });
-        }
+        (window as any).jtPageView?.();
+        (window as any).jtInitTracking?.();
         initScrollReveal();
-        initTracking();
       });
 
-      // initScrollReveal/initTracking run from astro:page-load, which ClientRouter
-      // also fires on the initial load - calling them here too double-binds every
-      // listener and sends each GA4 event twice.
+      // initScrollReveal runs from astro:page-load, which ClientRouter also
+      // fires on the initial load - calling it here too double-binds.
       registerServiceWorker();
     </script>
   </body>

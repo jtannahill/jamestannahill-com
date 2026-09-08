@@ -102,12 +102,14 @@ const TURNSTILE_SITE_KEY = '0x4AAAAAADKU-hbxlRBQvuha';
 
     if (actionError) {
       error.classList.remove('hidden');
+      (window as any).jtTrack?.('form_error', {
+        form_id: 'contact',
+        error_code: (actionError as any).code ?? 'unknown',
+      });
     } else {
       form.reset();
       success.classList.remove('hidden');
-      if (typeof (window as any).gtag === 'function') {
-        (window as any).gtag('event', 'form_submit', { form_id: 'contact', status: 'success' });
-      }
+      (window as any).jtTrack?.('form_submit', { form_id: 'contact', status: 'success' });
     }
 
     btn.textContent = 'Send Message';

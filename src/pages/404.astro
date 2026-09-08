@@ -28,4 +28,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </a>
     </div>
   </div>
+
+  <script>
+    // Which URL was missed, and where the visitor came from, is the whole
+    // value of a 404 report; the page itself has nothing else to say.
+    document.addEventListener('astro:page-load', () => {
+      (window as any).jtTrack?.('page_not_found', {
+        missed_path: window.location.pathname,
+        referrer: document.referrer || 'direct',
+      });
+    });
+  </script>
 </BaseLayout>

@@ -22,7 +22,11 @@
     };
     loadScript('https://www.googletagmanager.com/gtag/js?id=' + GA_ID, true).onload = function () {
       window.gtag('js', new Date());
-      window.gtag('config', GA_ID);
+      // page_view is sent by /scripts/tracking.js instead, so that the initial
+      // load and every ClientRouter navigation are each counted exactly once.
+      window.gtag('config', GA_ID, { send_page_view: false });
+      if (typeof window.jtPageView === 'function') window.jtPageView();
+      if (typeof window.jtInitTracking === 'function') window.jtInitTracking();
     };
   };
 
