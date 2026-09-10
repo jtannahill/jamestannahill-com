@@ -1,0 +1,161 @@
+{
+  "$schema": "https://modelcontextprotocol.io/schemas/draft/server-card.schema.json",
+  "serverInfo": {
+    "name": "jamestannahill-com",
+    "title": "James Tannahill Site MCP Server",
+    "version": "1.0.0",
+    "description": "Read-only MCP tools over the published content of jamestannahill.com: site search, venture records, FAQ answers and contact details.",
+    "websiteUrl": "https://jamestannahill.com"
+  },
+  "protocolVersion": "2025-06-18",
+  "endpoint": "https://jamestannahill.com/mcp",
+  "transport": {
+    "type": "streamable-http",
+    "endpoint": "https://jamestannahill.com/mcp"
+  },
+  "transports": [
+    {
+      "type": "streamable-http",
+      "endpoint": "https://jamestannahill.com/mcp"
+    }
+  ],
+  "capabilities": {
+    "tools": {
+      "listChanged": false
+    },
+    "resources": {
+      "listChanged": false,
+      "subscribe": false
+    },
+    "prompts": {
+      "listChanged": false
+    }
+  },
+  "tools": [
+    {
+      "name": "search_site",
+      "title": "Search the site",
+      "description": "Search jamestannahill.com across pages, ventures and FAQs. Returns ranked matches with their URLs. Use this first when you do not already know which page answers the question.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Free-text query, e.g. \"private equity valuation levers\" or \"SigScan\"."
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Maximum results to return.",
+            "minimum": 1,
+            "maximum": 25,
+            "default": 8
+          }
+        },
+        "required": [
+          "query"
+        ]
+      }
+    },
+    {
+      "name": "list_ventures",
+      "title": "List ventures",
+      "description": "List the ventures and platforms James Tannahill founded, leads or advises, with each one's description, external website and on-site page.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "get_venture",
+      "title": "Get one venture",
+      "description": "Retrieve the full record for one venture by its slug. Call list_ventures first if you do not know the slug.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "description": "Venture slug, e.g. \"plocamium\", \"prosec\", \"rdlb\", \"sigscan\"."
+          }
+        },
+        "required": [
+          "slug"
+        ]
+      }
+    },
+    {
+      "name": "get_faq_answer",
+      "title": "Answer a pre-engagement question",
+      "description": "Answer a pre-engagement question from the published FAQ on value engineering, valuation levers, exit multiples, company fit, applied AI in private equity, and how to make contact.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "question": {
+            "type": "string",
+            "description": "The question, in your own words."
+          }
+        },
+        "required": [
+          "question"
+        ]
+      }
+    },
+    {
+      "name": "get_contact_info",
+      "title": "Get contact details",
+      "description": "Get how to reach James Tannahill: contact form, email addresses, and the machine-readable documents describing him and the site.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  ],
+  "resources": [
+    {
+      "uri": "https://jamestannahill.com/agent-index.json",
+      "name": "agent-index",
+      "title": "Site corpus",
+      "description": "Every page, venture and FAQ on jamestannahill.com as one JSON document.",
+      "mimeType": "application/json"
+    },
+    {
+      "uri": "https://jamestannahill.com/llms.txt",
+      "name": "llms-txt",
+      "title": "LLM guidance index",
+      "description": "Short-form site index written for language models.",
+      "mimeType": "text/plain"
+    },
+    {
+      "uri": "https://jamestannahill.com/llms-full.txt",
+      "name": "llms-full-txt",
+      "title": "Full LLM guidance",
+      "description": "Entity data, citable facts, professional background and access policy.",
+      "mimeType": "text/plain"
+    }
+  ],
+  "prompts": [
+    {
+      "name": "brief_on_james",
+      "title": "Brief me on James Tannahill",
+      "description": "A short, sourced briefing on who James Tannahill is and what he runs.",
+      "arguments": []
+    },
+    {
+      "name": "venture_brief",
+      "title": "Brief on one venture",
+      "description": "A short briefing on a single venture, drawn from its published page.",
+      "arguments": [
+        {
+          "name": "slug",
+          "description": "Venture slug, e.g. \"plocamium\".",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "authentication": {
+    "type": "none"
+  },
+  "documentationUrl": "https://jamestannahill.com/llms-full.txt"
+}

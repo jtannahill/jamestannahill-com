@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "tsx scripts/gen-favicon.ts && tsx scripts/gen-avif.ts && astro build",
+    "build": "tsx scripts/gen-favicon.ts && tsx scripts/gen-avif.ts && tsx scripts/gen-agent-artifacts.ts && astro build",
     "preview": "astro preview",
     "astro": "astro",
     "test": "vitest run"
