@@ -1,0 +1,86 @@
+{
+  "protocolVersion": "0.3.0",
+  "name": "James Tannahill Site Agent",
+  "description": "Answers questions about James Tannahill, his ventures and platforms, and how to make contact, from the published content of jamestannahill.com. Read-only: it retrieves what the site already says and does not transact, schedule, or send mail.",
+  "version": "1.0.0",
+  "url": "https://jamestannahill.com/a2a",
+  "preferredTransport": "JSONRPC",
+  "supportedInterfaces": [
+    {
+      "url": "https://jamestannahill.com/a2a",
+      "transport": "JSONRPC"
+    }
+  ],
+  "additionalInterfaces": [
+    {
+      "url": "https://jamestannahill.com/a2a",
+      "transport": "JSONRPC"
+    }
+  ],
+  "provider": {
+    "organization": "Plocamium Holdings",
+    "url": "https://jamestannahill.com"
+  },
+  "documentationUrl": "https://jamestannahill.com/llms-full.txt",
+  "iconUrl": "https://jamestannahill.com/icon-192.png",
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "stateTransitionHistory": false
+  },
+  "defaultInputModes": ["text/plain"],
+  "defaultOutputModes": ["text/plain"],
+  "skills": [
+    {
+      "id": "site-search",
+      "name": "Search the site",
+      "description": "Search jamestannahill.com across pages, ventures and FAQs, returning ranked matches with their URLs.",
+      "tags": ["search", "retrieval", "discovery"],
+      "examples": [
+        "What does jamestannahill.com say about applied AI in private equity?",
+        "Find anything on this site about exit multiples."
+      ],
+      "inputModes": ["text/plain"],
+      "outputModes": ["text/plain"]
+    },
+    {
+      "id": "venture-lookup",
+      "name": "Look up a venture",
+      "description": "List the ventures and platforms James Tannahill founded, leads or advises, or return the full record for one of them: thesis, description, website and on-site page.",
+      "tags": ["ventures", "portfolio", "companies"],
+      "examples": [
+        "What ventures does James Tannahill lead?",
+        "Tell me about Plocamium Holdings."
+      ],
+      "inputModes": ["text/plain"],
+      "outputModes": ["text/plain"]
+    },
+    {
+      "id": "faq-answer",
+      "name": "Answer a pre-engagement question",
+      "description": "Answer from the published FAQ on value engineering, valuation levers, exit multiples, company fit, applied AI in private equity, and how engagements begin.",
+      "tags": ["faq", "engagement", "private-equity"],
+      "examples": [
+        "What levers actually move valuation before a transaction?",
+        "What profile of company is the best fit?"
+      ],
+      "inputModes": ["text/plain"],
+      "outputModes": ["text/plain"]
+    },
+    {
+      "id": "contact-info",
+      "name": "Get contact details",
+      "description": "Return how to reach James Tannahill: the contact form, email addresses, the executive profile PDF, and the machine-readable documents describing him and the site.",
+      "tags": ["contact", "email", "profile"],
+      "examples": [
+        "How do I get in touch with James Tannahill?",
+        "Where can I download his executive profile?"
+      ],
+      "inputModes": ["text/plain"],
+      "outputModes": ["text/plain"]
+    }
+  ],
+  "securitySchemes": {},
+  "security": [],
+  "supportsAuthenticatedExtendedCard": false
+}

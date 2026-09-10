@@ -64,6 +64,10 @@ const isHome = Astro.url.pathname === '/';
     <ClientRouter />
     <script src="/scripts/tracking.js" defer></script>
     <script src="/scripts/analytics.js" defer></script>
+    <!-- WebMCP: registers site tools on navigator.modelContext for in-browser
+         agents. No-ops where the API is absent. Site-wide, so it registers once
+         per document rather than on every astro:page-load. -->
+    <script src="/scripts/webmcp.js" defer></script>
   </head>
   <body>
     <Header />

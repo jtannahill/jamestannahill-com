@@ -61,6 +61,30 @@
           "title": "Liveness probe"
         }
       ]
+    },
+    {
+      "anchor": "https://jamestannahill.com/a2a",
+      "service-desc": [
+        {
+          "href": "https://jamestannahill.com/.well-known/agent-card.json",
+          "type": "application/json",
+          "title": "A2A Agent Card for the jamestannahill.com site agent"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://jamestannahill.com/llms-full.txt",
+          "type": "text/plain",
+          "title": "Entity description and agent access policy"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://jamestannahill.com/api/health",
+          "type": "application/json",
+          "title": "Liveness probe"
+        }
+      ]
     }
   ]
 }
