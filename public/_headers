@@ -26,7 +26,21 @@
   X-Robots-Tag: noindex, nofollow
   Content-Disposition: inline; filename="James_Tannahill_Executive_Profile.pdf"
 
+# Agent discovery (RFC 8288 Link + RFC 9727 api-catalog). Homepage-only, so a
+# crawler that fetches nothing but `/` still finds the catalog, the OpenAPI
+# description, and the entity docs. Mirrored in src/middleware.ts for the SSR
+# path; keep the two in sync (constant lives in src/lib/security-headers.ts).
+# One comma-separated field value == repeated Link headers per RFC 8288.
+/
+  Link: </.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json", </openapi.json>; rel="service-desc"; type="application/json", </llms.txt>; rel="service-doc"; type="text/plain", </llms-full.txt>; rel="describedby"; type="text/plain"
+
 /.well-known/*
+  Cache-Control: public, max-age=86400
+
+# Extensionless, so Workers Assets would otherwise guess. RFC 9727 mandates
+# application/linkset+json for the catalog document.
+/.well-known/api-catalog
+  Content-Type: application/linkset+json
   Cache-Control: public, max-age=86400
 
 /_astro/*

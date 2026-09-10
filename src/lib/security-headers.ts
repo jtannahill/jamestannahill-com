@@ -42,6 +42,22 @@ export function buildContentSecurityPolicy(): string {
   ].join('; ');
 }
 
+/**
+ * RFC 8288 Link relations advertising the machine-readable surface of the site,
+ * per RFC 9727 (`api-catalog`). Served on the homepage so an agent that fetches
+ * `/` alone can discover the catalog, the API description, and the entity docs
+ * without guessing well-known paths.
+ *
+ * Emitted as a single comma-separated field value, which RFC 8288 treats as
+ * equivalent to repeated `Link` headers.
+ */
+export const HOMEPAGE_LINK_HEADER = [
+  '</.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"',
+  '</openapi.json>; rel="service-desc"; type="application/json"',
+  '</llms.txt>; rel="service-doc"; type="text/plain"',
+  '</llms-full.txt>; rel="describedby"; type="text/plain"',
+].join(', ');
+
 export const SECURITY_HEADER_ENTRIES: ReadonlyArray<[string, string]> = [
   ['Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload'],
   ['X-Content-Type-Options', 'nosniff'],

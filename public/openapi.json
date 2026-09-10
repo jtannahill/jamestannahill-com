@@ -1,0 +1,47 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "jamestannahill.com public API",
+    "summary": "Public, unauthenticated HTTP surface of jamestannahill.com.",
+    "description": "A deliberately small public API. The site's substantive machine-readable content is published as documents (llms.txt, llms-full.txt, sitemap-index.xml) rather than as endpoints; see the API catalog at /.well-known/api-catalog.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "James Tannahill",
+      "email": "web@jamestannahill.com",
+      "url": "https://jamestannahill.com/faqs/"
+    },
+    "license": {
+      "name": "All rights reserved",
+      "url": "https://jamestannahill.com/terms"
+    }
+  },
+  "servers": [
+    { "url": "https://jamestannahill.com", "description": "Production" }
+  ],
+  "paths": {
+    "/api/health": {
+      "get": {
+        "operationId": "getHealth",
+        "summary": "Liveness probe",
+        "description": "Returns 200 with a constant body while the Worker is serving traffic.",
+        "responses": {
+          "200": {
+            "description": "Service is up.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": ["ok"],
+                  "properties": {
+                    "ok": { "type": "boolean", "const": true }
+                  }
+                },
+                "example": { "ok": true }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
