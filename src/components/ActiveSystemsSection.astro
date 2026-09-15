@@ -5,19 +5,19 @@
     <h2 class="tracking-[0.2em] uppercase mb-8" style="font-size:17px; color:var(--color-amber);">Active Systems</h2>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-[#e0ddd6] mb-10 md:mb-12">
       <div style="background:#f2f0eb; padding: 28px 24px;">
-        <p style="font-family:'NHG Display',sans-serif; font-size:clamp(40px,5vw,56px); font-weight:700; color:#0a0a0a; letter-spacing:-0.03em; line-height:1;">10</p>
+        <p class="stat-count" data-to="10" data-suffix="" style="font-family:'NHG Display',sans-serif; font-size:clamp(40px,5vw,56px); font-weight:700; color:#0a0a0a; letter-spacing:-0.03em; line-height:1;">10</p>
         <p style="font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:#888; margin-top:10px;">Active Platforms</p>
       </div>
       <div style="background:#f2f0eb; padding: 28px 24px;">
-        <p style="font-family:'NHG Display',sans-serif; font-size:clamp(40px,5vw,56px); font-weight:700; color:#0a0a0a; letter-spacing:-0.03em; line-height:1;">4</p>
+        <p class="stat-count" data-to="4" data-suffix="" style="font-family:'NHG Display',sans-serif; font-size:clamp(40px,5vw,56px); font-weight:700; color:#0a0a0a; letter-spacing:-0.03em; line-height:1;">4</p>
         <p style="font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:#888; margin-top:10px;">Regulated Sectors</p>
       </div>
       <div style="background:#f2f0eb; padding: 28px 24px;">
-        <p style="font-family:'NHG Display',sans-serif; font-size:clamp(40px,5vw,56px); font-weight:700; color:#0a0a0a; letter-spacing:-0.03em; line-height:1;">10+</p>
+        <p class="stat-count" data-to="10" data-suffix="+" style="font-family:'NHG Display',sans-serif; font-size:clamp(40px,5vw,56px); font-weight:700; color:#0a0a0a; letter-spacing:-0.03em; line-height:1;">10+</p>
         <p style="font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:#888; margin-top:10px;">Years Experience</p>
       </div>
       <div style="background:#f2f0eb; padding: 28px 24px;">
-        <p style="font-family:'NHG Display',sans-serif; font-size:clamp(40px,5vw,56px); font-weight:700; color:#0a0a0a; letter-spacing:-0.03em; line-height:1;">3rd</p>
+        <p class="stat-count" data-to="3" data-suffix="rd" style="font-family:'NHG Display',sans-serif; font-size:clamp(40px,5vw,56px); font-weight:700; color:#0a0a0a; letter-spacing:-0.03em; line-height:1;">3rd</p>
         <p style="font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:#888; margin-top:10px;">Generation Enterprise</p>
       </div>
     </div>
@@ -30,3 +30,48 @@
     </div>
   </div>
 </section>
+
+<script>
+  // Count-up for the Active Systems stat tiles. Progressive enhancement: the
+  // final value is already in the markup, so no-JS and reduced-motion users
+  // simply see it sitting still.
+  function initStatCounters() {
+    const els = document.querySelectorAll('.stat-count:not([data-counted])');
+    if (!els.length) return;
+    const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const run = (el) => {
+      el.dataset.counted = '1';
+      const to = Number(el.dataset.to || '0');
+      const suffix = el.dataset.suffix || '';
+      if (still || !to) return;
+      const duration = 900;
+      const start = performance.now();
+      const tick = (now) => {
+        const t = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - t, 3);
+        el.textContent = Math.round(to * eased) + (t === 1 ? suffix : '');
+        if (t < 1) requestAnimationFrame(tick);
+      };
+      el.textContent = '0';
+      requestAnimationFrame(tick);
+    };
+
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(run);
+      return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        io.unobserve(entry.target);
+        run(entry.target);
+      });
+    }, { threshold: 0.4 });
+    els.forEach((el) => io.observe(el));
+  }
+
+  document.addEventListener('astro:page-load', initStatCounters);
+  if (document.readyState !== 'loading') initStatCounters();
+  else document.addEventListener('DOMContentLoaded', initStatCounters);
+</script>
