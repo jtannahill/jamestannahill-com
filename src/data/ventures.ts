@@ -264,7 +264,7 @@ export const ventures: Venture[] = [
   {
     name: 'Art Generator',
     slug: 'art-generator',
-    description: 'Daily generative art rendered from live atmospheric data. Weather patterns, satellite palettes, and environmental signals converted into original artworks - 17 artists, nine of them trained style models, daily rotation, PNG and print-quality output.',
+    description: 'Real weather run through machine learning models trained on traditional painting. Live atmospheric data and satellite colour become original works, in the hand of a different artist each day.',
     url: 'https://art.jamestannahill.com',
     logo: '',
     logoH: 44,
