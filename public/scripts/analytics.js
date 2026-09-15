@@ -11,6 +11,10 @@
   }
 
   window.loadAnalytics = function loadAnalytics() {
+    // A prior reject in this session left the kill switches set. Consent given
+    // afterwards has to clear them, or the tag loads and silently sends nothing.
+    window.__analyticsRevoked = false;
+    window['ga-disable-' + GA_ID] = false;
     if (window.__analyticsLoaded) return;
     window.__analyticsLoaded = true;
 
