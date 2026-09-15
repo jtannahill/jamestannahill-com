@@ -166,8 +166,11 @@
   function bindEngagement() {
     var marks = SCROLL_MARKS.slice();
     var complete = false;
+    var isEssay = pageType() === 'essay';
+    var queued = false;
 
-    function onScroll() {
+    function measure() {
+      queued = false;
       // Depth reached before consent is not reported and not consumed; the
       // marks stay armed so they can fire once analytics is actually running.
       if (typeof window.gtag !== 'function') return;
@@ -178,17 +181,30 @@
       while (marks.length && pct >= marks[0]) {
         track('scroll_depth', { percent_scrolled: String(marks.shift()), content_slug: slug() });
       }
-      if (!complete && pct >= 92 && pageType() === 'essay') {
+      if (!complete && pct >= 92 && isEssay) {
         complete = true;
         track('read_complete', { content_slug: slug() });
       }
-      if (!marks.length && complete) window.removeEventListener('scroll', onScroll);
+      // Off an essay there is no read_complete to wait for, so the listener
+      // goes as soon as the last mark fires rather than living for the session.
+      if (!marks.length && (complete || !isEssay)) {
+        window.removeEventListener('scroll', onScroll);
+        window.__jtScroll = null;
+      }
     }
 
-    window.removeEventListener('scroll', window.__jtScroll || function () {});
+    // The layout reads below (scrollHeight, innerHeight) are the only real cost
+    // in this file, so they happen once a frame rather than once an event.
+    function onScroll() {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(measure);
+    }
+
+    if (window.__jtScroll) window.removeEventListener('scroll', window.__jtScroll);
     window.__jtScroll = onScroll;
     window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+    measure();
   }
 
   /** Intent on the contact form: the first field touched, before any submit. */

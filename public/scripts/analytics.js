@@ -14,7 +14,17 @@
     if (window.__analyticsLoaded) return;
     window.__analyticsLoaded = true;
 
-    loadScript('https://www.clarity.ms/tag/' + CLARITY_ID, true);
+    // Clarity is session recording: heavier than gtag and needed by nobody in
+    // the first seconds. It waits for idle so GA reporting is not queued behind
+    // it, with a timeout so a page that never goes idle still records.
+    var idle = window.requestIdleCallback
+      ? window.requestIdleCallback.bind(window)
+      : function (fn) { return setTimeout(fn, 1200); };
+    idle(function () {
+      // A reject between scheduling and firing must not still pull the tag in.
+      if (window.__analyticsRevoked) return;
+      loadScript('https://www.clarity.ms/tag/' + CLARITY_ID, true);
+    }, { timeout: 3000 });
 
     window.dataLayer = window.dataLayer || [];
     window.gtag = function gtag() {
@@ -31,8 +41,17 @@
   };
 
   window.revokeAnalytics = function revokeAnalytics() {
-    document.cookie = '_ga=; Max-Age=0; path=/; domain=.jamestannahill.com';
-    document.cookie = '_gid=; Max-Age=0; path=/; domain=.jamestannahill.com';
-    document.cookie = '_gat=; Max-Age=0; path=/; domain=.jamestannahill.com';
+    // Accept-then-reject in one session leaves gtag.js already loaded, so
+    // clearing cookies alone would not stop the sending. This flag is read by
+    // gtag itself on every hit and suppresses them outright.
+    window.__analyticsRevoked = true;
+    window['ga-disable-' + GA_ID] = true;
+    if (window.clarity) {
+      try { window.clarity('consent', false); } catch (_) { /* tag not ready */ }
+    }
+    ['_ga', '_gid', '_gat', '_ga_' + GA_ID.replace(/^G-/, ''), '_clck', '_clsk'].forEach(function (name) {
+      document.cookie = name + '=; Max-Age=0; path=/; domain=.jamestannahill.com';
+      document.cookie = name + '=; Max-Age=0; path=/';
+    });
   };
 })();
