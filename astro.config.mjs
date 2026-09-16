@@ -69,7 +69,10 @@ export default defineConfig({
           item.changefreq = 'monthly';
         } else if (item.url.includes('/contact')) {
           item.priority = 0.8;
-          item.changefreq = 'monthly';
+          item.changefreq = 'weekly';
+          // New URL (2026-09-16). A real lastmod here asks Google to recrawl
+          // it; we do not stamp lastmod on other URLs.
+          item.lastmod = '2026-09-16';
         } else {
           item.priority = 0.3;
           item.changefreq = 'yearly';
