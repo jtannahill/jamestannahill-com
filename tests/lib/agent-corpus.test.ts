@@ -8,6 +8,11 @@ describe('contact URL', () => {
     expect(identity.contact.form).toBe('https://jamestannahill.com/contact');
   });
 
+  it('publishes contact@ as the general address', () => {
+    expect(identity.contact.general).toBe('contact@jamestannahill.com');
+    expect(identity.contact.profile).toBe('profile@jamestannahill.com');
+  });
+
   it('lists /contact in the public page corpus and omits /faqs', () => {
     const paths = pages.map((p) => p.path);
     expect(paths).toContain('/contact');

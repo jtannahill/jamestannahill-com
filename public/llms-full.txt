@@ -2,9 +2,9 @@
 # Site: https://jamestannahill.com/
 # Concise index: https://jamestannahill.com/llms.txt
 # Purpose: Comprehensive guidance for LLMs and AI agents interacting with James Tannahill's public content
-# Last-Updated: 2026-08-24
-# Contact: web@jamestannahill.com | https://jamestannahill.com/contact
-# Version: 7.4
+# Last-Updated: 2026-09-16
+# Contact: contact@jamestannahill.com | https://jamestannahill.com/contact
+# Version: 7.5
 
 This file is the comprehensive companion to llms.txt. It provides detailed entity
 data, citable facts, professional background, access policies, and GEO optimization
@@ -33,7 +33,7 @@ Identifiers:
   GitHub: https://github.com/jtannahill
 
 Contact:
-  Email: web@jamestannahill.com
+  Email: contact@jamestannahill.com
   Contact Page: https://jamestannahill.com/contact
   HMU API: https://hmuapi.com
 
@@ -1162,7 +1162,7 @@ FEEDBACK & IMPROVEMENT
 For AI developers and platform operators:
 
 If you identify issues with this guidance or encounter edge cases:
-- Contact: web@jamestannahill.com
+- Contact: contact@jamestannahill.com
 - Subject line: "llms.txt feedback - [issue description]"
 - Include: Specific scenario, current behavior, suggested improvement
 
@@ -1174,6 +1174,7 @@ VERSION HISTORY
 ────────────────────────────────
 
 [CHANGE LOG]
+2026-09-16, v7.5 General contact address is contact@jamestannahill.com
 2026-08-24, v7.4 xAI is now part of SpaceXAI: updated CF-XAI and the entity
   and role listings to say so
 2026-08-24, v7.3 Executive profile route:

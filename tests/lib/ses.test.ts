@@ -40,7 +40,7 @@ describe('sendContactEmail', () => {
     const body = init.body.toString();
     expect(body).toContain('Action=SendEmail');
     expect(body).toContain('Source=web%40jamestannahill.com');
-    expect(body).toContain('Destination.ToAddresses.member.1=web%40jamestannahill.com');
+    expect(body).toContain('Destination.ToAddresses.member.1=contact%40jamestannahill.com');
     expect(body).toContain(`Message.Subject.Data=${encodeURIComponent('[jamestannahill.com] Hello')}`);
     expect(body).toContain(encodeURIComponent('James Tannahill'));
     expect(body).toContain('ReplyToAddresses.member.1=james%40example.com');

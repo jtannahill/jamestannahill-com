@@ -15,7 +15,8 @@ export interface SesEnv {
 }
 
 const REGION = 'us-east-1';
-const ADDRESS = 'web@jamestannahill.com';
+const FROM_ADDRESS = 'web@jamestannahill.com';
+const TO_ADDRESS = 'contact@jamestannahill.com';
 const SES_URL = `https://email.${REGION}.amazonaws.com/`;
 
 /** Encode key=value pairs using encodeURIComponent (produces %20, not +). */
@@ -48,8 +49,8 @@ export async function sendContactEmail(p: ContactPayload, env: SesEnv): Promise<
 
   const body = encodeParams({
     Action: 'SendEmail',
-    Source: ADDRESS,
-    'Destination.ToAddresses.member.1': ADDRESS,
+    Source: FROM_ADDRESS,
+    'Destination.ToAddresses.member.1': TO_ADDRESS,
     'Message.Subject.Data': `[jamestannahill.com] ${p.subject}`,
     'Message.Body.Text.Data': text,
     'ReplyToAddresses.member.1': p.email,

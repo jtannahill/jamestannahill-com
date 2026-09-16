@@ -70,7 +70,7 @@ export const identity = {
   summary:
     'James Tannahill is a New York City-based private equity operator, investor, and multi-venture founder. President & Managing Partner of Plocamium Holdings, an operator-led private equity platform deploying patient capital across industrial technologies and healthcare. Intelligent Capital at xAI. Co-Founder of 1ness Strategies, Advisor to RDLB, and Head of Field Operations at ProSecPR.',
   contact: {
-    general: 'web@jamestannahill.com',
+    general: 'contact@jamestannahill.com',
     profile: 'profile@jamestannahill.com',
     form: `${SITE}/contact`,
   },
