@@ -26,7 +26,7 @@ const isActive = (href: string) => href !== '/' && path.startsWith(href);
           rel={link.external ? 'noopener noreferrer' : undefined}
           data-nav-link={link.external ? undefined : link.href}
           aria-current={isActive(link.href) ? 'page' : undefined}
-          class={`nav-link text-[11px] tracking-[0.18em] uppercase transition-colors ${
+          class={`nav-link min-h-[44px] inline-flex items-center text-[11px] tracking-[0.18em] uppercase transition-colors ${
             link.label === 'CONTACT'
               ? 'nav-cta text-[var(--color-amber)] hover:text-[var(--color-amber-dark)]'
               : 'text-white/40 hover:text-white'
@@ -36,7 +36,9 @@ const isActive = (href: string) => href !== '/' && path.startsWith(href);
         </a>
       ))}
     </nav>
-    <button id="menu-toggle" class="md:hidden p-3 -mr-1 text-white" aria-label="Toggle menu">
+    <button id="menu-toggle" type="button"
+            class="relative z-[70] md:hidden min-w-[48px] min-h-[48px] p-3 -mr-1 text-white inline-flex flex-col items-center justify-center"
+            aria-label="Toggle menu" aria-controls="mobile-menu" aria-expanded="false">
       <span class="block w-5 h-px bg-current mb-1.5"></span>
       <span class="block w-5 h-px bg-current mb-1.5"></span>
       <span class="block w-5 h-px bg-current"></span>
@@ -44,9 +46,11 @@ const isActive = (href: string) => href !== '/' && path.startsWith(href);
   </div>
 </header>
 
-<!-- Mobile full-screen overlay -->
+<!-- Mobile full-screen overlay. Solid ink so the page behind cannot show through. -->
 <div id="mobile-menu" transition:persist
-     class="fixed inset-0 z-40 bg-black/95 flex flex-col items-center justify-center gap-8 hidden md:hidden">
+     class="fixed inset-0 z-[60] flex flex-col items-center justify-center gap-8 hidden md:hidden"
+     style="background:#0a0a0a;"
+     hidden>
   {navLinks.map(link => (
     <a
       href={link.href}
@@ -93,15 +97,21 @@ const isActive = (href: string) => href !== '/' && path.startsWith(href);
 
   const toggle = document.getElementById('menu-toggle');
   const menu = document.getElementById('mobile-menu');
+  function setMenuOpen(open: boolean) {
+    if (!menu || !toggle) return;
+    menu.classList.toggle('hidden', !open);
+    if (open) menu.removeAttribute('hidden');
+    else menu.setAttribute('hidden', '');
+    document.body.classList.toggle('overflow-hidden', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
   toggle?.addEventListener('click', () => {
-    menu?.classList.toggle('hidden');
-    document.body.classList.toggle('overflow-hidden');
+    setMenuOpen(toggle.getAttribute('aria-expanded') !== 'true');
   });
-  // Close on link click
-  menu?.querySelectorAll('a').forEach(a =>
-    a.addEventListener('click', () => {
-      menu.classList.add('hidden');
-      document.body.classList.remove('overflow-hidden');
-    })
+  menu?.querySelectorAll('a').forEach((a) =>
+    a.addEventListener('click', () => setMenuOpen(false)),
   );
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') setMenuOpen(false);
+  });
 </script>

@@ -15,42 +15,42 @@ const TURNSTILE_SITE_KEY = '0x4AAAAAADKU-hbxlRBQvuha';
     <div class="grid sm:grid-cols-2 gap-6 sm:gap-10">
       <div>
         <label class="block text-[11px] uppercase tracking-wider mb-3" style="color:rgba(255,255,255,0.45);" for="firstName">First Name *</label>
-        <input id="firstName" name="firstName" type="text" required
-               class="w-full bg-transparent text-white text-sm focus:outline-none pb-3"
-               style="border:none; border-bottom:1px solid rgba(255,255,255,0.25);" />
+        <input id="firstName" name="firstName" type="text" required autocomplete="given-name"
+               class="w-full min-h-[44px] bg-transparent text-white focus:outline-none pb-3"
+               style="border:none; border-bottom:1px solid rgba(255,255,255,0.25); font-size:16px;" />
       </div>
       <div>
         <label class="block text-[11px] uppercase tracking-wider mb-3" style="color:rgba(255,255,255,0.45);" for="lastName">Last Name *</label>
-        <input id="lastName" name="lastName" type="text" required
-               class="w-full bg-transparent text-white text-sm focus:outline-none pb-3"
-               style="border:none; border-bottom:1px solid rgba(255,255,255,0.25);" />
+        <input id="lastName" name="lastName" type="text" required autocomplete="family-name"
+               class="w-full min-h-[44px] bg-transparent text-white focus:outline-none pb-3"
+               style="border:none; border-bottom:1px solid rgba(255,255,255,0.25); font-size:16px;" />
       </div>
     </div>
     <div class="grid sm:grid-cols-2 gap-6 sm:gap-10">
       <div>
         <label class="block text-[11px] uppercase tracking-wider mb-3" style="color:rgba(255,255,255,0.45);" for="email">Email *</label>
-        <input id="email" name="email" type="email" required
-               class="w-full bg-transparent text-white text-sm focus:outline-none pb-3"
-               style="border:none; border-bottom:1px solid rgba(255,255,255,0.25);" />
+        <input id="email" name="email" type="email" required autocomplete="email" inputmode="email"
+               class="w-full min-h-[44px] bg-transparent text-white focus:outline-none pb-3"
+               style="border:none; border-bottom:1px solid rgba(255,255,255,0.25); font-size:16px;" />
       </div>
       <div>
         <label class="block text-[11px] uppercase tracking-wider mb-3" style="color:rgba(255,255,255,0.45);" for="phone">Phone</label>
-        <input id="phone" name="phone" type="tel"
-               class="w-full bg-transparent text-white text-sm focus:outline-none pb-3"
-               style="border:none; border-bottom:1px solid rgba(255,255,255,0.25);" />
+        <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"
+               class="w-full min-h-[44px] bg-transparent text-white focus:outline-none pb-3"
+               style="border:none; border-bottom:1px solid rgba(255,255,255,0.25); font-size:16px;" />
       </div>
     </div>
     <div>
       <label class="block text-[11px] uppercase tracking-wider mb-3" style="color:rgba(255,255,255,0.45);" for="subject">Subject</label>
       <input id="subject" name="subject" type="text" required
-             class="w-full bg-transparent text-white text-sm focus:outline-none pb-3"
-             style="border:none; border-bottom:1px solid rgba(255,255,255,0.25);" />
+             class="w-full min-h-[44px] bg-transparent text-white focus:outline-none pb-3"
+             style="border:none; border-bottom:1px solid rgba(255,255,255,0.25); font-size:16px;" />
     </div>
     <div>
       <label class="block text-[11px] uppercase tracking-wider mb-3" style="color:rgba(255,255,255,0.45);" for="message">Message</label>
       <textarea id="message" name="message" rows="4" required
-                class="w-full bg-transparent text-white text-sm focus:outline-none resize-none pb-3"
-                style="border:none; border-bottom:1px solid rgba(255,255,255,0.25);"></textarea>
+                class="w-full min-h-[44px] bg-transparent text-white focus:outline-none resize-none pb-3"
+                style="border:none; border-bottom:1px solid rgba(255,255,255,0.25); font-size:16px;"></textarea>
     </div>
 
     {/* Honeypot — visually hidden, ignored by humans, filled by dumb bots */}
@@ -63,7 +63,7 @@ const TURNSTILE_SITE_KEY = '0x4AAAAAADKU-hbxlRBQvuha';
     <div class="cf-turnstile" data-sitekey={TURNSTILE_SITE_KEY}></div>
 
     <button type="submit" id="contact-submit"
-            class="px-8 py-3 min-h-[44px] text-white text-[13px] tracking-[0.18em] uppercase"
+            class="px-8 py-3 min-h-[48px] text-white text-[13px] tracking-[0.18em] uppercase"
             style="background:var(--color-amber);">
       Send Message
     </button>

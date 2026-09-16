@@ -6,7 +6,7 @@ import { faqs } from '../data/faqs';
   <div style="border-bottom:1px solid rgba(255,255,255,0.08);">
     {faqs.map((faq) => (
       <details class="group py-5" style="border-top:1px solid rgba(255,255,255,0.08);">
-        <summary class="flex justify-between items-start cursor-pointer list-none gap-4">
+        <summary class="flex justify-between items-start cursor-pointer list-none gap-4 min-h-[48px] py-1">
           <h3 class="font-medium leading-relaxed text-white" style="font-size:15px; overflow-wrap:break-word;">{faq.q}</h3>
           <span class="mt-0.5 flex-shrink-0 transition-transform group-open:rotate-45"
                 style="color:var(--color-amber);">+</span>
