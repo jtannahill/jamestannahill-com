@@ -1,5 +1,5 @@
-// Single source of truth for /faqs/ content: rendered by FAQAccordion.astro
-// and emitted as FAQPage JSON-LD by pages/faqs.astro.
+// Single source of truth for /contact FAQ content: rendered by FAQAccordion.astro
+// and emitted as FAQPage JSON-LD by pages/contact.astro.
 export const faqs = [
   { q: 'How does value engineering differ from investment banking or management consulting?', a: "Investment bankers optimize the transaction - find buyers, structure deals, negotiate terms. Management consultants diagnose problems and recommend frameworks. Value engineering executes the specific changes that make a business worth more before bankers take it to market. We don't write slide decks about what you should do. We build the revenue engines, data infrastructure, and growth systems that directly increase what a buyer is willing to pay." },
   { q: 'What levers actually move valuation before a transaction?', a: 'Focus on metrics driving buyer multiples: recurring revenue mix, customer acquisition cost efficiency, gross margin expansion, reduction of key-person risk. A typical engagement builds scalable digital acquisition channels, performance attribution systems, and pricing restructures for predictable growth. Companies showing 12–18 months of engineered growth command 2–4x higher multiples than flat or founder-dependent revenue.' },

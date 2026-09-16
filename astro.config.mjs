@@ -45,7 +45,7 @@ export default defineConfig({
           '/about',
           '/agency',
           '/blog',
-          '/contact',
+          '/faqs',
         ].includes(
           path,
         );
@@ -67,7 +67,7 @@ export default defineConfig({
         if (item.url === 'https://jamestannahill.com/') {
           item.priority = 1.0;
           item.changefreq = 'monthly';
-        } else if (item.url.includes('/faqs')) {
+        } else if (item.url.includes('/contact')) {
           item.priority = 0.8;
           item.changefreq = 'monthly';
         } else {

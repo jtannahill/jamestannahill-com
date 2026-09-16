@@ -8,10 +8,11 @@ import CasualSection from '../components/CasualSection.astro';
 import ActiveSystemsSection from '../components/ActiveSystemsSection.astro';
 import VenturesSection from '../components/VenturesSection.astro';
 import RDLBReel from '../components/RDLBReel.astro';
+import { home } from '../data/site-copy';
 ---
 <BaseLayout
-  title="James Tannahill - Operator. Investor. Builder."
-  description="James Tannahill operates at the intersection of private equity, AI, and complex systems. Leads Plocamium Holdings. Intelligent Capital at xAI."
+  title={home.title}
+  description={home.description}
   canonical="https://jamestannahill.com/"
 >
   <Hero />

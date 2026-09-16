@@ -17,7 +17,7 @@ background, and access policies, see the full file:
 
 - [Home](https://jamestannahill.com/): Professional overview, Operator. Investor. Builder.
 - [Executive Profile](https://jamestannahill.com/profile): One-page executive profile with downloadable PDF (contact: profile@jamestannahill.com)
-- [Contact](https://jamestannahill.com/faqs/): Contact form and pre-engagement questions
+- [Contact](https://jamestannahill.com/contact): Contact form and pre-engagement questions
 
 ## Current Roles
 

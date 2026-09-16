@@ -1,10 +1,11 @@
 ---
 import { actions } from 'astro:actions';
+import { contact } from '../data/site-copy';
 
 const TURNSTILE_SITE_KEY = '0x4AAAAAADKU-hbxlRBQvuha';
 ---
 <div class="max-w-2xl">
-  <h2 class="text-2xl font-bold mb-2 text-white" style="font-family:'NHG Display',sans-serif;">Get in Touch</h2>
+  <h2 class="text-2xl font-bold mb-2 text-white" style="font-family:'NHG Display',sans-serif;">{contact.formHeading}</h2>
   <form
     id="contact-form"
     method="POST"

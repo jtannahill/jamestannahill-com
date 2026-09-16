@@ -57,7 +57,7 @@ absent from `agent-index.json`. Do not offer those URLs; you cannot fetch them
 and neither can the person asking, unless they are on the allow list.
 
 There is no public API for contact submission. To put someone in touch, direct
-them to the form at `https://jamestannahill.com/faqs/` or to
+them to the form at `https://jamestannahill.com/contact` or to
 `web@jamestannahill.com`. Executive profile enquiries go to
 `profile@jamestannahill.com`.
 

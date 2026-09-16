@@ -115,7 +115,7 @@
         }
         for (const f of data.faqs) {
           const s = score(`${f.question} ${f.answer}`, t);
-          if (s) results.push({ kind: 'faq', title: f.question, url: `${data.site}/faqs/`, snippet: f.answer, _s: s });
+          if (s) results.push({ kind: 'faq', title: f.question, url: `${data.site}/contact`, snippet: f.answer, _s: s });
         }
 
         results.sort((a, b) => b._s - a._s);
@@ -189,11 +189,11 @@
         if (!ranked.length) {
           return text({
             matched: false,
-            message: 'No FAQ covers that. The contact form at /faqs/ reaches James directly.',
+            message: 'No FAQ covers that. The contact form at /contact reaches James directly.',
             allQuestions: data.faqs.map((f) => f.question),
           });
         }
-        return text({ matched: true, answers: ranked, source: `${data.site}/faqs/` });
+        return text({ matched: true, answers: ranked, source: `${data.site}/contact` });
       },
     },
 
@@ -223,7 +223,7 @@
         properties: {
           path: {
             type: 'string',
-            description: 'Site-relative path beginning with "/", e.g. "/faqs/" or "/ventures/plocamium".',
+            description: 'Site-relative path beginning with "/", e.g. "/contact" or "/ventures/plocamium".',
           },
         },
         required: ['path'],

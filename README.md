@@ -25,7 +25,7 @@ Personal site for James Tannahill: operator, investor, builder.
 src/
   components/   # Page sections (Hero, Bio, Ventures, FAQ, etc.)
   layouts/      # BaseLayout with Google Analytics + scroll reveal
-  pages/        # index, faqs (hero video + contact + FAQPage schema), privacy, terms, accessibility
+  pages/        # index, contact (hero video + form + FAQPage schema), privacy, terms, accessibility
   data/         # faqs.ts: single source for the FAQ accordion + FAQPage JSON-LD
                 # privacy: scoped to jamestannahill.com + map./contact. subdomains
                 # (all three ship the same GA4 property G-WRDEHD4QYL)
@@ -42,7 +42,7 @@ Videos (large, not in repo: served from R2 at `media.jamestannahill.com`):
 - `videos/rdlb-brand-equity-capsule-1080.mp4`: RDLB Brand Equity Capsule (desktop, 1080p)
 - `videos/rdlb-brand-equity-capsule-720.mp4`: RDLB Brand Equity Capsule (mobile, 720p)
 - `videos/rdlb-poster.jpg`: poster frame
-- `faq-hero-1080.mp4` / `faq-hero-720.mp4`: NYC night skyline hero on `/faqs/` (desktop/mobile)
+- `faq-hero-1080.mp4` / `faq-hero-720.mp4`: NYC night skyline hero on `/contact` (desktop/mobile)
 - `faq-hero-poster.jpg`: poster frame for the FAQs hero
 
 ## Development

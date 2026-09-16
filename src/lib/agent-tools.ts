@@ -108,11 +108,11 @@ export const agentTools: AgentTool[] = [
       if (!hits.length) {
         return pretty({
           matched: false,
-          message: 'No FAQ covers that. The contact form at /faqs/ reaches James directly.',
+          message: 'No FAQ covers that. The contact form at /contact reaches James directly.',
           allQuestions: faqEntries.map((f) => f.question),
         });
       }
-      return pretty({ matched: true, answers: hits, source: `${corpus.site}/faqs/` });
+      return pretty({ matched: true, answers: hits, source: `${corpus.site}/contact` });
     },
   },
 

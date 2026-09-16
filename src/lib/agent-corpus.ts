@@ -34,7 +34,7 @@ export const pages: SitePage[] = [
       'One-page executive profile with a downloadable PDF at /profile.pdf. Contact for profile enquiries: profile@jamestannahill.com.',
   },
   {
-    path: '/faqs/',
+    path: '/contact',
     title: 'Get in Touch',
     summary:
       'Contact form plus pre-engagement questions on value engineering, valuation levers, exit multiples, company fit, and applied AI in private equity.',
@@ -72,7 +72,7 @@ export const identity = {
   contact: {
     general: 'web@jamestannahill.com',
     profile: 'profile@jamestannahill.com',
-    form: `${SITE}/faqs/`,
+    form: `${SITE}/contact`,
   },
   documents: {
     llms: `${SITE}/llms.txt`,
@@ -142,7 +142,7 @@ export function searchCorpus(query: string, limit = 8): SearchResult[] {
   }
   for (const f of faqEntries) {
     const s = score(`${f.question} ${f.answer}`, t);
-    if (s) scored.push({ kind: 'faq', title: f.question, url: `${SITE}/faqs/`, snippet: f.answer, _s: s });
+    if (s) scored.push({ kind: 'faq', title: f.question, url: `${SITE}/contact`, snippet: f.answer, _s: s });
   }
 
   scored.sort((a, b) => b._s - a._s);

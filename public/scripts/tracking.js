@@ -24,7 +24,7 @@
     if (p.indexOf('/ventures/') === 0) return 'venture';
     if (p === '/thoughts') return 'thoughts_index';
     if (p.indexOf('/thoughts/') === 0) return 'essay';
-    if (p === '/faqs') return 'faqs';
+    if (p === '/contact') return 'contact';
     if (p === '/profile') return 'profile';
     if (p.indexOf('/sigscan') === 0) return 'sigscan';
     if (p === '/privacy' || p === '/terms' || p === '/accessibility') return 'legal';
@@ -133,7 +133,7 @@
           track('essay_click', { content_slug: path.split('/').pop(), link_label: label(el) });
           return;
         }
-        if (path.indexOf('/faqs') === 0 || path === '/profile') {
+        if (path.indexOf('/contact') === 0 || path === '/profile') {
           track('cta_click', { cta_label: label(el), location: pageType(), destination: path });
         }
       });

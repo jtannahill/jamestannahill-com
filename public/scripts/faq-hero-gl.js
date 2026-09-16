@@ -1,4 +1,4 @@
-// WebGL shader hero for /faqs/. Draws the hero video through a cursor-reactive
+// WebGL shader hero for /contact. Draws the hero video through a cursor-reactive
 // ripple + chromatic-aberration shader. External (satisfies script-src 'self' CSP).
 // Falls back to the plain <video> if WebGL is unavailable, the texture taints
 // (CORS), or the user prefers reduced motion. Re-inits on astro:page-load.
