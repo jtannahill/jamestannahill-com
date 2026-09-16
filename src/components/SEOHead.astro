@@ -1,4 +1,6 @@
 ---
+import { person } from '../data/site-copy';
+
 interface Props {
   title: string;
   description: string;
@@ -56,14 +58,9 @@ const schema = {
         { "@type": "CollegeOrUniversity", "name": "Denison University" }
       ],
       "subjectOf": {
-        "@type": "DigitalDocument",
-        "name": "Executive Profile of James Tannahill",
-        "url": "https://jamestannahill.com/profile",
-        "encoding": {
-          "@type": "MediaObject",
-          "contentUrl": "https://jamestannahill.com/profile.pdf",
-          "encodingFormat": "application/pdf"
-        }
+        "@type": "WebPage",
+        "name": "James Tannahill",
+        "url": person.subjectOfUrl
       },
       "sameAs": [
         "https://plocamium.com/james-tannahill",

@@ -16,3 +16,7 @@ export const contact = {
   canonical: 'https://jamestannahill.com/contact',
   formHeading: 'Write',
 };
+
+export const person = {
+  subjectOfUrl: 'https://jamestannahill.com/',
+};

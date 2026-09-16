@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { identity, pages, searchCorpus } from '../../src/lib/agent-corpus';
-import { home, contact } from '../../src/data/site-copy';
+import { home, contact, person } from '../../src/data/site-copy';
+import { venturePages } from '../../src/data/ventures';
 
 describe('contact URL', () => {
   it('points the published form at /contact, not /faqs', () => {
@@ -40,5 +41,28 @@ describe('SERP copy', () => {
     expect(contact.description.length).toBeLessThanOrEqual(160);
     expect(contact.canonical).toBe('https://jamestannahill.com/contact');
     expect(contact.formHeading).toBe('Write');
+  });
+});
+
+describe('venture document titles', () => {
+  it('gives every venture page a topic-specific title under 60 characters', () => {
+    expect(venturePages.length).toBeGreaterThanOrEqual(8);
+    for (const v of venturePages) {
+      const title = v.page!.metaTitle;
+      expect(title.length, `${v.slug} title too long: ${title}`).toBeLessThanOrEqual(60);
+      expect(title.endsWith('- James Tannahill'), `${v.slug} still uses the generic suffix`).toBe(false);
+      expect(title.toLowerCase()).toContain(v.name.split(' ')[0].toLowerCase().replace(/\.$/, ''));
+    }
+  });
+
+  it('titles Plocamium for patient capital, not just the brand name', () => {
+    const p = venturePages.find((v) => v.slug === 'plocamium')!;
+    expect(p.page!.metaTitle).toBe('Plocamium Holdings — Patient Capital, Industry & Healthcare');
+  });
+});
+
+describe('Person schema', () => {
+  it('points subjectOf at the indexable homepage, not the noindex profile', () => {
+    expect(person.subjectOfUrl).toBe('https://jamestannahill.com/');
   });
 });
