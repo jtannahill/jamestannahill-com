@@ -13,3 +13,7 @@ not_found_handling = "404-page"
 
 # Custom domains are configured in Cloudflare Dashboard (Workers → jamestannahill-com → Domains).
 # Do not add routes here — @astrojs/cloudflare nests them under [assets] incorrectly.
+
+[[send_email]]
+name = "EMAIL"
+allowed_sender_addresses = ["web@jamestannahill.com", "contact@jamestannahill.com"]

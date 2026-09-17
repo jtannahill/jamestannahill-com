@@ -1,4 +1,8 @@
-import { sendContactEmail } from '../lib/ses';
+import {
+  sendContactConfirmation,
+  sendContactEmail,
+  type EmailEnv,
+} from '../lib/email';
 import { verifyTurnstile } from '../lib/turnstile';
 
 export interface ContactInput {
@@ -12,9 +16,7 @@ export interface ContactInput {
   turnstileToken: string;
 }
 
-export interface HandlerEnv {
-  AWS_ACCESS_KEY_ID: string;
-  AWS_SECRET_ACCESS_KEY: string;
+export interface HandlerEnv extends EmailEnv {
   TURNSTILE_SECRET_KEY: string;
 }
 
@@ -31,17 +33,22 @@ export async function handleContact(
     throw new Error('verification_failed');
   }
 
-  await sendContactEmail(
-    {
-      firstName: input.firstName,
-      lastName: input.lastName,
-      email: input.email,
-      phone: input.phone,
-      subject: input.subject,
-      message: input.message,
-    },
-    env,
-  );
+  const payload = {
+    firstName: input.firstName,
+    lastName: input.lastName,
+    email: input.email,
+    phone: input.phone,
+    subject: input.subject,
+    message: input.message,
+  };
+
+  await sendContactEmail(payload, env);
+
+  try {
+    await sendContactConfirmation(payload, env);
+  } catch {
+    // Inbound notice already delivered; don't fail the form on a receipt bounce.
+  }
 
   return { success: true };
 }

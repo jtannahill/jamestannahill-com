@@ -2,8 +2,7 @@
 /// <reference types="@astrojs/cloudflare" />
 
 type Env = {
-  AWS_ACCESS_KEY_ID: string;
-  AWS_SECRET_ACCESS_KEY: string;
+  EMAIL: import('./lib/email').EmailBinding;
   TURNSTILE_SECRET_KEY: string;
 };
 

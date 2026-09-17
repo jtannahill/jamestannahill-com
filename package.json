@@ -17,7 +17,6 @@
     "@astrojs/sitemap": "^3.7.2",
     "@tailwindcss/vite": "^4.2.2",
     "astro": "^6.1.4",
-    "aws4fetch": "^1.0.20",
     "tailwindcss": "^4.2.2"
   },
   "devDependencies": {

@@ -16,7 +16,7 @@ Personal site for James Tannahill: operator, investor, builder.
 - [Astro 6](https://astro.build): SSR build, deployed as a Cloudflare Worker
 - [Tailwind CSS 4](https://tailwindcss.com): utility-first styling
 - [Cloudflare Workers](https://workers.cloudflare.com) + [R2](https://developers.cloudflare.com/r2/): hosting, edge runtime, and large-asset storage (`media.jamestannahill.com` for video >25 MiB)
-- Astro Actions → AWS SES: contact form backend with honeypot + [Cloudflare Turnstile](https://www.cloudflare.com/products/turnstile/)
+- Astro Actions → Cloudflare Email Service: contact form backend with honeypot + [Cloudflare Turnstile](https://www.cloudflare.com/products/turnstile/)
 - NHG Display (Roman 400, Medium 500, Bold 700): self-hosted via `fonts.jamestannahill.com`
 
 ## Structure
