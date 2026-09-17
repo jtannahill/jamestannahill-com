@@ -59,8 +59,9 @@ const TURNSTILE_SITE_KEY = '0x4AAAAAADKU-hbxlRBQvuha';
       <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
     </div>
 
-    {/* Turnstile widget renders into this div once the script loads */}
-    <div class="cf-turnstile" data-sitekey={TURNSTILE_SITE_KEY}></div>
+    {/* Turnstile widget is rendered explicitly so we can hold its ID and reset the
+        single-use token after each submit attempt */}
+    <div id="turnstile-container" data-sitekey={TURNSTILE_SITE_KEY}></div>
 
     <button type="submit" id="contact-submit"
             class="px-8 py-3 min-h-[48px] text-white text-[13px] tracking-[0.18em] uppercase"
@@ -85,6 +86,30 @@ const TURNSTILE_SITE_KEY = '0x4AAAAAADKU-hbxlRBQvuha';
   const btn = document.getElementById('contact-submit') as HTMLButtonElement;
   const success = document.getElementById('contact-success')!;
   const error = document.getElementById('contact-error')!;
+
+  // Turnstile tokens are single-use. The form submits over fetch and stays on the
+  // page, so the widget has to be reset after every attempt or a retry replays a
+  // token that siteverify has already redeemed.
+  let widgetId: string | undefined;
+
+  function mountTurnstile() {
+    const el = document.getElementById('turnstile-container');
+    if (!el || el.dataset.rendered === '1') return;
+    const turnstile = (window as any).turnstile;
+    if (!turnstile) {
+      setTimeout(mountTurnstile, 50);
+      return;
+    }
+    widgetId = turnstile.render(el, { sitekey: el.dataset.sitekey });
+    el.dataset.rendered = '1';
+  }
+
+  function resetTurnstile() {
+    if (widgetId === undefined) return;
+    (window as any).turnstile?.reset(widgetId);
+  }
+
+  mountTurnstile();
 
   form?.querySelectorAll('input, textarea').forEach((el) => {
     el.addEventListener('focus', () => (el as HTMLElement).style.borderBottomColor = 'var(--color-amber)');
@@ -113,6 +138,7 @@ const TURNSTILE_SITE_KEY = '0x4AAAAAADKU-hbxlRBQvuha';
       (window as any).jtTrack?.('form_submit', { form_id: 'contact', status: 'success' });
     }
 
+    resetTurnstile();
     btn.textContent = 'Send Message';
     btn.disabled = false;
   });
