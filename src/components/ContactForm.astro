@@ -124,7 +124,7 @@ const TURNSTILE_SITE_KEY = '0x4AAAAAADKU-hbxlRBQvuha';
     error.classList.add('hidden');
 
     const formData = new FormData(form);
-    const { error: actionError } = await actions.sendContact(formData);
+    const { data, error: actionError } = await actions.sendContact(formData);
 
     if (actionError) {
       error.classList.remove('hidden');
@@ -135,7 +135,11 @@ const TURNSTILE_SITE_KEY = '0x4AAAAAADKU-hbxlRBQvuha';
     } else {
       form.reset();
       success.classList.remove('hidden');
-      (window as any).jtTrack?.('form_submit', { form_id: 'contact', status: 'success' });
+      // Honeypot submissions resolve successfully so bots see a normal send,
+      // but report delivered: false. Only count a real delivery as form_submit.
+      if (data?.delivered) {
+        (window as any).jtTrack?.('form_submit', { form_id: 'contact', status: 'success' });
+      }
     }
 
     resetTurnstile();

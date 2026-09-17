@@ -41,7 +41,7 @@ describe('handleContact', () => {
 
   it('returns success without sending when honeypot is filled', async () => {
     const result = await handleContact({ ...baseInput, website: 'spam' }, env);
-    expect(result).toEqual({ success: true });
+    expect(result).toEqual({ success: true, delivered: false });
     expect(verifyTurnstile).not.toHaveBeenCalled();
     expect(sendContactEmail).not.toHaveBeenCalled();
     expect(sendContactConfirmation).not.toHaveBeenCalled();
@@ -61,7 +61,7 @@ describe('handleContact', () => {
 
     const result = await handleContact(baseInput, env);
 
-    expect(result).toEqual({ success: true });
+    expect(result).toEqual({ success: true, delivered: true });
     expect(verifyTurnstile).toHaveBeenCalledWith('tok', 'tsk');
     expect(sendContactEmail).toHaveBeenCalledWith(contactPayload, env);
     expect(sendContactConfirmation).toHaveBeenCalledWith(contactPayload, env);
@@ -83,7 +83,7 @@ describe('handleContact', () => {
     vi.mocked(sendContactEmail).mockResolvedValue();
     vi.mocked(sendContactConfirmation).mockRejectedValue(new Error('suppressed'));
 
-    await expect(handleContact(baseInput, env)).resolves.toEqual({ success: true });
+    await expect(handleContact(baseInput, env)).resolves.toEqual({ success: true, delivered: true });
     expect(sendContactEmail).toHaveBeenCalledOnce();
   });
 });
