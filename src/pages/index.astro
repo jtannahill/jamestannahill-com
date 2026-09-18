@@ -8,12 +8,14 @@ import CasualSection from '../components/CasualSection.astro';
 import ActiveSystemsSection from '../components/ActiveSystemsSection.astro';
 import VenturesSection from '../components/VenturesSection.astro';
 import RDLBReel from '../components/RDLBReel.astro';
-import { home } from '../data/site-copy';
+import { home, og } from '../data/site-copy';
 ---
 <BaseLayout
   title={home.title}
   description={home.description}
   canonical="https://jamestannahill.com/"
+  ogImage={og.home}
+  ogImageAlt="James Tannahill - Operator. Investor. Builder."
 >
   <Hero />
   <BioSection />

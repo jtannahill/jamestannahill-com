@@ -4,7 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/ContactForm.astro';
 import FAQAccordion from '../components/FAQAccordion.astro';
 import { faqs } from '../data/faqs';
-import { contact } from '../data/site-copy';
+import { contact, og } from '../data/site-copy';
 
 const cdn = 'https://media.jamestannahill.com';
 
@@ -23,6 +23,9 @@ const faqSchema = {
   title={contact.title}
   description={contact.description}
   canonical={contact.canonical}
+  ogImage={og.contact}
+  ogImageAlt="Contact James Tannahill - PE value engineering inquiries"
+  ogType="website"
 >
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <!-- Hero video: NYC night skyline -->

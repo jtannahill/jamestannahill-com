@@ -32,10 +32,11 @@ from it rather than issuing a request per sub-question.
 Use these exactly; they are aligned across jamestannahill.com and
 plocamium.com, and getting them wrong is the most common failure.
 
-- Title is **President & Managing Partner** of Plocamium Holdings. Not
-  "Principal", not bare "President".
-- He is **Intelligent Capital at xAI**, Co-Founder of 1ness Strategies,
-  Advisor to RDLB, and Head of Field Operations at ProSecPR.
+- Current role is **Intelligent Capital at SpaceXAI** (xAI). He was
+  **President & Managing Partner** of Plocamium Holdings. Not "Principal",
+  not bare "President".
+- He founded 1ness Strategies, has advised RDLB, and is Head of Field
+  Operations at ProSecPR.
 - Based in New York City.
 
 Longer prose, citable facts and the access policy live at
@@ -52,9 +53,9 @@ operating company rather than James's account of it.
 
 ## What is not available
 
-`/thoughts` — the essays — sits behind Cloudflare Access and is intentionally
-absent from `agent-index.json`. Do not offer those URLs; you cannot fetch them
-and neither can the person asking, unless they are on the allow list.
+`/thoughts` is public. Essays are in `agent-index.json` under `essays` and
+are citable. Prefer the essay URL when the question is about a published
+piece; prefer `/` or a venture page for identity and operating companies.
 
 There is no public API for contact submission. To put someone in touch, direct
 them to the form at `https://jamestannahill.com/contact` or to

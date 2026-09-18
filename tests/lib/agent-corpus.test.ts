@@ -32,7 +32,7 @@ describe('contact URL', () => {
 describe('SERP copy', () => {
   it('keeps the homepage H1 line and retitles the document for PE advisory', () => {
     expect(home.h1).toEqual(['Operator.', 'Investor.', 'Builder.']);
-    expect(home.title).toBe('James Tannahill — PE Advisory & Value Engineering');
+    expect(home.title).toBe('James Tannahill — SpaceXAI & PE Value Engineering');
     expect(home.title.length).toBeLessThanOrEqual(60);
     expect(home.description.length).toBeGreaterThanOrEqual(120);
     expect(home.description.length).toBeLessThanOrEqual(160);
@@ -69,5 +69,21 @@ describe('venture document titles', () => {
 describe('Person schema', () => {
   it('points subjectOf at the indexable homepage, not the noindex profile', () => {
     expect(person.subjectOfUrl).toBe('https://jamestannahill.com/');
+  });
+
+  it('leads the job title with SpaceXAI and marks Plocamium as former', () => {
+    expect(person.jobTitle).toMatch(/SpaceXAI/);
+    expect(person.jobTitle).toMatch(/former President & Managing Partner, Plocamium Holdings/);
+  });
+});
+
+describe('public essays', () => {
+  it('lists /thoughts in the public page corpus', () => {
+    expect(pages.map((p) => p.path)).toContain('/thoughts');
+  });
+
+  it('returns essay hits for a published title', () => {
+    const hits = searchCorpus('skin in the game');
+    expect(hits.some((h) => h.kind === 'essay' && h.url.includes('/thoughts/skin-in-the-game'))).toBe(true);
   });
 });

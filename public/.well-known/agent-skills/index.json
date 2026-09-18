@@ -1,7 +1,7 @@
 {
   "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
   "version": "0.2.0",
-  "updatedAt": "2026-09-17",
+  "updatedAt": "2026-09-18",
   "publisher": {
     "name": "James Tannahill",
     "url": "https://jamestannahill.com"
@@ -13,7 +13,7 @@
       "version": "1.0.0",
       "description": "Research James Tannahill, his ventures, and his professional record using the machine-readable surfaces of jamestannahill.com rather than scraping rendered HTML.",
       "url": "https://jamestannahill.com/skills/jamestannahill-site-research/SKILL.md",
-      "digest": "sha256:9c30e547ffcb199d34c886c30221971b45f89ebe39be739567be2d7fea19a75e",
+      "digest": "sha256:067b1d46cfae9b158cdf780387bcd5bba97edac27f9005bfa06513303d946b06",
       "license": "All rights reserved"
     },
     {
@@ -22,7 +22,7 @@
       "version": "1.0.0",
       "description": "Connect to the agent endpoints published by jamestannahill.com: MCP over Streamable HTTP, A2A over JSON-RPC, WebMCP in the browser, and the RFC 9727 API catalog.",
       "url": "https://jamestannahill.com/skills/jamestannahill-agent-surfaces/SKILL.md",
-      "digest": "sha256:482a41892d2be3c2079ab4e383153a539b771da0185802eecf3ab2e0da842631",
+      "digest": "sha256:64236aa59be01279076b7c10b0671555191eb0e478e4ef572d9eed37a76bfc8b",
       "license": "All rights reserved"
     }
   ]

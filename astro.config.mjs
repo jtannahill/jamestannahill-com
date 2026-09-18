@@ -70,9 +70,19 @@ export default defineConfig({
         } else if (item.url.includes('/contact')) {
           item.priority = 0.8;
           item.changefreq = 'weekly';
-          // New URL (2026-09-16). A real lastmod here asks Google to recrawl
-          // it; we do not stamp lastmod on other URLs.
-          item.lastmod = '2026-09-16';
+          // Conversion URL. Stamp lastmod so Google recrawls /contact instead
+          // of keeping /faqs as the canonical contact page.
+          item.lastmod = '2026-09-18';
+        } else if (item.url === 'https://jamestannahill.com/thoughts') {
+          item.priority = 0.7;
+          item.changefreq = 'weekly';
+          item.lastmod = '2026-09-18';
+        } else if (item.url.includes('/thoughts/')) {
+          item.priority = 0.6;
+          item.changefreq = 'monthly';
+        } else if (item.url.includes('/ventures/')) {
+          item.priority = 0.5;
+          item.changefreq = 'monthly';
         } else {
           item.priority = 0.3;
           item.changefreq = 'yearly';

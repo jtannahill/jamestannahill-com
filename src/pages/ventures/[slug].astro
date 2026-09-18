@@ -2,6 +2,7 @@
 export const prerender = true;
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { venturePages } from '../../data/ventures';
+import { og } from '../../data/site-copy';
 
 export function getStaticPaths() {
   return venturePages.map((v, i) => ({
@@ -80,7 +81,7 @@ const schema = [
   title={page.metaTitle}
   description={page.metaDescription}
   canonical={canonical}
-  ogImage={`https://jamestannahill.com/og-venture-${venture.slug}.png`}
+  ogImage={og.venture(venture.slug)}
   ogImageAlt={`${venture.name} - ${page.thesis}`}
   ogType="website"
   extraSchema={schema}

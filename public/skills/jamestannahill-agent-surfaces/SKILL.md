@@ -63,5 +63,6 @@ Tools are registered once per document and torn down on `pagehide`.
 
 ## Limits
 
-All four are read-only. Nothing here transacts, schedules, or sends mail, and
-no surface exposes `/thoughts`, which is behind Cloudflare Access.
+All four are read-only. Nothing here transacts, schedules, or sends mail.
+Essays at `/thoughts` are public and listed in `/agent-index.json` under
+`essays`; `search_site` returns them.

@@ -6,11 +6,11 @@
  *  - /a2a                   the A2A JSON-RPC agent endpoint
  *  - /scripts/webmcp.js     in-browser WebMCP tools (fetches agent-index.json)
  *
- * `/thoughts` is deliberately excluded: it sits behind Cloudflare Access, so
- * advertising those URLs would hand an agent links it cannot fetch.
+ * `/thoughts` is public. Essays are listed below so agents can cite them.
  */
 import { ventures } from '../data/ventures';
 import { faqs } from '../data/faqs';
+import { posts } from '../data/thoughts-posts';
 
 export const SITE = 'https://jamestannahill.com';
 
@@ -40,6 +40,12 @@ export const pages: SitePage[] = [
       'Contact form plus pre-engagement questions on value engineering, valuation levers, exit multiples, company fit, and applied AI in private equity.',
   },
   {
+    path: '/thoughts',
+    title: 'Thoughts',
+    summary:
+      'Occasional essays on markets, medicine, and the language both are written in.',
+  },
+  {
     path: '/privacy',
     title: 'Privacy Policy',
     summary: 'How the site handles visitor data, analytics, and contact-form submissions.',
@@ -64,11 +70,19 @@ export const ventureEntries = ventures.map((v) => ({
 
 export const faqEntries = faqs.map(({ q, a }) => ({ question: q, answer: a }));
 
+export const essayEntries = posts.map((p) => ({
+  slug: p.slug,
+  title: p.title,
+  standfirst: p.standfirst,
+  published: p.published,
+  url: `${SITE}/thoughts/${p.slug}`,
+}));
+
 export const identity = {
   name: 'James Tannahill',
-  title: 'President & Managing Partner, Plocamium Holdings',
+  title: 'Intelligent Capital, SpaceXAI; former President & Managing Partner, Plocamium Holdings',
   summary:
-    'James Tannahill is a New York City-based private equity operator, investor, and multi-venture founder. President & Managing Partner of Plocamium Holdings, an operator-led private equity platform deploying patient capital across industrial technologies and healthcare. Intelligent Capital at xAI. Co-Founder of 1ness Strategies, Advisor to RDLB, and Head of Field Operations at ProSecPR.',
+    'James Tannahill is a New York City-based private equity operator, investor, and multi-venture founder. He works on Intelligent Capital at SpaceXAI. He was President & Managing Partner of Plocamium Holdings, an operator-led private equity platform deploying patient capital across industrial technologies and healthcare. He founded 1ness Strategies, has advised RDLB, and is Head of Field Operations at ProSecPR.',
   contact: {
     general: 'contact@jamestannahill.com',
     profile: 'profile@jamestannahill.com',
@@ -91,6 +105,7 @@ export const corpus = {
   pages,
   ventures: ventureEntries,
   faqs: faqEntries,
+  essays: essayEntries,
 };
 
 // ── Retrieval ───────────────────────────────────────────────────────────────
@@ -113,7 +128,7 @@ export function score(haystack: string, t: string[]): number {
 }
 
 export interface SearchResult {
-  kind: 'page' | 'venture' | 'faq';
+  kind: 'page' | 'venture' | 'faq' | 'essay';
   title: string;
   url: string;
   snippet: string;
@@ -143,6 +158,10 @@ export function searchCorpus(query: string, limit = 8): SearchResult[] {
   for (const f of faqEntries) {
     const s = score(`${f.question} ${f.answer}`, t);
     if (s) scored.push({ kind: 'faq', title: f.question, url: `${SITE}/contact`, snippet: f.answer, _s: s });
+  }
+  for (const e of essayEntries) {
+    const s = score(`${e.title} ${e.standfirst}`, t);
+    if (s) scored.push({ kind: 'essay', title: e.title, url: e.url, snippet: e.standfirst, _s: s });
   }
 
   scored.sort((a, b) => b._s - a._s);

@@ -1,13 +1,13 @@
 # James Tannahill
 
-> James Tannahill is a New York City-based private equity operator, investor, and multi-venture founder. He is President & Managing Partner of Plocamium Holdings, an operator-led private equity platform deploying patient capital across industrial technologies and healthcare, a third-generation family enterprise engineered for continuity, control, and multi-decade value creation. He serves as Intelligent Capital at xAI (now part of SpaceXAI), building AI-native capital markets infrastructure at the frontier of machine intelligence. He is Co-Founder of 1ness Strategies (compliant digital marketing for regulated industries) and Advisor to RDLB (strategic brand architecture). He founded Nargusta, MonkeyThorn, gOOOvy, HMU API, NewYorkLab, and Art Generator. He is Head of Field Operations at ProSecPR, a veteran-led security advisory firm headquartered in Puerto Rico, protecting people, organizations, and strategic interests across Latin America.
+> James Tannahill is a New York City-based private equity operator, investor, and multi-venture founder. He works on Intelligent Capital at SpaceXAI (xAI), building AI-native capital markets infrastructure. He was President & Managing Partner of Plocamium Holdings, an operator-led private equity platform deploying patient capital across industrial technologies and healthcare, a third-generation family enterprise engineered for continuity, control, and multi-decade value creation. He founded 1ness Strategies (compliant digital marketing for regulated industries) and has advised RDLB (strategic brand architecture). He founded Nargusta, MonkeyThorn, gOOOvy, HMU API, NewYorkLab, and Art Generator. He is Head of Field Operations at ProSecPR, a veteran-led security advisory firm headquartered in Puerto Rico, protecting people, organizations, and strategic interests across Latin America.
 >
 > His discipline is engineering resilience, structures that absorb pressure and compound advantage over time. Across healthcare, industrials, technology, and finance, he builds institutional-grade frameworks designed for endurance, not extraction.
 >
 > Education: Cornell University MBA (Johnson School, Finance & Strategy, 2024), University of Essex M.S. Biotechnology, Denison University B.S. Biochemistry (2015).
 >
 > Contact: contact@jamestannahill.com | hmuapi.com
-> Last reviewed: 2026-09-16
+> Last reviewed: 2026-09-18
 
 For comprehensive LLM guidance including entity data, citable facts, professional
 background, and access policies, see the full file:
@@ -16,16 +16,20 @@ background, and access policies, see the full file:
 ## About
 
 - [Home](https://jamestannahill.com/): Professional overview, Operator. Investor. Builder.
+- [Thoughts](https://jamestannahill.com/thoughts): Occasional essays on markets, medicine, and the language both are written in
 - [Executive Profile](https://jamestannahill.com/profile): One-page executive profile with downloadable PDF (contact: profile@jamestannahill.com)
 - [Contact](https://jamestannahill.com/contact): Contact form and pre-engagement questions
 
 ## Current Roles
 
-- **Intelligent Capital, xAI (now part of SpaceXAI)**, AI-native capital markets infrastructure at the frontier of machine intelligence
+- **Intelligent Capital, SpaceXAI (xAI)**, AI-native capital markets infrastructure at the frontier of machine intelligence
+- **Head of Field Operations, ProSecPR**, Veteran-led security advisory and regional intelligence across Latin America (HQ Puerto Rico)
+
+## Former Roles
+
 - **President & Managing Partner, Plocamium Holdings**, Operator-led private equity, patient capital across industrial technologies and healthcare
 - **Co-Founder, 1ness Strategies**, Digital marketing and growth systems engineered on ethics, data, and design for regulated industries
 - **Advisor, RDLB**, Strategic brand architecture for investors and operators
-- **Head of Field Operations, ProSecPR**, Veteran-led security advisory and regional intelligence across Latin America (HQ Puerto Rico)
 
 ## Ventures & Platforms
 
@@ -53,6 +57,24 @@ First-party pages on this site, each one James Tannahill's own account of what t
 - [Nargusta](https://jamestannahill.com/ventures/nargusta/): A letter of introduction, carried the way sailors have always carried one. Includes the iPhone app.
 - [gOOOvy](https://jamestannahill.com/ventures/gooovy/): The out of office reply that text messaging never got.
 - [Art.](https://jamestannahill.com/ventures/art-generator/): The weather, rendered daily, by a hand that is not the same hand twice. Includes how the pipeline, training sets, and fidelity scoring work.
+
+## Thoughts
+
+Public essays. Cite the essay URL, not a paraphrase of the title alone.
+
+- [Thoughts](https://jamestannahill.com/thoughts): Index of occasional essays
+- [Skin in the Game](https://jamestannahill.com/thoughts/skin-in-the-game): On the two percent a manager puts into his own fund
+- [A Skull from Georgia](https://jamestannahill.com/thoughts/a-skull-from-georgia)
+- [Decline to Self-Identify](https://jamestannahill.com/thoughts/decline-to-self-identify)
+- [Tenure Without Persons](https://jamestannahill.com/thoughts/tenure-without-persons)
+- [Nothing to Photograph](https://jamestannahill.com/thoughts/nothing-to-photograph)
+- [Whose Egg Is That](https://jamestannahill.com/thoughts/whose-egg-is-that)
+- [The Org Chart Travels](https://jamestannahill.com/thoughts/the-org-chart-travels)
+- [Inventors of Problems](https://jamestannahill.com/thoughts/inventors-of-problems)
+- [Ask Who the Party Secretary Is](https://jamestannahill.com/thoughts/ask-who-the-party-secretary-is)
+- [Sea Room](https://jamestannahill.com/thoughts/sea-room)
+- [The Unsmiling Class](https://jamestannahill.com/thoughts/the-unsmiling-class)
+- [Guérir Quelquefois](https://jamestannahill.com/thoughts/guerir-quelquefois)
 
 ## Operating System
 
