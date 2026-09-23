@@ -33,7 +33,8 @@ function escapeHtml(value: string): string {
     .replaceAll('&', '&amp;')
     .replaceAll('<', '&lt;')
     .replaceAll('>', '&gt;')
-    .replaceAll('"', '&quot;');
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#39;');
 }
 
 function displayName(p: ContactPayload): string {
@@ -110,7 +111,9 @@ export async function sendContactEmail(p: ContactPayload, env: EmailEnv): Promis
     to: INBOX,
     from: WEB_FROM,
     replyTo: p.email,
-    subject: `[jamestannahill.com] ${p.subject}`,
+    // The schema already rejects line breaks; this holds the header safe for
+    // any caller that reaches here without it.
+    subject: `[jamestannahill.com] ${p.subject.replace(/[\r\n]+/g, ' ')}`,
     text: inboundText(p),
     html: inboundHtml(p),
   });

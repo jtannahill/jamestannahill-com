@@ -177,10 +177,21 @@ export const GET: APIRoute = () =>
     200,
   );
 
+// Anonymous endpoint that echoes the query back, so the body gets a ceiling.
+const MAX_BODY_BYTES = 64 * 1024;
+
 export const POST: APIRoute = async ({ request }) => {
+  if (Number(request.headers.get('content-length') ?? 0) > MAX_BODY_BYTES) {
+    return rpcError(null, ERR.invalidRequest, `Invalid request: body exceeds ${MAX_BODY_BYTES} bytes.`);
+  }
+  const raw = await request.text();
+  // Chunked uploads carry no Content-Length, so measure what actually arrived.
+  if (raw.length > MAX_BODY_BYTES) {
+    return rpcError(null, ERR.invalidRequest, `Invalid request: body exceeds ${MAX_BODY_BYTES} bytes.`);
+  }
   let body: any;
   try {
-    body = await request.json();
+    body = JSON.parse(raw);
   } catch {
     return rpcError(null, ERR.parse, 'Parse error: body is not valid JSON.');
   }

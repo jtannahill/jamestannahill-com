@@ -8,6 +8,7 @@ const TURNSTILE_SITE_KEY = '0x4AAAAAADKU-hbxlRBQvuha';
   <h2 class="text-2xl font-bold mb-2 text-white" style="font-family:'NHG Display',sans-serif;">{contact.formHeading}</h2>
   <form
     id="contact-form"
+    data-clarity-mask="true"
     method="POST"
     action={actions.sendContact}
     class="space-y-6 md:space-y-10 mt-8"
@@ -15,13 +16,13 @@ const TURNSTILE_SITE_KEY = '0x4AAAAAADKU-hbxlRBQvuha';
     <div class="grid sm:grid-cols-2 gap-6 sm:gap-10">
       <div>
         <label class="block text-[11px] uppercase tracking-wider mb-3" style="color:rgba(255,255,255,0.45);" for="firstName">First Name *</label>
-        <input id="firstName" name="firstName" type="text" required autocomplete="given-name"
+        <input id="firstName" name="firstName" maxlength="100" type="text" required autocomplete="given-name"
                class="cf-input w-full min-h-[44px] bg-transparent text-white pb-3"
                style="font-size:16px;" />
       </div>
       <div>
         <label class="block text-[11px] uppercase tracking-wider mb-3" style="color:rgba(255,255,255,0.45);" for="lastName">Last Name *</label>
-        <input id="lastName" name="lastName" type="text" required autocomplete="family-name"
+        <input id="lastName" name="lastName" maxlength="100" type="text" required autocomplete="family-name"
                class="cf-input w-full min-h-[44px] bg-transparent text-white pb-3"
                style="font-size:16px;" />
       </div>
@@ -29,26 +30,26 @@ const TURNSTILE_SITE_KEY = '0x4AAAAAADKU-hbxlRBQvuha';
     <div class="grid sm:grid-cols-2 gap-6 sm:gap-10">
       <div>
         <label class="block text-[11px] uppercase tracking-wider mb-3" style="color:rgba(255,255,255,0.45);" for="email">Email *</label>
-        <input id="email" name="email" type="email" required autocomplete="email" inputmode="email"
+        <input id="email" name="email" maxlength="254" type="email" required autocomplete="email" inputmode="email"
                class="cf-input w-full min-h-[44px] bg-transparent text-white pb-3"
                style="font-size:16px;" />
       </div>
       <div>
         <label class="block text-[11px] uppercase tracking-wider mb-3" style="color:rgba(255,255,255,0.45);" for="phone">Phone</label>
-        <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"
+        <input id="phone" name="phone" maxlength="40" type="tel" autocomplete="tel" inputmode="tel"
                class="cf-input w-full min-h-[44px] bg-transparent text-white pb-3"
                style="font-size:16px;" />
       </div>
     </div>
     <div>
       <label class="block text-[11px] uppercase tracking-wider mb-3" style="color:rgba(255,255,255,0.45);" for="subject">Subject</label>
-      <input id="subject" name="subject" type="text" required
+      <input id="subject" name="subject" maxlength="200" type="text" required
              class="cf-input w-full min-h-[44px] bg-transparent text-white pb-3"
              style="font-size:16px;" />
     </div>
     <div>
       <label class="block text-[11px] uppercase tracking-wider mb-3" style="color:rgba(255,255,255,0.45);" for="message">Message</label>
-      <textarea id="message" name="message" rows="4" required
+      <textarea id="message" name="message" rows="4" maxlength="5000" required
                 class="cf-input w-full min-h-[44px] bg-transparent text-white resize-none pb-3"
                 style="font-size:16px;"></textarea>
     </div>

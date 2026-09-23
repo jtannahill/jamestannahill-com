@@ -36,6 +36,18 @@ describe('sendContactEmail', () => {
     expect(msg.html).toContain('Hi there');
   });
 
+  it('collapses line breaks in the subject so they cannot start a new header', async () => {
+    await sendContactEmail({ ...payload, subject: 'Hi\r\nBcc: x@example.test' }, env);
+
+    expect(send.mock.calls[0][0].subject).toBe('[jamestannahill.com] Hi Bcc: x@example.test');
+  });
+
+  it('escapes single quotes in the HTML body', async () => {
+    await sendContactEmail({ ...payload, message: "it's" }, env);
+
+    expect(send.mock.calls[0][0].html).toContain('it&#39;s');
+  });
+
   it('renders a provided phone number in the body', async () => {
     await sendContactEmail({ ...payload, phone: '555-0100' }, env);
 

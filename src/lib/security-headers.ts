@@ -33,7 +33,7 @@ export function buildContentSecurityPolicy(): string {
     "img-src 'self' https: data: blob:",
     "media-src 'self' https://media.jamestannahill.com",
     "frame-src https://challenges.cloudflare.com",
-    "connect-src 'self' https://www.google-analytics.com https://*.googletagmanager.com https://stats.g.doubleclick.net https://challenges.cloudflare.com https://*.clarity.ms https://email.us-east-1.amazonaws.com",
+    "connect-src 'self' https://www.google-analytics.com https://*.googletagmanager.com https://stats.g.doubleclick.net https://challenges.cloudflare.com https://*.clarity.ms",
     "object-src 'none'",
     "base-uri 'self'",
     "form-action 'self'",
@@ -76,6 +76,7 @@ export const EU_CONSENT_COUNTRIES = new Set([
 ]);
 
 export function requiresAnalyticsConsent(country: string | null | undefined): boolean {
-  if (!country) return true;
+  // XX is Cloudflare's "unknown": treat it like a missing country.
+  if (!country || country.toUpperCase() === 'XX') return true;
   return EU_CONSENT_COUNTRIES.has(country.toUpperCase());
 }

@@ -1,8 +1,8 @@
 (function () {
   var STORAGE_KEY = 'jt_analytics_consent';
   var COUNTRY_KEY = 'jt_country';
-  // Long enough that a returning reader never pays for the lookup twice in a
-  // week, short enough that someone who moves is re-checked before it matters.
+  // Long enough that a returning EU reader gets the banner without waiting on
+  // the lookup, short enough that someone who moves is re-checked before long.
   var COUNTRY_TTL = 7 * 24 * 60 * 60 * 1000;
   var banner = document.getElementById('consent-banner');
   if (!banner) return;
@@ -55,7 +55,8 @@
   }
 
   function requiresConsent(country) {
-    if (!country) return true;
+    // XX is Cloudflare's "unknown": treat it like a failed lookup.
+    if (!country || country === 'XX') return true;
     return EU.has(country.toUpperCase());
   }
 
@@ -103,21 +104,17 @@
 
   function detectCountry() {
     var cached = readCountry();
-    if (cached) {
-      // Act on the cached value now, then refresh behind it. A reader who has
-      // since moved into the EU gets the banner on this same visit, because the
-      // refresh re-applies rather than only writing to storage.
+    // The cache may only ever show the banner sooner. A cached non-EU country
+    // does not load analytics on its own: the reader may have moved into the
+    // EU since, and a request already sent to Google or Clarity cannot be
+    // recalled. So that case waits for the fresh lookup like a first visit.
+    if (cached && requiresConsent(cached)) {
       applyCountry(cached);
       fetchCountry().then(function (fresh) {
         if (!fresh) return;
         writeCountry(fresh);
-        if (fresh === cached || read() !== null) return;
-        // Moved into the EU since the cache was written: the stale value may
-        // already have loaded analytics, so pull it back before asking.
-        if (requiresConsent(fresh) && typeof window.revokeAnalytics === 'function') {
-          window.revokeAnalytics();
-        }
-        applyCountry(fresh);
+        // Moved out of the EU and still undecided: no banner needed.
+        if (!requiresConsent(fresh) && read() === null) applyCountry(fresh);
       });
       return null;
     }

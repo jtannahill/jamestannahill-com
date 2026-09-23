@@ -185,16 +185,33 @@ export const GET: APIRoute = () =>
     },
   );
 
+// Every request is anonymous and one entry can return the whole corpus, so a
+// batch or body without a ceiling turns a small POST into a large buffered
+// response. Real agent traffic is a single call or a short batch.
+const MAX_BODY_BYTES = 64 * 1024;
+const MAX_BATCH = 20;
+
 export const POST: APIRoute = async ({ request }) => {
+  if (Number(request.headers.get('content-length') ?? 0) > MAX_BODY_BYTES) {
+    return rpcError(null, ERR.invalidRequest, `Invalid request: body exceeds ${MAX_BODY_BYTES} bytes.`);
+  }
+  const raw = await request.text();
+  // Chunked uploads carry no Content-Length, so measure what actually arrived.
+  if (raw.length > MAX_BODY_BYTES) {
+    return rpcError(null, ERR.invalidRequest, `Invalid request: body exceeds ${MAX_BODY_BYTES} bytes.`);
+  }
   let body: any;
   try {
-    body = await request.json();
+    body = JSON.parse(raw);
   } catch {
     return rpcError(null, ERR.parse, 'Parse error: body is not valid JSON.');
   }
 
   // A batch is a JSON array of requests; notifications inside it drop out.
   if (Array.isArray(body)) {
+    if (body.length > MAX_BATCH) {
+      return rpcError(null, ERR.invalidRequest, `Invalid request: batch exceeds ${MAX_BATCH} entries.`);
+    }
     const responses: unknown[] = [];
     for (const entry of body) {
       if (!entry || typeof entry !== 'object' || entry.jsonrpc !== JSONRPC) {
