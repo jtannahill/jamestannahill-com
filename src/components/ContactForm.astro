@@ -16,41 +16,41 @@ const TURNSTILE_SITE_KEY = '0x4AAAAAADKU-hbxlRBQvuha';
       <div>
         <label class="block text-[11px] uppercase tracking-wider mb-3" style="color:rgba(255,255,255,0.45);" for="firstName">First Name *</label>
         <input id="firstName" name="firstName" type="text" required autocomplete="given-name"
-               class="w-full min-h-[44px] bg-transparent text-white focus:outline-none pb-3"
-               style="border:none; border-bottom:1px solid rgba(255,255,255,0.25); font-size:16px;" />
+               class="cf-input w-full min-h-[44px] bg-transparent text-white pb-3"
+               style="font-size:16px;" />
       </div>
       <div>
         <label class="block text-[11px] uppercase tracking-wider mb-3" style="color:rgba(255,255,255,0.45);" for="lastName">Last Name *</label>
         <input id="lastName" name="lastName" type="text" required autocomplete="family-name"
-               class="w-full min-h-[44px] bg-transparent text-white focus:outline-none pb-3"
-               style="border:none; border-bottom:1px solid rgba(255,255,255,0.25); font-size:16px;" />
+               class="cf-input w-full min-h-[44px] bg-transparent text-white pb-3"
+               style="font-size:16px;" />
       </div>
     </div>
     <div class="grid sm:grid-cols-2 gap-6 sm:gap-10">
       <div>
         <label class="block text-[11px] uppercase tracking-wider mb-3" style="color:rgba(255,255,255,0.45);" for="email">Email *</label>
         <input id="email" name="email" type="email" required autocomplete="email" inputmode="email"
-               class="w-full min-h-[44px] bg-transparent text-white focus:outline-none pb-3"
-               style="border:none; border-bottom:1px solid rgba(255,255,255,0.25); font-size:16px;" />
+               class="cf-input w-full min-h-[44px] bg-transparent text-white pb-3"
+               style="font-size:16px;" />
       </div>
       <div>
         <label class="block text-[11px] uppercase tracking-wider mb-3" style="color:rgba(255,255,255,0.45);" for="phone">Phone</label>
         <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"
-               class="w-full min-h-[44px] bg-transparent text-white focus:outline-none pb-3"
-               style="border:none; border-bottom:1px solid rgba(255,255,255,0.25); font-size:16px;" />
+               class="cf-input w-full min-h-[44px] bg-transparent text-white pb-3"
+               style="font-size:16px;" />
       </div>
     </div>
     <div>
       <label class="block text-[11px] uppercase tracking-wider mb-3" style="color:rgba(255,255,255,0.45);" for="subject">Subject</label>
       <input id="subject" name="subject" type="text" required
-             class="w-full min-h-[44px] bg-transparent text-white focus:outline-none pb-3"
-             style="border:none; border-bottom:1px solid rgba(255,255,255,0.25); font-size:16px;" />
+             class="cf-input w-full min-h-[44px] bg-transparent text-white pb-3"
+             style="font-size:16px;" />
     </div>
     <div>
       <label class="block text-[11px] uppercase tracking-wider mb-3" style="color:rgba(255,255,255,0.45);" for="message">Message</label>
       <textarea id="message" name="message" rows="4" required
-                class="w-full min-h-[44px] bg-transparent text-white focus:outline-none resize-none pb-3"
-                style="border:none; border-bottom:1px solid rgba(255,255,255,0.25); font-size:16px;"></textarea>
+                class="cf-input w-full min-h-[44px] bg-transparent text-white resize-none pb-3"
+                style="font-size:16px;"></textarea>
     </div>
 
     {/* Honeypot — visually hidden, ignored by humans, filled by dumb bots */}
@@ -64,18 +64,54 @@ const TURNSTILE_SITE_KEY = '0x4AAAAAADKU-hbxlRBQvuha';
     <div id="turnstile-container" data-sitekey={TURNSTILE_SITE_KEY}></div>
 
     <button type="submit" id="contact-submit"
-            class="px-8 py-3 min-h-[48px] text-white text-[13px] tracking-[0.18em] uppercase"
+            class="cf-submit press inline-flex items-center gap-3 px-8 py-3 min-h-[48px] text-white text-[13px] tracking-[0.18em] uppercase"
             style="background:var(--color-amber);">
-      Send Message
+      <span class="cf-spinner" aria-hidden="true"></span>
+      <span>Send message</span>
     </button>
-    <p id="contact-success" class="hidden text-sm" style="color:var(--color-amber);">
-      ✓ Message sent. I'll be in touch.
+    <p id="contact-success" class="cf-note text-sm" role="status" hidden style="color:var(--color-amber);">
+      Message sent. I'll be in touch.
     </p>
-    <p id="contact-error" class="hidden text-sm" style="color:#f87171;">
-      Something went wrong. Please email contact@jamestannahill.com directly.
+    <p id="contact-error" class="cf-note text-sm" role="alert" hidden style="color:#f87171;">
+      Something went wrong. Email contact@jamestannahill.com directly.
     </p>
   </form>
 </div>
+
+<style>
+  .cf-input {
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255,0.25);
+    outline: none;
+    transition: border-color 150ms ease;
+  }
+  .cf-input:focus-visible { border-bottom-color: var(--color-amber); outline: none; }
+  /* Disabled looks disabled; the label stays put so nothing shifts. */
+  .cf-submit { transition: transform 160ms var(--ease-out), opacity 150ms ease; }
+  .cf-submit[disabled] { opacity: 0.6; cursor: progress; }
+  .cf-spinner {
+    display: none;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255,255,255,0.35);
+    border-top-color: #fff;
+    animation: cf-spin 600ms linear infinite;
+  }
+  .cf-submit[disabled] .cf-spinner { display: inline-block; }
+  @keyframes cf-spin { to { transform: rotate(360deg); } }
+  /* Notes fade and settle in rather than appearing from nothing. */
+  .cf-note {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 200ms var(--ease-out), transform 200ms var(--ease-out);
+    @starting-style { opacity: 0; transform: translateY(4px); }
+  }
+  .cf-note[hidden] { display: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .cf-note { transition: opacity 150ms ease; @starting-style { transform: none; } }
+    .cf-spinner { animation-duration: 1.2s; }
+  }
+</style>
 
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
@@ -111,30 +147,24 @@ const TURNSTILE_SITE_KEY = '0x4AAAAAADKU-hbxlRBQvuha';
 
   mountTurnstile();
 
-  form?.querySelectorAll('input, textarea').forEach((el) => {
-    el.addEventListener('focus', () => (el as HTMLElement).style.borderBottomColor = 'var(--color-amber)');
-    el.addEventListener('blur',  () => (el as HTMLElement).style.borderBottomColor = 'rgba(255,255,255,0.25)');
-  });
-
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
-    btn.textContent = 'Sending...';
     btn.disabled = true;
-    success.classList.add('hidden');
-    error.classList.add('hidden');
+    success.hidden = true;
+    error.hidden = true;
 
     const formData = new FormData(form);
     const { data, error: actionError } = await actions.sendContact(formData);
 
     if (actionError) {
-      error.classList.remove('hidden');
+      error.hidden = false;
       (window as any).jtTrack?.('form_error', {
         form_id: 'contact',
         error_code: (actionError as any).code ?? 'unknown',
       });
     } else {
       form.reset();
-      success.classList.remove('hidden');
+      success.hidden = false;
       // Honeypot submissions resolve successfully so bots see a normal send,
       // but report delivered: false. Only count a real delivery as form_submit.
       if (data?.delivered) {
@@ -143,7 +173,6 @@ const TURNSTILE_SITE_KEY = '0x4AAAAAADKU-hbxlRBQvuha';
     }
 
     resetTurnstile();
-    btn.textContent = 'Send Message';
     btn.disabled = false;
   });
 </script>

@@ -14,7 +14,7 @@ export const contact = {
   description:
     'Confidential inquiries for founder-led and PE-backed companies, $5M–$100M, 12–36 months from transaction. New York and worldwide.',
   canonical: 'https://jamestannahill.com/contact',
-  formHeading: 'Write',
+  formHeading: 'Send a message',
 };
 
 export const person = {

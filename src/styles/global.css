@@ -9,6 +9,36 @@
   --color-amber: #c9882a;
   --color-amber-dark: #b5771f;
   --color-amber-subtle: rgba(201, 136, 42, 0.15);
+  /* Easing. Built-in curves are too weak for UI; these carry the punch. */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+/* Section headings. Sentence case in the display face; the rhythm of the page
+   comes from spacing, not from tracked-out caps labels. */
+.sec-h {
+  font-family: 'NHG Display', sans-serif;
+  font-size: clamp(24px, 2.6vw, 30px);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+/* Every pressable thing answers the press. */
+button, .press {
+  transition: transform 160ms var(--ease-out);
+}
+button:active, .press:active {
+  transform: scale(0.97);
+}
+
+/* Visible keyboard focus everywhere; components that draw their own ring
+   override this locally. */
+:focus-visible {
+  outline: 2px solid var(--color-amber);
+  outline-offset: 3px;
 }
 
 html {
@@ -96,7 +126,7 @@ body {
 .sr {
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity 0.65s ease, transform 0.65s ease;
+  transition: opacity 0.4s var(--ease-out), transform 0.4s var(--ease-out);
 }
 .sr.visible {
   opacity: 1;
@@ -147,29 +177,27 @@ body {
   from { opacity: 0; }
 }
 
-/* ── prefers-reduced-motion — kill all motion for accessibility ── */
+/* ── prefers-reduced-motion — fewer and gentler, not zero ──
+   Movement (transforms, blur, parallax, scrubbing) is removed. Short opacity
+   fades that stop things popping into existence are kept. */
 @media (prefers-reduced-motion: reduce) {
-  /* Make all animations/transitions imperceptibly fast (0.01ms fires animationend for JS) */
   *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  /* Ensure scroll-reveal elements are immediately visible */
+  button, .press { transition: none; }
+  button:active, .press:active { transform: none; }
   .sr {
     opacity: 1 !important;
     transform: none !important;
+    animation: none !important;
   }
-  /* Disable hero parallax */
   .hero-parallax-bg {
     animation: none !important;
     inset: 0 !important;
   }
-  /* Disable view transition fades */
-  ::view-transition-old(root),
-  ::view-transition-new(root) {
-    animation: none !important;
+  @keyframes blurIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
   }
 }
 
@@ -213,9 +241,7 @@ body {
 .t-rule-strong { border-color: var(--t-rule-strong); }
 .t-plate { background: var(--t-plate); }
 .t-eyebrow {
-  font-size: 10px;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
+  font-size: 12px;
   color: var(--color-amber);
 }
 /* Essay body: 17px on a 680px measure lands near 70 characters per line. */
@@ -248,7 +274,7 @@ body {
 }
 /* Header hides on scroll-down inside long essays, returns on scroll-up. */
 header.hdr-hidden { transform: translateY(-100%); }
-header { transition: transform 0.28s ease; }
+header { transition: transform 240ms var(--ease-drawer); }
 @media (prefers-reduced-motion: reduce) {
   header { transition: none; }
 }

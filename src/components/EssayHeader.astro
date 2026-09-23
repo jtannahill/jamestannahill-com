@@ -25,8 +25,7 @@ const minutes = readingMinutes(slug);
 <p class="text-[18px] leading-[1.45] mb-4 t-deck" style="text-wrap:pretty;">{post.standfirst}</p>
 <p class="text-[12px] mb-12 t-muted">
   <time datetime={post.published}>{post.date}</time>
-  <span aria-hidden="true" class="mx-2">·</span>
-  <span>{minutes} min read</span>
+  <span class="ml-4">{minutes} min read</span>
 </p>
 
 <script src="/scripts/thoughts-reading.js" defer></script>

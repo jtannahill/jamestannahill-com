@@ -35,7 +35,7 @@
       '  float wave = sin(d*34.0 - uTime*3.2) * 0.006 * smoothstep(0.45, 0.0, d);' +
       '  vec2 dir = normalize(uv - uMouse + 0.0001);' +
       '  vec2 off = dir * wave;' +
-      '  float ca = 0.004 + abs(wave)*3.0;' +
+      '  float ca = abs(wave)*1.2;' +
       '  float r = texture2D(uTex, tuv + off + vec2(ca,0.0)).r;' +
       '  float g = texture2D(uTex, tuv + off).g;' +
       '  float b = texture2D(uTex, tuv + off - vec2(ca,0.0)).b;' +

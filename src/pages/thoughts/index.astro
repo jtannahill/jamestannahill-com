@@ -53,7 +53,6 @@ const schema = [
   <div class="thoughts-page min-h-screen">
     <div class="max-w-3xl mx-auto px-6 py-16">
 
-      <p class="t-eyebrow mb-4">Thoughts</p>
       <h1 class="text-[28px] font-semibold tracking-tight mb-2 t-ink">Thoughts</h1>
       <p class="text-[15px] leading-[1.85] mb-12 max-w-xl t-body" style="text-wrap:pretty;">
         Occasional essays. Published when there is something worth saying, not on a schedule.
@@ -94,7 +93,7 @@ const schema = [
             <p class="t-eyebrow">More essays</p>
             <p class="text-[12px] t-muted tabular-nums">{rest.length} earlier</p>
           </div>
-          {rest.map((post, i) => (
+          {rest.map((post) => (
             <a
               href={`/thoughts/${post.slug}`}
               class="tcard group grid gap-5 sm:gap-8 sm:grid-cols-12 items-start py-9 border-b t-rule"
@@ -112,9 +111,6 @@ const schema = [
               </div>}
               <div class="sm:col-span-8">
                 <div class="flex items-baseline gap-4">
-                  <span class="tcard-num text-[20px] leading-none tabular-nums font-normal">
-                    {String(i + 2).padStart(2, '0')}
-                  </span>
                   <span class="text-[12px] t-muted">{post.date}</span>
                   <span class="text-[12px] t-muted">{readingMinutes(post.slug)} min read</span>
                 </div>
@@ -135,7 +131,7 @@ const schema = [
         .tcard { border-radius: 2px; outline: none; }
         .tcard:focus-visible { box-shadow: 0 0 0 2px var(--t-bg), 0 0 0 4px var(--color-amber); }
         .tcard-img {
-          transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), filter 0.4s ease;
+          transition: transform 250ms var(--ease-out), filter 250ms ease;
           filter: saturate(0.92);
         }
         .tcard-img-row { aspect-ratio: 3 / 2; }
@@ -150,7 +146,6 @@ const schema = [
         .tcard-title { transition: color 0.25s ease; }
         .tcard:hover .tcard-title,
         .tcard:focus-visible .tcard-title { color: var(--color-amber); }
-        .tcard-num { color: var(--t-faint); }
         .tcard-cta {
           color: var(--color-amber);
           background-image: linear-gradient(var(--color-amber), var(--color-amber));

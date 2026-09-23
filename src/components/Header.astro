@@ -26,10 +26,10 @@ const isActive = (href: string) => href !== '/' && path.startsWith(href);
           rel={link.external ? 'noopener noreferrer' : undefined}
           data-nav-link={link.external ? undefined : link.href}
           aria-current={isActive(link.href) ? 'page' : undefined}
-          class={`nav-link min-h-[44px] inline-flex items-center text-[11px] tracking-[0.18em] uppercase transition-colors ${
+          class={`nav-link min-h-[44px] inline-flex items-center text-[12px] tracking-[0.16em] uppercase transition-colors ${
             link.label === 'CONTACT'
               ? 'nav-cta text-[var(--color-amber)] hover:text-[var(--color-amber-dark)]'
-              : 'text-white/40 hover:text-white'
+              : 'text-white/60 hover:text-white'
           }`}
         >
           {link.label}
@@ -39,16 +39,18 @@ const isActive = (href: string) => href !== '/' && path.startsWith(href);
     <button id="menu-toggle" type="button"
             class="relative z-[70] md:hidden min-w-[48px] min-h-[48px] p-3 -mr-1 text-white inline-flex flex-col items-center justify-center"
             aria-label="Toggle menu" aria-controls="mobile-menu" aria-expanded="false">
-      <span class="block w-5 h-px bg-current mb-1.5"></span>
-      <span class="block w-5 h-px bg-current mb-1.5"></span>
-      <span class="block w-5 h-px bg-current"></span>
+      <span class="burger" aria-hidden="true">
+        <span class="burger-bar"></span>
+        <span class="burger-bar"></span>
+        <span class="burger-bar"></span>
+      </span>
     </button>
   </div>
 </header>
 
 <!-- Mobile full-screen overlay. Solid ink so the page behind cannot show through. -->
 <div id="mobile-menu" transition:persist
-     class="fixed inset-0 z-[60] flex flex-col items-center justify-center gap-8 hidden md:hidden"
+     class="fixed inset-0 z-[60] flex flex-col items-center justify-center gap-8 md:hidden"
      style="background:#0a0a0a;"
      hidden>
   {navLinks.map(link => (
@@ -70,6 +72,37 @@ const isActive = (href: string) => href !== '/' && path.startsWith(href);
 </div>
 
 <style>
+  /* Overlay: short ease-out entrance, faster exit. */
+  #mobile-menu {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 200ms var(--ease-out), transform 200ms var(--ease-out), visibility 0s;
+  }
+  #mobile-menu[hidden] {
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0.98);
+    pointer-events: none;
+    transition: opacity 140ms var(--ease-out), transform 140ms var(--ease-out), visibility 0s 140ms;
+  }
+  @media (min-width: 768px) { #mobile-menu, #mobile-menu[hidden] { display: none; } }
+  /* Hamburger folds into an X. */
+  .burger { position: relative; display: block; width: 20px; height: 14px; }
+  .burger-bar {
+    position: absolute; left: 0; width: 20px; height: 1px; background: currentColor;
+    transition: transform 200ms var(--ease-out), opacity 120ms var(--ease-out);
+  }
+  .burger-bar:nth-child(1) { top: 0; }
+  .burger-bar:nth-child(2) { top: 50%; }
+  .burger-bar:nth-child(3) { top: 100%; }
+  #menu-toggle[aria-expanded="true"] .burger-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  #menu-toggle[aria-expanded="true"] .burger-bar:nth-child(2) { opacity: 0; }
+  #menu-toggle[aria-expanded="true"] .burger-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  @media (prefers-reduced-motion: reduce) {
+    #mobile-menu, #mobile-menu[hidden] { transform: none; transition: opacity 120ms ease, visibility 0s; }
+    .burger-bar { transition: none; }
+  }
   .nav-link { position: relative; }
   .nav-link:not(.nav-cta)[aria-current="page"] { color: #fff; }
   .nav-link[aria-current="page"]::after {
@@ -99,11 +132,14 @@ const isActive = (href: string) => href !== '/' && path.startsWith(href);
   const menu = document.getElementById('mobile-menu');
   function setMenuOpen(open: boolean) {
     if (!menu || !toggle) return;
-    menu.classList.toggle('hidden', !open);
+    const wasOpen = toggle.getAttribute('aria-expanded') === 'true';
     if (open) menu.removeAttribute('hidden');
     else menu.setAttribute('hidden', '');
     document.body.classList.toggle('overflow-hidden', open);
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    // Focus follows the menu in, and returns to the toggle on close.
+    if (open) menu.querySelector<HTMLAnchorElement>('a')?.focus();
+    else if (wasOpen) toggle.focus();
   }
   toggle?.addEventListener('click', () => {
     setMenuOpen(toggle.getAttribute('aria-expanded') !== 'true');

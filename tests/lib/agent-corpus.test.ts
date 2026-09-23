@@ -45,7 +45,7 @@ describe('SERP copy', () => {
     expect(contact.description.length).toBeGreaterThanOrEqual(120);
     expect(contact.description.length).toBeLessThanOrEqual(160);
     expect(contact.canonical).toBe('https://jamestannahill.com/contact');
-    expect(contact.formHeading).toBe('Write');
+    expect(contact.formHeading).toBe('Send a message');
   });
 });
 

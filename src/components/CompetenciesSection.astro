@@ -25,7 +25,7 @@ const competencies = [
 <style>
   .comp-section {
     /* Marine ramp — the row tint is mixed between these two endpoints. */
-    --comp-ground: #eef0f0;
+    --comp-ground: #ffffff;
     --comp-rule: #d8dcdc;
     --comp-accent: #1d5c63;
     --comp-tint-cool: #eef2f2;
@@ -54,9 +54,15 @@ const competencies = [
     gap: 10px 32px;
     padding: 24px 20px 26px;
     border-bottom: 1px solid var(--comp-rule);
-    background: color-mix(in oklab, var(--comp-tint-deep) calc(var(--i) * 100%), var(--comp-tint-cool));
-    color: color-mix(in oklab, var(--comp-ink-deep) calc(var(--i) * 100%), var(--comp-ink-cool));
-    transition: background 220ms linear, color 220ms linear;
+    /* Ground and ink flip together as one step (--k) once a row is near the
+       reading line. A continuous mix would pass through a mid-teal band where
+       neither ink clears 4.5:1, so the row is either cool or deep, never
+       between. The short transition covers the flip; the spine stays
+       continuous and is driven per frame by the script. */
+    --k: clamp(0, calc((var(--i) - 0.55) * 100), 1);
+    background: color-mix(in oklab, var(--comp-tint-deep) calc(var(--k) * 100%), var(--comp-tint-cool));
+    color: color-mix(in oklab, var(--comp-ink-deep) calc(var(--k) * 100%), var(--comp-ink-cool));
+    transition: background 120ms ease, color 120ms ease;
   }
 
   /* The spine lights in proportion to the same intensity. */
@@ -70,14 +76,6 @@ const competencies = [
     background: var(--comp-accent);
     transform: scaleY(var(--i));
     transform-origin: center;
-    transition: transform 220ms linear;
-  }
-
-  .comp-num {
-    font-size: 11px;
-    letter-spacing: 0.16em;
-    font-variant-numeric: tabular-nums;
-    opacity: 0.65;
   }
 
   .comp-title {
@@ -101,13 +99,13 @@ const competencies = [
     letter-spacing: 0.12em;
     text-transform: uppercase;
     line-height: 1.7;
-    color: color-mix(in oklab, var(--comp-sub-deep) calc(var(--i) * 100%), var(--comp-sub-cool));
-    transition: color 220ms linear;
+    color: color-mix(in oklab, var(--comp-sub-deep) calc(var(--k) * 100%), var(--comp-sub-cool));
+    transition: color 120ms ease;
   }
 
   @media (min-width: 768px) {
     .comp-row {
-      grid-template-columns: 44px minmax(0, 0.8fr) minmax(0, 1.1fr);
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.1fr);
       align-items: baseline;
       padding: 30px 24px 32px;
     }
@@ -116,21 +114,13 @@ const competencies = [
     }
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .comp-row,
-    .comp-row::before,
-    .comp-practices {
-      transition: none;
-    }
-  }
 </style>
 <section class="comp-section border-t border-[#e8e5de]">
   <div class="max-w-6xl mx-auto px-6 md:px-14 py-12 md:py-16">
-    <h2 class="comp-eyebrow tracking-[0.2em] uppercase mb-8 md:mb-10" style="font-size:17px;">Competencies</h2>
+    <h2 class="sec-h mb-8 md:mb-10">Competencies</h2>
     <div class="comp-index" data-comp-index>
-      {competencies.map((c, i) => (
+      {competencies.map((c) => (
         <div class="comp-row">
-          <span class="comp-num">{i + 1}</span>
           <h3 class="comp-title">{c.title}</h3>
           <ul class="comp-practices">
             {c.practices.map((p) => (<li>{p}</li>))}
