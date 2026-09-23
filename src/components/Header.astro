@@ -50,7 +50,7 @@ const isActive = (href: string) => href !== '/' && path.startsWith(href);
 
 <!-- Mobile full-screen overlay. Solid ink so the page behind cannot show through. -->
 <div id="mobile-menu" transition:persist
-     class="fixed inset-0 z-[60] flex flex-col items-center justify-center gap-8 md:hidden"
+     class="fixed inset-0 z-40 flex flex-col items-center justify-center gap-8 md:hidden"
      style="background:#0a0a0a;"
      hidden>
   {navLinks.map(link => (

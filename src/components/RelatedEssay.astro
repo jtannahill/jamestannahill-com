@@ -11,7 +11,7 @@ interface Props {
 }
 
 const { essays, label } = Astro.props as Props;
-const heading = label ?? 'See Also';
+const heading = label ?? 'See also';
 ---
 <aside class="see-also">
   <p class="see-also-label">{heading}</p>
@@ -33,9 +33,8 @@ const heading = label ?? 'See Also';
   }
 
   .see-also-label {
-    font-size: 10px;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.01em;
     color: var(--color-amber);
     margin: 0 0 14px;
   }
