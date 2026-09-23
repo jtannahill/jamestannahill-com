@@ -81,9 +81,16 @@
     document.addEventListener('touchstart', prime, { passive: true });
     if (video.readyState >= 2) { dur = video.duration || 0; prime(); }
 
-    window.addEventListener('scroll', compute, { passive: true });
-    window.addEventListener('resize', compute, { passive: true });
-    listeners = { compute: compute, prime: prime };
+    // One layout read per frame, not per raw scroll event.
+    var queued = false;
+    function onScroll() {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(function () { queued = false; compute(); });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    listeners = { compute: onScroll, prime: prime };
   }
 
   init();

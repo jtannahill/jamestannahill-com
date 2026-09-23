@@ -37,6 +37,15 @@
 /.well-known/*
   Cache-Control: public, max-age=86400
 
+/llms.txt
+  Content-Type: text/plain; charset=utf-8
+
+/llms-full.txt
+  Content-Type: text/plain; charset=utf-8
+
+/robots.txt
+  Content-Type: text/plain; charset=utf-8
+
 # Extensionless, so Workers Assets would otherwise guess. RFC 9727 mandates
 # application/linkset+json for the catalog document.
 /.well-known/api-catalog

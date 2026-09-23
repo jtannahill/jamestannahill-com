@@ -1,11 +1,11 @@
 ---
 const navLinks = [
-  { label: 'ABOUT', href: '/' },
-  { label: 'INSIGHTS', href: 'https://www.plocamium.com/globals', external: true },
-  { label: 'THE AGENCY', href: 'https://www.1nessagency.com/', external: true },
+  { label: 'About', href: '/' },
+  { label: 'Insights', href: 'https://www.plocamium.com/globals', external: true },
+  { label: 'The Agency', href: 'https://www.1nessagency.com/', external: true },
   { label: 'RDLB', href: 'https://www.rdlb.nyc/', external: true },
-  { label: 'THOUGHTS', href: '/thoughts' },
-  { label: 'CONTACT', href: '/contact' },
+  { label: 'Thoughts', href: '/thoughts' },
+  { label: 'Contact', href: '/contact' },
 ];
 // Active state is resolved server-side for the first paint and re-applied
 // client-side after view transitions (the header is transition:persist).
@@ -18,7 +18,7 @@ const isActive = (href: string) => href !== '/' && path.startsWith(href);
        style="font-family:'NHG Display',sans-serif; font-size:clamp(20px,5vw,35px);">
       James Tannahill
     </a>
-    <nav class="hidden md:flex items-center gap-8">
+    <nav class="hidden md:flex items-center gap-8" aria-label="Primary">
       {navLinks.map(link => (
         <a
           href={link.href}
@@ -27,12 +27,13 @@ const isActive = (href: string) => href !== '/' && path.startsWith(href);
           data-nav-link={link.external ? undefined : link.href}
           aria-current={isActive(link.href) ? 'page' : undefined}
           class={`nav-link min-h-[44px] inline-flex items-center text-[12px] tracking-[0.16em] uppercase transition-colors ${
-            link.label === 'CONTACT'
+            link.label === 'Contact'
               ? 'nav-cta text-[var(--color-amber)] hover:text-[var(--color-amber-dark)]'
               : 'text-white/60 hover:text-white'
           }`}
         >
           {link.label}
+          {link.external && <span class="sr-only"> (opens in new tab)</span>}
         </a>
       ))}
     </nav>
@@ -61,12 +62,13 @@ const isActive = (href: string) => href !== '/' && path.startsWith(href);
       data-nav-link={link.external ? undefined : link.href}
       aria-current={isActive(link.href) ? 'page' : undefined}
       class={`nav-link text-sm tracking-[0.2em] uppercase min-h-[48px] flex items-center transition-colors ${
-        link.label === 'CONTACT'
+        link.label === 'Contact'
           ? 'nav-cta text-[var(--color-amber)]'
           : 'text-white/60 hover:text-white'
       }`}
     >
       {link.label}
+      {link.external && <span class="sr-only"> (opens in new tab)</span>}
     </a>
   ))}
 </div>
@@ -136,6 +138,9 @@ const isActive = (href: string) => href !== '/' && path.startsWith(href);
     if (open) menu.removeAttribute('hidden');
     else menu.setAttribute('hidden', '');
     document.body.classList.toggle('overflow-hidden', open);
+    // The overlay covers the page; keep Tab from walking into what is behind it.
+    document.querySelector('main')?.toggleAttribute('inert', open);
+    document.querySelector('body > footer')?.toggleAttribute('inert', open);
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     // Focus follows the menu in, and returns to the toggle on close.
     if (open) menu.querySelector<HTMLAnchorElement>('a')?.focus();

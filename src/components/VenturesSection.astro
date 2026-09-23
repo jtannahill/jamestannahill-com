@@ -35,11 +35,11 @@ import { ventures } from '../data/ventures';
     <h2 class="sec-h mb-10">Ventures and platforms</h2>
     {/* The anchor sits on the grid, not the section: landing on /#ventures
         should put the cards on screen, not the section's top padding. */}
-    <div id="ventures" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-[var(--color-border)]" style="scroll-margin-top:24px;">
+    <div id="ventures" class="grid sm:grid-cols-2 lg:grid-cols-4 border-l border-t border-[var(--color-border)]" style="scroll-margin-top:24px;">
       {ventures.map((v) => (
         <div
           id={`ventures-${v.slug}`}
-          class="venture-card bg-white p-5 md:p-8 flex flex-col"
+          class="venture-card bg-white p-5 md:p-8 flex flex-col border-r border-b border-[var(--color-border)]"
           style="scroll-margin-top:80px;"
         >
           {v.logoFill ? (
@@ -69,27 +69,27 @@ import { ventures } from '../data/ventures';
               {/* Wrapped so the clamped box is a plain block, not a flex item: Chrome
                   blockifies -webkit-box flex items and the clamp then slices a line. */}
               <div style="flex:none;">
-                <p style="font-size:13.5px; line-height:1.7; color:#888; display:-webkit-box; -webkit-line-clamp:8; -webkit-box-orient:vertical; overflow:hidden; overflow-wrap:break-word;">{v.description}</p>
+                <p style="font-size:13.5px; line-height:1.7; color:var(--color-muted); display:-webkit-box; -webkit-line-clamp:8; -webkit-box-orient:vertical; overflow:hidden; overflow-wrap:break-word;">{v.description}</p>
               </div>
               {/* Ventures with a page of their own send readers there first. */}
               {v.page ? (
                 <a href={`/ventures/${v.slug}`}
                    class="mt-auto pt-4 inline-block py-2 text-[13px] tracking-[0.15em] uppercase"
-                   style="color:var(--color-amber); min-height:44px; display:flex; align-items:center;">
+                   style="color:var(--color-amber-text); min-height:44px; display:flex; align-items:center;">
                   About {v.name}
                 </a>
               ) : v.url && (
                 <a href={v.url} target="_blank" rel="noopener noreferrer"
                    class="mt-auto pt-4 inline-block py-2 text-[13px] tracking-[0.15em] uppercase"
-                   style="color:var(--color-amber); min-height:44px; display:flex; align-items:center;">
-                  Visit {v.name}
+                   style="color:var(--color-amber-text); min-height:44px; display:flex; align-items:center;">
+                  Visit {v.name}<span class="sr-only"> (opens in new tab)</span>
                 </a>
               )}
               {v.url2 && (
                 <a href={v.url2} target="_blank" rel="noopener noreferrer"
                    class="inline-block py-2 text-[13px] tracking-[0.15em] uppercase"
-                   style="color:var(--color-amber); min-height:44px; display:flex; align-items:center;">
-                  {v.url2Label || 'Visit'}
+                   style="color:var(--color-amber-text); min-height:44px; display:flex; align-items:center;">
+                  {v.url2Label || 'Visit'}<span class="sr-only"> (opens in new tab)</span>
                 </a>
               )}
             </>

@@ -9,6 +9,8 @@
   --color-border: rgba(10, 10, 10, 0.1);
   --color-amber: #c9882a;
   --color-amber-dark: #b5771f;
+  /* Amber for text and focus rings on white: #c9882a is 2.98:1 there, this is 5.61:1. */
+  --color-amber-text: #8f5d17;
   --color-amber-subtle: rgba(201, 136, 42, 0.15);
   /* Easing. Built-in curves are too weak for UI; these carry the punch. */
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
@@ -47,13 +49,18 @@ button:active, .press:active {
 /* Visible keyboard focus everywhere; components that draw their own ring
    override this locally. */
 :focus-visible {
-  outline: 2px solid var(--color-amber);
+  outline: 2px solid var(--color-amber-text);
   outline-offset: 3px;
 }
+header :focus-visible,
+footer :focus-visible,
+#mobile-menu :focus-visible,
+.bg-black :focus-visible,
+.bg-\[var\(--color-ink\)\] :focus-visible { outline-color: var(--color-amber); }
 
 html {
   font-family: 'NHG Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 15px;
+  font-size: 93.75%;
   color: var(--color-ink);
   background: #fff;
   -webkit-font-smoothing: antialiased;
@@ -221,8 +228,9 @@ body {
   --t-ink: #1a1a1a;
   --t-body: #444444;
   --t-deck: #666666;
-  --t-muted: #999999;
-  --t-faint: #b8b8b8;
+  --t-muted: #707070;
+  --t-faint: #767676;
+  --t-amber: #8f5d17;
   --t-rule: #eeeeee;
   --t-rule-strong: #1a1a1a;
   --t-plate: #f5f5f5;
@@ -233,8 +241,9 @@ body {
     --t-ink: #f2f0ea;
     --t-body: #c9c6bd;
     --t-deck: #a8a59c;
-    --t-muted: #7f7c74;
-    --t-faint: #5c5a54;
+    --t-muted: #8f8c84;
+    --t-faint: #8a8780;
+    --t-amber: #c9882a;
     --t-rule: #262626;
     --t-rule-strong: #e6e2d8;
     --t-plate: #1c1c1c;
@@ -246,13 +255,13 @@ body {
 .t-deck { color: var(--t-deck); }
 .t-muted { color: var(--t-muted); }
 .t-faint { color: var(--t-faint); }
-.t-amber { color: var(--color-amber); }
+.t-amber { color: var(--t-amber); }
 .t-rule { border-color: var(--t-rule); }
 .t-rule-strong { border-color: var(--t-rule-strong); }
 .t-plate { background: var(--t-plate); }
 .t-eyebrow {
   font-size: 12px;
-  color: var(--color-amber);
+  color: var(--t-amber);
 }
 /* Essay body: 17px on a 680px measure lands near 70 characters per line. */
 .e-body { font-size: 17px; line-height: 1.7; color: var(--t-body); }
@@ -261,14 +270,14 @@ body {
   font-size: 11px;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--color-amber);
+  color: var(--t-amber);
   margin-top: 3.5rem;
   margin-bottom: 1.25rem;
   padding-top: 1rem;
   border-top: 1px solid var(--t-rule);
 }
 .e-cap { font-size: 12px; line-height: 1.6; color: var(--t-muted); }
-.e-cap a { color: var(--color-amber); }
+.e-cap a { color: var(--t-amber); }
 /* Reading progress bar, painted just under the fixed header. */
 .e-progress {
   position: fixed;

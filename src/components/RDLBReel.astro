@@ -28,11 +28,14 @@ const cdn = 'https://media.jamestannahill.com';
 </section>
 
 <script>
-  // Attempt autoplay after user interaction on mobile
-  const vid = document.querySelector('section video') as HTMLVideoElement;
-  if (vid) {
-    vid.play().catch(() => {
-      // Autoplay blocked - user must tap controls, which is fine
-    });
+  // Muted autoplay while the reel is on screen; paused off screen. Skipped under
+  // reduced motion (the controls still work). Must target .rdlb-video: a bare
+  // 'section video' matches the hero scrub clip first on the homepage.
+  const vid = document.querySelector<HTMLVideoElement>('.rdlb-video');
+  if (vid && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) vid.play().catch(() => {});
+      else vid.pause();
+    }, { threshold: 0.25 }).observe(vid);
   }
 </script>

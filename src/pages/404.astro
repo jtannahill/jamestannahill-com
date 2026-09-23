@@ -6,18 +6,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   title="Page Not Found - James Tannahill"
   description="The page you're looking for doesn't exist."
   canonical="https://jamestannahill.com/404"
+  noindex
 >
   <div class="min-h-[80vh] flex flex-col items-center justify-center px-6 text-center">
-    <p class="tracking-[0.3em] uppercase mb-6 text-[11px]" style="color:var(--color-amber);">404</p>
+    <p class="tracking-[0.3em] uppercase mb-6 text-[11px]" style="color:var(--color-amber-text);">404</p>
     <h1 class="font-bold mb-4" style="font-family:'NHG Display',sans-serif; font-size:clamp(32px,6vw,56px); letter-spacing:-0.02em;">
       Page not found.
     </h1>
-    <p class="mb-10 max-w-sm" style="font-size:15px; color:#999; line-height:1.75;">
+    <p class="mb-10 max-w-sm" style="font-size:15px; color:var(--color-muted); line-height:1.75;">
       This page doesn't exist or has moved. Head back to the main site.
     </p>
     <div class="flex flex-wrap gap-4 justify-center">
       <a href="/"
-         class="press inline-flex items-center justify-center min-h-[48px] px-8 py-3 text-white text-[13px] tracking-[0.18em] uppercase"
+         class="press inline-flex items-center justify-center min-h-[48px] px-8 py-3 text-[var(--color-ink)] text-[13px] tracking-[0.18em] uppercase"
          style="background:var(--color-amber);">
         Back to Home
       </a>

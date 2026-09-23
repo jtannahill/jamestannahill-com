@@ -138,17 +138,16 @@ const schema = [
         @media (max-width: 639px) {
           .tcard-img-lead, .tcard-img-row { aspect-ratio: 16 / 9 !important; }
         }
-        .tcard:hover .tcard-img,
-        .tcard:focus-visible .tcard-img {
-          transform: scale(1.035);
-          filter: saturate(1.05);
+        @media (hover: hover) and (pointer: fine) {
+          .tcard:hover .tcard-img { transform: scale(1.035); filter: saturate(1.05); }
         }
+        .tcard:focus-visible .tcard-img { transform: scale(1.035); filter: saturate(1.05); }
         .tcard-title { transition: color 0.25s ease; }
         .tcard:hover .tcard-title,
-        .tcard:focus-visible .tcard-title { color: var(--color-amber); }
+        .tcard:focus-visible .tcard-title { color: var(--t-amber); }
         .tcard-cta {
-          color: var(--color-amber);
-          background-image: linear-gradient(var(--color-amber), var(--color-amber));
+          color: var(--t-amber);
+          background-image: linear-gradient(var(--t-amber), var(--t-amber));
           background-repeat: no-repeat;
           background-size: 0% 1px;
           background-position: 0 100%;
@@ -159,7 +158,7 @@ const schema = [
         .tcard:focus-visible .tcard-cta { background-size: 100% 1px; }
         @media (prefers-reduced-motion: reduce) {
           .tcard-img, .tcard-cta { transition: none; }
-          .tcard:hover .tcard-img { transform: none; }
+          .tcard:hover .tcard-img, .tcard:focus-visible .tcard-img { transform: none; }
         }
       </style>
 

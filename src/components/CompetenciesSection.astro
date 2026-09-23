@@ -131,7 +131,11 @@ const competencies = [
   </div>
 </section>
 <script>
-  (function () {
+  // Bundled module: runs once per document, so it re-binds on every
+  // astro:page-load (ClientRouter) and unbinds on astro:before-swap.
+  var teardown = function () {};
+  function init() {
+    teardown();
     var rows = Array.prototype.slice.call(
       document.querySelectorAll('[data-comp-index] .comp-row')
     );
@@ -155,14 +159,15 @@ const competencies = [
       var vh = window.innerHeight;
       var focusY = vh * FOCUS;
       var reach = vh * FALLOFF;
-      for (var n = 0; n < rows.length; n++) {
-        var box = rows[n].getBoundingClientRect();
+      // All reads first, then all writes, so the loop never forces layout.
+      var boxes = rows.map(function (r) { return r.getBoundingClientRect(); });
+      boxes.forEach(function (box, n) {
         var d = Math.abs(box.top + box.height / 2 - focusY) / reach;
         var i = Math.max(0, 1 - d);
         // Ease so the deep end concentrates on one or two rows, not a smear.
         i = i * i * (3 - 2 * i);
         rows[n].style.setProperty('--i', i.toFixed(3));
-      }
+      });
     }
 
     var queued = false;
@@ -189,5 +194,13 @@ const competencies = [
 
     if (reduced.addEventListener) reduced.addEventListener('change', start);
     start();
-  })();
+    teardown = function () {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      if (reduced.removeEventListener) reduced.removeEventListener('change', start);
+      teardown = function () {};
+    };
+  }
+  document.addEventListener('astro:page-load', init);
+  document.addEventListener('astro:before-swap', function () { teardown(); });
 </script>

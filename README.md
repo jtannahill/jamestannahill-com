@@ -29,7 +29,7 @@ src/
   data/         # faqs.ts: single source for the FAQ accordion + FAQPage JSON-LD
                 # privacy: scoped to jamestannahill.com + map./contact. subdomains
                 # (all three ship the same GA4 property G-WRDEHD4QYL)
-  styles/       # global.css (CSS vars, font-face, scroll reveal)
+  styles/       # global.css (CSS vars, font-face, focus rings, /thoughts tokens); design rules in DESIGN.md
 public/
   logos/        # Venture logos (PNG, mix-blend-mode:multiply)
   hero-bg.jpg   # Hero background

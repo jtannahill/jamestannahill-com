@@ -15,13 +15,13 @@ const TURNSTILE_SITE_KEY = '0x4AAAAAADKU-hbxlRBQvuha';
   >
     <div class="grid sm:grid-cols-2 gap-6 sm:gap-10">
       <div>
-        <label class="block text-[11px] uppercase tracking-wider mb-3" style="color:rgba(255,255,255,0.45);" for="firstName">First Name *</label>
+        <label class="block text-[11px] uppercase tracking-wider mb-3" style="color:rgba(255,255,255,0.5);" for="firstName">First Name *</label>
         <input id="firstName" name="firstName" maxlength="100" type="text" required autocomplete="given-name"
                class="cf-input w-full min-h-[44px] bg-transparent text-white pb-3"
                style="font-size:16px;" />
       </div>
       <div>
-        <label class="block text-[11px] uppercase tracking-wider mb-3" style="color:rgba(255,255,255,0.45);" for="lastName">Last Name *</label>
+        <label class="block text-[11px] uppercase tracking-wider mb-3" style="color:rgba(255,255,255,0.5);" for="lastName">Last Name *</label>
         <input id="lastName" name="lastName" maxlength="100" type="text" required autocomplete="family-name"
                class="cf-input w-full min-h-[44px] bg-transparent text-white pb-3"
                style="font-size:16px;" />
@@ -29,26 +29,26 @@ const TURNSTILE_SITE_KEY = '0x4AAAAAADKU-hbxlRBQvuha';
     </div>
     <div class="grid sm:grid-cols-2 gap-6 sm:gap-10">
       <div>
-        <label class="block text-[11px] uppercase tracking-wider mb-3" style="color:rgba(255,255,255,0.45);" for="email">Email *</label>
+        <label class="block text-[11px] uppercase tracking-wider mb-3" style="color:rgba(255,255,255,0.5);" for="email">Email *</label>
         <input id="email" name="email" maxlength="254" type="email" required autocomplete="email" inputmode="email"
                class="cf-input w-full min-h-[44px] bg-transparent text-white pb-3"
                style="font-size:16px;" />
       </div>
       <div>
-        <label class="block text-[11px] uppercase tracking-wider mb-3" style="color:rgba(255,255,255,0.45);" for="phone">Phone</label>
+        <label class="block text-[11px] uppercase tracking-wider mb-3" style="color:rgba(255,255,255,0.5);" for="phone">Phone</label>
         <input id="phone" name="phone" maxlength="40" type="tel" autocomplete="tel" inputmode="tel"
                class="cf-input w-full min-h-[44px] bg-transparent text-white pb-3"
                style="font-size:16px;" />
       </div>
     </div>
     <div>
-      <label class="block text-[11px] uppercase tracking-wider mb-3" style="color:rgba(255,255,255,0.45);" for="subject">Subject</label>
+      <label class="block text-[11px] uppercase tracking-wider mb-3" style="color:rgba(255,255,255,0.5);" for="subject">Subject *</label>
       <input id="subject" name="subject" maxlength="200" type="text" required
              class="cf-input w-full min-h-[44px] bg-transparent text-white pb-3"
              style="font-size:16px;" />
     </div>
     <div>
-      <label class="block text-[11px] uppercase tracking-wider mb-3" style="color:rgba(255,255,255,0.45);" for="message">Message</label>
+      <label class="block text-[11px] uppercase tracking-wider mb-3" style="color:rgba(255,255,255,0.5);" for="message">Message *</label>
       <textarea id="message" name="message" rows="4" maxlength="5000" required
                 class="cf-input w-full min-h-[44px] bg-transparent text-white resize-none pb-3"
                 style="font-size:16px;"></textarea>
@@ -65,28 +65,25 @@ const TURNSTILE_SITE_KEY = '0x4AAAAAADKU-hbxlRBQvuha';
     <div id="turnstile-container" data-sitekey={TURNSTILE_SITE_KEY}></div>
 
     <button type="submit" id="contact-submit"
-            class="cf-submit press inline-flex items-center gap-3 px-8 py-3 min-h-[48px] text-white text-[13px] tracking-[0.18em] uppercase"
+            class="cf-submit press inline-flex items-center gap-3 px-8 py-3 min-h-[48px] text-[var(--color-ink)] text-[13px] tracking-[0.18em] uppercase"
             style="background:var(--color-amber);">
       <span class="cf-spinner" aria-hidden="true"></span>
       <span>Send message</span>
     </button>
-    <p id="contact-success" class="cf-note text-sm" role="status" hidden style="color:var(--color-amber);">
-      Message sent. I'll be in touch.
-    </p>
-    <p id="contact-error" class="cf-note text-sm" role="alert" hidden style="color:#f87171;">
-      Something went wrong. Email contact@jamestannahill.com directly.
-    </p>
+    {/* Live regions stay in the DOM so screen readers announce the text change. */}
+    <p id="contact-success" class="cf-note text-sm" role="status" style="color:var(--color-amber);"></p>
+    <p id="contact-error" class="cf-note text-sm" role="alert" style="color:#f87171;"></p>
   </form>
 </div>
 
 <style>
   .cf-input {
     border: none;
-    border-bottom: 1px solid rgba(255,255,255,0.25);
+    border-bottom: 1px solid rgba(255,255,255,0.4);
     outline: none;
     transition: border-color 150ms ease;
   }
-  .cf-input:focus-visible { border-bottom-color: var(--color-amber); outline: none; }
+  .cf-input:focus-visible { border-bottom-color: var(--color-amber); box-shadow: 0 1px 0 0 var(--color-amber); outline: none; }
   /* Disabled looks disabled; the label stays put so nothing shifts. */
   .cf-submit { transition: transform 160ms var(--ease-out), opacity 150ms ease; }
   .cf-submit[disabled] { opacity: 0.6; cursor: progress; }
@@ -94,8 +91,8 @@ const TURNSTILE_SITE_KEY = '0x4AAAAAADKU-hbxlRBQvuha';
     display: none;
     width: 14px; height: 14px;
     border-radius: 50%;
-    border: 1.5px solid rgba(255,255,255,0.35);
-    border-top-color: #fff;
+    border: 1.5px solid rgba(10,10,10,0.35);
+    border-top-color: var(--color-ink);
     animation: cf-spin 600ms linear infinite;
   }
   .cf-submit[disabled] .cf-spinner { display: inline-block; }
@@ -107,7 +104,7 @@ const TURNSTILE_SITE_KEY = '0x4AAAAAADKU-hbxlRBQvuha';
     transition: opacity 200ms var(--ease-out), transform 200ms var(--ease-out);
     @starting-style { opacity: 0; transform: translateY(4px); }
   }
-  .cf-note[hidden] { display: none; }
+  .cf-note:empty { display: none; }
   @media (prefers-reduced-motion: reduce) {
     .cf-note { transition: opacity 150ms ease; @starting-style { transform: none; } }
     .cf-spinner { animation-duration: 1.2s; }
@@ -151,21 +148,31 @@ const TURNSTILE_SITE_KEY = '0x4AAAAAADKU-hbxlRBQvuha';
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
     btn.disabled = true;
-    success.hidden = true;
-    error.hidden = true;
+    form.setAttribute('aria-busy', 'true');
+    success.textContent = '';
+    error.textContent = '';
+    form.querySelectorAll('[aria-invalid]').forEach((el) => el.removeAttribute('aria-invalid'));
 
     const formData = new FormData(form);
     const { data, error: actionError } = await actions.sendContact(formData);
 
     if (actionError) {
-      error.hidden = false;
+      if (isInputError(actionError)) {
+        error.textContent = 'Check the required fields and send again.';
+        Object.keys(actionError.fields).forEach((name) => {
+          form.querySelector(`[name="${name}"]`)?.setAttribute('aria-invalid', 'true');
+        });
+        form.querySelector<HTMLElement>('[aria-invalid="true"]')?.focus();
+      } else {
+        error.textContent = 'Something went wrong. Email contact@jamestannahill.com directly.';
+      }
       (window as any).jtTrack?.('form_error', {
         form_id: 'contact',
         error_code: (actionError as any).code ?? 'unknown',
       });
     } else {
       form.reset();
-      success.hidden = false;
+      success.textContent = "Message sent. I'll be in touch.";
       // Honeypot submissions resolve successfully so bots see a normal send,
       // but report delivered: false. Only count a real delivery as form_submit.
       if (data?.delivered) {
@@ -174,6 +181,7 @@ const TURNSTILE_SITE_KEY = '0x4AAAAAADKU-hbxlRBQvuha';
     }
 
     resetTurnstile();
+    form.removeAttribute('aria-busy');
     btn.disabled = false;
   });
 </script>
