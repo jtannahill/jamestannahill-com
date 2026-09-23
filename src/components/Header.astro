@@ -53,7 +53,7 @@ const isActive = (href: string) => href !== '/' && path.startsWith(href);
 <div id="mobile-menu" transition:persist
      class="fixed inset-0 z-40 flex flex-col items-center justify-center gap-8 md:hidden"
      style="background:#0a0a0a;"
-     hidden>
+     inert>
   {navLinks.map(link => (
     <a
       href={link.href}
@@ -80,15 +80,17 @@ const isActive = (href: string) => href !== '/' && path.startsWith(href);
     transform: scale(1);
     transition: opacity 200ms var(--ease-out), transform 200ms var(--ease-out), visibility 0s;
   }
-  #mobile-menu[hidden] {
-    display: flex;
+  /* Closed state keys off data-open, not [hidden]: Tailwind's layered
+     [hidden]{display:none !important} beats any unlayered rule, which made the
+     menu pop instead of fade. inert keeps the closed menu out of tab order. */
+  #mobile-menu:not([data-open]) {
     visibility: hidden;
     opacity: 0;
     transform: scale(0.98);
     pointer-events: none;
     transition: opacity 140ms var(--ease-out), transform 140ms var(--ease-out), visibility 0s 140ms;
   }
-  @media (min-width: 768px) { #mobile-menu, #mobile-menu[hidden] { display: none; } }
+  @media (min-width: 768px) { #mobile-menu { display: none; } }
   /* Hamburger folds into an X. */
   .burger { position: relative; display: block; width: 20px; height: 14px; }
   .burger-bar {
@@ -102,7 +104,7 @@ const isActive = (href: string) => href !== '/' && path.startsWith(href);
   #menu-toggle[aria-expanded="true"] .burger-bar:nth-child(2) { opacity: 0; }
   #menu-toggle[aria-expanded="true"] .burger-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
   @media (prefers-reduced-motion: reduce) {
-    #mobile-menu, #mobile-menu[hidden] { transform: none; transition: opacity 120ms ease, visibility 0s; }
+    #mobile-menu, #mobile-menu:not([data-open]) { transform: none; transition: opacity 120ms ease, visibility 0s; }
     .burger-bar { transition: none; }
   }
   .nav-link { position: relative; }
@@ -135,8 +137,8 @@ const isActive = (href: string) => href !== '/' && path.startsWith(href);
   function setMenuOpen(open: boolean) {
     if (!menu || !toggle) return;
     const wasOpen = toggle.getAttribute('aria-expanded') === 'true';
-    if (open) menu.removeAttribute('hidden');
-    else menu.setAttribute('hidden', '');
+    menu.toggleAttribute('data-open', open);
+    menu.inert = !open;
     document.body.classList.toggle('overflow-hidden', open);
     // The overlay covers the page; keep Tab from walking into what is behind it.
     document.querySelector('main')?.toggleAttribute('inert', open);

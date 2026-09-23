@@ -67,7 +67,13 @@ const encUrl = encodeURIComponent(url);
     font-size: 11px;
     letter-spacing: 0.14em;
     transition: color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 4px;
+    margin: 0 -4px;
   }
+  .e-share:active { opacity: 0.6; }
   .e-share:hover { color: var(--t-amber); }
   .e-share:focus-visible { color: var(--t-amber); outline: 2px solid var(--t-amber); outline-offset: 3px; }
   .e-share[data-copied="true"] { color: var(--t-amber); }

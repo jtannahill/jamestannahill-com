@@ -15,14 +15,14 @@ const minutes = readingMinutes(slug);
 <div class="e-progress" data-essay-progress aria-hidden="true"></div>
 
 <p class="t-eyebrow mb-4">
-  <a href="/thoughts" class="hover:opacity-70 t-amber">Thoughts</a>
+  <a href="/thoughts" class="inline-flex items-center min-h-[44px] hover:opacity-70 t-amber">Thoughts</a>
 </p>
 {Astro.slots.has('title') ? (
   <slot name="title" />
 ) : (
-  <h1 class="text-[30px] sm:text-[34px] leading-[1.15] font-semibold tracking-tight mb-3 t-ink" style="text-wrap:balance;">{post.title}</h1>
+  <h1 class="text-[2rem] sm:text-[2.2667rem] leading-[1.15] font-semibold tracking-tight mb-3 t-ink" style="text-wrap:balance;">{post.title}</h1>
 )}
-<p class="text-[18px] leading-[1.45] mb-4 t-deck" style="text-wrap:pretty;">{post.standfirst}</p>
+<p class="text-[1.2rem] leading-[1.45] mb-4 t-deck" style="text-wrap:pretty;">{post.standfirst}</p>
 <p class="text-[12px] mb-12 t-muted tabular-nums">
   <time datetime={post.published}>{post.date}</time>
   <span class="ml-4">{minutes} min read</span>

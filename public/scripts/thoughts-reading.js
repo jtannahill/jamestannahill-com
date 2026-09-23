@@ -54,7 +54,11 @@
         setTimeout(function () { btn.textContent = prev; btn.removeAttribute('data-copied'); }, 1600);
       };
       if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(url).then(done, done);
+        navigator.clipboard.writeText(url).then(done, function () {
+          var prev = btn.textContent;
+          btn.textContent = 'Copy failed';
+          setTimeout(function () { btn.textContent = prev; }, 1600);
+        });
       } else {
         var ta = document.createElement('textarea');
         ta.value = url; document.body.appendChild(ta); ta.select();

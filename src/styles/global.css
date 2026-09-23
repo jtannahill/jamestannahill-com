@@ -46,6 +46,14 @@ button:active, .press:active {
   transform: scale(0.97);
 }
 
+@media (prefers-reduced-transparency: reduce) {
+  header { background-color: #0a0a0a !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
+}
+@media (prefers-contrast: more) {
+  header { background-color: #000 !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; border-bottom-color: rgba(255,255,255,0.4) !important; }
+}
+.nav-link:active { opacity: 0.6; }
+
 /* Visible keyboard focus everywhere; components that draw their own ring
    override this locally. */
 :focus-visible {
@@ -260,14 +268,14 @@ body {
 .t-rule-strong { border-color: var(--t-rule-strong); }
 .t-plate { background: var(--t-plate); }
 .t-eyebrow {
-  font-size: 12px;
+  font-size: 0.8rem;
   color: var(--t-amber);
 }
 /* Essay body: 17px on a 680px measure lands near 70 characters per line. */
-.e-body { font-size: 17px; line-height: 1.7; color: var(--t-body); }
+.e-body { font-size: 1.1333rem; line-height: 1.7; color: var(--t-body); }
 .e-body .italic { color: var(--t-ink); }
 .e-h2 {
-  font-size: 11px;
+  font-size: 0.7333rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--t-amber);
@@ -276,7 +284,7 @@ body {
   padding-top: 1rem;
   border-top: 1px solid var(--t-rule);
 }
-.e-cap { font-size: 12px; line-height: 1.6; color: var(--t-muted); }
+.e-cap { font-size: 0.8rem; line-height: 1.6; color: var(--t-muted); }
 .e-cap a { color: var(--t-amber); }
 /* Reading progress bar, painted just under the fixed header. */
 .e-progress {

@@ -155,3 +155,8 @@ The main site is light-only with ink chrome. /thoughts (index and every essay, s
 - Unused tokens. `--color-accent`, `--color-surface` and `--color-amber-subtle` are declared but not referenced; `--color-accent` is near-black despite its name. Retire or assign them.
 - Inline literals. Several shared surfaces still use literals in place of tokens (footer gray, bio and venture body gray, casual section ground, consent panel ground, error red). Decide which deserve named tokens.
 - Dark mode scope. Only /thoughts follows the color scheme. Decide whether the rest of the site stays light-only by intent.
+
+## Motion and feedback (apple-design pass, 2026-09-23)
+
+- The mobile menu's closed state keys off `data-open` plus `inert`, never the `hidden` attribute: Tailwind's layered `[hidden]{display:none !important}` cannot be overridden and kills the fade.
+- Reading-path type is in rem so browser text-size settings apply. Tap targets are at least 44px. The header turns solid under `prefers-reduced-transparency` and `prefers-contrast: more`.
