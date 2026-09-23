@@ -23,7 +23,7 @@ const minutes = readingMinutes(slug);
   <h1 class="text-[30px] sm:text-[34px] leading-[1.15] font-semibold tracking-tight mb-3 t-ink" style="text-wrap:balance;">{post.title}</h1>
 )}
 <p class="text-[18px] leading-[1.45] mb-4 t-deck" style="text-wrap:pretty;">{post.standfirst}</p>
-<p class="text-[12px] mb-12 t-muted">
+<p class="text-[12px] mb-12 t-muted tabular-nums">
   <time datetime={post.published}>{post.date}</time>
   <span class="ml-4">{minutes} min read</span>
 </p>

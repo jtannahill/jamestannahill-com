@@ -36,3 +36,7 @@ art-*.png
 art-*.webp
 # Fonts unpacked from woff2 by the OG generator
 scripts/ttf/
+
+# local skill installs
+.agents/
+skills-lock.json

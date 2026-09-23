@@ -5,7 +5,8 @@
   --color-muted: #6b7280;
   --color-accent: #1a1a1a;
   --color-surface: #f9f9f8;
-  --color-border: #e5e5e5;
+  /* Low-alpha so rules sit in the page instead of on it; same lightness as the old #e5e5e5 on white. */
+  --color-border: rgba(10, 10, 10, 0.1);
   --color-amber: #c9882a;
   --color-amber-dark: #b5771f;
   --color-amber-subtle: rgba(201, 136, 42, 0.15);
@@ -13,6 +14,15 @@
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
   --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+/* Body copy and captions avoid orphans; headings balance where set locally. */
+p, figcaption, dd, li { text-wrap: pretty; }
+
+/* Photos get a hairline inset edge so they do not bleed into the ground. */
+.photo-edge { outline: 1px solid rgba(0, 0, 0, 0.1); outline-offset: -1px; }
+@media (prefers-color-scheme: dark) {
+  .thoughts-page .photo-edge { outline-color: rgba(255, 255, 255, 0.1); }
 }
 
 /* Section headings. Sentence case in the display face; the rhythm of the page
