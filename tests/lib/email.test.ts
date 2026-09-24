@@ -87,10 +87,29 @@ describe('sendContactConfirmation', () => {
     expect(msg.to).toBe('james@example.com');
     expect(msg.from).toEqual({ email: 'contact@jamestannahill.com', name: 'James Tannahill' });
     expect(msg.subject).toBe('Thanks — I received your message');
-    expect(msg.text).toContain('James');
-    expect(msg.text).toContain('Hello');
-    expect(msg.html).toContain('James');
-    expect(msg.html).toContain('Hello');
+    expect(msg.text).toContain('Thanks for writing');
+    expect(msg.html).toContain('Thanks for writing');
+  });
+
+  it('carries no visitor-supplied text, so the receipt cannot relay content', async () => {
+    await sendContactConfirmation(
+      {
+        ...payload,
+        firstName: 'Zq7visitorName',
+        lastName: 'Zq7lastName',
+        subject: 'Zq7subject https://evil.example.test',
+        message: 'Zq7message',
+        phone: '555-0100',
+      },
+      env,
+    );
+
+    const msg = send.mock.calls[0][0];
+    for (const field of ['Zq7', 'evil.example.test', '555-0100', 'james@example.com']) {
+      expect(msg.text).not.toContain(field);
+      expect(msg.html).not.toContain(field);
+      expect(msg.subject).not.toContain(field);
+    }
   });
 
   it('propagates a send failure', async () => {

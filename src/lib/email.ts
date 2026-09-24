@@ -83,13 +83,13 @@ function inboundHtml(p: ContactPayload): string {
   ].join('');
 }
 
-function confirmationText(p: ContactPayload): string {
+// The receipt is sent to a visitor-chosen address, so it carries no
+// visitor-supplied text: nothing from the form can be relayed through it.
+function confirmationText(): string {
   return [
-    `Hi ${p.firstName},`,
+    'Hello,',
     '',
     'Thanks for writing. I received your message and will get back to you.',
-    '',
-    `Subject: ${p.subject}`,
     '',
     '— James',
     'https://jamestannahill.com',
@@ -97,11 +97,10 @@ function confirmationText(p: ContactPayload): string {
   ].join('\n');
 }
 
-function confirmationHtml(p: ContactPayload): string {
+function confirmationHtml(): string {
   return [
-    `<p>Hi ${escapeHtml(p.firstName)},</p>`,
+    '<p>Hello,</p>',
     '<p>Thanks for writing. I received your message and will get back to you.</p>',
-    `<p>Subject: ${escapeHtml(p.subject)}</p>`,
     '<p>— James<br><a href="https://jamestannahill.com">jamestannahill.com</a></p>',
   ].join('');
 }
@@ -127,7 +126,7 @@ export async function sendContactConfirmation(
     to: p.email,
     from: CONTACT_FROM,
     subject: 'Thanks — I received your message',
-    text: confirmationText(p),
-    html: confirmationHtml(p),
+    text: confirmationText(),
+    html: confirmationHtml(),
   });
 }
