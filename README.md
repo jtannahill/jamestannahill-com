@@ -58,20 +58,20 @@ npm run dev
 
 Every push to `main` runs the [Deploy workflow](.github/workflows/deploy.yml) via GitHub Actions.
 
-One-time setup — add repo secrets:
+One-time setup: add repo secrets.
 
 ```bash
 # IMPORTANT: create the token while logged into the Cloudflare account that owns
-# the worker — "Sbd9dk4dfr@privaterelay.appleid.com's Account", NOT Plocamium.
-# Dashboard → My Profile → API Tokens → Edit Cloudflare Workers
-#   Account Resources: include aa7a67b77a9549dc7cb54bb8aac477d8 only
+# the Worker (not any other account you can access).
+# Dashboard > My Profile > API Tokens > Edit Cloudflare Workers
+#   Account Resources: include only the account that owns the Worker
 
 gh secret set CLOUDFLARE_API_TOKEN --repo jtannahill/jamestannahill-com
 gh secret set CLOUDFLARE_ACCOUNT_ID --repo jtannahill/jamestannahill-com
-# paste exactly: aa7a67b77a9549dc7cb54bb8aac477d8
+# paste the account ID of that same Cloudflare account
 ```
 
-If deploy fails with Cloudflare error **7003**, the token and account ID are mismatched — recreate the token on the correct account above.
+If deploy fails with Cloudflare error **7003**, the token and account ID are mismatched: recreate the token on the account that owns the Worker.
 
 Manual re-deploy without a code push:
 
@@ -88,7 +88,7 @@ npm run build
 npx wrangler deploy
 ```
 
-Worker assets are versioned by Wrangler; large media lives in the `media-jamestannahill-com` R2 bucket and is served from `media.jamestannahill.com`.
+Worker assets are versioned by Wrangler; large media lives in an R2 bucket and is served from `media.jamestannahill.com`.
 
 ## DNS
 
