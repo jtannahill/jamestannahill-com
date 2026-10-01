@@ -119,7 +119,7 @@ The main site is light-only with ink chrome. /thoughts (index and every essay, s
 
 ## Shapes
 
-- Corners are square. Buttons, inputs, cards, venture tiles and photos have no radius. Exceptions are the consent banner panel, the round author headshot in essay footers, and an app icon on venture pages.
+- Corners are square. Buttons, inputs, cards, venture tiles and photos have no radius. Exceptions are the consent banner panel, the round author headshots (essay footers and /profile), and an app icon on venture pages.
 - Form inputs are underline-only: no box, a single bottom rule that turns amber on focus.
 - Photos get a one-pixel inset hairline edge (`.photo-edge`) so they do not bleed into the ground.
 
@@ -147,11 +147,15 @@ The main site is light-only with ink chrome. /thoughts (index and every essay, s
 - Don't let a continuously mixed tint sit behind text when neither ink clears contrast on it; flip ground and ink together instead.
 - Don't restyle Apple's App Store badge; show it as supplied.
 
+## Resolved (taste-skill + impeccable pass, 2026-10-01)
+
+- Marine is not a second accent outside the Competencies ramp. Venture pages use `amber-text` for links, labels and the Visit button (which hovers to the primary form), and a 1px `border` hairline for the namesake rule.
+- Venture pages use NHG Display with tabular figures for breadcrumbs, the record line and the spec table; no monospace.
+- No eyebrow above a page h1 (legal pages and /profile lost theirs). Legal section labels use `amber-text` at 11px.
+
 ## Open Questions
 
-- Marine as a second accent. The Competencies ramp introduces a teal family, and venture pages reuse its accent for inline links, the namesake rule, the build section heading and the Visit button. Decide whether marine is a sanctioned secondary accent (then promote it to named tokens in global.css) or whether those surfaces should return to amber.
 - Tracked caps labels. The global comment says rhythm comes from spacing, not tracked-out caps labels, yet tracked uppercase remains on nav, buttons, form labels, stat labels, practice lists, essay section labels and 404 eyebrow. Confirm the rule is scoped to section headings only, or retire tracked caps from the non-functional cases.
-- Monospace voice on venture pages. Venture pages add a system monospace stack for breadcrumbs, the record line and the spec table, a second family that appears nowhere else. Decide whether it is a sanctioned role or page-local.
 - Unused tokens. `--color-accent`, `--color-surface` and `--color-amber-subtle` are declared but not referenced; `--color-accent` is near-black despite its name. Retire or assign them.
 - Inline literals. Several shared surfaces still use literals in place of tokens (footer gray, bio and venture body gray, casual section ground, consent panel ground, error red). Decide which deserve named tokens.
 - Dark mode scope. Only /thoughts follows the color scheme. Decide whether the rest of the site stays light-only by intent.

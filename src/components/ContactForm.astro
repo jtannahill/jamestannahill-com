@@ -83,6 +83,7 @@ const TURNSTILE_SITE_KEY = '0x4AAAAAADKU-hbxlRBQvuha';
     outline: none;
     transition: border-color 150ms ease;
   }
+  .cf-input[aria-invalid="true"] { border-bottom-color: #f87171; box-shadow: 0 1px 0 0 #f87171; }
   .cf-input:focus-visible { border-bottom-color: var(--color-amber); box-shadow: 0 1px 0 0 var(--color-amber); outline: none; }
   /* Disabled looks disabled; the label stays put so nothing shifts. */
   .cf-submit { transition: transform 160ms var(--ease-out), opacity 150ms ease; }
@@ -158,10 +159,19 @@ const TURNSTILE_SITE_KEY = '0x4AAAAAADKU-hbxlRBQvuha';
 
     if (actionError) {
       if (isInputError(actionError)) {
-        error.textContent = 'Check the required fields and send again.';
-        Object.keys(actionError.fields).forEach((name) => {
-          form.querySelector(`[name="${name}"]`)?.setAttribute('aria-invalid', 'true');
+        // Name the fields, using their visible labels, so the visitor knows what to fix.
+        const names = Object.keys(actionError.fields).map((name) => {
+          const el = form.querySelector(`[name="${name}"]`);
+          el?.setAttribute('aria-invalid', 'true');
+          const label = el?.id ? form.querySelector(`label[for="${el.id}"]`)?.textContent : null;
+          return (label || name).replace('*', '').trim().toLowerCase();
         });
+        const list = names.length > 1
+          ? `${names.slice(0, -1).join(', ')} and ${names[names.length - 1]}`
+          : names[0];
+        error.textContent = list
+          ? `Check your ${list}, then send again.`
+          : 'Check the required fields and send again.';
         form.querySelector<HTMLElement>('[aria-invalid="true"]')?.focus();
       } else {
         error.textContent = 'Something went wrong. Email contact@jamestannahill.com directly.';

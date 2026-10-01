@@ -8,10 +8,10 @@ import { faqs } from '../data/faqs';
       <details class="group py-5" style="border-top:1px solid rgba(255,255,255,0.08);">
         <summary class="flex justify-between items-start cursor-pointer list-none gap-4 min-h-[48px] py-1">
           <h3 class="font-medium leading-relaxed text-white" style="font-size:15px; overflow-wrap:break-word;">{faq.q}</h3>
-          <span aria-hidden="true" class="faq-plus mt-0.5 flex-shrink-0 group-open:rotate-45"
-                style="color:var(--color-amber);">+</span>
+          <svg aria-hidden="true" class="faq-plus mt-1.5 flex-shrink-0 group-open:rotate-45" width="14" height="14" viewBox="0 0 14 14"
+               fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--color-amber);"><path d="M7 1v12M1 7h12"/></svg>
         </summary>
-        <p class="mt-4 text-sm leading-relaxed max-w-3xl" style="color:rgba(255,255,255,0.6);">{faq.a}</p>
+        <p class="mt-4 text-[15px] leading-[1.75] max-w-[62ch]" style="color:rgba(255,255,255,0.6); text-wrap:pretty;">{faq.a}</p>
       </details>
     ))}
   </div>

@@ -26,25 +26,24 @@ const pdf = '/profile.pdf';
         />
       </a>
 
-      <p class="text-[9px] tracking-[0.25em] uppercase mb-3" style="color:var(--color-amber);">Executive Profile</p>
-      <h1 class="text-[30px] font-semibold tracking-tight mb-3" style="color:#1a1a1a;">James Tannahill</h1>
+      <h1 class="text-[30px] font-medium tracking-[-0.02em] mb-3" style="color:var(--color-ink);">James Tannahill</h1>
       <p class="text-[15px] leading-[1.7] mb-6 mx-auto max-w-md" style="color:#555;">
         Investor, operator, and builder with 10+ years across PE-backed, public, and growth-stage
         companies. Currently building AI-native financial intelligence at SpaceXAI.
       </p>
 
-      <p class="text-[13px] mb-9" style="color:#888;">
+      <p class="text-[13px] mb-9" style="color:var(--color-muted);">
         New York, NY
         <span class="px-2" style="color:var(--color-border);">·</span>
-        <a href="mailto:profile@jamestannahill.com?subject=read%20your%20profile%20-%20let's%20connect." class="underline underline-offset-2 hover:opacity-70" style="color:var(--color-amber);">profile@jamestannahill.com</a>
+        <a href="mailto:profile@jamestannahill.com?subject=read%20your%20profile%20-%20let's%20connect." class="underline underline-offset-2 hover:opacity-70" style="color:var(--color-amber-text);">profile@jamestannahill.com</a>
       </p>
 
       <div class="flex flex-wrap items-center justify-center gap-3">
         <a
           href={pdf}
           download="James_Tannahill_Executive_Profile.pdf"
-          class="inline-flex items-center gap-2 px-7 py-3 text-[13px] font-medium rounded-full transition-opacity hover:opacity-90"
-          style="background:var(--color-ink);color:#fff;"
+          class="press inline-flex items-center gap-2 min-h-[48px] px-8 py-3 text-[13px] tracking-[0.18em] uppercase text-[var(--color-ink)] transition-colors hover:bg-[var(--color-amber-dark)]"
+          style="background:var(--color-amber);"
         >
           Download profile (PDF)
           <span aria-hidden="true">↓</span>
@@ -65,8 +64,7 @@ const pdf = '/profile.pdf';
             height="1584"
             loading="lazy"
             decoding="async"
-            class="w-full h-auto rounded-lg border transition-shadow group-hover:shadow-xl"
-            style="border-color:var(--color-border);"
+            class="photo-edge w-full h-auto transition-opacity group-hover:opacity-90"
           />
         </picture>
       </a>

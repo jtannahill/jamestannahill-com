@@ -91,7 +91,7 @@ function confirmationText(): string {
     '',
     'Thanks for writing. I received your message and will get back to you.',
     '',
-    '— James',
+    'James',
     'https://jamestannahill.com',
     '',
   ].join('\n');
@@ -101,7 +101,7 @@ function confirmationHtml(): string {
   return [
     '<p>Hello,</p>',
     '<p>Thanks for writing. I received your message and will get back to you.</p>',
-    '<p>— James<br><a href="https://jamestannahill.com">jamestannahill.com</a></p>',
+    '<p>James<br><a href="https://jamestannahill.com">jamestannahill.com</a></p>',
   ].join('');
 }
 
@@ -125,7 +125,7 @@ export async function sendContactConfirmation(
   await env.EMAIL.send({
     to: p.email,
     from: CONTACT_FROM,
-    subject: 'Thanks — I received your message',
+    subject: 'Thanks, I received your message',
     text: confirmationText(),
     html: confirmationHtml(),
   });

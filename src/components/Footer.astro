@@ -1,12 +1,14 @@
 ---
 const year = new Date().getFullYear();
+// Same order as the header nav; legal links sit on a quieter second row.
 const navLinks = [
-  { label: 'About', href: '/' },
+  { label: 'Insights', href: 'https://www.plocamium.com/globals', external: true },
   { label: 'The Agency', href: 'https://www.1nessagency.com/', external: true },
   { label: 'RDLB', href: 'https://www.rdlb.nyc/', external: true },
-  { label: 'Insights', href: 'https://www.plocamium.com/globals', external: true },
   { label: 'Thoughts', href: '/thoughts' },
   { label: 'Contact', href: '/contact' },
+];
+const legalLinks = [
   { label: 'Privacy', href: '/privacy' },
   { label: 'Terms', href: '/terms' },
   { label: 'Accessibility', href: '/accessibility' },
@@ -14,8 +16,7 @@ const navLinks = [
 ---
 <footer class="bg-[var(--color-ink)] border-t border-white/[0.06] py-8">
   <div class="max-w-6xl mx-auto px-6 md:px-14 flex flex-col md:flex-row items-center justify-between gap-4">
-    <p class="text-[12px]" style="color:#999;">© {year} James Tannahill</p>
-    <nav class="flex flex-wrap items-center justify-center gap-6" aria-label="Footer">
+    <nav class="flex flex-wrap items-center justify-center md:justify-start gap-x-6" aria-label="Footer">
       {navLinks.map(link => (
         <a
           href={link.href}
@@ -25,10 +26,11 @@ const navLinks = [
           style="color:#999;"
         >
           {link.label}
+          {link.external && <span class="sr-only"> (opens in new tab)</span>}
         </a>
       ))}
     </nav>
-    <div class="flex items-center gap-5">
+    <div class="flex items-center gap-5 shrink-0">
       <a href="https://www.linkedin.com/in/jamesstannahill/" target="_blank" rel="noopener noreferrer"
          class="inline-flex items-center justify-center min-w-[44px] min-h-[44px] transition-colors hover:text-white" style="color:#999;" aria-label="LinkedIn">
         <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -51,5 +53,17 @@ const navLinks = [
         <img src="/apple-podcasts.svg" alt="Apple Podcasts" width="16" height="16" style="display:block; filter:invert(1);" />
       </a>
     </div>
+  </div>
+  <div class="max-w-6xl mx-auto px-6 md:px-14 mt-2 flex flex-col md:flex-row items-center gap-x-6 gap-y-1">
+    <p class="text-[11px] whitespace-nowrap" style="color:#8a8a8a;">© {year} James Tannahill</p>
+    <nav class="flex flex-wrap items-center justify-center gap-x-6" aria-label="Legal">
+      {legalLinks.map(link => (
+        <a href={link.href}
+           class="inline-flex items-center min-h-[44px] text-[11px] tracking-[0.08em] transition-colors hover:text-white"
+           style="color:#8a8a8a;">
+          {link.label}
+        </a>
+      ))}
+    </nav>
   </div>
 </footer>

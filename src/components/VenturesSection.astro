@@ -29,9 +29,14 @@ import { ventures } from '../data/ventures';
     .venture-card { transition: border-top-color 200ms ease; }
     .venture-card:hover { transform: none; }
   }
+  /* Clamp only where cards are narrow and stack; at four columns the full
+     description fits and a mid-word cut reads as broken. */
+  @media (max-width: 1023.98px) {
+    .v-desc { display: -webkit-box; -webkit-line-clamp: 8; -webkit-box-orient: vertical; overflow: hidden; }
+  }
 </style>
 <section class="border-t border-[var(--color-border)] bg-white">
-  <div class="max-w-6xl mx-auto px-4 md:px-14 py-12 md:py-16">
+  <div class="max-w-6xl mx-auto px-6 md:px-14 py-12 md:py-16">
     <h2 class="sec-h mb-10">Ventures and platforms</h2>
     {/* The anchor sits on the grid, not the section: landing on /#ventures
         should put the cards on screen, not the section's top padding. */}
@@ -69,7 +74,7 @@ import { ventures } from '../data/ventures';
               {/* Wrapped so the clamped box is a plain block, not a flex item: Chrome
                   blockifies -webkit-box flex items and the clamp then slices a line. */}
               <div style="flex:none;">
-                <p style="font-size:13.5px; line-height:1.7; color:var(--color-muted); display:-webkit-box; -webkit-line-clamp:8; -webkit-box-orient:vertical; overflow:hidden; overflow-wrap:break-word;">{v.description}</p>
+                <p class="v-desc" style="font-size:13.5px; line-height:1.7; color:var(--color-muted); overflow-wrap:break-word;">{v.description}</p>
               </div>
               {/* Ventures with a page of their own send readers there first. */}
               {v.page ? (

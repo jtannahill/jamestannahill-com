@@ -1,7 +1,7 @@
 /** Homepage and contact document copy. Pages import from here so titles and
  *  the hero line cannot drift from what the audit specified. */
 export const home = {
-  title: 'James Tannahill — SpaceXAI & PE Value Engineering',
+  title: 'James Tannahill | SpaceXAI & PE Value Engineering',
   description:
     'Operator-led private equity advisory for founder-led companies. Value engineering, exit preparation, and applied AI. Intelligent Capital at SpaceXAI. New York.',
   h1: ['Operator.', 'Investor.', 'Builder.'] as const,
@@ -10,9 +10,9 @@ export const home = {
 };
 
 export const contact = {
-  title: 'Contact James Tannahill — PE Value Engineering',
+  title: 'Contact James Tannahill | PE Value Engineering',
   description:
-    'Confidential inquiries for founder-led and PE-backed companies, $5M–$100M, 12–36 months from transaction. New York and worldwide.',
+    'Confidential inquiries for founder-led and PE-backed companies, $5M-$100M, 12-36 months from transaction. New York and worldwide.',
   canonical: 'https://jamestannahill.com/contact',
   formHeading: 'Send a message',
 };

@@ -32,7 +32,7 @@ describe('contact URL', () => {
 describe('SERP copy', () => {
   it('keeps the homepage H1 line and retitles the document for PE advisory', () => {
     expect(home.h1).toEqual(['Operator.', 'Investor.', 'Builder.']);
-    expect(home.title).toBe('James Tannahill — SpaceXAI & PE Value Engineering');
+    expect(home.title).toBe('James Tannahill | SpaceXAI & PE Value Engineering');
     expect(home.title.length).toBeLessThanOrEqual(60);
     expect(home.description.length).toBeGreaterThanOrEqual(120);
     expect(home.description.length).toBeLessThanOrEqual(160);
@@ -40,7 +40,7 @@ describe('SERP copy', () => {
   });
 
   it('titles the contact page as contact, not FAQs', () => {
-    expect(contact.title).toBe('Contact James Tannahill — PE Value Engineering');
+    expect(contact.title).toBe('Contact James Tannahill | PE Value Engineering');
     expect(contact.title.length).toBeLessThanOrEqual(60);
     expect(contact.description.length).toBeGreaterThanOrEqual(120);
     expect(contact.description.length).toBeLessThanOrEqual(160);
@@ -62,7 +62,7 @@ describe('venture document titles', () => {
 
   it('titles Plocamium for patient capital, not just the brand name', () => {
     const p = venturePages.find((v) => v.slug === 'plocamium')!;
-    expect(p.page!.metaTitle).toBe('Plocamium Holdings — Patient Capital, Industry & Healthcare');
+    expect(p.page!.metaTitle).toBe('Plocamium Holdings | Patient Capital, Industry & Healthcare');
   });
 });
 

@@ -91,21 +91,22 @@ const schema = [
       max-width: 760px;
       margin: 0 auto;
       padding: 0 24px;
-      /* Two voices on this page: NHG Display carries the argument, this mono
-         carries anything that is navigation or record. */
-      --v-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+      /* Navigation and record lines share the one family, set small with
+         tabular figures so dates and counts still line up. */
+      --v-mono: 'NHG Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-variant-numeric: tabular-nums;
     }
 
     .v-crumb {
       border-bottom: 1px solid var(--color-border);
       padding: 18px 0;
       font-family: var(--v-mono);
-      font-size: 12px;
+      font-size: 13px;
       letter-spacing: 0.01em;
-      color: #8a857e;
+      color: var(--color-muted);
     }
-    .v-crumb a { color: #8a857e; text-decoration: none; }
-    .v-crumb a:hover { color: var(--color-amber); }
+    .v-crumb a { color: var(--color-muted); text-decoration: none; }
+    .v-crumb a:hover { color: var(--color-amber-text); }
 
     .v-title {
       margin: 52px 0 18px;
@@ -138,9 +139,9 @@ const schema = [
       flex-wrap: wrap;
       gap: 6px 14px;
       font-family: var(--v-mono);
-      font-size: 12px;
+      font-size: 13px;
       letter-spacing: 0.01em;
-      color: #8a857e;
+      color: var(--color-muted);
     }
 
     .v-body p {
@@ -152,37 +153,37 @@ const schema = [
     }
     .v-body p.lead { font-size: 17px; line-height: 1.75; color: var(--color-ink); }
 
-    /* Inline links inside body copy: marine, underlined at a readable offset. */
+    /* Inline links inside body copy: amber-text, underlined at a readable offset. */
     .v-body a.v-inline {
-      color: #1d5c63;
+      color: var(--color-amber-text);
       text-decoration: underline;
       text-decoration-thickness: 1px;
       text-underline-offset: 3px;
     }
     .v-body a.v-inline:hover { color: var(--color-ink); }
-    .v-body a.v-inline:focus-visible { outline: 2px solid #1d5c63; outline-offset: 2px; }
+    .v-body a.v-inline:focus-visible { outline: 2px solid var(--color-amber-text); outline-offset: 2px; }
 
-    /* The namesake note is an aside, not argument: marine rule, smaller type,
+    /* The namesake note is an aside, not argument: hairline rule, smaller type,
        set off from the body so it reads as a margin gloss. */
     .v-namesake {
       margin: 34px 0 8px;
       padding-left: 18px;
-      border-left: 2px solid #1d5c63;
+      border-left: 1px solid var(--color-border);
       max-width: 58ch;
     }
     .v-namesake .label {
       display: block;
       margin-bottom: 8px;
       font-family: var(--v-mono);
-      font-size: 12px;
+      font-size: 13px;
       letter-spacing: 0.01em;
-      color: #1d5c63;
+      color: var(--color-amber-text);
     }
     .v-namesake p {
       margin: 0;
       font-size: 14px;
       line-height: 1.75;
-      color: #6b6660;
+      color: var(--color-muted);
     }
 
     /* How it is built. Same body measure as the argument above it, with the
@@ -199,25 +200,23 @@ const schema = [
       font-weight: 500;
       letter-spacing: -0.02em;
       line-height: 1.15;
-      color: #1d5c63;
+      color: var(--color-ink);
     }
     .v-spec {
-      /* Not 64ch: the ch unit resolves against this block's mono font, which
-         would set the spec far narrower than the body it sits under. */
       margin: 8px 0 0;
       max-width: 620px;
       display: grid;
       grid-template-columns: minmax(8rem, 13rem) 1fr;
       gap: 0;
       font-family: var(--v-mono);
-      font-size: 11.5px;
+      font-size: 13px;
       line-height: 1.6;
     }
     .v-spec dt {
       padding: 10px 16px 10px 0;
       border-top: 1px solid var(--color-border);
       letter-spacing: 0.01em;
-      color: #8a857e;
+      color: var(--color-muted);
     }
     .v-spec dd {
       margin: 0;
@@ -258,15 +257,15 @@ const schema = [
       display: block;
       margin-bottom: 6px;
       font-family: var(--v-mono);
-      font-size: 12px;
+      font-size: 13px;
       letter-spacing: 0.01em;
-      color: #1d5c63;
+      color: var(--color-amber-text);
     }
     .v-app p {
       margin: 0;
       font-size: 14px;
       line-height: 1.7;
-      color: #6b6660;
+      color: var(--color-muted);
     }
     .v-app .badge {
       display: inline-flex;
@@ -275,7 +274,7 @@ const schema = [
       flex: none;
     }
     .v-app .badge img { display: block; width: 150px; height: auto; }
-    .v-app .badge:focus-visible { outline: 2px solid #1d5c63; outline-offset: 4px; }
+    .v-app .badge:focus-visible { outline: 2px solid var(--color-amber-text); outline-offset: 4px; }
 
     /* A bordered block rather than an underlined word: the underline sat
        detached from the text once the 44px tap target was applied. */
@@ -287,27 +286,22 @@ const schema = [
       min-height: 44px;
       padding: 0 18px;
       font-family: var(--v-mono);
-      font-size: 11.5px;
+      font-size: 13px;
       letter-spacing: 0.01em;
-      color: #1d5c63;
+      color: var(--color-amber-text);
       text-decoration: none;
-      border: 1px solid #1d5c63;
-      transition: background 180ms ease, color 180ms ease;
+      border: 1px solid var(--color-amber-text);
+      transition: background 180ms var(--ease-out), color 180ms var(--ease-out), border-color 180ms var(--ease-out);
     }
+    /* Hover takes the primary-button form: amber fill, ink label. */
     .v-visit:hover,
     .v-visit:focus-visible {
-      background: #1d5c63;
-      color: #f2f0eb;
+      background: var(--color-amber);
+      border-color: var(--color-amber);
+      color: var(--color-ink);
     }
-    .v-visit:focus-visible { outline: 2px solid #1d5c63; outline-offset: 2px; }
-    .v-visit .arrow { font-size: 13px; line-height: 1; }
-
-    /* Arrows are decoration; drop them on narrow screens. */
-    @media (max-width: 767px) {
-      .v-visit .arrow,
-      .v-foot .arr { display: none; }
-      .v-visit { gap: 0; }
-    }
+    .v-visit:focus-visible { outline: 2px solid var(--color-amber-text); outline-offset: 2px; }
+    .v-visit .arrow { flex: none; }
 
     @media (prefers-reduced-motion: reduce) {
       .v-visit { transition: none; }
@@ -316,16 +310,23 @@ const schema = [
     .v-foot {
       border-top: 1px solid var(--color-border);
       padding: 22px 0 56px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 12px 24px;
+      /* Prev and next keep their arrows at every width; on phones "All
+         ventures" takes its own row so direction never reads ambiguously. */
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 4px 24px;
       font-family: var(--v-mono);
-      font-size: 11.5px;
+      font-size: 13px;
       letter-spacing: 0.01em;
     }
-    .v-foot a { color: #8a857e; text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; }
-    .v-foot a:hover { color: var(--color-amber); }
+    .v-foot a { color: var(--color-muted); text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; gap: 0.5ch; }
+    .v-foot a:hover { color: var(--color-amber-text); }
+    .v-foot .next { justify-self: end; }
+    @media (max-width: 599px) {
+      .v-foot { grid-template-columns: 1fr 1fr; }
+      .v-foot .all { grid-column: 1 / -1; grid-row: 2; justify-self: center; }
+    }
   </style>
 
   <div class="v-shell">
@@ -387,13 +388,13 @@ const schema = [
 
     <a class="v-visit" href={venture.url} target="_blank" rel="noopener noreferrer">
       <span>{venture.url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')}</span>
-      <span class="arrow" aria-hidden="true">&#8599;</span>
+      <svg class="arrow" aria-hidden="true" width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8 8 2M3.5 2H8v4.5"/></svg>
     </a>
 
     <nav class="v-foot" aria-label="More ventures">
-      <a href={`/ventures/${prev.slug}`}><span class="arr">&larr; </span>{prev.name}</a>
-      <a href="/#ventures">All ventures</a>
-      <a href={`/ventures/${next.slug}`}>{next.name}<span class="arr"> &rarr;</span></a>
+      <a href={`/ventures/${prev.slug}`}><span aria-hidden="true">&larr;</span>{prev.name}</a>
+      <a class="all" href="/#ventures">All ventures</a>
+      <a class="next" href={`/ventures/${next.slug}`}>{next.name}<span aria-hidden="true">&rarr;</span></a>
     </nav>
   </div>
 </BaseLayout>

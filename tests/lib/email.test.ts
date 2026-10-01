@@ -86,7 +86,7 @@ describe('sendContactConfirmation', () => {
     const msg = send.mock.calls[0][0];
     expect(msg.to).toBe('james@example.com');
     expect(msg.from).toEqual({ email: 'contact@jamestannahill.com', name: 'James Tannahill' });
-    expect(msg.subject).toBe('Thanks — I received your message');
+    expect(msg.subject).toBe('Thanks, I received your message');
     expect(msg.text).toContain('Thanks for writing');
     expect(msg.html).toContain('Thanks for writing');
   });

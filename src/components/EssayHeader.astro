@@ -20,7 +20,7 @@ const minutes = readingMinutes(slug);
 {Astro.slots.has('title') ? (
   <slot name="title" />
 ) : (
-  <h1 class="text-[2rem] sm:text-[2.2667rem] leading-[1.15] font-semibold tracking-tight mb-3 t-ink" style="text-wrap:balance;">{post.title}</h1>
+  <h1 class="text-[2rem] sm:text-[2.2667rem] leading-[1.15] font-bold tracking-tight mb-3 t-ink" style="text-wrap:balance;">{post.title}</h1>
 )}
 <p class="text-[1.2rem] leading-[1.45] mb-4 t-deck" style="text-wrap:pretty;">{post.standfirst}</p>
 <p class="text-[12px] mb-12 t-muted tabular-nums">

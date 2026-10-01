@@ -1,6 +1,5 @@
 ---
 const navLinks = [
-  { label: 'About', href: '/' },
   { label: 'Insights', href: 'https://www.plocamium.com/globals', external: true },
   { label: 'The Agency', href: 'https://www.1nessagency.com/', external: true },
   { label: 'RDLB', href: 'https://www.rdlb.nyc/', external: true },
@@ -13,7 +12,7 @@ const path = Astro.url.pathname;
 const isActive = (href: string) => href !== '/' && path.startsWith(href);
 ---
 <header transition:persist class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/[0.06]">
-  <div class="max-w-6xl mx-auto px-6 h-13 flex items-center justify-between">
+  <div class="max-w-6xl mx-auto px-6 md:px-14 h-13 flex items-center justify-between">
     <a href="/" class="font-bold tracking-widest uppercase text-white"
        style="font-family:'NHG Display',sans-serif; font-size:clamp(20px,5vw,35px);">
       James Tannahill
