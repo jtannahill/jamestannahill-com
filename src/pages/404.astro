@@ -9,7 +9,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   noindex
 >
   <div class="min-h-[80vh] flex flex-col items-center justify-center px-6 text-center">
-    <p class="tracking-[0.3em] uppercase mb-6 text-[11px]" style="color:var(--color-amber-text);">404</p>
     <h1 class="font-bold mb-4" style="font-family:'NHG Display',sans-serif; font-size:clamp(32px,6vw,56px); letter-spacing:-0.02em;">
       Page not found.
     </h1>
@@ -18,13 +17,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </p>
     <div class="flex flex-wrap gap-4 justify-center">
       <a href="/"
-         class="press inline-flex items-center justify-center min-h-[48px] px-8 py-3 text-[var(--color-ink)] text-[13px] tracking-[0.18em] uppercase"
-         style="background:var(--color-amber);">
+         class="press btn-primary inline-flex items-center justify-center min-h-[48px] px-8 py-3 text-[13px] tracking-[0.18em] uppercase">
         Back to home
       </a>
       <a href="/contact"
-         class="press inline-flex items-center justify-center min-h-[48px] px-8 py-3 text-[13px] tracking-[0.18em] uppercase border"
-         style="border-color:rgba(10,10,10,0.3); color:var(--color-muted);">
+         class="press btn-secondary btn-secondary-light inline-flex items-center justify-center min-h-[48px] px-8 py-3 text-[13px] tracking-[0.18em] uppercase border">
         Contact
       </a>
     </div>

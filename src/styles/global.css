@@ -64,7 +64,25 @@ header :focus-visible,
 footer :focus-visible,
 #mobile-menu :focus-visible,
 .bg-black :focus-visible,
-.bg-\[var\(--color-ink\)\] :focus-visible { outline-color: var(--color-amber); }
+.bg-\[var\(--color-ink\)\] :focus-visible,
+a[href="#main"]:focus-visible { outline-color: var(--color-amber); }
+/* /thoughts flips with the scheme, so its ring follows the scheme accent. */
+.thoughts-page :focus-visible { outline-color: var(--t-amber); }
+
+/* Browser surfaces carry the palette too: selection, caret, scheme. */
+::selection { background: rgba(201, 136, 42, 0.28); color: inherit; }
+input, textarea { caret-color: var(--color-amber); }
+
+/* Primary and secondary buttons. Amber fill, ink label; hover deepens. */
+.btn-primary { background: var(--color-amber); color: var(--color-ink); transition: transform 160ms var(--ease-out), background-color 150ms ease; }
+.btn-secondary { transition: transform 160ms var(--ease-out), color 150ms ease, border-color 150ms ease; }
+.btn-secondary-light { color: var(--color-muted); border-color: rgba(10, 10, 10, 0.3); }
+.btn-secondary-dark { color: rgba(255, 255, 255, 0.8); border-color: rgba(255, 255, 255, 0.2); }
+@media (hover: hover) and (pointer: fine) {
+  .btn-primary:hover { background: var(--color-amber-dark); }
+  .btn-secondary-light:hover { color: var(--color-ink); border-color: var(--color-ink); }
+  .btn-secondary-dark:hover { color: #fff; border-color: rgba(255, 255, 255, 0.5); }
+}
 
 html {
   font-family: 'NHG Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -258,6 +276,9 @@ body {
   }
 }
 .thoughts-page { background: var(--t-bg); color: var(--t-body); }
+/* The page behind the essay (overscroll, the strip under the fixed header,
+   scrollbars) follows the scheme as well, not just the content column. */
+html:has(.thoughts-page) { background: var(--t-bg); color-scheme: light dark; }
 .t-ink { color: var(--t-ink); }
 .t-body { color: var(--t-body); }
 .t-deck { color: var(--t-deck); }

@@ -13,7 +13,7 @@ const isActive = (href: string) => href !== '/' && path.startsWith(href);
 ---
 <header transition:persist class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/[0.06]">
   <div class="max-w-6xl mx-auto px-6 md:px-14 h-13 flex items-center justify-between">
-    <a href="/" class="font-bold tracking-widest uppercase text-white"
+    <a href="/" class="inline-flex items-center min-h-[44px] font-bold tracking-widest uppercase text-white"
        style="font-family:'NHG Display',sans-serif; font-size:clamp(20px,5vw,35px);">
       James Tannahill
     </a>
@@ -111,7 +111,8 @@ const isActive = (href: string) => href !== '/' && path.startsWith(href);
   .nav-link[aria-current="page"]::after {
     content: '';
     position: absolute;
-    left: 0; right: 0; bottom: -6px;
+    /* Inside the 44px hit area, so the mark sits in the header, not on the page below it. */
+    left: 0; right: 0; bottom: 8px;
     height: 1px;
     background: var(--color-amber);
   }

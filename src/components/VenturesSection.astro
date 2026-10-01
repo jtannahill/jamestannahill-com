@@ -59,7 +59,9 @@ import { ventures } from '../data/ventures';
           ) : (
             <>
               {/* Logo or name fallback */}
-              <div class="mb-4 flex items-center justify-center" style="min-height:52px;">
+              {/* Fixed logo band: a taller mark (HMU) centres in it instead of pushing
+                  its description below the rest of the row. */}
+              <div class="mb-4 flex items-center justify-center" style="height:52px;">
                 {v.logo ? (
                   <img
                     src={v.logo}

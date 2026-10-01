@@ -65,8 +65,7 @@ const TURNSTILE_SITE_KEY = '0x4AAAAAADKU-hbxlRBQvuha';
     <div id="turnstile-container" data-sitekey={TURNSTILE_SITE_KEY}></div>
 
     <button type="submit" id="contact-submit"
-            class="cf-submit press inline-flex items-center gap-3 px-8 py-3 min-h-[48px] text-[var(--color-ink)] text-[13px] tracking-[0.18em] uppercase"
-            style="background:var(--color-amber);">
+            class="cf-submit press btn-primary inline-flex items-center gap-3 px-8 py-3 min-h-[48px] text-[13px] tracking-[0.18em] uppercase">
       <span class="cf-spinner" aria-hidden="true"></span>
       <span>Send message</span>
     </button>
@@ -86,7 +85,7 @@ const TURNSTILE_SITE_KEY = '0x4AAAAAADKU-hbxlRBQvuha';
   .cf-input[aria-invalid="true"] { border-bottom-color: #f87171; box-shadow: 0 1px 0 0 #f87171; }
   .cf-input:focus-visible { border-bottom-color: var(--color-amber); box-shadow: 0 1px 0 0 var(--color-amber); outline: none; }
   /* Disabled looks disabled; the label stays put so nothing shifts. */
-  .cf-submit { transition: transform 160ms var(--ease-out), opacity 150ms ease; }
+  .cf-submit { transition: transform 160ms var(--ease-out), opacity 150ms ease, background-color 150ms ease; }
   .cf-submit[disabled] { opacity: 0.6; cursor: progress; }
   .cf-spinner {
     display: none;

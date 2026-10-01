@@ -105,7 +105,8 @@ const schema = [
       letter-spacing: 0.01em;
       color: var(--color-muted);
     }
-    .v-crumb a { color: var(--color-muted); text-decoration: none; }
+    /* Padding grows the hit area to 44px without moving the line. */
+    .v-crumb a { color: var(--color-muted); text-decoration: none; display: inline-block; padding: 13px 0; margin: -13px 0; }
     .v-crumb a:hover { color: var(--color-amber-text); }
 
     .v-title {

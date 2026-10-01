@@ -3,7 +3,7 @@ import { home } from '../data/site-copy';
 const cdn = 'https://media.jamestannahill.com';
 ---
 <section id="hero" class="hero-section relative" style="background:#0a0a0a;">
-  <div class="hero-stage flex flex-col justify-end pb-12 md:pb-16 px-6 md:px-14">
+  <div class="hero-stage flex flex-col justify-end pb-12 md:pb-16">
 
     <!-- Desktop scroll-scrub video (sunset to night). Loaded only when enhanced. -->
     <video
@@ -46,7 +46,9 @@ const cdn = 'https://media.jamestannahill.com';
     <div class="hero-grad absolute inset-0"
          style="background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.5) 55%, rgba(0,0,0,0.88) 100%);"></div>
 
-    <div class="relative max-w-3xl" style="z-index:10;">
+    {/* Copy sits on the same column as the header wordmark and every section below. */}
+    <div class="relative w-full max-w-6xl mx-auto px-6 md:px-14" style="z-index:10;">
+    <div class="max-w-3xl">
       <h1 class="font-bold leading-none text-white mb-6"
           style="font-family:'NHG Display',sans-serif; font-size:clamp(52px,9vw,96px); letter-spacing:-0.03em; animation: blurIn 0.7s var(--ease-out) both; animation-delay: 0.1s;">
         {home.h1[0]}<br/>{home.h1[1]}<br/>{home.h1[2]}
@@ -58,11 +60,11 @@ const cdn = 'https://media.jamestannahill.com';
       <div class="flex gap-3 flex-wrap"
            style="animation: blurIn 0.6s var(--ease-out) both; animation-delay: 0.35s;">
         <a href="/contact"
-           class="press cta-amber inline-flex items-center justify-center min-h-[48px] px-8 py-3 text-[13px] tracking-[0.18em] uppercase text-[var(--color-ink)]"
-           style="background:var(--color-amber);">
+           class="press btn-primary inline-flex items-center justify-center min-h-[48px] px-8 py-3 text-[13px] tracking-[0.18em] uppercase">
           Get in touch
         </a>
       </div>
+    </div>
     </div>
   </div>
 </section>
