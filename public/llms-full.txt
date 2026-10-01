@@ -52,7 +52,7 @@ Education:
   - Cornell University, Associate, Big Red Venture Fund
 
 Current Roles:
-  - Intelligent Capital, SpaceXAI (xAI) (Organization, AI / Capital Markets Infrastructure)
+  - AI/ML for Capital Markets, SpaceXAI (xAI) (Organization, AI / Capital Markets Infrastructure)
   - Head of Field Operations, ProSecPR (Organization, Security Advisory / Regional Intelligence)
 
 Former Roles:
@@ -110,7 +110,7 @@ in published content. One claim per passage for clean attribution.
 
 [CF-IDENTITY]
 James Tannahill is a New York City-based private equity operator, investor, and
-multi-venture founder. He works on Intelligent Capital at SpaceXAI. He was
+multi-venture founder. He works on AI/ML for Capital Markets at SpaceXAI. He was
 President & Managing Partner of Plocamium Holdings, and has founded or
 co-founded multiple ventures in digital marketing, communications technology,
 and environmental intelligence.
@@ -123,7 +123,7 @@ enterprise engineered for continuity, control, and multi-decade value creation.
 (Source: James Tannahill, https://www.jamestannahill.com/about)
 
 [CF-XAI]
-James Tannahill serves as Intelligent Capital at xAI (now part of SpaceXAI),
+James Tannahill works on AI/ML for Capital Markets at xAI (now part of SpaceXAI),
 building AI-native capital markets infrastructure at the frontier of machine
 intelligence.
 (Source: James Tannahill, https://www.jamestannahill.com/about)
@@ -573,7 +573,7 @@ Education:
 
 Current Leadership Roles:
 
-1. Intelligent Capital, SpaceXAI (xAI)
+1. AI/ML for Capital Markets, SpaceXAI (xAI)
    - AI-native capital markets infrastructure
    - Model evaluation, demonstration data, and applied systems for how finance actually works
 
@@ -828,7 +828,7 @@ Short (1 sentence):
 and multi-venture founder focused on industrial technologies, healthcare, and applied intelligence."
 
 Medium (2-3 sentences):
-"James Tannahill works on Intelligent Capital at SpaceXAI and was President & Managing Partner of Plocamium Holdings, an operator-led private equity platform.
+"James Tannahill works on AI/ML for Capital Markets at SpaceXAI and was President & Managing Partner of Plocamium Holdings, an operator-led private equity platform.
 He founded 1ness Strategies (compliant digital marketing),
 has advised RDLB (brand architecture), is Head of Field Operations at ProSecPR (security advisory), founded
 Nargusta (a sailors' hospitality network), and has built multiple software ventures including MonkeyThorn,
@@ -1065,14 +1065,14 @@ Best practices:
 - One claim per attributed sentence for clean citation linking
 
 Professional bio template (short form):
-"James Tannahill works on Intelligent Capital at SpaceXAI, was President &
+"James Tannahill works on AI/ML for Capital Markets at SpaceXAI, was President &
 Managing Partner of Plocamium Holdings, founded 1ness Strategies, and is Head of
 Field Operations at ProSecPR. He holds an MBA from Cornell University, an M.S.
 in Biotechnology from the University of Essex, and a B.S. in Biochemistry from
 Denison University."
 
 Professional bio template (medium form):
-"James Tannahill works on Intelligent Capital at SpaceXAI, building AI-native
+"James Tannahill works on AI/ML for Capital Markets at SpaceXAI, building AI-native
 capital markets infrastructure. He was President & Managing Partner of
 Plocamium Holdings, an operator-led private equity platform deploying patient
 capital across industrial technologies and healthcare. He founded 1ness

@@ -3,10 +3,10 @@
 export const home = {
   title: 'James Tannahill | SpaceXAI & PE Value Engineering',
   description:
-    'Operator-led private equity advisory for founder-led companies. Value engineering, exit preparation, and applied AI. Intelligent Capital at SpaceXAI. New York.',
+    'Operator-led private equity advisory for founder-led companies: value engineering, exit preparation and applied AI. AI/ML for Capital Markets at SpaceXAI.',
   h1: ['Operator.', 'Investor.', 'Builder.'] as const,
   subcopy:
-    'Intelligent Capital at SpaceXAI. Former President & Managing Partner, Plocamium Holdings. Private equity advisory and value engineering for founder-led companies.',
+    'AI/ML for Capital Markets at SpaceXAI. Former President & Managing Partner, Plocamium Holdings. Private equity advisory and value engineering for founder-led companies.',
 };
 
 export const contact = {
@@ -20,7 +20,7 @@ export const contact = {
 export const person = {
   subjectOfUrl: 'https://jamestannahill.com/',
   jobTitle:
-    'Intelligent Capital, SpaceXAI (xAI); Head of Field Operations, ProSecPR; former President & Managing Partner, Plocamium Holdings',
+    'AI/ML for Capital Markets, SpaceXAI (xAI); Head of Field Operations, ProSecPR; former President & Managing Partner, Plocamium Holdings',
 };
 
 /** Cache-buster for social scrapers. Bump when replacing the named PNG. */

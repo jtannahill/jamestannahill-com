@@ -80,9 +80,9 @@ export const essayEntries = posts.map((p) => ({
 
 export const identity = {
   name: 'James Tannahill',
-  title: 'Intelligent Capital, SpaceXAI; former President & Managing Partner, Plocamium Holdings',
+  title: 'AI/ML for Capital Markets, SpaceXAI; former President & Managing Partner, Plocamium Holdings',
   summary:
-    'James Tannahill is a New York City-based private equity operator, investor, and multi-venture founder. He works on Intelligent Capital at SpaceXAI. He was President & Managing Partner of Plocamium Holdings, an operator-led private equity platform deploying patient capital across industrial technologies and healthcare. He founded 1ness Strategies, has advised RDLB, and is Head of Field Operations at ProSecPR.',
+    'James Tannahill is a New York City-based private equity operator, investor, and multi-venture founder. He works on AI/ML for Capital Markets at SpaceXAI. He was President & Managing Partner of Plocamium Holdings, an operator-led private equity platform deploying patient capital across industrial technologies and healthcare. He founded 1ness Strategies, has advised RDLB, and is Head of Field Operations at ProSecPR.',
   contact: {
     general: 'contact@jamestannahill.com',
     profile: 'profile@jamestannahill.com',

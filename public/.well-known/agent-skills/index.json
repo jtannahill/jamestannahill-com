@@ -1,7 +1,7 @@
 {
   "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
   "version": "0.2.0",
-  "updatedAt": "2026-09-23",
+  "updatedAt": "2026-10-01",
   "publisher": {
     "name": "James Tannahill",
     "url": "https://jamestannahill.com"
@@ -13,7 +13,7 @@
       "version": "1.0.0",
       "description": "Research James Tannahill, his ventures, and his professional record using the machine-readable surfaces of jamestannahill.com rather than scraping rendered HTML.",
       "url": "https://jamestannahill.com/skills/jamestannahill-site-research/SKILL.md",
-      "digest": "sha256:067b1d46cfae9b158cdf780387bcd5bba97edac27f9005bfa06513303d946b06",
+      "digest": "sha256:6b178a29cf3d9dc5d37498a17b8aa5a25b4d3640043ecc812d1bd1d464664f39",
       "license": "All rights reserved"
     },
     {
