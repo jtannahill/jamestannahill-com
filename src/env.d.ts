@@ -4,6 +4,7 @@
 type Env = {
   EMAIL: import('./lib/email').EmailBinding;
   TURNSTILE_SECRET_KEY: string;
+  TURNSTILE_HOSTNAMES: string;
 };
 
 declare namespace App {

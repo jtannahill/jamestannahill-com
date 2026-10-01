@@ -21,7 +21,7 @@ export const server = {
       website: z.preprocess((v) => v ?? '', z.string()),
       'cf-turnstile-response': z.string().min(1, 'Verification required'),
     }),
-    handler: async (input) => {
+    handler: async (input, context) => {
       try {
         return await handleContact(
           {
@@ -33,6 +33,7 @@ export const server = {
             message: input.message,
             website: input.website,
             turnstileToken: input['cf-turnstile-response'],
+            remoteIp: context.request.headers.get('cf-connecting-ip'),
           },
           env,
         );

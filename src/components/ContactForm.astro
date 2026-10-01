@@ -62,7 +62,7 @@ const TURNSTILE_SITE_KEY = '0x4AAAAAADKU-hbxlRBQvuha';
 
     {/* Turnstile widget is rendered explicitly so we can hold its ID and reset the
         single-use token after each submit attempt */}
-    <div id="turnstile-container" data-sitekey={TURNSTILE_SITE_KEY}></div>
+    <div id="turnstile-container" data-sitekey={TURNSTILE_SITE_KEY} data-action="contact"></div>
 
     <button type="submit" id="contact-submit"
             class="cf-submit press btn-primary inline-flex items-center gap-3 px-8 py-3 min-h-[48px] text-[13px] tracking-[0.18em] uppercase">
@@ -134,7 +134,7 @@ const TURNSTILE_SITE_KEY = '0x4AAAAAADKU-hbxlRBQvuha';
       setTimeout(mountTurnstile, 50);
       return;
     }
-    widgetId = turnstile.render(el, { sitekey: el.dataset.sitekey });
+    widgetId = turnstile.render(el, { sitekey: el.dataset.sitekey, action: el.dataset.action });
     el.dataset.rendered = '1';
   }
 

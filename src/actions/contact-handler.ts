@@ -14,11 +14,18 @@ export interface ContactInput {
   message: string;
   website: string;
   turnstileToken: string;
+  /** Visitor IP from cf-connecting-ip, forwarded to siteverify. */
+  remoteIp?: string | null;
 }
 
 export interface HandlerEnv extends EmailEnv {
   TURNSTILE_SECRET_KEY: string;
+  /** Comma-separated frontend hostnames allowed to issue contact tokens. */
+  TURNSTILE_HOSTNAMES: string;
 }
+
+/** Must match data-action on the contact form's widget. */
+export const CONTACT_TURNSTILE_ACTION = 'contact';
 
 export interface ContactResult {
   success: true;
@@ -38,7 +45,11 @@ export async function handleContact(
     return { success: true, delivered: false };
   }
 
-  const ok = await verifyTurnstile(input.turnstileToken, env.TURNSTILE_SECRET_KEY);
+  const ok = await verifyTurnstile(input.turnstileToken, env.TURNSTILE_SECRET_KEY, {
+    action: CONTACT_TURNSTILE_ACTION,
+    hostnames: env.TURNSTILE_HOSTNAMES,
+    remoteip: input.remoteIp,
+  });
   if (!ok) {
     throw new Error('verification_failed');
   }

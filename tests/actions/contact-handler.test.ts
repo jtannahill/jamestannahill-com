@@ -15,6 +15,7 @@ import { verifyTurnstile } from '../../src/lib/turnstile';
 const env: HandlerEnv = {
   EMAIL: { send: vi.fn() },
   TURNSTILE_SECRET_KEY: 'tsk',
+  TURNSTILE_HOSTNAMES: 'jamestannahill.com',
 };
 
 const contactPayload = {
@@ -30,6 +31,7 @@ const baseInput: ContactInput = {
   ...contactPayload,
   website: '',
   turnstileToken: 'tok',
+  remoteIp: '203.0.113.7',
 };
 
 describe('handleContact', () => {
@@ -62,7 +64,11 @@ describe('handleContact', () => {
     const result = await handleContact(baseInput, env);
 
     expect(result).toEqual({ success: true, delivered: true });
-    expect(verifyTurnstile).toHaveBeenCalledWith('tok', 'tsk');
+    expect(verifyTurnstile).toHaveBeenCalledWith('tok', 'tsk', {
+      action: 'contact',
+      hostnames: 'jamestannahill.com',
+      remoteip: '203.0.113.7',
+    });
     expect(sendContactEmail).toHaveBeenCalledWith(contactPayload, env);
     expect(sendContactConfirmation).toHaveBeenCalledWith(contactPayload, env);
     expect(vi.mocked(sendContactEmail).mock.invocationCallOrder[0]).toBeLessThan(
