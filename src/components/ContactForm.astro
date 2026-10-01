@@ -15,13 +15,13 @@ const TURNSTILE_SITE_KEY = '0x4AAAAAADKU-hbxlRBQvuha';
   >
     <div class="grid sm:grid-cols-2 gap-6 sm:gap-10">
       <div>
-        <label class="block text-[11px] uppercase tracking-wider mb-3" style="color:rgba(255,255,255,0.5);" for="firstName">First Name *</label>
+        <label class="block text-[11px] uppercase tracking-wider mb-3" style="color:rgba(255,255,255,0.5);" for="firstName">First name *</label>
         <input id="firstName" name="firstName" maxlength="100" type="text" required autocomplete="given-name"
                class="cf-input w-full min-h-[44px] bg-transparent text-white pb-3"
                style="font-size:16px;" />
       </div>
       <div>
-        <label class="block text-[11px] uppercase tracking-wider mb-3" style="color:rgba(255,255,255,0.5);" for="lastName">Last Name *</label>
+        <label class="block text-[11px] uppercase tracking-wider mb-3" style="color:rgba(255,255,255,0.5);" for="lastName">Last name *</label>
         <input id="lastName" name="lastName" maxlength="100" type="text" required autocomplete="family-name"
                class="cf-input w-full min-h-[44px] bg-transparent text-white pb-3"
                style="font-size:16px;" />
@@ -54,7 +54,7 @@ const TURNSTILE_SITE_KEY = '0x4AAAAAADKU-hbxlRBQvuha';
                 style="font-size:16px;"></textarea>
     </div>
 
-    {/* Honeypot — visually hidden, ignored by humans, filled by dumb bots */}
+    {/* Honeypot: visually hidden, ignored by humans, filled by dumb bots */}
     <div aria-hidden="true" style="position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;">
       <label for="website">Website</label>
       <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />

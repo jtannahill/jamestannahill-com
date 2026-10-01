@@ -97,7 +97,7 @@ export const ventures: Venture[] = [
   {
     name: 'RDLB',
     slug: 'rdlb',
-    description: 'Strategic brand architecture for investors and operators. Engineers positioning, narrative systems, and go-to-market structure - converting trust into momentum and intention into capital movement.',
+    description: 'Strategic brand architecture for investors and operators. Engineers positioning, narrative systems, and go-to-market structure, converting trust into momentum and intention into capital movement.',
     url: 'https://www.rdlb.nyc/',
     url2: 'https://rdlbagentic.com/',
     url2Label: 'RDLB Agentic',
@@ -138,7 +138,7 @@ export const ventures: Venture[] = [
   {
     name: 'NewYorkLab',
     slug: 'newyorklab',
-    description: 'Urban intelligence platform mapping the future state of cities through data. Deploys sensor networks, environmental analytics, and real-time monitoring systems - visual intelligence that helps decision-makers understand and reshape the urban fabric.',
+    description: 'Urban intelligence platform mapping the future state of cities through data. Deploys sensor networks, environmental analytics, and real-time monitoring systems: visual intelligence that helps decision-makers understand and reshape the urban fabric.',
     url: 'https://www.newyorklab.co/',
     logo: '/logos/newyorklab.png',
     logoH: 52,
@@ -229,7 +229,7 @@ export const ventures: Venture[] = [
   {
     name: 'HMU API',
     slug: 'hmu-api',
-    description: 'People, apps, and AI agents all need a way to reach you - HMU API gives them structured channels that self-organize, so you stop managing inbound and start making decisions. Don\'t email me. HMU. HitMyAPI.com',
+    description: 'People, apps, and AI agents all need a way to reach you. HMU API gives them structured channels that self-organize, so you stop managing inbound and start making decisions. It lives at HitMyAPI.com.',
     url: 'https://hmuapi.com',
     logo: '/logos/hmuapi.png',
     logoH: 70,
@@ -237,7 +237,7 @@ export const ventures: Venture[] = [
   {
     name: 'MonkeyThorn Meet',
     slug: 'monkeythorn-meet',
-    description: 'Video conferencing where privacy is architecture, not a checkbox. Zero AI processing, zero recordings, zero metadata - encryption keys never leave the browser. Trust as guarantee, not corporate promise.',
+    description: 'Video conferencing where privacy is architecture, not a checkbox. Zero AI processing, zero recordings, zero metadata. Encryption keys never leave the browser. Trust as guarantee, not corporate promise.',
     url: 'https://meet.monkeythorn.com/meet',
     logo: '/logos/monkeythorn.png',
     logoH: 44,
@@ -245,7 +245,7 @@ export const ventures: Venture[] = [
   {
     name: 'gOOOvy',
     slug: 'gooovy',
-    description: 'Automated out-of-office engine for Google Voice built on schedule-aware intelligence. Converts missed texts into instant, contextual responses - stay present while staying reachable.',
+    description: 'Automated out-of-office engine for Google Voice built on schedule-aware intelligence. Converts missed texts into instant, contextual responses, so you stay present while staying reachable.',
     url: 'https://gooovy.com',
     logo: '/logos/gooovy.png',
     logoH: 36,
