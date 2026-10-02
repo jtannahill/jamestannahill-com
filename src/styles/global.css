@@ -295,6 +295,37 @@ html:has(.thoughts-page) { background: var(--t-bg); color-scheme: light dark; }
 /* Essay body: 17px on a 680px measure lands near 70 characters per line. */
 .e-body { font-size: 1.1333rem; line-height: 1.7; color: var(--t-body); }
 .e-body .italic { color: var(--t-ink); }
+.e-body strong { font-weight: 700; color: var(--t-ink); }
+.e-body ul,
+.e-body ol {
+  margin: 0 0 1.5rem;
+  padding-left: 1.35rem;
+}
+.e-body > :is(ul, ol):last-child { margin-bottom: 0; }
+.e-body ul { list-style: disc; }
+.e-body ol { list-style: decimal; }
+.e-body li + li { margin-top: 0.75rem; }
+.e-body li::marker { color: var(--t-muted); }
+/* One-line thesis under the essay chrome. Amber label, ink sentence, hairline rule. */
+.e-thesis {
+  margin: 0 0 2.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--t-rule);
+  font-size: 1.1333rem;
+  line-height: 1.6;
+  color: var(--t-ink);
+}
+.e-thesis-label { font-weight: 500; color: var(--t-amber); }
+.e-h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  color: var(--t-ink);
+  margin-top: 2.25rem;
+  margin-bottom: 1rem;
+  text-wrap: balance;
+}
 .e-h2 {
   font-size: 0.7333rem;
   letter-spacing: 0.25em;
