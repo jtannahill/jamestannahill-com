@@ -64,7 +64,7 @@ const schema = [
   extraSchema={schema}
 >
   <div class="thoughts-page min-h-screen">
-    <article class="max-w-[728px] mx-auto px-6 py-16">
+    <article class="essay max-w-[728px] mx-auto px-6 py-16">
 
       <EssayHeader slug="inventors-of-problems" />
 
@@ -153,11 +153,6 @@ const schema = [
         <p class="mb-6">The function did not impose this on unwilling leaders. It was built to their specification, because they wanted a mechanism that produced decisions without decision-makers.</p>
         <p>Any critique that stops at the department therefore lets the buyer off. The department is a supplier. The demand comes from the top.</p>
       </div>
-      <RelatedEssay essays={[{
-        href: '/thoughts/whose-egg-is-that',
-        title: 'Whose Egg Is That',
-        blurb: 'On abolishing the hiring layer, and returning the decision to the people who have to live with it',
-      }]} />
       <h2 class="e-h2">What Is Actually Load-Bearing</h2>
       <div class="e-body">
         <p class="mb-6">Honesty requires the other half of the ledger, and it is not small.</p>
@@ -165,11 +160,6 @@ const schema = [
         <p class="mb-6">Every one of those is a real service with an identifiable customer and a visible way of failing. Notice that they are also the least glamorous things the function does, the parts least likely to appear in a conference talk, and typically the parts staffed most thinly.</p>
         <p>The dysfunction is not the existence of the function. It is the layer built on top of the essential work, which grew because nothing constrained it and which now consumes the majority of the budget and nearly all of the attention.</p>
       </div>
-      <RelatedEssay essays={[{
-        href: '/thoughts/nothing-to-photograph',
-        title: 'Nothing to Photograph',
-        blurb: 'On why firms automate the step they should have deleted, and the committee that makes it inevitable',
-      }]} />
       <h2 class="e-h2">The Measurements Nobody Runs</h2>
       <div class="e-body">
         <p class="mb-6">The remedy is unexciting and entirely available. It consists of putting the function through the same questions every other cost center answers each year. These are the questions I would ask:</p>
@@ -200,6 +190,19 @@ const schema = [
         <p class="mb-6">The department did not seize this territory. It was handed the territory by executives who found it convenient to have somewhere to put the decisions they did not want their names on. The problems it invents are real problems now, because a sufficiently large organization will always make its fictions true. But they were invented, they were paid for, and the invoice was signed at the top.</p>
         <p>Anyone serious about the cost should start there, in the room where the demand originates, rather than with the coordinator sending the calendar invitation for the workshop nobody wanted.</p>
       </div>
+      <RelatedEssay essays={[
+        {
+          href: '/thoughts/whose-egg-is-that',
+          title: 'Whose Egg Is That',
+          blurb: 'On abolishing the hiring layer, and returning the decision to the people who have to live with it',
+        },
+        {
+          href: '/thoughts/nothing-to-photograph',
+          title: 'Nothing to Photograph',
+          blurb: 'On why firms automate the step they should have deleted, and the committee that makes it inevitable',
+        },
+      ]} />
+
       <EssayFooter slug="inventors-of-problems" />
 
     </article>

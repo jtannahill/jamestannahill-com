@@ -1,8 +1,8 @@
 ---
-// Standard chrome at the top of every /thoughts essay: eyebrow, title, deck,
-// date + reading time, and the reading-progress bar. Reading time is derived
+// Standard chrome at the top of every /thoughts essay: title, deck, a meta
+// line (section link, date, reading time), and the reading-progress bar. Reading time is derived
 // from the essay source at build time (see src/data/thoughts.ts).
-import { getPost, readingMinutes } from '../data/thoughts';
+import { getPost, readingMinutes, dayDate } from '../data/thoughts';
 
 interface Props {
   slug: string;
@@ -14,18 +14,16 @@ const minutes = readingMinutes(slug);
 ---
 <div class="e-progress" data-essay-progress aria-hidden="true"></div>
 
-<p class="t-eyebrow mb-4">
-  <a href="/thoughts" class="inline-flex items-center min-h-[44px] hover:opacity-70 t-amber">Thoughts</a>
-</p>
 {Astro.slots.has('title') ? (
   <slot name="title" />
 ) : (
   <h1 class="text-[2rem] sm:text-[2.2667rem] leading-[1.15] font-bold tracking-tight mb-3 t-ink" style="text-wrap:balance;">{post.title}</h1>
 )}
 <p class="text-[1.2rem] leading-[1.45] mb-4 t-deck" style="text-wrap:pretty;">{post.standfirst}</p>
-<p class="text-[12px] mb-12 t-muted tabular-nums">
-  <time datetime={post.published}>{post.date}</time>
-  <span class="ml-4">{minutes} min read</span>
+<p class="flex flex-wrap items-center gap-x-4 text-[12px] mb-12 t-muted tabular-nums">
+  <a href="/thoughts" class="inline-flex items-center min-h-[44px] -my-3 t-amber hover:opacity-70">Thoughts</a>
+  <time datetime={post.published}>{dayDate(post.published)}</time>
+  <span>{minutes} min read</span>
 </p>
 
 <script src="/scripts/thoughts-reading.js" defer></script>

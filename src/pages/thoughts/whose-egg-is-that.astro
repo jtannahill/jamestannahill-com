@@ -65,7 +65,7 @@ const schema = [
   extraSchema={schema}
 >
   <div class="thoughts-page min-h-screen">
-    <article class="max-w-[728px] mx-auto px-6 py-16">
+    <article class="essay max-w-[728px] mx-auto px-6 py-16">
 
       <EssayHeader slug="whose-egg-is-that" />
 
@@ -129,11 +129,6 @@ const schema = [
           class="underline hover:opacity-70 break-all">art.jamestannahill.com/weather/2026-08-04-060044/western-pacific-15n-120e</a>.
         </figcaption>
       </figure>
-      <RelatedEssay essays={[{
-        href: '/thoughts/inventors-of-problems',
-        title: 'Inventors of Problems',
-        blurb: 'On the staff function that must manufacture demand, and the executives who pay it to do so',
-      }]} />
       <h2 class="e-h2">What Replaces It</h2>
       <div class="e-body">
         <p class="mb-6">A proposal that stops at abolition is a complaint. Here is the mechanism, and it is deliberately dull, because the good version of this is dull.</p>
@@ -158,6 +153,14 @@ const schema = [
         <p class="mb-6">Firms are in the same position and have the same choice. The choice is not really about a department. It is about whether the people running the company are willing to spend an afternoon on the pile, to sit in the room, to say a name out loud and be wrong in public sometimes. Everything else in this argument is scaffolding around that, and the scaffolding is only necessary because the underlying act has become unfamiliar.</p>
         <p>Fire the layer if you like. It will grow back within three years unless the executives who found it convenient develop the habit it was hired to replace. The department was never the parasite. It was the accommodation reached by a firm that had stopped looking at its own nest, and the remedy is not a reorganization. It is an afternoon, repeated, by the people whose names are on the door.</p>
       </div>
+      <RelatedEssay essays={[
+        {
+          href: '/thoughts/inventors-of-problems',
+          title: 'Inventors of Problems',
+          blurb: 'On the staff function that must manufacture demand, and the executives who pay it to do so',
+        },
+      ]} />
+
       <EssayFooter slug="whose-egg-is-that" />
 
     </article>

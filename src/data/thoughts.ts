@@ -38,3 +38,10 @@ export function neighbors(slug: string): { newer?: Post; older?: Post } {
   if (i < 0) return {};
   return { newer: posts[i - 1], older: posts[i + 1] };
 }
+
+/** Day-precision display date from the ISO `published` field, e.g. "18 Aug 2026". */
+export function dayDate(published: string): string {
+  const [y, m, d] = published.split('-').map(Number);
+  const month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][m - 1];
+  return `${d} ${month} ${y}`;
+}

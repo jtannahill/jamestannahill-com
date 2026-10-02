@@ -4,7 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 // Essays live in src/data/thoughts.ts (newest first). The first entry runs as
 // the lead plate, the rest fall into the list below it.
-import { posts, readingMinutes } from '../../data/thoughts';
+import { posts, readingMinutes, dayDate } from '../../data/thoughts';
 
 const [lead, ...rest] = posts;
 
@@ -63,7 +63,7 @@ const schema = [
         {lead.art && <div class="overflow-hidden t-plate">
           <img
             src={lead.art}
-            alt={lead.artAlt}
+            alt=""
             width="1200"
             height="675"
             loading="eager"
@@ -73,9 +73,8 @@ const schema = [
             style={`aspect-ratio:${lead.aspect};`}
           />
         </div>}
-        <div class="flex items-baseline gap-3 mt-5">
-          <span class="t-eyebrow">Latest</span>
-          <span class="text-[12px] t-muted">{lead.date}</span>
+        <div class="flex items-baseline gap-4 mt-5 tabular-nums">
+          <time datetime={lead.published} class="text-[12px] t-muted">{dayDate(lead.published)}</time>
           <span class="text-[12px] t-muted">{readingMinutes(lead.slug)} min read</span>
         </div>
         <h2 class="tcard-title text-[30px] leading-[1.15] font-bold tracking-tight mt-2 t-ink" style="text-wrap:balance;">
@@ -90,10 +89,12 @@ const schema = [
       {rest.length > 0 && (
         <div>
           <div class="flex items-baseline justify-between t-rule-strong border-t pt-4 mb-2">
-            <p class="t-eyebrow">More essays</p>
-            <p class="text-[12px] t-muted tabular-nums">{rest.length} earlier</p>
+            <h2 class="text-[15px] font-medium t-ink">Earlier essays</h2>
+            <p class="text-[12px] t-muted tabular-nums">{rest.length}</p>
           </div>
+          <ul role="list">
           {rest.map((post) => (
+            <li>
             <a
               href={`/thoughts/${post.slug}`}
               class="tcard group grid gap-5 sm:gap-8 sm:grid-cols-12 items-start py-9 border-b t-rule"
@@ -101,7 +102,7 @@ const schema = [
               {post.art && <div class="sm:col-span-4 overflow-hidden t-plate">
                 <img
                   src={post.art}
-                  alt={post.artAlt}
+                  alt=""
                   width="1200"
                   height="800"
                   loading="lazy"
@@ -110,26 +111,25 @@ const schema = [
                 />
               </div>}
               <div class="sm:col-span-8">
-                <div class="flex items-baseline gap-4">
-                  <span class="text-[12px] t-muted">{post.date}</span>
+                <div class="flex items-baseline gap-4 tabular-nums">
+                  <time datetime={post.published} class="text-[12px] t-muted">{dayDate(post.published)}</time>
                   <span class="text-[12px] t-muted">{readingMinutes(post.slug)} min read</span>
                 </div>
-                <h2 class="tcard-title text-[22px] leading-[1.25] font-bold tracking-tight mt-2 t-ink" style="text-wrap:balance;">
+                <h3 class="tcard-title text-[22px] leading-[1.25] font-bold tracking-tight mt-2 t-ink" style="text-wrap:balance;">
                   {post.title}
-                </h2>
+                </h3>
                 <p class="text-[15px] leading-[1.75] mt-2 t-body" style="text-wrap:pretty;">{post.standfirst}</p>
-                <span class="tcard-cta inline-block text-[11px] tracking-[0.18em] uppercase mt-4">
-                  Read the essay
-                </span>
               </div>
             </a>
+            </li>
           ))}
+          </ul>
         </div>
       )}
 
       <style>
         .tcard { border-radius: 2px; outline: none; }
-        .tcard:focus-visible { box-shadow: 0 0 0 2px var(--t-bg), 0 0 0 4px var(--color-amber); }
+        .tcard:focus-visible { box-shadow: 0 0 0 2px var(--t-bg), 0 0 0 4px var(--t-amber); }
         .tcard-img {
           transition: transform 250ms var(--ease-out), filter 250ms ease;
           filter: saturate(0.92);

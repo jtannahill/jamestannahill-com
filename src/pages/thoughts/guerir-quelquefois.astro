@@ -81,12 +81,12 @@ const schema = [
   extraSchema={schema}
 >
   <div class="thoughts-page min-h-screen">
-    <article class="max-w-[728px] mx-auto px-6 py-16">
+    <article class="essay max-w-[728px] mx-auto px-6 py-16">
 
       <EssayHeader slug="guerir-quelquefois">
         <Fragment slot="title">
         <div class="flex items-center gap-3 mb-1">
-          <h1 class="text-[30px] sm:text-[34px] leading-[1.15] font-bold tracking-tight t-ink" style="color:var(--t-ink);">Guérir Quelquefois</h1>
+          <h1 lang="fr" class="text-[30px] sm:text-[34px] leading-[1.15] font-bold tracking-tight t-ink" style="color:var(--t-ink);">Guérir Quelquefois</h1>
           <button
             type="button"
             class="pronounce shrink-0"
@@ -109,7 +109,7 @@ const schema = [
 
       <p class="e-thesis"><span class="e-thesis-label">In short:</span> Biotech companies use the word "cure" far more than they deliver cures, and the word often holds up their prices and valuations. The way to test a company is to ask three of its people what "cure" means and see how much their answers differ.</p>
       <div class="e-body">
-        <p class="mb-6">There is a sentence carved into the tradition of the sanatorium at Saranac Lake. It is of uncertain origin and long associated with Edward Livingston Trudeau, and it has survived every advance in medicine since: <em>Guérir quelquefois, soulager souvent, consoler toujours.</em><button type="button" class="pronounce pronounce-inline" data-pronounce="pron-aphorism" aria-label="Hear the French pronunciation of Guérir quelquefois, soulager souvent, consoler toujours" title="Hear it pronounced"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path class="wave-1" d="M15.5 8.5a5 5 0 0 1 0 7"/><path class="wave-2" d="M18.5 5.5a9 9 0 0 1 0 13"/></svg></button><audio id="pron-aphorism" src="/audio/guerir-soulager-consoler.mp3" preload="none"></audio> To cure sometimes, to relieve often, to comfort always. Look at how it is built. The ambition falls as the frequency rises. The rarest achievement is named first and immediately qualified. It is a physician's saying, written by someone who had watched a great many patients die.</p>
+        <p class="mb-6">There is a sentence carved into the tradition of the sanatorium at Saranac Lake. It is of uncertain origin and long associated with Edward Livingston Trudeau, and it has survived every advance in medicine since: <em lang="fr">Guérir quelquefois, soulager souvent, consoler toujours.</em><button type="button" class="pronounce pronounce-inline" data-pronounce="pron-aphorism" aria-label="Hear the French pronunciation of Guérir quelquefois, soulager souvent, consoler toujours" title="Hear it pronounced"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path class="wave-1" d="M15.5 8.5a5 5 0 0 1 0 7"/><path class="wave-2" d="M18.5 5.5a9 9 0 0 1 0 13"/></svg></button><audio id="pron-aphorism" src="/audio/guerir-soulager-consoler.mp3" preload="none"></audio> To cure sometimes, to relieve often, to comfort always. Look at how it is built. The ambition falls as the frequency rises. The rarest achievement is named first and immediately qualified. It is a physician's saying, written by someone who had watched a great many patients die.</p>
         <p class="mb-6">The modern biotechnology pitch deck has turned the sequence upside down. "Cure" is now the most frequently used word in the sector and the least frequently delivered thing in it. This would be merely tiresome, the ordinary inflation of commercial speech, except that the word also bears weight. It holds up prices. It holds up financial models. In several notable cases it holds up an entire capitalization table, meaning the whole structure of who owns what in the company.</p>
         <p>So it is worth asking a question that sounds like a schoolman's diversion and is nothing of the kind: is a cure a prevention or a treatment?</p>
       </div>
@@ -177,7 +177,7 @@ const schema = [
       </div>
       <h2 class="e-h2">When You Are Writing the Check</h2>
       <div class="e-body">
-        <p class="mb-6">So when the check is in front of you, hold the modern <em>Guérir Quelquefois</em> up against the old one. The old version graded itself honestly. It rose from the rarest thing to the most reliable and admitted at the outset that the first was uncommon. The version being sold to you runs the other way. It promises "always" from the stage and discloses its "sometimes" in the extension study, in a footnote, eighteen months after the raise. The entire equity value sits in the gap between those two documents.</p>
+        <p class="mb-6">So when the check is in front of you, hold the modern <em lang="fr">Guérir Quelquefois</em> up against the old one. The old version graded itself honestly. It rose from the rarest thing to the most reliable and admitted at the outset that the first was uncommon. The version being sold to you runs the other way. It promises "always" from the stage and discloses its "sometimes" in the extension study, in a footnote, eighteen months after the raise. The entire equity value sits in the gap between those two documents.</p>
         <p class="mb-6">Notice too that the drift is not only between firms. It is inside them, often inside one person on the same afternoon. The chief executive who says "cure" in the morning will say "durable response" to a regulator after lunch, and will mean no dishonesty by either, because the word has been quietly allowed to carry a different load in each room. That is exactly what makes it worthless as evidence and valuable as a signal. Price the variance, not the adjective. A company whose senior people converge, unprompted and across audiences, on the same careful sentence has decided what it owns. A company whose sentence changes with the room has not, and you are being invited to underwrite the difference.</p>
         <p>The right question, then, was never whether the drug cures. It is what the word has been hired to do in the sentence, and who is paying its wages.</p>
       </div>
@@ -185,20 +185,23 @@ const schema = [
 
       <style>
         .pronounce {
-          color: #c0c0c0;
+          color: var(--t-muted);
           transition: color 0.2s ease;
           line-height: 0;
+          /* 24px+ hit target around a 13-15px glyph, without moving the glyph. */
+          padding: 6px;
+          margin: -6px;
         }
         /* Inline variant sits with the quoted French, riding the baseline. */
         .pronounce-inline {
           display: inline-block;
           vertical-align: baseline;
-          margin-left: 5px;
+          margin-left: -1px;
           transform: translateY(1px);
         }
         .pronounce:hover,
-        .pronounce:focus-visible { color: var(--color-amber); }
-        .pronounce.is-playing { color: var(--color-amber); }
+        .pronounce:focus-visible { color: var(--t-amber); }
+        .pronounce.is-playing { color: var(--t-amber); }
         /* Sound waves pulse outward only while the clip is playing. */
         .pronounce.is-playing .wave-1 { animation: pronounceWave 0.9s ease-out infinite; }
         .pronounce.is-playing .wave-2 { animation: pronounceWave 0.9s ease-out 0.15s infinite; }
