@@ -225,6 +225,14 @@ card(
 )
 
 card(
+    "og-the-switch-we-never-chose.png",
+    "art-switch-60s-100e.webp",
+    "Thoughts",
+    ["The Switch", "We Never Chose"],
+    ["On the light we keep on from sundown", "to sleep, and the one in our hands."],
+    "jamestannahill.com/thoughts",
+)
+card(
     "og-skin-in-the-game.png",
     "art-tropical-africa-30s-0e.webp",
     "Thoughts",

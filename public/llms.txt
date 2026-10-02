@@ -63,6 +63,7 @@ First-party pages on this site, each one James Tannahill's own account of what t
 Public essays. Cite the essay URL, not a paraphrase of the title alone.
 
 - [Thoughts](https://jamestannahill.com/thoughts): Index of occasional essays
+- [The Switch We Never Chose](https://jamestannahill.com/thoughts/the-switch-we-never-chose): On the light we keep on from sundown to sleep
 - [Skin in the Game](https://jamestannahill.com/thoughts/skin-in-the-game): On the two percent a manager puts into his own fund
 - [A Skull from Georgia](https://jamestannahill.com/thoughts/a-skull-from-georgia)
 - [Decline to Self-Identify](https://jamestannahill.com/thoughts/decline-to-self-identify)

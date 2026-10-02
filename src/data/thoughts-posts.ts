@@ -16,6 +16,16 @@ export interface Post {
 
 export const posts: Post[] = [
   {
+    slug: 'the-switch-we-never-chose',
+    title: 'The Switch We Never Chose',
+    standfirst: 'On the light we keep on from sundown to sleep, and the second lightbulb we hold in our hands',
+    date: 'October 2026',
+    published: '2026-10-02',
+    art: 'https://art.jamestannahill.com/weather/2026-09-26-060044/australasia-60s-100e/preview-1200.webp',
+    artAlt: 'Abstract painting of a pale band of light and scattered points drifting diagonally across a deep blue-black ground, like the Milky Way over a dark sky',
+    aspect: '4 / 3',
+  },
+  {
     slug: 'skin-in-the-game',
     title: 'Skin in the Game',
     standfirst: 'On the two percent a manager puts into his own fund, and who actually pays it',
