@@ -114,6 +114,11 @@ def card(path, artwork, eyebrow, title_lines, standfirst_lines, url):
 
     img.save(OUT / path, optimize=True)
     print("wrote", path, img.size, round((OUT / path).stat().st_size / 1024), "KB")
+    # Pages reference the JPEG (a tenth of the PNG's weight); the PNG stays for
+    # links already shared with the old URL.
+    jpg = (OUT / path).with_suffix(".jpg")
+    img.convert("RGB").save(jpg, "JPEG", quality=85, optimize=True, progressive=True)
+    print("wrote", jpg.name, round(jpg.stat().st_size / 1024), "KB")
 
 
 card(

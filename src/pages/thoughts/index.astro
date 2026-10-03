@@ -8,6 +8,15 @@ import { posts, readingMinutes, dayDate } from '../../data/thoughts';
 
 const [lead, ...rest] = posts;
 
+// The art host serves 480/960/1200 renditions next to preview-1200.webp, so
+// thumbnails can pull the small file instead of the full plate.
+const srcset = (src: string) =>
+  src.endsWith('/preview-1200.webp')
+    ? ['480', '960', '1200'].map((w) => `${src.replace(/1200\.webp$/, `${w}.webp`)} ${w}w`).join(', ')
+    : undefined;
+const leadSizes = '(min-width: 768px) 420px, calc(100vw - 48px)';
+const rowSizes = '(min-width: 640px) 240px, calc(100vw - 48px)';
+
 const description = 'Occasional essays on markets, medicine, and the language both are written in.';
 
 const schema = [
@@ -45,35 +54,39 @@ const schema = [
   description={description}
   canonical="https://jamestannahill.com/thoughts"
   ogType="website"
-  ogImage="https://jamestannahill.com/og-thoughts.png?v=4"
-  ogImageAlt="Thoughts - occasional essays by James Tannahill"
+  ogImage="https://jamestannahill.com/og-thoughts.jpg?v=1"
+  ogImageAlt="Thoughts: occasional essays by James Tannahill"
   extraSchema={schema}
   preloadImage={lead.art}
+  preloadImageSrcset={srcset(lead.art)}
+  preloadImageSizes={leadSizes}
 >
   <div class="thoughts-page min-h-screen">
     <div class="max-w-3xl mx-auto px-6 py-16">
 
-      <h1 class="text-[28px] font-bold tracking-tight mb-2 t-ink">Thoughts</h1>
+      <h1 class="text-[36px] leading-[1.1] font-bold tracking-tight mb-2 t-ink">Thoughts</h1>
       <p class="text-[15px] leading-[1.85] mb-12 max-w-xl t-body" style="text-wrap:pretty;">
         Occasional essays. Published when there is something worth saying, not on a schedule.
       </p>
 
       <!-- Lead: newest essay, full width, art first. -->
-      <a href={`/thoughts/${lead.slug}`} class="tcard tcard-lead group block mb-16">
-        {lead.art && <div class="overflow-hidden t-plate">
+      <a href={`/thoughts/${lead.slug}`} class="tcard tcard-lead group grid gap-6 sm:gap-8 sm:grid-cols-12 sm:items-end mb-16">
+        {lead.art && <div class="sm:col-span-7 overflow-hidden t-plate">
           <img
             src={lead.art}
+            srcset={srcset(lead.art)}
+            sizes={leadSizes}
             alt=""
             width="1200"
-            height="675"
+            height="1200"
             loading="eager"
             fetchpriority="high"
             decoding="async"
             class="tcard-img tcard-img-lead photo-edge w-full object-cover"
-            style={`aspect-ratio:${lead.aspect};`}
           />
         </div>}
-        <div class="flex items-baseline gap-4 mt-5 tabular-nums">
+        <div class="sm:col-span-5">
+        <div class="flex items-baseline gap-4 tabular-nums">
           <time datetime={lead.published} class="text-[12px] t-muted">{dayDate(lead.published)}</time>
           <span class="text-[12px] t-muted">{readingMinutes(lead.slug)} min read</span>
         </div>
@@ -84,6 +97,7 @@ const schema = [
         <span class="tcard-cta inline-block text-[11px] tracking-[0.18em] uppercase mt-4">
           Read the essay
         </span>
+        </div>
       </a>
 
       {rest.length > 0 && (
@@ -102,6 +116,8 @@ const schema = [
               {post.art && <div class="sm:col-span-4 overflow-hidden t-plate">
                 <img
                   src={post.art}
+                  srcset={srcset(post.art)}
+                  sizes={rowSizes}
                   alt=""
                   width="1200"
                   height="800"
@@ -134,9 +150,10 @@ const schema = [
           transition: transform 250ms var(--ease-out), filter 250ms ease;
           filter: saturate(0.92);
         }
+        .tcard-img-lead { aspect-ratio: 1 / 1; }
         .tcard-img-row { aspect-ratio: 3 / 2; }
         @media (max-width: 639px) {
-          .tcard-img-lead, .tcard-img-row { aspect-ratio: 16 / 9 !important; }
+          .tcard-img-row { aspect-ratio: 16 / 9; }
         }
         @media (hover: hover) and (pointer: fine) {
           .tcard:hover .tcard-img { transform: scale(1.035); filter: saturate(1.05); }

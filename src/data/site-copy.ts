@@ -27,7 +27,7 @@ export const person = {
 export const og = {
   home: 'https://jamestannahill.com/og.png?v=3',
   contact: 'https://jamestannahill.com/og-contact.png?v=1',
-  thoughts: 'https://jamestannahill.com/og-thoughts.png?v=4',
+  thoughts: 'https://jamestannahill.com/og-thoughts.jpg?v=1',
   profile: 'https://jamestannahill.com/og-profile.png?v=2',
   venture: (slug: string) => `https://jamestannahill.com/og-venture-${slug}.png?v=2`,
 };

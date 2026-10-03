@@ -7,7 +7,7 @@ import EssayFooter from '../../components/EssayFooter.astro';
 const url = 'https://jamestannahill.com/thoughts/sea-room';
 const published = '2026-08-04';
 const description =
-  'On sea room, negative liberty and the culminating point: why a position fix tells you nothing about what you can still do, and how far you are from being compelled.';
+  'On sea room, negative liberty and the culminating point: why a position fix says nothing about what you can still do, or how close you are to compulsion.';
 
 const schema = [
   {
@@ -19,7 +19,7 @@ const schema = [
     headline: 'Sea Room',
     alternativeHeadline: 'On the difference between knowing where you are and having somewhere to go',
     description,
-    image: 'https://jamestannahill.com/og-sea-room.png?v=4',
+    image: 'https://jamestannahill.com/og-sea-room.jpg?v=1',
     datePublished: published,
     dateModified: published,
     inLanguage: 'en-US',
@@ -65,8 +65,8 @@ const schema = [
   description={description}
   canonical={url}
   ogType="article"
-  ogImage="https://jamestannahill.com/og-sea-room.png?v=4"
-  ogImageAlt="Sea Room - on the difference between knowing where you are and having somewhere to go"
+  ogImage="https://jamestannahill.com/og-sea-room.jpg?v=1"
+  ogImageAlt="Sea Room: on the difference between knowing where you are and having somewhere to go"
   publishedTime={published}
   articleSection="Essays"
   extraSchema={schema}
@@ -76,13 +76,13 @@ const schema = [
 
       <EssayHeader slug="sea-room" />
 
-      <p class="e-thesis"><span class="e-thesis-label">In short:</span> Knowing exactly where you are does not keep you safe. What does is "sea room," the amount of future in which you can still choose, and in finance that quantity is liquidity.</p>
+      <p class="e-thesis"><span class="e-thesis-label">In short:</span> Knowing exactly where you are does not keep you safe. What does is “sea room,” the amount of future in which you can still choose, and in finance that quantity is liquidity.</p>
       <div class="e-body">
         <p class="mb-6">Modern navigation has solved a problem that killed sailors for three thousand years, and it has solved it so completely that the achievement is now invisible. A receiver the size of a matchbox will report your position to within a few meters, continuously, in fog, at night, in weather that would have blinded Captain Cook. There is no longer any serious sense in which a competent mariner does not know where he is.</p>
         <p class="mb-6">And yet the sea still kills people, which should tell us something about what that knowledge was ever worth.</p>
         <p class="mb-6">The term for what actually matters is older than the instruments. <strong>Sea room</strong> is the distance between a vessel and the thing it cannot maneuver away from. It is not a position, and it is not even a place. It is a quantity of available future, measured in miles that can still be spent. A sailor with plenty of it can be thoroughly lost and remain perfectly safe. A sailor with none can know his coordinates to the decimal and be dead before morning.</p>
         <p class="mb-6">The situation that produces this asymmetry has a name: a <strong>lee shore</strong>. It is land lying downwind of you, so that the same wind you must sail by is the wind pressing you onto the rocks. Every hour of hesitation costs distance you cannot recover. The wind that is your only means of escape is also the agent of your destruction, and the two cannot be separated, because they are the same wind.</p>
-        <p>Melville gave this four paragraphs in <em>Moby-Dick</em> (the chapter called "The Lee Shore") and understood it as a moral condition rather than a nautical one. The chapter is about Bulkington, a sailor who has just come off a four-year voyage and puts to sea again immediately rather than accept the safety of harbor. Melville's argument is that the land that seems to offer safety is in fact the only thing that can destroy a ship. Open water is indifferent and enormous and offers nothing, and that is exactly what makes it survivable.</p>
+        <p>Melville gave this four paragraphs in <em>Moby-Dick</em> (the chapter called “The Lee Shore”) and understood it as a moral condition rather than a nautical one. The chapter is about Bulkington, a sailor who has just come off a four-year voyage and puts to sea again immediately rather than accept the safety of harbor. Melville’s argument is that the land that seems to offer safety is in fact the only thing that can destroy a ship. Open water is indifferent and enormous and offers nothing, and that is exactly what makes it survivable.</p>
       </div>
       <figure class="my-14">
         <img
@@ -95,9 +95,9 @@ const schema = [
           class="w-full h-auto t-plate"
         />
         <figcaption class="e-cap mt-3">
-          60N 140E, Arctic, rendered through a Willem de Kooning lens from that day's atmospheric data.
-          From <a href="https://art.jamestannahill.com/weather/2026-08-04-060044/arctic-60n-140e/" target="_blank" rel="noopener noreferrer"
-          class="underline hover:opacity-70 break-all">art.jamestannahill.com/weather/2026-08-04-060044/arctic-60n-140e</a>.
+          60N 140E, Arctic, rendered through a Willem de Kooning lens from that day’s atmospheric data.
+          <a href="https://art.jamestannahill.com/weather/2026-08-04-060044/arctic-60n-140e/" target="_blank" rel="noopener noreferrer"
+          class="underline hover:opacity-70">View the painting</a>.
         </figcaption>
       </figure>
       <h2 class="e-h2">Episteme and Phronesis</h2>
@@ -108,10 +108,10 @@ const schema = [
       </div>
       <h2 class="e-h2">The Two Freedoms</h2>
       <div class="e-body">
-        <p class="mb-6">Isaiah Berlin's famous distinction between negative and positive liberty is usually taught as a political matter, and it is, but the negative half is best understood at sea. Negative liberty, in Berlin's account, is simply the absence of obstruction: the extent of the space in which one is not prevented from acting. It is not about what you want, or whether you are wise enough to want the right things. It is about how much room there is.</p>
+        <p class="mb-6">Isaiah Berlin’s famous distinction between negative and positive liberty is usually taught as a political matter, and it is, but the negative half is best understood at sea. Negative liberty, in Berlin’s account, is simply the absence of obstruction: the extent of the space in which one is not prevented from acting. It is not about what you want, or whether you are wise enough to want the right things. It is about how much room there is.</p>
         <p class="mb-6">Sea room is negative liberty measured in nautical miles. It is the physical amount of unobstructed possibility around a vessel, and it has the properties Berlin ascribed to freedom in the political case. It is not a feeling, it cannot be conjured by attitude, and its absence is not made better by understanding the absence very clearly.</p>
         <p class="mb-6">Spinoza approached the same idea from the other direction. A thing is free, he argued, to the extent that it acts from the necessity of its own nature, and constrained to the extent that something outside itself determines its action. Consider what a lee shore does to a vessel under this definition. Nothing has been taken from the crew: not their skill, not their instruments, not their knowledge of the coast. What has been removed is the possibility of acting from their own nature. Every remaining action is dictated by the wind and the rock. The ship has not become ignorant. It has become an object rather than an agent, and that change happened while everyone aboard was competent, informed and awake.</p>
-        <p>This is why the sailor's fear of a lee shore is not fear of the rocks. It is a recognition that the character of his agency has already changed, hours before the impact, and that no later excellence will reverse it.</p>
+        <p>This is why the sailor’s fear of a lee shore is not fear of the rocks. It is a recognition that the character of his agency has already changed, hours before the impact, and that no later excellence will reverse it.</p>
       </div>
       <h2 class="e-h2">The Culminating Point</h2>
       <div class="e-body">
@@ -138,9 +138,9 @@ const schema = [
           class="w-full h-auto t-plate"
         />
         <figcaption class="e-cap mt-3">
-          15N 120E, Western Pacific, rendered through a Willem de Kooning lens from that day's atmospheric data.
-          From <a href="https://art.jamestannahill.com/weather/2026-08-04-060044/western-pacific-15n-120e/" target="_blank" rel="noopener noreferrer"
-          class="underline hover:opacity-70 break-all">art.jamestannahill.com/weather/2026-08-04-060044/western-pacific-15n-120e</a>.
+          15N 120E, Western Pacific, rendered through a Willem de Kooning lens from that day’s atmospheric data.
+          <a href="https://art.jamestannahill.com/weather/2026-08-04-060044/western-pacific-15n-120e/" target="_blank" rel="noopener noreferrer"
+          class="underline hover:opacity-70">View the painting</a>.
         </figcaption>
       </figure>
       <h2 class="e-h2">Now Say the Word</h2>
@@ -149,7 +149,7 @@ const schema = [
         <p class="mb-6">Consider what the vocabulary of finance already concedes.</p>
         <ul>
           <li>A <strong>margin call</strong> is a lee shore. The mechanism that forces you to act is triggered by the same market movement you would need time to survive.</li>
-          <li>A <strong>redemption gate</strong>, a rule that lets a fund block investors from withdrawing, is a lee shore built deliberately. The interesting thing about a gate is that it removes the investor's sea room in order to preserve the manager's. That is an honest transaction only if everybody understood it was the trade.</li>
+          <li>A <strong>redemption gate</strong>, a rule that lets a fund block investors from withdrawing, is a lee shore built deliberately. The interesting thing about a gate is that it removes the investor’s sea room in order to preserve the manager’s. That is an honest transaction only if everybody understood it was the trade.</li>
           <li>A <strong>duration mismatch</strong>, holding long-term assets funded by short-term money, is nothing more than a bet that you will not need to change course before the wind shifts.</li>
           <li><strong>Leverage</strong> does not make a position wrong. It shortens the distance between being wrong and being finished, which is a completely different variable and the only one that kills.</li>
         </ul>
@@ -161,7 +161,7 @@ const schema = [
         <p class="mb-6">The practical instruction is unglamorous and takes about an hour a quarter.</p>
         <p class="mb-6">Stop asking how far you are from being wrong, which is a question about the world. Start asking how far you are from being compelled, which is a question about your own arrangements. Three sub-questions do most of the work:</p>
         <ol>
-          <li>What could force me to act on someone else's schedule?</li>
+          <li>What could force me to act on someone else’s schedule?</li>
           <li>Who holds that trigger, and what is their incentive to pull it?</li>
           <li>How many days, not percentage points, lie between here and there?</li>
         </ol>
@@ -171,7 +171,7 @@ const schema = [
       </div>
       <h2 class="e-h2">The Lee Shore</h2>
       <div class="e-body">
-        <p class="mb-6">Melville's argument, in the end, is not about seamanship at all. What makes the lee shore terrible in his telling is that it is the safe thing. It is harbor, it is land, it is the place where the ordinary comforts are, and it is the only object in the entire ocean capable of destroying the vessel. The open sea offers nothing except the absence of anything to hit.</p>
+        <p class="mb-6">Melville’s argument, in the end, is not about seamanship at all. What makes the lee shore terrible in his telling is that it is the safe thing. It is harbor, it is land, it is the place where the ordinary comforts are, and it is the only object in the entire ocean capable of destroying the vessel. The open sea offers nothing except the absence of anything to hit.</p>
         <p class="mb-6">The financial translation is exact and unflattering. What eventually pins a portfolio is almost never the exotic risk the committee spent its meeting discussing. It is the comfortable arrangement: the borrowing that has always been rolled over, the valuation that has never been questioned, the investor who has never asked, the counterparty everyone has used for eleven years. Those are the shore. They are near, they are familiar, they are pleasant to be close to, and they are the only things in the water hard enough to break the hull.</p>
         <p class="mb-6">Knowing your position has never been the difficulty. Every generation has believed its instruments finally solved the problem, and every generation has produced men who went onto the rocks with a perfect fix in hand and a full understanding of what was about to happen to them.</p>
         <p>The question was never where you are. It is how far you can still go, and who decides.</p>

@@ -20,7 +20,7 @@ const {
   description,
   canonical,
   ogImage = 'https://jamestannahill.com/og.png?v=3',
-  ogImageAlt = 'James Tannahill - Operator. Investor. Builder.',
+  ogImageAlt = 'James Tannahill: Operator. Investor. Builder.',
   ogType = 'profile',
   extraSchema = [],
   publishedTime,
@@ -49,7 +49,7 @@ const schema = {
         { "@id": "https://jamestannahill.com/#prosecpr" }
       ],
       "alumniOf": [
-        { "@type": "CollegeOrUniversity", "name": "Cornell University - Johnson School of Management" },
+        { "@type": "CollegeOrUniversity", "name": "Cornell University, Johnson School of Management" },
         { "@type": "CollegeOrUniversity", "name": "University of Essex" },
         { "@type": "CollegeOrUniversity", "name": "Denison University" }
       ],
@@ -84,7 +84,7 @@ const schema = {
     {
       "@type": "ProfessionalService",
       "@id": "https://jamestannahill.com/#service",
-      "name": "James Tannahill - PE Advisory & Value Engineering",
+      "name": "James Tannahill: PE Advisory & Value Engineering",
       "description": "Private equity advisory, value engineering, and strategic partnerships for founder-led and PE-backed companies in regulated industries.",
       "provider": { "@id": "https://jamestannahill.com/#person" },
       "serviceType": ["Private Equity Advisory", "Value Engineering", "Strategic Partnerships", "AI Systems Advisory"],
@@ -182,7 +182,7 @@ const schema = {
 <meta name="twitter:image:alt" content={ogImageAlt} />
 <meta name="twitter:creator" content="@jamestannahill" />
 
-<!-- LinkedIn (uses OG tags - covered above) -->
+<!-- LinkedIn uses the OG tags above -->
 
 <!-- AI / LLM discovery -->
 <link rel="ai" href="/llms.txt" />

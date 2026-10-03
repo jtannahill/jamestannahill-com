@@ -11,7 +11,7 @@ const post = getPost(slug);
 if (!post) throw new Error(`EssayFooter: unknown slug "${slug}"`);
 const url = `https://jamestannahill.com/thoughts/${slug}`;
 const { newer, older } = neighbors(slug);
-const shareText = encodeURIComponent(`${post.title} - James Tannahill`);
+const shareText = encodeURIComponent(`${post.title}, by James Tannahill`);
 const encUrl = encodeURIComponent(url);
 ---
 <footer class="mt-16 pt-8 border-t t-rule-strong" data-essay-footer>

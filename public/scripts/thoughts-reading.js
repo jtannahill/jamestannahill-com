@@ -47,18 +47,19 @@
     function onCopy(e) {
       var btn = e.currentTarget;
       var url = btn.getAttribute('data-copy-link');
-      var done = function () {
-        var prev = btn.textContent;
-        btn.textContent = 'Copied';
-        btn.setAttribute('data-copied', 'true');
-        setTimeout(function () { btn.textContent = prev; btn.removeAttribute('data-copied'); }, 1600);
+      // Remember the resting label once, so a second click inside the 1.6s
+      // window cannot capture "Copied" as the label to restore.
+      if (!btn.hasAttribute('data-label')) btn.setAttribute('data-label', btn.textContent);
+      var label = btn.getAttribute('data-label');
+      var flash = function (text, copied) {
+        clearTimeout(btn._copyTimer);
+        btn.textContent = text;
+        if (copied) btn.setAttribute('data-copied', 'true');
+        btn._copyTimer = setTimeout(function () { btn.textContent = label; btn.removeAttribute('data-copied'); }, 1600);
       };
+      var done = function () { flash('Copied', true); };
       if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(url).then(done, function () {
-          var prev = btn.textContent;
-          btn.textContent = 'Copy failed';
-          setTimeout(function () { btn.textContent = prev; }, 1600);
-        });
+        navigator.clipboard.writeText(url).then(done, function () { flash('Copy failed', false); });
       } else {
         var ta = document.createElement('textarea');
         ta.value = url; document.body.appendChild(ta); ta.select();

@@ -94,7 +94,7 @@ html {
   text-rendering: optimizeLegibility;
 }
 
-/* iOS safe area — header and footer respect notch/Dynamic Island */
+/* iOS safe area: header and footer respect notch/Dynamic Island */
 header {
   padding-top: env(safe-area-inset-top);
   padding-left: env(safe-area-inset-left);
@@ -165,7 +165,7 @@ body {
   }
 }
 
-/* ── Scroll reveal — JS fallback (older browsers) ── */
+/* ── Scroll reveal: JS fallback (older browsers) ── */
 .sr {
   opacity: 0;
   transform: translateY(24px);
@@ -176,7 +176,7 @@ body {
   transform: translateY(0);
 }
 
-/* ── Scroll-driven reveal — CSS (Chrome 115+, Firefox 114+, Safari 18+) ── */
+/* ── Scroll-driven reveal: CSS (Chrome 115+, Firefox 114+, Safari 18+) ── */
 @keyframes scroll-reveal {
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -206,7 +206,7 @@ body {
   }
 }
 
-/* ── View Transitions — page fade ── */
+/* ── View Transitions: page fade ── */
 ::view-transition-old(root) {
   animation: 200ms ease both fade-out;
 }
@@ -220,7 +220,7 @@ body {
   from { opacity: 0; }
 }
 
-/* ── prefers-reduced-motion — fewer and gentler, not zero ──
+/* ── prefers-reduced-motion: fewer and gentler, not zero ──
    Movement (transforms, blur, parallax, scrubbing) is removed. Short opacity
    fades that stop things popping into existence are kept. */
 @media (prefers-reduced-motion: reduce) {
@@ -363,6 +363,11 @@ html:has(.thoughts-page) { background: var(--t-bg); color-scheme: light dark; }
   pointer-events: none;
 }
 /* Header hides on scroll-down inside long essays, returns on scroll-up. */
+/* In dark mode the translucent black header sits on a near-black page; a hairline
+   gives it an edge. Light mode already has the contrast. */
+@media (prefers-color-scheme: dark) {
+  html:has(.thoughts-page) header { border-bottom-color: var(--t-rule); }
+}
 header.hdr-hidden { transform: translateY(-100%); }
 header { transition: transform 240ms var(--ease-drawer); }
 @media (prefers-reduced-motion: reduce) {

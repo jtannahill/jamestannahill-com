@@ -138,7 +138,7 @@ export const posts: Post[] = [
   {
     slug: 'guerir-quelquefois',
     title: 'Guérir Quelquefois',
-    standfirst: 'On the word "cure," and the men who sell it',
+    standfirst: 'On the word “cure,” and the men who sell it',
     date: 'August 2026',
     published: '2026-08-04',
     art: 'https://art.jamestannahill.com/weather/2026-08-02-060044/central-asia-45n-90e/preview-1200.webp',
