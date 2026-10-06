@@ -27,6 +27,11 @@
     idle(function () {
       // A reject between scheduling and firing must not still pull the tag in.
       if (window.__analyticsRevoked) return;
+      // The tag reads window.clarity.v on its first line and throws without
+      // this queue stub, so it never starts recording.
+      window.clarity = window.clarity || function () {
+        (window.clarity.q = window.clarity.q || []).push(arguments);
+      };
       loadScript('https://www.clarity.ms/tag/' + CLARITY_ID, true);
     }, { timeout: 3000 });
 
