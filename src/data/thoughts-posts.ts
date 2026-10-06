@@ -12,9 +12,11 @@ export interface Post {
   art: string;
   artAlt: string;
   aspect: string;
+  /** Unlisted: page is underscore-prefixed (not routed) and kept out of every list. */
+  hidden?: boolean;
 }
 
-export const posts: Post[] = [
+export const allPosts: Post[] = [
   {
     slug: 'the-switch-we-never-chose',
     title: 'The Switch We Never Chose',
@@ -37,6 +39,7 @@ export const posts: Post[] = [
   },
   {
     slug: 'a-skull-from-georgia',
+    hidden: true,
     title: 'A Skull from Georgia',
     standfirst: 'On the one category defined by what it is not, and the relic bolted to the front of it',
     date: 'August 2026',
@@ -77,6 +80,7 @@ export const posts: Post[] = [
   },
   {
     slug: 'whose-egg-is-that',
+    hidden: true,
     title: 'Whose Egg Is That',
     standfirst: 'On abolishing the hiring layer, and returning the decision to the people who have to live with it',
     date: 'August 2026',
@@ -97,6 +101,7 @@ export const posts: Post[] = [
   },
   {
     slug: 'inventors-of-problems',
+    hidden: true,
     title: 'Inventors of Problems',
     standfirst: 'On the staff function that must manufacture demand, and the executives who pay it to do so',
     date: 'August 2026',
@@ -146,3 +151,5 @@ export const posts: Post[] = [
     aspect: '4 / 3',
   },
 ];
+
+export const posts: Post[] = allPosts.filter((p) => !p.hidden);

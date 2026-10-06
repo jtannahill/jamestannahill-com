@@ -3,7 +3,6 @@ export const prerender = true;
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import EssayHeader from '../../components/EssayHeader.astro';
 import EssayFooter from '../../components/EssayFooter.astro';
-import RelatedEssay from '../../components/RelatedEssay.astro';
 
 const url = 'https://jamestannahill.com/thoughts/nothing-to-photograph';
 const published = '2026-08-05';
@@ -168,14 +167,6 @@ const schema = [
         <p class="mb-6"><strong>Accept a deletion that produces nothing to show.</strong> Fund it, count it, credit the person who did it, and let the steering committee sit through an agenda item with no screen attached. That single act is the whole reform, because everything else in this argument follows from a capital process that can only see things it can photograph. A firm that can approve an absence can run the five steps in order. A firm that cannot will run step five forever and call it momentum.</p>
         <p>The keys are not under the lamp. They never were going to be. But the ground under the lamp is well lit, the search there is genuinely thorough, and everybody involved is working hard and telling the truth about what they found. That is why this particular failure is so hard to see from inside and so obvious from ten feet away. Turn the light off for an hour. Whatever you can still find is what you actually knew.</p>
       </div>
-      <RelatedEssay essays={[
-        {
-          href: '/thoughts/inventors-of-problems',
-          title: 'Inventors of Problems',
-          blurb: 'On the staff function that must manufacture demand, and the executives who pay it to do so',
-        },
-      ]} />
-
       <EssayFooter slug="nothing-to-photograph" />
 
     </article>
