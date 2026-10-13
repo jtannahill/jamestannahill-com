@@ -32,7 +32,7 @@ describe('contact URL', () => {
 describe('SERP copy', () => {
   it('keeps the homepage H1 line and retitles the document for PE advisory', () => {
     expect(home.h1).toEqual(['Operator.', 'Investor.', 'Builder.']);
-    expect(home.title).toBe('James Tannahill | SpaceXAI & PE Value Engineering');
+    expect(home.title).toBe('James Tannahill | SpaceXSI & PE Value Engineering');
     expect(home.title.length).toBeLessThanOrEqual(60);
     expect(home.description.length).toBeGreaterThanOrEqual(120);
     expect(home.description.length).toBeLessThanOrEqual(160);
@@ -71,8 +71,8 @@ describe('Person schema', () => {
     expect(person.subjectOfUrl).toBe('https://jamestannahill.com/');
   });
 
-  it('leads the job title with SpaceXAI and marks Plocamium as former', () => {
-    expect(person.jobTitle).toMatch(/SpaceXAI/);
+  it('leads the job title with SpaceXSI and marks Plocamium as former', () => {
+    expect(person.jobTitle).toMatch(/SpaceXSI/);
     expect(person.jobTitle).toMatch(/former President & Managing Partner, Plocamium Holdings/);
   });
 });

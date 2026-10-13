@@ -1,12 +1,12 @@
 /** Homepage and contact document copy. Pages import from here so titles and
  *  the hero line cannot drift from what the audit specified. */
 export const home = {
-  title: 'James Tannahill | SpaceXAI & PE Value Engineering',
+  title: 'James Tannahill | SpaceXSI & PE Value Engineering',
   description:
-    'Operator-led private equity advisory for founder-led companies: value engineering, exit preparation and applied AI. AI/ML for Capital Markets at SpaceXAI.',
+    'Operator-led private equity advisory for founder-led companies: value engineering, exit preparation and applied AI. AI/ML for Capital Markets at SpaceXSI.',
   h1: ['Operator.', 'Investor.', 'Builder.'] as const,
   subcopy:
-    'AI/ML for Capital Markets at SpaceXAI. Former President & Managing Partner, Plocamium Holdings. Private equity advisory and value engineering for founder-led companies.',
+    'AI/ML for Capital Markets at SpaceXSI. Former President & Managing Partner, Plocamium Holdings. Private equity advisory and value engineering for founder-led companies.',
 };
 
 export const contact = {
@@ -20,7 +20,7 @@ export const contact = {
 export const person = {
   subjectOfUrl: 'https://jamestannahill.com/',
   jobTitle:
-    'AI/ML for Capital Markets, SpaceXAI (xAI); Head of Field Operations, ProSecPR; former President & Managing Partner, Plocamium Holdings',
+    'AI/ML for Capital Markets, SpaceXSI (xAI); Head of Field Operations, ProSecPR; former President & Managing Partner, Plocamium Holdings',
 };
 
 /** Cache-buster for social scrapers. Bump when replacing the named PNG. */
