@@ -1,17 +1,26 @@
 ---
 import { home } from '../data/site-copy';
 const cdn = 'https://media.jamestannahill.com';
+
+// Scroll-scrub clips, one picked at random per page load.
+// sunset: sunset to night over the skyline. trails: a night of air traffic
+// over the Hudson stacked into light trails (FX30 clip 20261012_C2172).
+// start = fraction of the clip shown at the top of the page; brightness = video dimming.
+const scrubVariants = [
+  { name: 'sunset', src: `${cdn}/hero-scrub.mp4`, mobile: `${cdn}/hero-scrub-720.mp4`, poster: `${cdn}/hero-scrub-poster.jpg`, start: 0, brightness: 0.65 },
+  // The trails stack starts empty, so open 20% into the night with trails already up.
+  { name: 'trails', src: `${cdn}/trails-scrub.mp4`, mobile: `${cdn}/trails-scrub-720.mp4`, poster: `${cdn}/trails-scrub-poster.jpg?v=2`, start: 0.2, brightness: 0.8 },
+];
 ---
 <section id="hero" class="hero-section relative" style="background:#0a0a0a;">
   <div class="hero-stage flex flex-col justify-end pb-12 md:pb-16">
 
-    <!-- Desktop scroll-scrub video (sunset to night). Loaded only when enhanced. -->
+    <!-- Scroll-scrub video, loaded only when enhanced. hero-scrub.js picks one variant
+         per page load and sets src + poster from it. -->
     <video
       id="hero-scrub-video"
       class="hero-media hero-scrub-media"
-      data-src={`${cdn}/hero-scrub.mp4`}
-      data-src-mobile={`${cdn}/hero-scrub-720.mp4`}
-      poster={`${cdn}/hero-scrub-poster.jpg`}
+      data-variants={JSON.stringify(scrubVariants)}
       muted
       playsinline
       preload="none"
@@ -70,7 +79,7 @@ const cdn = 'https://media.jamestannahill.com';
 </section>
 
 <script src="/scripts/hero-variant.js" defer></script>
-<script src="/scripts/hero-scrub.js?v=2" defer></script>
+<script src="/scripts/hero-scrub.js?v=7" defer></script>
 
 <style>
   /* Base (mobile / reduced-motion / no-JS): single-viewport hero with static photo */
